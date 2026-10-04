@@ -5,19 +5,26 @@ from sentence_transformers import SentenceTransformer
 from numpy.linalg import norm
 
 PROJECT_DIR = Path(__file__).resolve().parent.parent
-INPUT_FILE = PROJECT_DIR / "headlines.json"
+HISTORY_DIR = PROJECT_DIR / "history"
 OUTPUT_FILE = PROJECT_DIR / "embeddings.npz"
 MODEL_NAME = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
 
 
+def latest_headlines_file() -> Path:
+    files = sorted(HISTORY_DIR.glob("headlines_????-??-??.json"), reverse=True)
+    if not files:
+        raise FileNotFoundError(f"No dated headline files found in {HISTORY_DIR}")
+    return files[0]
+
+
 def main():
     # 1. Load the headlines we collected in Task 2.
-    with INPUT_FILE.open(encoding="utf-8") as f:
+    input_file = latest_headlines_file()
+    with input_file.open(encoding="utf-8") as f:
         articles = json.load(f)
 
     if not articles:
-        print("No headlines found. Run ingest.py first.")
-        return
+        raise ValueError(f"No headlines found in {input_file}. Run ingest.py first.")
 
     headlines = [a["title"] for a in articles]
     print(f"Loaded {len(headlines)} headlines.")

@@ -20,37 +20,40 @@
 
         html,
         body {
+            width: 100%;
+            height: 100%;
             margin: 0;
             padding: 0;
+            overflow: hidden;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
             background: #ffffff;
             color: var(--ink);
         }
 
-        /* Fixed 1080x1080 canvas — the screenshot target. */
         .canvas {
-            width: 1080px;
-            height: 1080px;
+            width: 100%;
+            height: 100%;
             display: flex;
             flex-direction: column;
-            padding: 56px 64px;
+            padding: clamp(20px, 5vw, 56px) clamp(20px, 6vw, 64px);
         }
 
         .headline {
-            font-size: 46px;
+            font-size: clamp(26px, 4.25vw, 46px);
             font-weight: 700;
             line-height: 1.15;
             margin: 0 0 12px;
         }
 
         .subhead {
-            font-size: 22px;
+            font-size: clamp(16px, 2vw, 22px);
             color: var(--muted);
             margin: 0 0 32px;
         }
 
         #map {
             flex: 1;
+            min-height: 0;
             border-radius: 16px;
             border: 1px solid var(--border);
             background: #f9fafb;
@@ -94,6 +97,27 @@
             color: var(--ink);
             font-weight: 600;
         }
+
+        @media (max-width: 700px) {
+            .subhead {
+                margin-bottom: 16px;
+            }
+
+            .legend {
+                gap: 16px;
+                margin-top: 12px;
+                font-size: 14px;
+            }
+
+            .swatch {
+                width: 14px;
+                height: 14px;
+            }
+
+            .sources {
+                display: none;
+            }
+        }
     </style>
 </head>
 
@@ -126,8 +150,7 @@
         // --- Country code normalization -----------------------------------------
         // Natural Earth quirks: ISO_A2 is often "-99" for France, Norway, Kosovo,
         // N. Cyprus, Somaliland. ISO_A2_EH is a corrected field. Prefer it.
-        // Also, UK in common usage maps to GB in ISO 3166.
-        const ISO_FIX = { "UK": "GB" };
+        const ISO_FIX = {{ iso_fix|tojson }};
 
         function getIso(feature) {
             const p = feature.properties || {};
@@ -177,10 +200,7 @@
                 // Signal that the map has finished drawing.
                 window.mapReady = true;
             })
-            .catch(err => {
-                console.error("GeoJSON load failed:", err);
-                window.mapReady = true;   // still signal ready so screenshots don't hang
-            });
+            .catch(err => console.error("GeoJSON load failed:", err));
     </script>
 </body>
 

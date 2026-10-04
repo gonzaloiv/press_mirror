@@ -1,43 +1,37 @@
 import json
 import time
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 from pathlib import Path
 
 import feedparser
 
-# Curated list of RSS feeds.
-# Grouped by country so you can later filter by region in the UI.
-FEEDS = [
-    # --- France ---
-    {"source": "Le Monde",        "country": "FR", "url": "https://www.lemonde.fr/rss/une.xml"},
-    {"source": "Le Figaro",       "country": "FR", "url": "https://www.lefigaro.fr/rss/figaro_actualites.xml"},
-    {"source": "France 24",       "country": "FR", "url": "https://www.france24.com/fr/rss"},
-
-    # --- Spain ---
-    {"source": "El País",         "country": "ES", "url": "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/portada"},
-    {"source": "El Mundo",        "country": "ES", "url": "https://www.elmundo.es/rss/portada.xml"},
-    {"source": "La Vanguardia",   "country": "ES", "url": "https://www.lavanguardia.com/rss/home.xml"},
-
-    # --- UK / US (English) ---
-    {"source": "BBC World",       "country": "UK", "url": "https://feeds.bbci.co.uk/news/world/rss.xml"},
-    {"source": "The Guardian",    "country": "UK", "url": "https://www.theguardian.com/world/rss"},
-    {"source": "New York Times",  "country": "US", "url": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml"},
-    {"source": "Al Jazeera",      "country": "QA", "url": "https://www.aljazeera.com/xml/rss/all.xml"},
-
-    # --- Germany ---
-    {"source": "Deutsche Welle",  "country": "DE", "url": "https://rss.dw.com/rdf/rss-en-world"},
-    {"source": "Der Spiegel",     "country": "DE", "url": "https://www.spiegel.de/international/index.rss"},
-]
-
 PROJECT_DIR = Path(__file__).resolve().parent.parent
-OUTPUT_FILE = PROJECT_DIR / "headlines.json"
+SOURCES_FILE = Path(__file__).resolve().parent / "sources.json"
+HISTORY_DIR = PROJECT_DIR / "history"
 
 
-def fetch_feed(feed: dict) -> list[dict]:
-    """Fetch a single RSS feed and return a list of headline dicts."""
+def load_feeds() -> list[dict]:
+    """Load configured RSS feeds from sources.json."""
+    with SOURCES_FILE.open(encoding="utf-8") as f:
+        config = json.load(f)
+    return config["feeds"]
+
+
+def validate_feed(feed: dict, parsed) -> dict:
+    """Summarize a parsed feed response without making another request."""
+    entry_count = len(parsed.entries)
+    return {
+        "source": feed["source"],
+        "country": feed["country"],
+        "status": "ok" if entry_count > 0 else "empty",
+        "entries": entry_count,
+        "error": str(parsed.bozo_exception) if parsed.bozo else None,
+    }
+
+
+def fetch_feed(feed: dict, parsed) -> list[dict]:
+    """Convert a parsed feed response into headline dicts."""
     print(f"  Fetching {feed['source']} ({feed['country']})...")
-
-    parsed = feedparser.parse(feed["url"])
 
     # feedparser doesn't raise on network errors; it sets bozo + bozo_exception.
     if parsed.bozo:
@@ -74,10 +68,19 @@ def fetch_feed(feed: dict) -> list[dict]:
 
 def main():
     all_articles = []
+    feeds = load_feeds()
+    print(f"Loaded {len(feeds)} feeds from {SOURCES_FILE}.")
 
-    for feed in FEEDS:
+    print("\nValidating feeds and fetching headlines...")
+    for feed in feeds:
         try:
-            all_articles.extend(fetch_feed(feed))
+            parsed = feedparser.parse(feed["url"])
+            result = validate_feed(feed, parsed)
+            status = f"{result['status']} ({result['entries']} entries)"
+            if result["error"]:
+                status += f" — {result['error']}"
+            print(f"  {result['source']} ({result['country']}): {status}")
+            all_articles.extend(fetch_feed(feed, parsed))
         except Exception as e:
             # One broken feed should never kill the whole run.
             print(f"  ! Failed to fetch {feed['source']}: {e}")
@@ -92,10 +95,12 @@ def main():
             seen.add(a["link"])
             unique.append(a)
 
-    with OUTPUT_FILE.open("w", encoding="utf-8") as f:
+    HISTORY_DIR.mkdir(parents=True, exist_ok=True)
+    output_file = HISTORY_DIR / f"headlines_{date.today().isoformat()}.json"
+    with output_file.open("w", encoding="utf-8") as f:
         json.dump(unique, f, ensure_ascii=False, indent=2)
 
-    print(f"\nDone. {len(unique)} unique headlines written to {OUTPUT_FILE}")
+    print(f"\nDone. {len(unique)} unique headlines written to {output_file}")
 
 
 if __name__ == "__main__":

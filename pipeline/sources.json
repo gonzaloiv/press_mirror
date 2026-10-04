@@ -1,0 +1,161 @@
+{
+    "version": 1,
+    "generated": "2026-10-04",
+    "notes": "Curated RSS feeds for Press Mirror. Country codes use ISO 3166-1 alpha-2 except UK (which is GB in ISO but UK in common usage — normalize to GB before matching against GeoJSON).",
+    "feeds": [
+        {
+            "source": "Le Monde",
+            "country": "FR",
+            "url": "https://www.lemonde.fr/rss/une.xml",
+            "lang": "fr",
+            "lean": "centre-left"
+        },
+        {
+            "source": "Le Figaro",
+            "country": "FR",
+            "url": "https://www.lefigaro.fr/rss/figaro_actualites.xml",
+            "lang": "fr",
+            "lean": "centre-right"
+        },
+        {
+            "source": "France 24",
+            "country": "FR",
+            "url": "https://www.france24.com/fr/rss",
+            "lang": "fr",
+            "lean": "public"
+        },
+        {
+            "source": "Mediapart",
+            "country": "FR",
+            "url": "https://www.mediapart.fr/articles/feed",
+            "lang": "fr",
+            "lean": "left"
+        },
+        {
+            "source": "L'Obs",
+            "country": "FR",
+            "url": "https://www.nouvelobs.com/a-la-une/rss.xml",
+            "lang": "fr",
+            "lean": "centre-left"
+        },
+        {
+            "source": "Ouest-France",
+            "country": "FR",
+            "url": "https://www.ouest-france.fr/rss-en-continu.xml",
+            "lang": "fr",
+            "lean": "centre"
+        },
+        {
+            "source": "El País",
+            "country": "ES",
+            "url": "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/portada",
+            "lang": "es",
+            "lean": "centre-left"
+        },
+        {
+            "source": "El Mundo",
+            "country": "ES",
+            "url": "https://www.elmundo.es/rss/portada.xml",
+            "lang": "es",
+            "lean": "centre-right"
+        },
+        {
+            "source": "La Vanguardia",
+            "country": "ES",
+            "url": "https://www.lavanguardia.com/rss/home.xml",
+            "lang": "es",
+            "lean": "centre"
+        },
+        {
+            "source": "El Confidencial",
+            "country": "ES",
+            "url": "https://rss.elconfidencial.com/espana/",
+            "lang": "es",
+            "lean": "centre"
+        },
+        {
+            "source": "BBC World",
+            "country": "UK",
+            "url": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "lang": "en",
+            "lean": "public"
+        },
+        {
+            "source": "The Guardian",
+            "country": "UK",
+            "url": "https://www.theguardian.com/world/rss",
+            "lang": "en",
+            "lean": "centre-left"
+        },
+        {
+            "source": "The Telegraph",
+            "country": "UK",
+            "url": "https://www.telegraph.co.uk/rss.xml",
+            "lang": "en",
+            "lean": "centre-right"
+        },
+        {
+            "source": "Sky News",
+            "country": "UK",
+            "url": "https://feeds.skynews.com/feeds/rss/world.xml",
+            "lang": "en",
+            "lean": "centre"
+        },
+        {
+            "source": "New York Times",
+            "country": "US",
+            "url": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
+            "lang": "en",
+            "lean": "centre-left"
+        },
+        {
+            "source": "NPR",
+            "country": "US",
+            "url": "https://feeds.npr.org/1001/rss.xml",
+            "lang": "en",
+            "lean": "public"
+        },
+        {
+            "source": "Deutsche Welle",
+            "country": "DE",
+            "url": "https://rss.dw.com/rdf/rss-en-world",
+            "lang": "en",
+            "lean": "public"
+        },
+        {
+            "source": "Der Spiegel",
+            "country": "DE",
+            "url": "https://www.spiegel.de/international/index.rss",
+            "lang": "en",
+            "lean": "centre-left"
+        },
+        {
+            "source": "Tagesschau",
+            "country": "DE",
+            "url": "https://www.tagesschau.de/infoservices/alle-meldungen-100~rss2.xml",
+            "lang": "de",
+            "lean": "public"
+        },
+        {
+            "source": "ANSA",
+            "country": "IT",
+            "url": "https://www.ansa.it/sito/ansait_rss.xml",
+            "lang": "it",
+            "lean": "centre"
+        },
+        {
+            "source": "La Repubblica",
+            "country": "IT",
+            "url": "https://www.repubblica.it/rss/homepage/rss2.0.xml",
+            "lang": "it",
+            "lean": "centre-left"
+        },
+        {
+            "source": "Al Jazeera",
+            "country": "QA",
+            "url": "https://www.aljazeera.com/xml/rss/all.xml",
+            "lang": "en",
+            "lean": "international"
+        }
+    ]
+}

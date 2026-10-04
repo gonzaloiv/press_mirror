@@ -1,10 +1,20 @@
 import json
+import sys
 from pathlib import Path
 
 from flask import Flask, render_template
 
-app = Flask(__name__)
-HISTORY_DIR = Path(__file__).resolve().parent.parent / "history"
+PROJECT_DIR = Path(__file__).resolve().parent.parent
+if str(PROJECT_DIR) not in sys.path:
+    sys.path.insert(0, str(PROJECT_DIR))
+
+from country_codes import ISO_FIX, to_iso
+
+HISTORY_DIR = PROJECT_DIR / "history"
+STATIC_DIR = PROJECT_DIR / "static"
+STATIC_DIR.mkdir(parents=True, exist_ok=True)
+
+app = Flask(__name__, static_folder=str(STATIC_DIR), static_url_path="/static")
 
 
 def latest_clusters_file() -> Path:
@@ -15,31 +25,21 @@ def latest_clusters_file() -> Path:
     return files[0]
 
 
-def similarity_band(score: float) -> tuple[str, str]:
-    """Turn a raw score into a label + CSS class."""
-    if score >= 0.8:
-        return "High", "high"
-    if score >= 0.7:
-        return "Medium", "medium"
-    return "Low", "low"
-
-
 @app.route("/")
 def index():
-    with latest_clusters_file().open(encoding="utf-8") as f:
+    clusters_file = latest_clusters_file()
+    with clusters_file.open(encoding="utf-8") as f:
         clusters = json.load(f)
 
-    # Enrich each cluster with band labels for display.
     for c in clusters:
-        band, css = similarity_band(c["avg_similarity"])
-        c["band"] = band
-        c["band_css"] = css
+        c["countries"] = sorted({to_iso(a["country"]) for a in c["articles"]})
 
-    return render_template("index.html", clusters=clusters)
-
-ISO_FIX = {
-    "UK": "GB",
-}
+    snapshot_date = clusters_file.stem.removeprefix("clusters_")
+    return render_template(
+        "index.html",
+        clusters=clusters,
+        maps_date=snapshot_date,
+    )
 
 @app.route("/map/<int:cluster_id>")
 def map_view(cluster_id):
@@ -49,7 +49,7 @@ def map_view(cluster_id):
     cluster = clusters[cluster_id]
 
     # Normalize once, here. Footer still shows the original "UK" for readability.
-    covered = sorted({ISO_FIX.get(a["country"], a["country"]) for a in cluster["articles"]})
+    covered = sorted({to_iso(a["country"]) for a in cluster["articles"]})
 
     # Dedupe sources per country for the footer.
     sources_by_country = {}
@@ -63,6 +63,7 @@ def map_view(cluster_id):
         covered=covered,
         countries=["FR", "ES", "DE", "IT", "GB", "US", "QA", "NL", "PT", "PL"],
         sources_by_country=sources_by_country,
+        iso_fix=ISO_FIX,
     )
 
 if __name__ == "__main__":

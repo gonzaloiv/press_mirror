@@ -1,14 +1,20 @@
 import json
 import re
+import sys
 from datetime import date
 from pathlib import Path
+
+PROJECT_DIR = Path(__file__).resolve().parent.parent
+if str(PROJECT_DIR) not in sys.path:
+    sys.path.insert(0, str(PROJECT_DIR))
 
 import numpy as np
 from sklearn.cluster import AgglomerativeClustering
 from sklearn.metrics.pairwise import cosine_similarity
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
-PROJECT_DIR = Path(__file__).resolve().parent.parent
+from country_codes import to_iso
+
 INPUT_FILE = PROJECT_DIR / "embeddings.npz"
 HISTORY_DIR = PROJECT_DIR / "history"
 
@@ -141,7 +147,7 @@ def build_clusters(labels, titles, sources, countries, links, embeddings, labele
     # Prefer stories covered in more countries; use article count only for ties.
     result.sort(
         key=lambda c: (
-            len({article["country"] for article in c["articles"]}),
+            len({to_iso(article["country"]) for article in c["articles"]}),
             c["size"],
         ),
         reverse=True,

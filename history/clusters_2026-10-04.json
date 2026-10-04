@@ -1,26 +1,105 @@
 [
   {
-    "label": "Brazilian presidential election",
-    "size": 6,
-    "avg_similarity": 0.787,
+    "label": "Brazilian Presidential Election",
+    "size": 13,
+    "avg_similarity": 0.819,
     "articles": [
       {
-        "title": "Au Brésil, une campagne présidentielle morne et un scrutin très incertain dans l’ombre de l’ingérence américaine",
+        "title": "Au Brésil, une campagne présidentielle morne et un scrutin très incertain dans l’ombre de l’ingérence des Etats-Unis",
         "source": "Le Monde",
         "country": "FR",
         "link": "https://www.lemonde.fr/international/article/2026/10/04/au-bresil-une-campagne-presidentielle-morne-et-un-scrutin-tres-incertain-dans-l-ombre-de-l-ingerence-americaine_6787999_3210.html"
       },
       {
-        "title": "Présidentielle au Brésil : Lula et Flavio Bolsonaro au coude à coude à l’heure du scrutin",
+        "title": "Présidentielle au Brésil : \"il y a deux politiques qui s'affrontent\"",
         "source": "France 24",
         "country": "FR",
-        "link": "https://www.france24.com/fr/am%C3%A9riques/20261004-bresil-lula-et-flavio-bolsonaro-presidentielle-bureau-vote-campagne-sondages"
+        "link": "https://www.france24.com/fr/vid%C3%A9o/20261004-pr%C3%A9sidentielle-au-br%C3%A9sil-il-y-a-deux-politiques-qui-s-affrontent"
       },
       {
-        "title": "Brasil decide su futuro entre Lula y Bolsonaro, un estadista desgastado y el hijo de un ultra",
+        "title": "Présidentielle au Brésil : le duel Lula-Bolsonaro domine le scrutin",
+        "source": "France 24",
+        "country": "FR",
+        "link": "https://www.france24.com/fr/vid%C3%A9o/20261004-pr%C3%A9sidentielle-au-br%C3%A9sil-le-duel-lula-bolsonaro-domine-le-scrutin"
+      },
+      {
+        "title": "Présidentielle au Brésil : quels sont les enjeux du scrutin ?",
+        "source": "France 24",
+        "country": "FR",
+        "link": "https://www.france24.com/fr/vid%C3%A9o/20261004-pr%C3%A9sidentielle-au-br%C3%A9sil-quels-sont-les-enjeux-du-scrutin"
+      },
+      {
+        "title": "Présidentielle au Brésil : quelles attentes des électeurs ?",
+        "source": "France 24",
+        "country": "FR",
+        "link": "https://www.france24.com/fr/vid%C3%A9o/20261004-pr%C3%A9sidentielle-au-br%C3%A9sil-quelles-attentes-des-%C3%A9lecteurs"
+      },
+      {
+        "title": "Brésil : \"plus de chances que les deux candidats soient au coude-à-coude au premier tour\"",
+        "source": "France 24",
+        "country": "FR",
+        "link": "https://www.france24.com/fr/vid%C3%A9o/20261004-br%C3%A9sil-plus-de-chances-que-les-deux-candidats-soient-au-coude-%C3%A0-coude-au-premier-tour"
+      },
+      {
+        "title": "Présidentielle au Brésil : ouverture des bureaux de vote",
+        "source": "France 24",
+        "country": "FR",
+        "link": "https://www.france24.com/fr/vid%C3%A9o/20261004-pr%C3%A9sidentielle-au-br%C3%A9sil-ouverture-des-bureaux-de-vote"
+      },
+      {
+        "title": "Présidentielle au Brésil : Lula porte les espoirs de la gauche",
+        "source": "France 24",
+        "country": "FR",
+        "link": "https://www.france24.com/fr/vid%C3%A9o/20261004-pr%C3%A9sidentielle-au-br%C3%A9sil-lula-porte-les-espoirs-de-la-gauche"
+      },
+      {
+        "title": "Les Brésiliens se rendent aux urnes pour la présidentielle",
+        "source": "France 24",
+        "country": "FR",
+        "link": "https://www.france24.com/fr/vid%C3%A9o/20261004-les-br%C3%A9siliens-se-rendent-aux-urnes-pour-la-pr%C3%A9sidentielle"
+      },
+      {
+        "title": "Élection présidentielle au Brésil : à la conquête du vote des femmes",
+        "source": "France 24",
+        "country": "FR",
+        "link": "https://www.france24.com/fr/vid%C3%A9o/20261004-%C3%A9lections-pr%C3%A9sidentielle-au-br%C3%A9sil-%C3%A0-la-conqu%C3%AAte-du-vote-des-femmes"
+      },
+      {
+        "title": "Brasil: entre lo peor y la catástrofe",
         "source": "El País",
         "country": "ES",
-        "link": "https://elpais.com/america/2026-10-04/brasil-decide-su-futuro-entre-lula-y-bolsonaro-un-estadista-desgastado-y-un-hijo-de-papa-ultra.html"
+        "link": "https://elpais.com/america/2026-10-04/brasil-entre-lo-peor-y-la-catastrofe.html"
+      },
+      {
+        "title": "Lula vor Wahl in Brasilien: 80 Jahre und noch nicht müde",
+        "source": "Tagesschau",
+        "country": "DE",
+        "link": "https://www.tagesschau.de/ausland/brasilien-lula-praesidentenwahl-100.html"
+      },
+      {
+        "title": "Brasile, 160 milioni alle urne. Lula e Bolsonaro hanno votato: in gioco il futuro del Sudamerica",
+        "source": "La Repubblica",
+        "country": "IT",
+        "link": "https://www.repubblica.it/esteri/2026/10/04/news/elezioni_brasile_lula_e_bolsonaro_per_cosa_si_vota-425625309/"
+      }
+    ]
+  },
+  {
+    "label": "Brazilian presidential election campaign",
+    "size": 6,
+    "avg_similarity": 0.804,
+    "articles": [
+      {
+        "title": "En direct : premier tour de la présidentielle au Brésil, match serré entre Lula et Bolsonaro",
+        "source": "France 24",
+        "country": "FR",
+        "link": "https://www.france24.com/fr/am%C3%A9riques/20261004-en-direct-premier-tour-presidentielle-bresil-resultats-estimations-lula-bolsonaro"
+      },
+      {
+        "title": "Présidentielle au Brésil : qui est Flavio Bolsonaro ?",
+        "source": "France 24",
+        "country": "FR",
+        "link": "https://www.france24.com/fr/vid%C3%A9o/20261004-pr%C3%A9sidentielle-au-br%C3%A9sil-qui-est-flavio-bolsonaro"
       },
       {
         "title": "Ni Bolsonaro, ni Lula: Trump se reserva (de momento) su apoyo en las elecciones de Brasil",
@@ -29,36 +108,303 @@
         "link": "https://elpais.com/america/2026-10-04/ni-bolsonaro-ni-lula-trump-se-reserva-de-momento-su-apoyo-en-las-elecciones-de-brasil.html"
       },
       {
+        "title": "Wahl in Brasilien: Kommen die Bolsonaros zurück?",
+        "source": "Tagesschau",
+        "country": "DE",
+        "link": "https://www.tagesschau.de/ausland/amerika/brasilien-bolsonaro-160.html"
+      },
+      {
+        "title": "Lula gegen Bolsonaro: Ein Duell bekannter Namen in Brasilien",
+        "source": "Tagesschau",
+        "country": "DE",
+        "link": "https://www.tagesschau.de/ausland/amerika/brasilien-wahl-lula-bolsonaro-100.html"
+      },
+      {
+        "title": "Urne aperte in Brasile, Flavio Bolsonaro attacca il governo. Lula 'fiducioso'",
+        "source": "ANSA",
+        "country": "IT",
+        "link": "https://www.ansa.it/sito/notizie/mondo/2026/10/04/urne-aperte-in-brasile-flavio-bolsonaro-vota-a-rio-e-attacca-il-governo.-lula_bef2f600-8fd3-4a6b-8402-5f40da9c9da1.html"
+      }
+    ]
+  },
+  {
+    "label": "Brazil elections 2026",
+    "size": 5,
+    "avg_similarity": 0.81,
+    "articles": [
+      {
+        "title": "Elecciones en Brasil 2026, en vivo | Lula: “Veremos qué Brasil eligió el pueblo”. Bolsonaro: “Brasil no aguanta más”",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/america/2026-10-04/elecciones-en-brasil-2026-en-vivo.html"
+      },
+      {
         "title": "What to know about Brazil's election pitting Lula against Flávio Bolsonaro",
         "source": "BBC World",
         "country": "UK",
         "link": "https://www.bbc.co.uk/news/articles/c6wyz0r2n0djo?at_medium=RSS&at_campaign=rss"
       },
       {
-        "title": "Brazil Election: What to Know as Lula and Bolsonaro Face Off in 2026 Presidential Race",
+        "title": "2026 Brazil Elections: What to Know as Lula and Bolsonaro Face Off",
         "source": "New York Times",
         "country": "US",
         "link": "https://www.nytimes.com/2026/10/04/world/americas/brazil-election-2026-president-race-lula-bolsonaro.html"
+      },
+      {
+        "title": "Lula and Bolsonaro vote in Brazil’s polarised presidential election",
+        "source": "Al Jazeera",
+        "country": "QA",
+        "link": "https://www.aljazeera.com/video/newsfeed/2026/10/4/lula-and-bolsonaro-vote-in-brazils-polarised-presidential-election?traffic_source=rss"
+      },
+      {
+        "title": "Brazil votes in deeply polarised election pitting Lula against Bolsonaro",
+        "source": "Al Jazeera",
+        "country": "QA",
+        "link": "https://www.aljazeera.com/news/2026/10/4/brazil-votes-in-deeply-polarised-election-pitting-lula-against-bolsonaro?traffic_source=rss"
       }
     ]
   },
   {
-    "label": "Protests Over Housing Crisis In Spain",
+    "label": "Merz visit Ukraine",
     "size": 6,
-    "avg_similarity": 0.827,
+    "avg_similarity": 0.809,
     "articles": [
       {
-        "title": "Droit au logement : des manifestations d'ampleur en Espagne en pleine tension politique",
+        "title": "Le chancelier allemand en visite à Kiev, une frappe russe vise un pont de la capitale ukrainienne",
         "source": "France 24",
         "country": "FR",
-        "link": "https://www.france24.com/fr/europe/20261003-droit-logement-manifestations-ampleur-espagne-tension-politique-madrid-crise"
+        "link": "https://www.france24.com/fr/vid%C3%A9o/20261004-le-chancelier-allemand-en-visite-%C3%A0-kiev-une-frappe-russe-vise-un-pont-de-la-capitale-ukrainienne"
       },
       {
-        "title": "Nouvelles manifestations pour le droit au logement prévues samedi en Espagne",
-        "source": "France 24",
-        "country": "FR",
-        "link": "https://www.france24.com/fr/vid%C3%A9o/20261003-nouvelles-manifestations-pour-le-droit-au-logement-pr%C3%A9vues-samedi-en-espagne"
+        "title": "Merz-Besuch in Kiew: Eine Milliarde Militärhilfe für die Ukraine",
+        "source": "Tagesschau",
+        "country": "DE",
+        "link": "https://www.tagesschau.de/ausland/europa/merz-kiew-106.html"
       },
+      {
+        "title": "Krieg gegen die Ukraine: Merz besucht Kiew - Russland greift Brücke an",
+        "source": "Tagesschau",
+        "country": "DE",
+        "link": "https://www.tagesschau.de/ausland/europa/merz-kiew-drohnen-100.html"
+      },
+      {
+        "title": "Krieg gegen die Ukraine: Kanzler Merz besucht Kiew",
+        "source": "Tagesschau",
+        "country": "DE",
+        "link": "https://www.tagesschau.de/ausland/europa/eilmeldung-merz-kiew-100.html"
+      },
+      {
+        "title": "Ucraina: Merz a Kiev, colpito il ponte Nord. Mosca: 'Combatteremo per lo 0,01 del Donetsk'",
+        "source": "ANSA",
+        "country": "IT",
+        "link": "https://www.ansa.it/sito/notizie/mondo/2026/10/04/ucraina-merz-a-kiev-colpito-il-ponte-nord.-mosca-combatteremo-per-lo-001_150970cb-bce6-4ca9-a327-1f55553bc772.html"
+      },
+      {
+        "title": "Guerra Ucraina - Russia, le news di oggi. Colpito il Ponte Nord in pieno giorno mentre Merz è a Kiev",
+        "source": "La Repubblica",
+        "country": "IT",
+        "link": "https://www.repubblica.it/esteri/2026/10/04/diretta/guerra_ucraina_russia_news_oggi-425624582/"
+      }
+    ]
+  },
+  {
+    "label": "Lettonian elections victory",
+    "size": 4,
+    "avg_similarity": 0.797,
+    "articles": [
+      {
+        "title": "Kulbergs gana las elecciones en Letonia y buscará una coalición europeísta",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/internacional/2026-10-03/el-partido-conservador-lista-unida-gana-las-generales-en-letonia-segun-los-sondeos.html"
+      },
+      {
+        "title": "La conservadora Lista Unida gana las elecciones en Letonia",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/internacional/20261004/11650613/conservadora-lista-unida-gana-elecciones-letonia.html"
+      },
+      {
+        "title": "Wahl in Lettland: Partei von Ministerpräsident in Führung",
+        "source": "Tagesschau",
+        "country": "DE",
+        "link": "https://www.tagesschau.de/ausland/lettland-wahlen-100.html"
+      },
+      {
+        "title": "Il partito del premier Kulbergs verso la vittoria in Lettonia col 35,4% dei voti",
+        "source": "ANSA",
+        "country": "IT",
+        "link": "https://www.ansa.it/sito/notizie/mondo/2026/10/04/il-partito-del-premier-kulbergs-verso-la-vittoria-in-lettonia-col-354-dei_0082ae28-ef4e-41e2-9e01-75797bb8501f.html"
+      }
+    ]
+  },
+  {
+    "label": "Marine Arrested In Okinawa Murder Case",
+    "size": 4,
+    "avg_similarity": 0.858,
+    "articles": [
+      {
+        "title": "US Marine arrested over murder of woman in Okinawa, Japan",
+        "source": "BBC World",
+        "country": "UK",
+        "link": "https://www.bbc.co.uk/news/articles/cme3xw4yy28do?at_medium=RSS&at_campaign=rss"
+      },
+      {
+        "title": "US marine arrested in Japan on suspicion of killing woman, police say",
+        "source": "The Guardian",
+        "country": "UK",
+        "link": "https://www.theguardian.com/us-news/2026/oct/04/marine-arrested-japan-suspicion-murder"
+      },
+      {
+        "title": "U.S. Marine arrested for alleged murder of a woman in Okinawa, Japan",
+        "source": "NPR",
+        "country": "US",
+        "link": "https://www.npr.org/2026/10/04/nx-s1-5990790/us-marine-arrested-for-alleged-murder-woman-on-okinawa"
+      },
+      {
+        "title": "Japan summons US envoy as marine arrested over Okinawa murder",
+        "source": "Al Jazeera",
+        "country": "QA",
+        "link": "https://www.aljazeera.com/news/2026/10/4/japan-summons-us-envoy-as-marine-arrested-over-okinawa-murder?traffic_source=rss"
+      }
+    ]
+  },
+  {
+    "label": "French high school protests",
+    "size": 3,
+    "avg_similarity": 0.764,
+    "articles": [
+      {
+        "title": "Blocage des lycées : le ministre de l’Education fait des propositions sans calmer la colère, des heurts partout en France",
+        "source": "L'Obs",
+        "country": "FR",
+        "link": "https://www.nouvelobs.com/politique/20261003.OBS118854/blocage-des-lycees-le-ministre-de-l-education-fait-des-propositions-sans-calmer-la-colere-des-heurts-partout-en-france.html"
+      },
+      {
+        "title": "What to Know About France’s High School Protests",
+        "source": "New York Times",
+        "country": "US",
+        "link": "https://www.nytimes.com/2026/10/03/world/europe/high-school-student-protest-what-to-know.html"
+      },
+      {
+        "title": "Frankreich: Seit Montag mehr als 5.000 Festnahmen bei Schülerprotesten",
+        "source": "Tagesschau",
+        "country": "DE",
+        "link": "https://www.tagesschau.de/ausland/frankreich-schuelerproteste-festnahmen-100.html"
+      }
+    ]
+  },
+  {
+    "label": "Russian bridge attacks in Ukraine",
+    "size": 3,
+    "avg_similarity": 0.796,
+    "articles": [
+      {
+        "title": "Rusia bombardea puentes clave en Kiev e insta a los diplomáticos a abandonar la ciudad",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/internacional/2026-10-03/rusia-bombardea-cuatro-puentes-clave-en-kiev-y-siembra-el-caos.html"
+      },
+      {
+        "title": "Watch: What we know about Russian strikes on Kyiv bridges",
+        "source": "BBC World",
+        "country": "UK",
+        "link": "https://www.bbc.co.uk/news/videos/cmglwkyl9djyo?at_medium=RSS&at_campaign=rss"
+      },
+      {
+        "title": "Russland beschießt erneut Brücke in Kiew - Tote in Charkiw",
+        "source": "Tagesschau",
+        "country": "DE",
+        "link": "https://www.tagesschau.de/ausland/ukraine-angriff-bruecke-100.html"
+      }
+    ]
+  },
+  {
+    "label": "Russia Strikes Ukrainian Bridge",
+    "size": 3,
+    "avg_similarity": 0.84,
+    "articles": [
+      {
+        "title": "Russia strikes Kyiv bridge as German chancellor visits Ukraine in show of support",
+        "source": "The Guardian",
+        "country": "UK",
+        "link": "https://www.theguardian.com/world/2026/oct/04/russia-strikes-kyiv-bridge-german-chancellor-merz-visits-ukraine"
+      },
+      {
+        "title": "Russia Turns to Striking Kyiv’s Bridges, Threatening a Vital Lifeline",
+        "source": "New York Times",
+        "country": "US",
+        "link": "https://www.nytimes.com/2026/10/03/world/europe/russia-ukraine-bridges-kyiv.html"
+      },
+      {
+        "title": "Russia hits Kyiv bridge as Germany’s Merz visits Ukraine’s capital",
+        "source": "Al Jazeera",
+        "country": "QA",
+        "link": "https://www.aljazeera.com/news/2026/10/4/russian-strike-hits-kyiv-bridge-as-german-chancellor-visits-ukraine?traffic_source=rss"
+      }
+    ]
+  },
+  {
+    "label": "Catalonia Tempestures",
+    "size": 4,
+    "avg_similarity": 0.776,
+    "articles": [
+      {
+        "title": "Dos muertos y un desaparecido en Cataluña por las lluvias torrenciales",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/espana/catalunya/2026-10-04/la-alerta-por-el-temporal-sigue-y-los-rios-van-al-limite-no-bajar-la-guardia.html"
+      },
+      {
+        "title": "El temporal de Cataluña deja dos víctimas mortales en Tordera y Montornès, un desaparecido en Pineda y varios ES-Alert por riesgo de desbordamiento de ríos",
+        "source": "El Mundo",
+        "country": "ES",
+        "link": "https://www.elmundo.es/cataluna/2026/10/04/6ac2032dfdddff42278b458b.html"
+      },
+      {
+        "title": "El temporal en Catalunya deja dos muertos en Tordera y Montornès y un desaparecido, en Pineda",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/local/barcelona/20261004/11650603/barcelona-entorno-viven-dia-mas-lluvioso-ultimos-veinte-anos.html"
+      },
+      {
+        "title": "Baskenland und Katalonien: Tote bei schweren Unwettern in Spanien",
+        "source": "Tagesschau",
+        "country": "DE",
+        "link": "https://www.tagesschau.de/ausland/europa/unwetter-spanien-124.html"
+      }
+    ]
+  },
+  {
+    "label": "PSOE urging early elections",
+    "size": 3,
+    "avg_similarity": 0.792,
+    "articles": [
+      {
+        "title": "La mayoría del PSOE y del Gobierno anima a Sánchez a convocar elecciones ya: “Ahora hay una oportunidad”",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/espana/2026-10-04/la-mayoria-del-psoe-y-el-gobierno-anima-a-sanchez-a-convocar-elecciones-ya-ahora-hay-una-oportunidad.html"
+      },
+      {
+        "title": "Barones del PSOE presionan para que Sánchez convoque ya las elecciones: \"Hay una ventana de oportunidad ahora que la ciudadanía ha despertado\"",
+        "source": "El Mundo",
+        "country": "ES",
+        "link": "https://www.elmundo.es/espana/2026/10/04/6ac23f6dfdddff33668b4597.html"
+      },
+      {
+        "title": "Il Psoe spinge Sanchez al voto, 'le proteste per la casa un'opportunità'",
+        "source": "ANSA",
+        "country": "IT",
+        "link": "https://www.ansa.it/sito/notizie/mondo/2026/10/04/il-psoe-spinge-sanchez-al-voto-proteste-per-la-casa-unopportunita_0f102696-6238-428d-bf07-dcb94b23dee9.html"
+      }
+    ]
+  },
+  {
+    "label": "Spanish housing crisis",
+    "size": 3,
+    "avg_similarity": 0.871,
+    "articles": [
       {
         "title": "La lenta agonía del alquiler de vivienda en España: ¿Qué salió mal?",
         "source": "El País",
@@ -72,154 +418,86 @@
         "link": "https://www.lavanguardia.com/historiayvida/20261001/11648610/vivienda-centro-debate-huelgas-alquileres-espana-propietarios-franquismo.html"
       },
       {
-        "title": "'Anger in the streets': Tens of thousands protest in Spain over housing crisis",
+        "title": "Landesweit große Demos gegen Wohnungsnot in Spanien",
+        "source": "Tagesschau",
+        "country": "DE",
+        "link": "https://www.tagesschau.de/ausland/europa/proteste-wegen-wohnungsnot-in-spanien-gehen-weiter-100.html"
+      }
+    ]
+  },
+  {
+    "label": "Debris Found From Missing Plane",
+    "size": 3,
+    "avg_similarity": 0.818,
+    "articles": [
+      {
+        "title": "Debris found from plane that went missing off US coast",
         "source": "BBC World",
         "country": "UK",
-        "link": "https://www.bbc.co.uk/news/articles/cm2kej47095no?at_medium=RSS&at_campaign=rss"
+        "link": "https://www.bbc.co.uk/news/articles/cme3x85013llo?at_medium=RSS&at_campaign=rss"
       },
       {
-        "title": "‘This can’t go on’: tens of thousands protest against housing crisis in Spain",
+        "title": "Debris found as US Coast Guard search for missing medical plane carrying six people",
         "source": "The Guardian",
         "country": "UK",
-        "link": "https://www.theguardian.com/world/2026/oct/03/spain-housing-protest"
+        "link": "https://www.theguardian.com/us-news/2026/oct/04/missing-air-ambulance-massachusetts-debris-found"
+      },
+      {
+        "title": "Coast Guard finds debris from medical plane carrying 6 people",
+        "source": "NPR",
+        "country": "US",
+        "link": "https://www.npr.org/2026/10/03/g-s1-146338/plane-missing-coast-guard-search-massachusetts"
       }
     ]
   },
   {
-    "label": "Bosnia general election 2026",
-    "size": 5,
-    "avg_similarity": 0.81,
+    "label": "Electric vehicle battery boom in China",
+    "size": 2,
+    "avg_similarity": 0.776,
     "articles": [
       {
-        "title": "Élections générales en Bosnie-Herzégovine : quels enjeux ?",
-        "source": "France 24",
-        "country": "FR",
-        "link": "https://www.france24.com/fr/vid%C3%A9o/20261004-%C3%A9lections-g%C3%A9n%C3%A9rales-en-bosnie-herz%C3%A9govine-quels-enjeux"
-      },
-      {
-        "title": "Élections générales en Bosnie : un scrutin sous tension sur fond de divisions communautaires",
-        "source": "France 24",
-        "country": "FR",
-        "link": "https://www.france24.com/fr/europe/20261003-%C3%A9lections-g%C3%A9n%C3%A9rales-en-bosnie-un-scrutin-sous-tension-sur-fond-de-divisions-communautaires"
-      },
-      {
-        "title": "Bosnia vota con el pasado muy presente: \"Tras años de estancamiento y promesas incumplidas, muchos caen en la resignación y el desánimo\"",
-        "source": "El Mundo",
-        "country": "ES",
-        "link": "https://www.elmundo.es/internacional/2026/10/04/6ac09778fc6c834f488b45b8.html"
-      },
-      {
-        "title": "Bosnia votes in one of world’s most complicated general elections",
-        "source": "Al Jazeera",
-        "country": "QA",
-        "link": "https://www.aljazeera.com/news/2026/10/4/economic-woes-ethnic-rivalries-shape-bosnias-closely-watched-elections?traffic_source=rss"
-      },
-      {
-        "title": "Bosnia general election 2026 explained in maps and charts",
-        "source": "Al Jazeera",
-        "country": "QA",
-        "link": "https://www.aljazeera.com/news/2026/10/4/bosnia-general-election-2026-explained-in-maps-and-charts?traffic_source=rss"
-      }
-    ]
-  },
-  {
-    "label": "Lettonian conservative party wins elections",
-    "size": 3,
-    "avg_similarity": 0.801,
-    "articles": [
-      {
-        "title": "En Lettonie, le parti pro-européen au pouvoir en tête d’élections législatives marquées par la progression des populistes",
+        "title": "La malédiction des voitures électriques éphémères en Chine",
         "source": "Le Monde",
         "country": "FR",
-        "link": "https://www.lemonde.fr/international/article/2026/10/04/legislatives-en-lettonie-le-parti-pro-europeen-au-pouvoir-en-tete-face-a-une-poussee-populiste_6787992_3210.html"
+        "link": "https://www.lemonde.fr/economie/article/2026/10/04/voitures-electriques-en-chine-la-malediction-des-modeles-ephemeres_6788272_3234.html"
       },
       {
-        "title": "El partido conservador Lista Unida gana las generales en Letonia, según los sondeos",
+        "title": "Viaje a Ningde, la ciudad china convertida en capital mundial de las baterías para coches eléctricos",
         "source": "El País",
         "country": "ES",
-        "link": "https://elpais.com/internacional/2026-10-03/el-partido-conservador-lista-unida-gana-las-generales-en-letonia-segun-los-sondeos.html"
-      },
-      {
-        "title": "La conservadora Lista Unida gana las elecciones en Letonia",
-        "source": "La Vanguardia",
-        "country": "ES",
-        "link": "https://www.lavanguardia.com/internacional/20261004/11650613/conservadora-lista-unida-gana-elecciones-letonia.html"
+        "link": "https://elpais.com/economia/2026-10-04/viaje-a-ningde-la-ciudad-china-convertida-en-capital-mundial-de-las-baterias-para-coches-electricos.html"
       }
     ]
   },
   {
-    "label": "Tennessee Prison Execution Failure",
-    "size": 3,
-    "avg_similarity": 0.837,
-    "articles": [
-      {
-        "title": "Exécution ratée de Christa Pike : le chef de l'administration pénitentiaire du Tennessee démissionne",
-        "source": "France 24",
-        "country": "FR",
-        "link": "https://www.france24.com/fr/am%C3%A9riques/20261003-%C3%A9tats-unis-tennessee-ex%C3%A9cution-rat%C3%A9e-christa-pike-d%C3%A9mission-chef-administration-p%C3%A9nitentiaire"
-      },
-      {
-        "title": "Tennessee prison chief to resign after Christa Pike's failed execution",
-        "source": "BBC World",
-        "country": "UK",
-        "link": "https://www.bbc.co.uk/news/articles/c8zxl62yzxzxo?at_medium=RSS&at_campaign=rss"
-      },
-      {
-        "title": "Tennessee’s top prison official resigning after botched execution of Christa Pike",
-        "source": "The Guardian",
-        "country": "UK",
-        "link": "https://www.theguardian.com/us-news/2026/oct/03/tennessee-christa-pike-frank-strada"
-      }
-    ]
-  },
-  {
-    "label": "Ukraine bridges targeted by Russian strikes",
+    "label": "Morocco's First Female Prime Minister",
     "size": 2,
-    "avg_similarity": 0.789,
+    "avg_similarity": 0.779,
     "articles": [
       {
-        "title": "Ukraine : un deuxième pont de Kiev touché par des frappes russes",
-        "source": "France 24",
+        "title": "Qui est Fatima Ezzahra el-Mansouri, la première femme Première ministre du Maroc ?",
+        "source": "L'Obs",
         "country": "FR",
-        "link": "https://www.france24.com/fr/vid%C3%A9o/20261003-ukraine-un-deuxi%C3%A8me-pont-de-kiev-touch%C3%A9-par-des-frappes-russes"
+        "link": "https://www.nouvelobs.comhttps://www.nouvelobs.com/videos/xbgo7rm.DMT/qui-est-fatima-ezzahra-el-mansouri-la-premiere-femme-premiere-ministre-du-maroc.html"
       },
       {
-        "title": "Rusia bombardea puentes clave en Kiev e insta a los diplomáticos a abandonar la ciudad",
-        "source": "El País",
-        "country": "ES",
-        "link": "https://elpais.com/internacional/2026-10-03/rusia-bombardea-cuatro-puentes-clave-en-kiev-y-siembra-el-caos.html"
+        "title": "Morocco's first female head of government: Symbol or real reform?",
+        "source": "Deutsche Welle",
+        "country": "DE",
+        "link": "https://www.dw.com/en/morocco-s-first-female-head-of-government-symbol-or-real-reform/a-79521808?maca=en-rss-en-world-4025-rdf"
       }
     ]
   },
   {
-    "label": "Houthis Claim Strike On Aramco Site",
+    "label": "Russian invasion of Ukraine",
     "size": 2,
-    "avg_similarity": 0.75,
+    "avg_similarity": 0.774,
     "articles": [
       {
-        "title": "Les Houthis disent avoir ciblé un site d'Aramco à Riyad après des raids saoudiens sur Sanaa",
-        "source": "France 24",
+        "title": "« Que se passerait-il si mon cousin Vadim était enrôlé dans l’armée de Poutine ? » : un récit de Paul Gasnier",
+        "source": "L'Obs",
         "country": "FR",
-        "link": "https://www.france24.com/fr/moyen-orient/20261003-y%C3%A9men-fortes-explosions-entendues-capitale-sanaa-contr%C3%B4l%C3%A9e-houthis-arabie-saoudite"
-      },
-      {
-        "title": "Houthis claim strike on Aramco site as Yemen fighting intensifies",
-        "source": "Al Jazeera",
-        "country": "QA",
-        "link": "https://www.aljazeera.com/news/2026/10/4/houthis-claim-strike-on-saudi-energy-facility-as-yemen-fighting-intensifies?traffic_source=rss"
-      }
-    ]
-  },
-  {
-    "label": "Kaliningrad and Ukraine",
-    "size": 2,
-    "avg_similarity": 0.757,
-    "articles": [
-      {
-        "title": "Kaliningrado, el exclave militarizado ruso encajado en la OTAN que desató la amenaza nuclear de Putin",
-        "source": "El País",
-        "country": "ES",
-        "link": "https://elpais.com/internacional/2026-10-03/kaliningrado-el-exclave-militarizado-ruso-encajado-en-la-otan-que-desato-la-amenaza-nuclear-de-putin.html"
+        "link": "https://www.nouvelobs.com/bibliobs/20261003.OBS118843/que-se-passerait-il-si-mon-cousin-vadim-etait-enrole-dans-l-armee-de-poutine-un-recit-de-paul-gasnier.html"
       },
       {
         "title": "Putin's War of Aggression: A Journey Along the Dnipro in Wartime Ukraine",
@@ -230,59 +508,21 @@
     ]
   },
   {
-    "label": "Cornell University response to sexual assault claims",
+    "label": "Yemen Military Operations",
     "size": 2,
-    "avg_similarity": 0.976,
+    "avg_similarity": 0.773,
     "articles": [
       {
-        "title": "Cornell president says university 'must do better' after frat house rape allegations",
+        "title": "Yemen announces military campaign to reclaim land from Iran-backed Houthis",
         "source": "BBC World",
         "country": "UK",
-        "link": "https://www.bbc.co.uk/news/articles/ckly0leelnz4o?at_medium=RSS&at_campaign=rss"
+        "link": "https://www.bbc.co.uk/news/articles/cx8dzj9vpp01o?at_medium=RSS&at_campaign=rss"
       },
       {
-        "title": "Cornell president says university ‘must do better’ after rape allegations",
+        "title": "Yemen’s leader announces military operation to retake Houthi-held territory",
         "source": "Al Jazeera",
         "country": "QA",
-        "link": "https://www.aljazeera.com/video/newsfeed/2026/10/4/cornell-president-says-university-must-do-better-after-rape-allegations?traffic_source=rss"
-      }
-    ]
-  },
-  {
-    "label": "Debris Found From Missing Aircraft",
-    "size": 2,
-    "avg_similarity": 0.892,
-    "articles": [
-      {
-        "title": "Debris found from plane that went missing off US coast",
-        "source": "BBC World",
-        "country": "UK",
-        "link": "https://www.bbc.co.uk/news/articles/cme3x85013llo?at_medium=RSS&at_campaign=rss"
-      },
-      {
-        "title": "Debris from missing medical plane found, US coastguard says",
-        "source": "Al Jazeera",
-        "country": "QA",
-        "link": "https://www.aljazeera.com/news/2026/10/3/air-ambulance-missing-on-flight-from-bermuda-to-boston?traffic_source=rss"
-      }
-    ]
-  },
-  {
-    "label": "US Coast Guard intercepts ships with Cuban fuel",
-    "size": 2,
-    "avg_similarity": 0.79,
-    "articles": [
-      {
-        "title": "US Coast Guard says it intercepted ship carrying fuel to Cuba",
-        "source": "The Guardian",
-        "country": "UK",
-        "link": "https://www.theguardian.com/world/2026/oct/02/us-coast-guard-says-it-has-intercepted-ship-carrying-fuel-to-cuba"
-      },
-      {
-        "title": "Coast Guard Says It Stopped Ships Carrying Fuel to Cuba",
-        "source": "New York Times",
-        "country": "US",
-        "link": "https://www.nytimes.com/2026/10/02/world/americas/coast-guard-cuba-ships-oil.html"
+        "link": "https://www.aljazeera.com/news/2026/10/4/yemens-leader-announces-military-operation-to-retake-houthi-held-territory?traffic_source=rss"
       }
     ]
   },
@@ -306,6 +546,44 @@
     ]
   },
   {
+    "label": "Women's Safety Protest",
+    "size": 2,
+    "avg_similarity": 0.761,
+    "articles": [
+      {
+        "title": "From Jamui to Delhi, the burden of safety from sexual assault cannot fall on women",
+        "source": "The Guardian",
+        "country": "UK",
+        "link": "https://www.theguardian.com/world/2026/sep/28/this-is-india-violence-against-women"
+      },
+      {
+        "title": "‘We need freedom’: New Delhi women protest sexual violence",
+        "source": "Al Jazeera",
+        "country": "QA",
+        "link": "https://www.aljazeera.com/video/newsfeed/2026/10/4/we-need-freedom-new-delhi-women-protest-sexual-violence?traffic_source=rss"
+      }
+    ]
+  },
+  {
+    "label": "Nobel Prizes 2026",
+    "size": 2,
+    "avg_similarity": 0.847,
+    "articles": [
+      {
+        "title": "Nobel Prizes 2026: What to Know",
+        "source": "New York Times",
+        "country": "US",
+        "link": "https://www.nytimes.com/article/nobel-prizes-2026.html"
+      },
+      {
+        "title": "125 Jahre Nobelpreis: Was macht die Auszeichnung so bedeutend?",
+        "source": "Tagesschau",
+        "country": "DE",
+        "link": "https://www.tagesschau.de/wissen/forschung/nobelpreise-125-jahre-100.html"
+      }
+    ]
+  },
+  {
     "label": "Canada's Role in European Union",
     "size": 2,
     "avg_similarity": 0.819,
@@ -321,6 +599,244 @@
         "source": "Der Spiegel",
         "country": "DE",
         "link": "https://www.spiegel.de/international/world/the-future-of-europe-canada-in-the-eu-sounds-crazy-is-it-a-57073424-ab99-4c05-808b-e373a1f4edf5#ref=rss"
+      }
+    ]
+  },
+  {
+    "label": "Yemen Conflict Escalation",
+    "size": 2,
+    "avg_similarity": 0.815,
+    "articles": [
+      {
+        "title": "Fighting Intensifies in Yemen, Raising Fresh Fears of All-Out War",
+        "source": "New York Times",
+        "country": "US",
+        "link": "https://www.nytimes.com/2026/10/02/world/middleeast/yemen-houthis-saudi-arabia-sanaa-taiz.html"
+      },
+      {
+        "title": "Why is fighting intensifying in Yemen’s Taiz governorate?",
+        "source": "Al Jazeera",
+        "country": "QA",
+        "link": "https://www.aljazeera.com/news/2026/10/4/why-is-fighting-intensifying-in-yemens-taiz-governorate?traffic_source=rss"
+      }
+    ]
+  },
+  {
+    "label": "Camping Brand Incident",
+    "size": 2,
+    "avg_similarity": 0.752,
+    "articles": [
+      {
+        "title": "Mehrere Verletzte bei Campingplatz-Brand am Gardasee",
+        "source": "Tagesschau",
+        "country": "DE",
+        "link": "https://www.tagesschau.de/ausland/europa/gardasee-brand-campingplatz-102.html"
+      },
+      {
+        "title": "Rogo nel camping a Peschiera del Garda, feriti e intossicati",
+        "source": "ANSA",
+        "country": "IT",
+        "link": "https://www.ansa.it/sito/notizie/cronaca/2026/10/04/vasto-incendio-in-un-camping-sul-garda-intervenuti-4-pompieri-tedeschi-in-vacanza_f465a36b-15b0-4903-ac8a-5309989969eb.html"
+      }
+    ]
+  },
+  {
+    "label": "Flydubai Co-Pilot Clearance Controversy",
+    "size": 2,
+    "avg_similarity": 0.814,
+    "articles": [
+      {
+        "title": "US-Medienberichte: Flydubai-Co-Pilot galt zuvor als Sicherheitsrisiko",
+        "source": "Tagesschau",
+        "country": "DE",
+        "link": "https://www.tagesschau.de/ausland/flydubai-co-pilot-sicherheitsrisiko-100.html"
+      },
+      {
+        "title": "How was Flydubai co-pilot cleared despite being deemed a security risk?",
+        "source": "Al Jazeera",
+        "country": "QA",
+        "link": "https://www.aljazeera.com/news/2026/10/4/how-was-flydubai-co-pilot-cleared-despite-being-deemed-a-security-risk?traffic_source=rss"
+      }
+    ]
+  },
+  {
+    "label": "Israel's Election Reckoning",
+    "size": 2,
+    "avg_similarity": 0.775,
+    "articles": [
+      {
+        "title": "Israele ricorda il 7 ottobre, il fallimento al centro delle elezioni",
+        "source": "ANSA",
+        "country": "IT",
+        "link": "https://www.ansa.it/sito/notizie/mondo/2026/10/04/israele-ricorda-il-7-ottobre-il-fallimento-al-centro-delle-elezioni_514950f2-d75c-4343-925e-b96c77b04ce8.html"
+      },
+      {
+        "title": "‘Did he know?’: Why Israel is rejecting an October 7 reckoning",
+        "source": "Al Jazeera",
+        "country": "QA",
+        "link": "https://www.aljazeera.com/opinions/2026/10/4/did-he-know-why-israel-is-rejecting-an-october-7-reckoning?traffic_source=rss"
+      }
+    ]
+  },
+  {
+    "label": "Blockade of schools",
+    "size": 4,
+    "avg_similarity": 0.811,
+    "articles": [
+      {
+        "title": "Blocage des lycées : « Nous ne pouvons supporter que nos jeunes soient meurtris, enfermés et réduits au silence »",
+        "source": "L'Obs",
+        "country": "FR",
+        "link": "https://www.nouvelobs.com/justice/20261004.OBS118868/blocage-des-lycees-nous-ne-pouvons-supporter-que-nos-jeunes-soient-meurtris-enfermes-et-reduits-au-silence.html"
+      },
+      {
+        "title": "Blocage des lycées : le point sur un mouvement qui ne faiblit pas",
+        "source": "L'Obs",
+        "country": "FR",
+        "link": "https://www.nouvelobs.com/social/20261002.OBS118823/564-etablissements-perturbes-les-heurts-se-multiplient-le-mouvement-de-la-jeunesse-se-poursuit-ce-vendredi-sous-haute-tension.html"
+      },
+      {
+        "title": "Blocus des lycées : l’éveil politique de la jeunesse (des banlieues) ?",
+        "source": "L'Obs",
+        "country": "FR",
+        "link": "https://www.nouvelobs.com/societe/20261002.OBS118819/blocus-des-lycees-l-eveil-politique-de-la-jeunesse-des-banlieues.html"
+      },
+      {
+        "title": "Blocus des lycées : réponse pénale et établissements fermés, le gouvernement muscle sa réponse face à la mobilisation",
+        "source": "L'Obs",
+        "country": "FR",
+        "link": "https://www.nouvelobs.com/politique/20261001.OBS118804/blocus-des-lycees-reponse-penale-et-etablissements-fermes-le-gouvernement-muscle-sa-reponse-face-a-la-mobilisation.html"
+      }
+    ]
+  },
+  {
+    "label": "Guardamar Beach tragedy",
+    "size": 4,
+    "avg_similarity": 0.909,
+    "articles": [
+      {
+        "title": "Mueren dos jóvenes ahogados en una playa del municipio alicantino de Guardamar de Segura",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/espana/comunidad-valenciana/2026-10-04/mueren-dos-jovenes-ahogados-en-una-playa-de-guardamar-de-segura-alicante.html"
+      },
+      {
+        "title": "Mueren dos jóvenes ahogados en una playa de Guardamar de Segura, Alicante",
+        "source": "El Mundo",
+        "country": "ES",
+        "link": "https://www.elmundo.es/comunidad-valenciana/alicante/2026/10/04/6ac25bafe4d4d873348b4585.html"
+      },
+      {
+        "title": "Mueren dos jóvenes ahogados en una playa de Guardamar del Segura",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/sucesos/20261004/11650678/mueren-dos-jovenes-ahogados-playa-guardamar-segura.html"
+      },
+      {
+        "title": "Mueren dos bañistas en una playa de Guardamar del Segura (Alicante)",
+        "source": "El Confidencial",
+        "country": "ES",
+        "link": "https://www.elconfidencial.com/espana/2026-10-04/dos-fallecidos-playa-guardamar-1tna-1tps_4438006/"
+      }
+    ]
+  },
+  {
+    "label": "Violence against children",
+    "size": 3,
+    "avg_similarity": 0.792,
+    "articles": [
+      {
+        "title": "Violences sexistes et sexuelles : « L’Education nationale n’est pas au clair sur la façon de les détecter et les prendre en charge »",
+        "source": "L'Obs",
+        "country": "FR",
+        "link": "https://www.nouvelobs.com/societe/20261004.OBS118873/violences-sexistes-et-sexuelles-l-education-nationale-n-est-pas-au-clair-sur-la-facon-de-les-detecter-et-les-prendre-en-charge.html"
+      },
+      {
+        "title": "« C’est juste un jeu » : quand l’école minimise les violences sexuelles entre élèves",
+        "source": "L'Obs",
+        "country": "FR",
+        "link": "https://www.nouvelobs.com/societe/20261002.OBS118815/c-est-juste-un-jeu-quand-l-ecole-minimise-les-violences-sexuelles-entre-eleves.html"
+      },
+      {
+        "title": "Violences sexuelles entre enfants : l’angle mort de la protection de l’enfance",
+        "source": "L'Obs",
+        "country": "FR",
+        "link": "https://www.nouvelobs.com/opinions/20261002.OBS118821/violences-sexuelles-entre-enfants-l-angle-mort-de-la-protection-de-l-enfance.html"
+      }
+    ]
+  },
+  {
+    "label": "Immobilier trends in France cities",
+    "size": 3,
+    "avg_similarity": 0.788,
+    "articles": [
+      {
+        "title": "Les prix de l’immobilier à Nice : Riquier, le quartier qui monte",
+        "source": "L'Obs",
+        "country": "FR",
+        "link": "https://www.nouvelobs.com/immobilier/20261001.OBS118805/les-prix-de-l-immobilier-a-nice-riquier-le-quartier-qui-monte.html"
+      },
+      {
+        "title": "Le marché de l’immobilier à Limoges : une situation morose",
+        "source": "L'Obs",
+        "country": "FR",
+        "link": "https://www.nouvelobs.com/immobilier/20261001.OBS118775/le-marche-de-l-immobilier-a-limoges-une-situation-morose.html"
+      },
+      {
+        "title": "Les prix de l’immobilier à Grenoble : le marché est encore fragile",
+        "source": "L'Obs",
+        "country": "FR",
+        "link": "https://www.nouvelobs.com/immobilier/20260930.OBS118767/les-prix-de-l-immobilier-a-grenoble-le-marche-est-encore-fragile.html"
+      }
+    ]
+  },
+  {
+    "label": "Immobilier trends around Lyon",
+    "size": 3,
+    "avg_similarity": 0.771,
+    "articles": [
+      {
+        "title": "Bourg-en-Bresse, Valence, Vienne : les prix de l’immobilier autour de Lyon en 2026",
+        "source": "L'Obs",
+        "country": "FR",
+        "link": "https://www.nouvelobs.com/immobilier/20260930.OBS118771/bourg-en-bresse-valence-vienne-les-prix-de-l-immobilier-autour-de-lyon-en-2026.html"
+      },
+      {
+        "title": "Bussy-Saint-Georges, Coulommiers, Fontainebleau : les prix de l’immobilier en Seine-et-Marne en 2026",
+        "source": "L'Obs",
+        "country": "FR",
+        "link": "https://www.nouvelobs.com/immobilier/20260930.OBS118743/bussy-saint-georges-coulommiers-fontainebleau-les-prix-de-l-immobilier-en-seine-et-marne-en-2026.html"
+      },
+      {
+        "title": "Des Monts d’Or à Vaulx-en-Velin, les prix de l’immobilier offrent un vaste choix dans le Grand Lyon",
+        "source": "L'Obs",
+        "country": "FR",
+        "link": "https://www.nouvelobs.com/immobilier/20260929.OBS118740/des-monts-d-or-a-vaulx-en-velin-les-prix-de-l-immobilier-offrent-un-vaste-choix-dans-le-grand-lyon.html"
+      }
+    ]
+  },
+  {
+    "label": "Aerial images of Catalonia's storm",
+    "size": 3,
+    "avg_similarity": 0.834,
+    "articles": [
+      {
+        "title": "Las imágenes aéreas de la huella del temporal en Cataluña",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/videos/2026-10-04/las-imagenes-aereas-de-la-huella-del-temporal-en-cataluna.html"
+      },
+      {
+        "title": "Las imágenes que deja el temporal en Catalunya",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/local/catalunya/20261003/11650330/imagenes-mas-impactantes-temporal-catalunya.html"
+      },
+      {
+        "title": "El gran temporal en Catalunya y castellers en Tarragona, entre las imágenes del día",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/fotos/20261004/11650669/gran-temporal-catalunya-castellers-tarragona-imagenes-dia.html"
       }
     ]
   },
@@ -375,31 +891,6 @@
     ]
   },
   {
-    "label": "Spanish tourism marketing tactics",
-    "size": 3,
-    "avg_similarity": 0.831,
-    "articles": [
-      {
-        "title": "España: quién lo hubiera dicho",
-        "source": "El País",
-        "country": "ES",
-        "link": "https://elpais.com/deportes/futbol/2026-10-03/espana-quien-lo-hubiera-dicho.html"
-      },
-      {
-        "title": "'Spain is different': los carteles de 100 años de boom turístico",
-        "source": "La Vanguardia",
-        "country": "ES",
-        "link": "https://www.lavanguardia.com/magazine/viajes/20261004/11643894/visit-spain-cien-anos-carteles-turisticos.html"
-      },
-      {
-        "title": "‘El Castillo’: El proxenetismo en España como nunca se ha visto",
-        "source": "La Vanguardia",
-        "country": "ES",
-        "link": "https://www.lavanguardia.com/television/20261004/11647671/castillo-proxenetismo-espana-nunca-visto.html"
-      }
-    ]
-  },
-  {
     "label": "Catalonia's Unrest",
     "size": 3,
     "avg_similarity": 0.791,
@@ -425,154 +916,268 @@
     ]
   },
   {
-    "label": "Friedrich Merz visit Ukraine",
+    "label": "Yemen offensive underway",
     "size": 2,
-    "avg_similarity": 0.786,
+    "avg_similarity": 0.941,
     "articles": [
       {
-        "title": "Visite imprévue du chancelier allemand à Kiev : \"Merz arrive avec des annonces très concrètes\"",
-        "source": "France 24",
+        "title": "Yémen : les houthistes encerclent désormais Taëz, grande ville du Sud-Ouest ; le président annonce une offensive pour reprendre l’ensemble du pays",
+        "source": "Le Monde",
         "country": "FR",
-        "link": "https://www.france24.com/fr/vid%C3%A9o/20261004-visite-impr%C3%A9vue-du-chancelier-allemand-%C3%A0-kiev-merz-arrive-avec-des-annonces-tr%C3%A8s-concr%C3%A8tes"
+        "link": "https://www.lemonde.fr/international/article/2026/10/04/au-yemen-les-houthistes-coupent-un-axe-strategique-et-encerclent-taez-une-grande-ville-du-sud-ouest_6788266_3210.html"
       },
       {
-        "title": "En direct : Friedrich Merz à Kiev au lendemain d’un avertissement russe visant les étrangers",
+        "title": "Yémen : le président annonce une offensive contre les Houthis, qui encerclent la ville de Taëz",
         "source": "France 24",
         "country": "FR",
-        "link": "https://www.france24.com/fr/europe/20261004-live-guerre-ukraine-russie-chancelier-allemand-friedrich-merz-visite-kiev"
+        "link": "https://www.france24.com/fr/moyen-orient/20261004-y%C3%A9men-pr%C3%A9sident-annonce-offensive-contre-houthis-encerclent-ville-ta%C3%ABz"
       }
     ]
   },
   {
-    "label": "Contagious Courage",
+    "label": "Cornell University investigation initiated",
     "size": 2,
-    "avg_similarity": 0.915,
+    "avg_similarity": 0.941,
     "articles": [
       {
-        "title": "\"Le courage est contagieux\" : Zara Esmaeili raconte son combat pour chanter en Iran",
+        "title": "Viol collectif présumé à Cornell : enquête ouverte sur la gestion de l'affaire par l'université",
         "source": "France 24",
         "country": "FR",
-        "link": "https://www.france24.com/fr/moyen-orient/20261004-iran-courage-contagieux-zara-esmaeili-raconte-combat-chanter-teheran-chanteuse-repression-droits-femmes"
+        "link": "https://www.france24.com/fr/am%C3%A9riques/20261004-viol-collectif-pr%C3%A9sum%C3%A9-%C3%A0-cornell-enqu%C3%AAte-ouverte-sur-la-gestion-de-l-affaire-par-l-universit%C3%A9"
       },
       {
-        "title": "Zara Esmaeili : fuir la répression en Iran pour continuer à chanter",
+        "title": "Viol présumé à Cornell: ouverture d'une enquête externe sur la gestion de l'affaire par l'université",
         "source": "France 24",
         "country": "FR",
-        "link": "https://www.france24.com/fr/vid%C3%A9o/20261004-zara-esmaeili-fuir-la-r%C3%A9pression-en-iran-pour-continuer-%C3%A0-chanter"
+        "link": "https://www.france24.com/fr/vid%C3%A9o/20261004-viol-pr%C3%A9sum%C3%A9-%C3%A0-cornell-ouverture-d-une-enqu%C3%AAte-externe-sur-la-gestion-de-l-affaire-par-l-universit%C3%A9"
       }
     ]
   },
   {
-    "label": "Ethiopian federal troops advancing on Mekele",
+    "label": "Dafroza Gauthier, Rwandan Genocide Hunter",
     "size": 2,
-    "avg_similarity": 0.786,
+    "avg_similarity": 1.0,
     "articles": [
       {
-        "title": "Éthiopie : les troupes fédérales sont entrées dans Mekele capitale du Tigré",
+        "title": "Dafroza Gauthier, \"la chasseuse de génocidaires\" rwandais, est morte",
         "source": "France 24",
         "country": "FR",
-        "link": "https://www.france24.com/fr/%C3%A9missions/journal-de-l-afrique/20261003-ethiopie-les-troupes-f%C3%A9d%C3%A9rales-sont-entr%C3%A9e-dans-mekele-capitale-du-tigr%C3%A9"
+        "link": "https://www.france24.com/fr/vid%C3%A9o/20261004-dafroza-gauthier-la-chasseuse-de-g%C3%A9nocidaires-rwandais-est-morte"
       },
       {
-        "title": "Éthiopie : les combats se poursuivent",
+        "title": "Dafroza Gauthier, \"la chasseuse de génocidaires\" rwandais, est morte",
         "source": "France 24",
         "country": "FR",
-        "link": "https://www.france24.com/fr/vid%C3%A9o/20261003-%C3%A9thiopie-les-combats-se-poursuivent"
+        "link": "https://www.france24.com/fr/france/20261004-dafroza-gauthier-chasseuse-g%C3%A9nocidaires-rwandais-morte-tutsi"
       }
     ]
   },
   {
-    "label": "Spanish Socialist Workers Party and Government urging...",
+    "label": "Shopping locations around France",
     "size": 2,
-    "avg_similarity": 0.774,
+    "avg_similarity": 0.766,
     "articles": [
       {
-        "title": "La mayoría del PSOE y el Gobierno anima a Sánchez a convocar elecciones ya: “Ahora hay una oportunidad”",
+        "title": "Où acheter autour de Toulouse ? Les prix à Agen, Brive-la-Gaillarde, Rodez…",
+        "source": "L'Obs",
+        "country": "FR",
+        "link": "https://www.nouvelobs.com/immobilier/20261001.OBS118800/ou-acheter-autour-de-toulouse-les-prix-a-agen-brive-la-gaillarde-rodez.html"
+      },
+      {
+        "title": "Marly-le-Roi, Mantes-la-Jolie, Saint-Germain-en-Laye, Versailles : où acheter dans les Yvelines en 2026 ?",
+        "source": "L'Obs",
+        "country": "FR",
+        "link": "https://www.nouvelobs.com/immobilier/20260929.OBS118737/marly-le-roi-mantes-la-jolie-saint-germain-en-laye-versailles-ou-acheter-dans-les-yvelines-en-2026.html"
+      }
+    ]
+  },
+  {
+    "label": "Manuscrit Anne de France, Bibliothèque nationale",
+    "size": 2,
+    "avg_similarity": 0.798,
+    "articles": [
+      {
+        "title": "Pourquoi ce précieux manuscrit oublié d’Anne de France intéresse la Bibliothèque nationale",
+        "source": "L'Obs",
+        "country": "FR",
+        "link": "https://www.nouvelobs.com/culture/20260914.OBS118240/pourquoi-ce-precieux-manuscrit-oublie-d-anne-de-france-interesse-la-bibliotheque-nationale.html"
+      },
+      {
+        "title": "Grand prix du roman de l’Académie Française 2026 : la première sélection dévoilée",
+        "source": "L'Obs",
+        "country": "FR",
+        "link": "https://www.nouvelobs.com/bibliobs/20261002.OBS118820/grand-prix-du-roman-de-l-academie-francaise-2026-la-premiere-selection-devoilee.html"
+      }
+    ]
+  },
+  {
+    "label": "Longevity obsession",
+    "size": 2,
+    "avg_similarity": 0.799,
+    "articles": [
+      {
+        "title": "Vivre jusqu’à 120 ans ? Derrière l’obsession de la longévité, un business inquiétant",
+        "source": "L'Obs",
+        "country": "FR",
+        "link": "https://www.nouvelobs.com/idees/20260909.OBS118088/vivre-jusqu-a-120-ans-derriere-l-obsession-de-la-longevite-un-business-inquietant.html"
+      },
+      {
+        "title": "Vivre jusqu’à 120 ans",
+        "source": "L'Obs",
+        "country": "FR",
+        "link": "https://www.nouvelobs.com/societe/20260909.OBS118085/vivre-jusqu-a-120-ans.html"
+      }
+    ]
+  },
+  {
+    "label": "French education system criticism",
+    "size": 2,
+    "avg_similarity": 0.794,
+    "articles": [
+      {
+        "title": "« En parlant de manipulation des lycéens, on refuse aux jeunes la pleine autonomie de leur colère »",
+        "source": "L'Obs",
+        "country": "FR",
+        "link": "https://www.nouvelobs.com/opinions/20261004.OBS118872/en-parlant-de-manipulation-des-lyceens-on-refuse-aux-jeunes-la-pleine-autonomie-de-leur-colere.html"
+      },
+      {
+        "title": "« La réponse apportée au mouvement lycéen est une forme de mépris de classe »",
+        "source": "L'Obs",
+        "country": "FR",
+        "link": "https://www.nouvelobs.com/idees/20261002.OBS118826/pour-le-sociologue-fabien-truong-la-reponse-apportee-au-mouvement-lyceen-est-revelatrice-d-une-forme-de-mepris-de-classe.html"
+      }
+    ]
+  },
+  {
+    "label": "School closures protests escalate",
+    "size": 2,
+    "avg_similarity": 0.778,
+    "articles": [
+      {
+        "title": "Blocages des lycées : des campus universitaires rejoignent la mobilisation, le hall d’un lycée détruit par un incendie à Nantes",
+        "source": "L'Obs",
+        "country": "FR",
+        "link": "https://www.nouvelobs.com/societe/20261001.OBS118787/blocages-des-lycees-des-campus-universitaires-rejoignent-la-mobilisation-le-hall-d-un-lycee-detruit-par-un-incendie-a-nantes.html"
+      },
+      {
+        "title": "Blocage des lycées : un mineur écroué pour « acte de barbarie » après une agression au spray inflammable à Marseille",
+        "source": "Ouest-France",
+        "country": "FR",
+        "link": "https://www.ouest-france.fr/education/blocages-des-lycees-vers-une-inculpation-dun-lyceen-pour-acte-de-barbarie-apres-lagression-au-spray-inflammable-efc8a3e0-bfe2-11f1-bc1c-de747933f8a6?utm_source=fluxpublicactu&utm_medium=fluxrss&utm_campaign=banquedecontenu"
+      }
+    ]
+  },
+  {
+    "label": "Fashion Week Attire",
+    "size": 2,
+    "avg_similarity": 0.865,
+    "articles": [
+      {
+        "title": "Col relevé, double sac et culotte qui dépasse : au marché de la fashion week de Paris 2026",
+        "source": "L'Obs",
+        "country": "FR",
+        "link": "https://www.nouvelobs.com/mode/20261002.OBS118833/col-releve-double-sac-et-culotte-qui-depasse-au-marche-de-la-fashion-week-de-paris-2026.html"
+      },
+      {
+        "title": "Manchettes, col polo et Caddie : on a fait notre marché à la fashion week de Paris",
+        "source": "L'Obs",
+        "country": "FR",
+        "link": "https://www.nouvelobs.com/tendances/20260930.OBS118762/manchettes-col-polo-et-caddie-on-a-fait-notre-marche-a-la-fashion-week-de-paris.html"
+      }
+    ]
+  },
+  {
+    "label": "Rachida Dati trial's final plea",
+    "size": 2,
+    "avg_similarity": 0.783,
+    "articles": [
+      {
+        "title": "« Le lucre ? L’avidité ? Monsieur le procureur, vous êtes dans le dénigrement » : au dernier jour de son procès, Rachida Dati se pose une ultime fois en victime",
+        "source": "L'Obs",
+        "country": "FR",
+        "link": "https://www.nouvelobs.com/justice/20260929.OBS118712/le-lucre-l-avidite-monsieur-le-procureur-vous-etes-dans-le-denigrement-au-dernier-jour-de-son-proces-rachida-dati-se-pose-une-ultime-fois-en-victime.html"
+      },
+      {
+        "title": "« Un esprit de lucre » : quatre ans de prison, dont deux ferme requis contre Rachida Dati à son procès pour corruption",
+        "source": "L'Obs",
+        "country": "FR",
+        "link": "https://www.nouvelobs.com/justice/20260928.OBS118686/un-esprit-de-lucre-quatre-ans-de-prison-dont-deux-fermes-requis-contre-rachida-dati-a-son-proces-pour-corruption.html"
+      }
+    ]
+  },
+  {
+    "label": "Best Spanish potato omelette location",
+    "size": 2,
+    "avg_similarity": 0.861,
+    "articles": [
+      {
+        "title": "La mejor tortilla de patata de España está en La Teulada (Elche)",
         "source": "El País",
         "country": "ES",
-        "link": "https://elpais.com/espana/2026-10-04/la-mayoria-del-psoe-y-el-gobierno-anima-a-sanchez-a-convocar-elecciones-ya-ahora-hay-una-oportunidad.html"
+        "link": "https://elpais.com/gastronomia/2026-10-04/la-mejor-tortilla-de-patata-de-espana-esta-en-la-teulada-elche.html"
       },
       {
-        "title": "Sánchez evalúa la reacción social para decidir si precipita las elecciones",
+        "title": "La mejor tortilla de patatas de España se hace en este restaurante de Elx",
         "source": "La Vanguardia",
         "country": "ES",
-        "link": "https://www.lavanguardia.com/politica/20261004/11650319/sanchez-evalua-reaccion-social-manifestaciones-decidir-precipita-elecciones.html"
+        "link": "https://www.lavanguardia.com/local/valencia/20261004/11650680/restaurante-teulada-elx-logra-titulo-mejor-tortilla-patatas-espana.html"
       }
     ]
   },
   {
-    "label": "Catalonia Floods",
+    "label": "Dua Lipa and Shakira's Concert Collaboration",
     "size": 2,
-    "avg_similarity": 0.78,
+    "avg_similarity": 0.885,
     "articles": [
       {
-        "title": "Dos muertos y un desaparecido en Cataluña por las lluvias torrenciales",
+        "title": "Dua Lipa canta con Shakira ‘Antología’ en el octavo concierto de la colombiana en Madrid",
         "source": "El País",
         "country": "ES",
-        "link": "https://elpais.com/espana/catalunya/2026-10-04/la-alerta-por-el-temporal-sigue-y-los-rios-van-al-limite-no-bajar-la-guardia.html"
+        "link": "https://elpais.com/cultura/2026-10-03/dua-lipa-canta-con-shakira-antologia-en-el-octavo-concierto-de-la-colombiana-en-madrid.html"
       },
       {
-        "title": "Las impactantes imágenes del temporal en Catalunya",
+        "title": "Shakira y Dua Lipa sorprenden cantando juntas 'Antología' en Madrid",
         "source": "La Vanguardia",
         "country": "ES",
-        "link": "https://www.lavanguardia.com/local/catalunya/20261003/11650330/imagenes-mas-impactantes-temporal-catalunya.html"
+        "link": "https://www.lavanguardia.com/gente/20261004/11650640/shakira-dua-lipa-sorprenden-cantando-juntas-antologia-madrid.html"
       }
     ]
   },
   {
-    "label": "Spain beats Czech Republic",
+    "label": "Spanish tourism marketing slogans",
     "size": 2,
-    "avg_similarity": 0.785,
+    "avg_similarity": 0.849,
     "articles": [
       {
-        "title": "España supera una desconexión ante República Checa en un partido con multitud de ocasiones",
+        "title": "España: quién lo hubiera dicho",
         "source": "El País",
         "country": "ES",
-        "link": "https://elpais.com/deportes/futbol/2026-10-03/espana-supera-una-desconexion-ante-republica-checa-en-un-partido-con-multitud-de-ocasiones.html"
+        "link": "https://elpais.com/deportes/futbol/2026-10-03/espana-quien-lo-hubiera-dicho.html"
       },
       {
-        "title": "La España anónima supera su propia pereza y cumple el trámite ante la República Checa",
-        "source": "El Mundo",
+        "title": "'Spain is different': los carteles de 100 años de boom turístico",
+        "source": "La Vanguardia",
         "country": "ES",
-        "link": "https://www.elmundo.es/deportes/futbol/uefa-nations-league/2026/10/03/6ac16c54e85ece17518b4572.html"
+        "link": "https://www.lavanguardia.com/magazine/viajes/20261004/11643894/visit-spain-cien-anos-carteles-turisticos.html"
       }
     ]
   },
   {
-    "label": "Decree on Housing",
+    "label": "Norman Foster's design for Bilbao's Bellas Artes museum",
     "size": 2,
-    "avg_similarity": 0.773,
+    "avg_similarity": 0.806,
     "articles": [
       {
-        "title": "El buen legado del decreto de vivienda",
+        "title": "El Bellas Artes de Bilbao evoluciona con el genio de Foster y el legado de los grandes coleccionistas",
         "source": "El País",
         "country": "ES",
-        "link": "https://elpais.com/economia/2026-10-03/el-buen-legado-del-decreto-de-vivienda.html"
+        "link": "https://elpais.com/cultura/2026-10-03/el-bellas-artes-de-bilbao-evoluciona-con-el-genio-de-foster-y-el-legado-de-los-grandes-coleccionistas.html"
       },
       {
-        "title": "“El problema de la vivienda no se resuelve con un decreto”",
+        "title": "Norman Foster: “La nueva sala del Bellas Artes de Bilbao es la más bella de un museo europeo”",
         "source": "La Vanguardia",
         "country": "ES",
-        "link": "https://www.lavanguardia.com/economia/20261004/11650296/problema-vivienda-resuelve-decreto.html"
-      }
-    ]
-  },
-  {
-    "label": "Barcelona's rainy day",
-    "size": 2,
-    "avg_similarity": 0.753,
-    "articles": [
-      {
-        "title": "La zona de Barcelona vive el día con más lluvia de los últimos veinte años",
-        "source": "La Vanguardia",
-        "country": "ES",
-        "link": "https://www.lavanguardia.com/local/barcelona/20261004/11650603/barcelona-entorno-viven-dia-mas-lluvioso-ultimos-veinte-anos.html"
-      },
-      {
-        "title": "Más chubascos en el centro y norte este domingo con intensidades torrenciales en Barcelona",
-        "source": "La Vanguardia",
-        "country": "ES",
-        "link": "https://www.lavanguardia.com/vida/20261004/11650608/mas-chubascos-centro-norte-domingo-intensidades-torrenciales-barcelona.html"
+        "link": "https://www.lavanguardia.com/cultura/20261004/11650674/norman-foster-nueva-sala-bellas-artes-bilbao-unica-mas-bella-museo-europeo.html"
       }
     ]
   },
@@ -596,6 +1201,177 @@
     ]
   },
   {
+    "label": "Patera disappearance alert",
+    "size": 2,
+    "avg_similarity": 0.994,
+    "articles": [
+      {
+        "title": "Alerta por la desaparición de una patera con 15 personas que se dirigía a Mallorca",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/vida/20261004/11650645/alerta-desaparicion-patera-15-personas-dirigia-mallorca.html"
+      },
+      {
+        "title": "Alertan de la desaparición de una patera con 15 personas que se dirigía a Mallorca",
+        "source": "El Confidencial",
+        "country": "ES",
+        "link": "https://www.elconfidencial.com/espana/2026-10-04/desaparicion-patera-rumbo-mallorca-1tna-1tps_4437898/"
+      }
+    ]
+  },
+  {
+    "label": "Ethiopian Rebel Forces Withdrawal From Tigray",
+    "size": 2,
+    "avg_similarity": 0.853,
+    "articles": [
+      {
+        "title": "Ethiopian rebel forces withdraw from Tigray regional capital",
+        "source": "BBC World",
+        "country": "UK",
+        "link": "https://www.bbc.co.uk/news/articles/cqm249v07j4xo?at_medium=RSS&at_campaign=rss"
+      },
+      {
+        "title": "Opposition fighters withdraw from capital of Ethiopia's northern Tigray region",
+        "source": "Sky News",
+        "country": "UK",
+        "link": "https://news.sky.com/story/opposition-fighters-withdraw-from-capital-of-ethiopias-northern-tigray-region-13594931"
+      }
+    ]
+  },
+  {
+    "label": "Flydubai Co-Pilot Investigation",
+    "size": 2,
+    "avg_similarity": 0.837,
+    "articles": [
+      {
+        "title": "Australia investigating Flydubai co-pilot's links to country",
+        "source": "BBC World",
+        "country": "UK",
+        "link": "https://www.bbc.co.uk/news/articles/cxly4nym57q9o?at_medium=RSS&at_campaign=rss"
+      },
+      {
+        "title": "Flydubai co-pilot: Australian links probed after 'axe attack' on captain",
+        "source": "Sky News",
+        "country": "UK",
+        "link": "https://news.sky.com/story/flydubai-co-pilot-australian-links-probed-after-axe-attack-on-captain-13595012"
+      }
+    ]
+  },
+  {
+    "label": "Protest Over Housing Crisis",
+    "size": 2,
+    "avg_similarity": 0.869,
+    "articles": [
+      {
+        "title": "'Anger in the streets': Tens of thousands protest in Spain over housing crisis",
+        "source": "BBC World",
+        "country": "UK",
+        "link": "https://www.bbc.co.uk/news/articles/cm2kej47095no?at_medium=RSS&at_campaign=rss"
+      },
+      {
+        "title": "Tens of thousands protest against Spain's housing crisis",
+        "source": "Sky News",
+        "country": "UK",
+        "link": "https://news.sky.com/story/tens-of-thousands-protest-against-spains-housing-crisis-following-eviction-of-87-year-old-woman-13594689"
+      }
+    ]
+  },
+  {
+    "label": "North Korea Missile Launches",
+    "size": 2,
+    "avg_similarity": 0.955,
+    "articles": [
+      {
+        "title": "North Korea launches ballistic missile after Seoul demands apology over wounded soldiers",
+        "source": "The Guardian",
+        "country": "UK",
+        "link": "https://www.theguardian.com/world/2026/oct/03/north-korea-launches-ballistic-missile-after-seoul-demands-apology-over-wounded-soldiers"
+      },
+      {
+        "title": "North Korea fires ballistic missile after Seoul demands apology",
+        "source": "Sky News",
+        "country": "UK",
+        "link": "https://news.sky.com/story/north-korea-fires-ballistic-missile-after-seoul-demands-apology-over-border-mine-blasts-13594567"
+      }
+    ]
+  },
+  {
+    "label": "French schools closures due to protests",
+    "size": 2,
+    "avg_similarity": 0.826,
+    "articles": [
+      {
+        "title": "More than 400 schools in France to be closed on Monday as more protests planned",
+        "source": "The Guardian",
+        "country": "UK",
+        "link": "https://www.theguardian.com/world/2026/oct/04/schools-france-closed-protests-planned"
+      },
+      {
+        "title": "French education minister says up to 500 schools will remain partially or fully closed on Monday after student protests – Europe live",
+        "source": "The Guardian",
+        "country": "UK",
+        "link": "https://www.theguardian.com/world/live/2026/oct/04/friedrich-merz-german-chancellor-ukraine-kyiv-russia-strikes-war-zelenskyy-putin-europe-latest-news-updates"
+      }
+    ]
+  },
+  {
+    "label": "UK borrowing costs rise",
+    "size": 2,
+    "avg_similarity": 0.791,
+    "articles": [
+      {
+        "title": "UK borrowing costs hit highest level since 2007",
+        "source": "The Telegraph",
+        "country": "UK",
+        "link": "https://www.telegraph.co.uk/business/2026/09/28/borrowing-costs-rise-after-jump-in-oil-price/"
+      },
+      {
+        "title": "UK borrowing costs hit 19-year high as global bond rout intensifies",
+        "source": "The Telegraph",
+        "country": "UK",
+        "link": "https://www.telegraph.co.uk/business/2026/09/15/bond-sell-off-uk-borrowing-gilts-us-treasuries-markets/"
+      }
+    ]
+  },
+  {
+    "label": "Fantasy Football Game Week",
+    "size": 2,
+    "avg_similarity": 0.853,
+    "articles": [
+      {
+        "title": "Telegraph Fantasy Football: Team of the Week Game Week 5",
+        "source": "The Telegraph",
+        "country": "UK",
+        "link": "https://www.telegraph.co.uk/fantasy-sports/fantasy-football/telegraph-fantasy-football-team-of-the-week/"
+      },
+      {
+        "title": "Telegraph Fantasy Football tips: Game Week 4",
+        "source": "The Telegraph",
+        "country": "UK",
+        "link": "https://www.telegraph.co.uk/fantasy-sports/fantasy-football/telegraph-fantasy-football-tips/"
+      }
+    ]
+  },
+  {
+    "label": "FlyDubai Flight 1073 Pilots",
+    "size": 2,
+    "avg_similarity": 0.832,
+    "articles": [
+      {
+        "title": "Who Were the Pilots on the FlyDubai Flight?",
+        "source": "New York Times",
+        "country": "US",
+        "link": "https://www.nytimes.com/2026/10/04/world/middleeast/flydubai-flight-who-were-pilots.html"
+      },
+      {
+        "title": "Why Were 4 Pilots Aboard FlyDubai Flight 1073?",
+        "source": "New York Times",
+        "country": "US",
+        "link": "https://www.nytimes.com/2026/10/02/world/middleeast/flydubai-flight-cockpit-stabbing-extra-pilots.html"
+      }
+    ]
+  },
+  {
     "label": "Gun Trafficking by American Teens",
     "size": 2,
     "avg_similarity": 0.781,
@@ -615,21 +1391,40 @@
     ]
   },
   {
-    "label": "French High School Protests",
+    "label": "San Francesco exhibit in Italy",
     "size": 2,
-    "avg_similarity": 0.752,
+    "avg_similarity": 0.815,
     "articles": [
       {
-        "title": "Student Protests Rattle France as Police Clashes Bring Blockades and Tear Gas",
-        "source": "New York Times",
-        "country": "US",
-        "link": "https://www.nytimes.com/2026/10/02/world/europe/france-schools-protests-unrest.html"
+        "title": "Otto secoli di San Francesco in mostra ad Arezzo con opere da tutto il mondo",
+        "source": "ANSA",
+        "country": "IT",
+        "link": "https://www.ansa.it/canale_viaggi/regione/toscana/2026/10/03/otto-secoli-di-san-francesco-in-mostra-ad-arezzo-con-opere-da-tutto-il-mondo_8d7bcaba-8867-4aa4-92a2-cc7c51ff65e1.html"
       },
       {
-        "title": "What to Know About France’s High School Protests",
-        "source": "New York Times",
-        "country": "US",
-        "link": "https://www.nytimes.com/2026/10/03/world/europe/high-school-student-protest-what-to-know.html"
+        "title": "In Umbria nei luoghi di San Francesco a 800 anni dalla morte",
+        "source": "ANSA",
+        "country": "IT",
+        "link": "https://www.ansa.it/canale_viaggi/notizie/itinerari/2026/10/03/in-umbria-nei-luoghi-di-san-francesco-a-800-anni-dalla-morte_f4b927c6-47cf-4d74-be51-e6bddbfe2223.html"
+      }
+    ]
+  },
+  {
+    "label": "Strangulation incident involving woman and children",
+    "size": 2,
+    "avg_similarity": 0.767,
+    "articles": [
+      {
+        "title": "Tenta di uccidere la compagna, lei scappa dai vicini con la bimba e si salva",
+        "source": "ANSA",
+        "country": "IT",
+        "link": "https://www.ansa.it/sito/notizie/cronaca/2026/10/04/tenta-di-uccidere-compagna-lei-scappa-dai-vicini-con-la-bimba-e-si-salva_ad11c40c-eee0-438a-a194-a23b73d8cc10.html"
+      },
+      {
+        "title": "Tenta di strangolare la compagna, lei fugge con la bimba di un anno, lui si butta giù dal balcone",
+        "source": "La Repubblica",
+        "country": "IT",
+        "link": "https://torino.repubblica.it/cronaca/2026/10/04/news/violenza_donne_tentato_omicidio_suicidio_balcone_barriera_di_milano-425625284/"
       }
     ]
   }
