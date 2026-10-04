@@ -1,6 +1,6 @@
 [
   {
-    "label": "Au Brésil, une campagne présidentielle morne et un scrutin très incertain dans l’ombre de l’ingérence américaine",
+    "label": "Brazilian presidential election",
     "size": 6,
     "avg_similarity": 0.787,
     "articles": [
@@ -43,7 +43,7 @@
     ]
   },
   {
-    "label": "Droit au logement : des manifestations d'ampleur en Espagne en pleine tension politique",
+    "label": "Protests Over Housing Crisis In Spain",
     "size": 6,
     "avg_similarity": 0.827,
     "articles": [
@@ -86,7 +86,7 @@
     ]
   },
   {
-    "label": "Élections générales en Bosnie-Herzégovine : quels enjeux ?",
+    "label": "Bosnia general election 2026",
     "size": 5,
     "avg_similarity": 0.81,
     "articles": [
@@ -123,7 +123,7 @@
     ]
   },
   {
-    "label": "En Lettonie, le parti pro-européen au pouvoir en tête d’élections législatives marquées par la progression des populistes",
+    "label": "Lettonian conservative party wins elections",
     "size": 3,
     "avg_similarity": 0.801,
     "articles": [
@@ -148,7 +148,7 @@
     ]
   },
   {
-    "label": "Exécution ratée de Christa Pike : le chef de l'administration pénitentiaire du Tennessee démissionne",
+    "label": "Tennessee Prison Execution Failure",
     "size": 3,
     "avg_similarity": 0.837,
     "articles": [
@@ -173,7 +173,7 @@
     ]
   },
   {
-    "label": "La Policía empieza a desalojar el asentamiento de migrantes de la playa de El Trampolín de Ceuta",
+    "label": "Desalojo policial de asentamiento migratorio",
     "size": 3,
     "avg_similarity": 0.853,
     "articles": [
@@ -198,7 +198,7 @@
     ]
   },
   {
-    "label": "Marc Márquez supera de nuevo a Jorge Martín en el GP de Japón: el Mundial está en un puño",
+    "label": "MotoGP battle between Marc Márquez and Jorge Martín",
     "size": 3,
     "avg_similarity": 0.769,
     "articles": [
@@ -223,7 +223,7 @@
     ]
   },
   {
-    "label": "España: quién lo hubiera dicho",
+    "label": "Spanish tourism marketing tactics",
     "size": 3,
     "avg_similarity": 0.831,
     "articles": [
@@ -248,7 +248,7 @@
     ]
   },
   {
-    "label": "El ascenso de la ultraderecha aboca a una Catalunya ingobernable",
+    "label": "Catalonia's Unrest",
     "size": 3,
     "avg_similarity": 0.791,
     "articles": [
@@ -273,7 +273,7 @@
     ]
   },
   {
-    "label": "Visite imprévue du chancelier allemand à Kiev : \"Merz arrive avec des annonces très concrètes\"",
+    "label": "Friedrich Merz visit Ukraine",
     "size": 2,
     "avg_similarity": 0.786,
     "articles": [
@@ -292,7 +292,7 @@
     ]
   },
   {
-    "label": "\"Le courage est contagieux\" : Zara Esmaeili raconte son combat pour chanter en Iran",
+    "label": "Contagious Courage",
     "size": 2,
     "avg_similarity": 0.915,
     "articles": [
@@ -311,7 +311,7 @@
     ]
   },
   {
-    "label": "Éthiopie : les troupes fédérales sont entrées dans Mekele capitale du Tigré",
+    "label": "Ethiopian federal troops advancing on Mekele",
     "size": 2,
     "avg_similarity": 0.786,
     "articles": [
@@ -330,7 +330,7 @@
     ]
   },
   {
-    "label": "Ukraine : un deuxième pont de Kiev touché par des frappes russes",
+    "label": "Ukraine bridges targeted by Russian strikes",
     "size": 2,
     "avg_similarity": 0.789,
     "articles": [
@@ -349,7 +349,7 @@
     ]
   },
   {
-    "label": "Les Houthis disent avoir ciblé un site d'Aramco à Riyad après des raids saoudiens sur Sanaa",
+    "label": "Houthis Claim Strike On Aramco Site",
     "size": 2,
     "avg_similarity": 0.75,
     "articles": [
@@ -368,7 +368,7 @@
     ]
   },
   {
-    "label": "La mayoría del PSOE y el Gobierno anima a Sánchez a convocar elecciones ya: “Ahora hay una oportunidad”",
+    "label": "Spanish Socialist Workers Party and Government urging...",
     "size": 2,
     "avg_similarity": 0.774,
     "articles": [
@@ -387,7 +387,7 @@
     ]
   },
   {
-    "label": "Dos muertos y un desaparecido en Cataluña por las lluvias torrenciales",
+    "label": "Catalonia Floods",
     "size": 2,
     "avg_similarity": 0.78,
     "articles": [
@@ -406,7 +406,7 @@
     ]
   },
   {
-    "label": "España supera una desconexión ante República Checa en un partido con multitud de ocasiones",
+    "label": "Spain beats Czech Republic",
     "size": 2,
     "avg_similarity": 0.785,
     "articles": [
@@ -425,7 +425,7 @@
     ]
   },
   {
-    "label": "Kaliningrado, el exclave militarizado ruso encajado en la OTAN que desató la amenaza nuclear de Putin",
+    "label": "Kaliningrad and Ukraine",
     "size": 2,
     "avg_similarity": 0.757,
     "articles": [
@@ -444,7 +444,7 @@
     ]
   },
   {
-    "label": "El buen legado del decreto de vivienda",
+    "label": "Decree on Housing",
     "size": 2,
     "avg_similarity": 0.773,
     "articles": [
@@ -463,7 +463,7 @@
     ]
   },
   {
-    "label": "La zona de Barcelona vive el día con más lluvia de los últimos veinte años",
+    "label": "Barcelona's rainy day",
     "size": 2,
     "avg_similarity": 0.753,
     "articles": [
@@ -482,7 +482,7 @@
     ]
   },
   {
-    "label": "¿Cuál es el mejor banco para pymes en España? El modelo de Santander reconocido por Euromoney",
+    "label": "Banking model comparison in Spain",
     "size": 2,
     "avg_similarity": 0.766,
     "articles": [
@@ -501,7 +501,7 @@
     ]
   },
   {
-    "label": "Cornell president says university 'must do better' after frat house rape allegations",
+    "label": "Cornell University response to sexual assault claims",
     "size": 2,
     "avg_similarity": 0.976,
     "articles": [
@@ -520,7 +520,7 @@
     ]
   },
   {
-    "label": "Debris found from plane that went missing off US coast",
+    "label": "Debris Found From Missing Aircraft",
     "size": 2,
     "avg_similarity": 0.892,
     "articles": [
@@ -539,7 +539,7 @@
     ]
   },
   {
-    "label": "US Coast Guard says it intercepted ship carrying fuel to Cuba",
+    "label": "US Coast Guard intercepts ships with Cuban fuel",
     "size": 2,
     "avg_similarity": 0.79,
     "articles": [
@@ -558,7 +558,7 @@
     ]
   },
   {
-    "label": "Flydubai co-pilot used crash axe to attack captain, says UAE",
+    "label": "Flydubai Co-Pilot Axe Attack",
     "size": 2,
     "avg_similarity": 0.894,
     "articles": [
@@ -577,7 +577,7 @@
     ]
   },
   {
-    "label": "American High School Students Are Selling Guns Bound for Cartels",
+    "label": "Gun Trafficking by American Teens",
     "size": 2,
     "avg_similarity": 0.781,
     "articles": [
@@ -596,7 +596,7 @@
     ]
   },
   {
-    "label": "Student Protests Rattle France as Police Clashes Bring Blockades and Tear Gas",
+    "label": "French High School Protests",
     "size": 2,
     "avg_similarity": 0.752,
     "articles": [
@@ -615,7 +615,7 @@
     ]
   },
   {
-    "label": "Understanding Canada’s Europe Pivot",
+    "label": "Canada's Role in European Union",
     "size": 2,
     "avg_similarity": 0.819,
     "articles": [
