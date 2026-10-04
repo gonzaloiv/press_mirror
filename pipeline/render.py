@@ -65,7 +65,7 @@ def render_images(clean: bool = False) -> None:
             for cluster_index in range(len(selected_clusters)):
                 for size_name, (width, height) in IMAGE_SIZES.items():
                     page.set_viewport_size({"width": width, "height": height})
-                    url = f"{BASE_URL}/map/{cluster_index}"
+                    url = f"{BASE_URL}/map/{cluster_index}?thumbnail=1"
                     try:
                         page.goto(url, wait_until="domcontentloaded")
                     except playwright_error as error:

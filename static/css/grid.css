@@ -77,20 +77,6 @@ h1 {
     background: #ffffff;
 }
 
-.card-content {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    padding: 1rem;
-}
-
-.codes {
-    margin-top: auto;
-    padding-top: 0.75rem;
-    color: var(--muted);
-    font-size: 0.8rem;
-}
-
 @media (max-width: 900px) {
     .story-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));

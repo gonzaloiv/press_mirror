@@ -10,7 +10,9 @@
 
 <body>
     <div class="canvas">
+        {% if not thumbnail %}
         <a href="/" class="back-link">← All maps</a>
+        {% endif %}
         <h1 class="headline">{{ label }}</h1>
         <p class="subhead">
             {{ coverage_copy }}
@@ -44,6 +46,7 @@
         // Data injected by Flask.
         const covered = {{ covered| tojson }};
         const tracked = {{ countries| tojson }};
+        const mapBounds = {{ map_bounds| tojson }};
 
         // --- Country code normalization -----------------------------------------
         // Natural Earth quirks: ISO_A2 is often "-99" for France, Norway, Kosovo,
@@ -84,7 +87,7 @@
         fetch(GEOJSON_URL)
             .then(r => r.json())
             .then(geo => {
-                L.geoJSON(geo, {
+                const countryLayer = L.geoJSON(geo, {
                     style: feature => {
                         const iso = getIso(feature);
                         const isCovered = coveredNorm.includes(iso);
@@ -112,6 +115,33 @@
                         };
                     },
                 }).addTo(map);
+
+                if (mapBounds) {
+                    map.fitBounds(mapBounds, { padding: [24, 24] });
+                }
+
+                countryLayer.eachLayer(country => {
+                    const iso = getIso(country.feature);
+                    if (!coveredNorm.includes(iso)) {
+                        return;
+                    }
+
+                    const bounds = country.getBounds();
+                    const northWest = map.latLngToContainerPoint(bounds.getNorthWest());
+                    const southEast = map.latLngToContainerPoint(bounds.getSouthEast());
+                    const pixelArea = Math.abs(southEast.x - northWest.x)
+                        * Math.abs(southEast.y - northWest.y);
+                    if (pixelArea < 64) {
+                        L.circleMarker(bounds.getCenter(), {
+                            radius: 4,
+                            color: '#ffffff',
+                            weight: 1,
+                            fillColor: COVERED,
+                            fillOpacity: 1,
+                            interactive: false,
+                        }).addTo(map);
+                    }
+                });
 
                 // Signal that the map has finished drawing.
                 window.mapReady = true;

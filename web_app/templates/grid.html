@@ -11,7 +11,7 @@
 <body>
     <main class="container">
         <header>
-            <h1>Press Mirror EU</h1>
+            <h1>Press Mirror</h1>
             <p class="tagline">European coverage of world news, seen from every country that covered it.</p>
         </header>
 
@@ -19,9 +19,6 @@
             {% for card in cards %}
             <a class="card" href="/map/{{ card.index }}">
                 <img src="{{ card.image_path }}" alt="">
-                <div class="card-content">
-                    <div class="codes">{{ card.countries|join(" · ") }}</div>
-                </div>
             </a>
             {% endfor %}
         </section>
