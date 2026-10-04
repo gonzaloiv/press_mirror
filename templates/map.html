@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>{{ label }}</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        :root {
+            --covered: #2563eb;
+            --silent: #e5e7eb;
+            --ink: #111827;
+            --muted: #6b7280;
+            --border: #e5e7eb;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: #ffffff;
+            color: var(--ink);
+        }
+
+        /* Fixed 1080x1080 canvas — the screenshot target. */
+        .canvas {
+            width: 1080px;
+            height: 1080px;
+            display: flex;
+            flex-direction: column;
+            padding: 56px 64px;
+        }
+
+        .headline {
+            font-size: 46px;
+            font-weight: 700;
+            line-height: 1.15;
+            margin: 0 0 12px;
+        }
+
+        .subhead {
+            font-size: 22px;
+            color: var(--muted);
+            margin: 0 0 32px;
+        }
+
+        #map {
+            flex: 1;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            background: #f9fafb;
+        }
+
+        .legend {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+            margin-top: 24px;
+            font-size: 20px;
+            color: var(--muted);
+        }
+
+        .swatch {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            border-radius: 4px;
+            margin-right: 8px;
+            vertical-align: -3px;
+        }
+
+        .swatch.covered {
+            background: var(--covered);
+        }
+
+        .swatch.silent {
+            background: var(--silent);
+            border: 1px solid var(--border);
+        }
+
+        .sources {
+            margin-top: 20px;
+            font-size: 17px;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        .sources b {
+            color: var(--ink);
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <h1 class="headline">{{ label }}</h1>
+        <p class="subhead">
+            Covered in {{ covered|length }} of {{ countries|length }} countries tracked.
+        </p>
+
+        <div id="map"></div>
+
+        <div class="legend">
+            <span><span class="swatch covered"></span>Covered</span>
+            <span><span class="swatch silent"></span>Not covered</span>
+        </div>
+
+        <div class="sources">
+            {% for code, names in sources_by_country.items() %}
+            <div><b>{{ code }}</b> — {{ names|join(", ") }}</div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // Data injected by Flask.
+        const covered = {{ covered| tojson }};
+
+        // --- Country code normalization -----------------------------------------
+        // Natural Earth quirks: ISO_A2 is often "-99" for France, Norway, Kosovo,
+        // N. Cyprus, Somaliland. ISO_A2_EH is a corrected field. Prefer it.
+        // Also, UK in common usage maps to GB in ISO 3166.
+        const ISO_FIX = { "UK": "GB" };
+
+        function getIso(feature) {
+            const p = feature.properties || {};
+            const eh = (p.ISO_A2_EH || "").toUpperCase();
+            const a2 = (p.ISO_A2 || "").toUpperCase();
+            const raw = (eh && eh !== "-99") ? eh : a2;
+            return ISO_FIX[raw] || raw;
+        }
+
+        // Normalize our own covered list the same way, so comparison is apples-to-apples.
+        const coveredNorm = covered.map(c => ISO_FIX[c] || c);
+
+        // --- Map setup -----------------------------------------------------------
+        const map = L.map('map', {
+            zoomControl: false,
+            attributionControl: false,
+            dragging: false,
+            scrollWheelZoom: false,
+            doubleClickZoom: false,
+            boxZoom: false,
+            keyboard: false,
+            tap: false,
+        }).setView([54, 10], 3);
+
+        const COVERED = '#2563eb';
+        const SILENT = '#e5e7eb';
+
+        // --- Load country borders -----------------------------------------------
+        const GEOJSON_URL = 'https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson';
+
+        fetch(GEOJSON_URL)
+            .then(r => r.json())
+            .then(geo => {
+                L.geoJSON(geo, {
+                    style: feature => {
+                        const iso = getIso(feature);
+                        const isCovered = coveredNorm.includes(iso);
+                        return {
+                            color: '#ffffff',
+                            weight: 1,
+                            fillColor: isCovered ? COVERED : SILENT,
+                            fillOpacity: 1,
+                        };
+                    },
+                }).addTo(map);
+
+                // Signal that the map has finished drawing.
+                window.mapReady = true;
+            })
+            .catch(err => {
+                console.error("GeoJSON load failed:", err);
+                window.mapReady = true;   // still signal ready so screenshots don't hang
+            });
+    </script>
+</body>
+
+</html>
