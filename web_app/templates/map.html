@@ -5,139 +5,7 @@
     <meta charset="utf-8">
     <title>{{ label }}</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <style>
-        :root {
-            --covered: #2563eb;
-            --silent: #e5e7eb;
-            --ink: #111827;
-            --muted: #6b7280;
-            --border: #e5e7eb;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        html,
-        body {
-            width: 100%;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            background: #ffffff;
-            color: var(--ink);
-        }
-
-        .canvas {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            padding: clamp(20px, 5vw, 56px) clamp(20px, 6vw, 64px);
-        }
-
-        .headline {
-            font-size: clamp(26px, 4.25vw, 46px);
-            font-weight: 700;
-            line-height: 1.15;
-            margin: 0 0 12px;
-        }
-
-        .subhead {
-            font-size: clamp(16px, 2vw, 22px);
-            color: var(--muted);
-            margin: 0 0 32px;
-        }
-
-        #map {
-            flex: 1;
-            min-height: 0;
-            border-radius: 16px;
-            border: 1px solid var(--border);
-            background: #f9fafb;
-        }
-
-        .legend {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 32px;
-            align-items: center;
-            margin-top: 24px;
-            font-size: 20px;
-            color: var(--muted);
-        }
-
-        .swatch {
-            display: inline-block;
-            width: 18px;
-            height: 18px;
-            border-radius: 4px;
-            margin-right: 8px;
-            vertical-align: -3px;
-        }
-
-        .swatch.covered {
-            background: var(--covered);
-        }
-
-        .swatch.silent {
-            background: var(--silent);
-            border: 1px solid var(--border);
-        }
-
-        .swatch.untracked {
-            background: transparent;
-            border: 1px solid #9ca3af;
-        }
-
-        .sources {
-            margin-top: 20px;
-            font-size: 17px;
-            color: var(--muted);
-            line-height: 1.5;
-        }
-
-        .sources b {
-            color: var(--ink);
-            font-weight: 600;
-        }
-
-        .back-link {
-            align-self: flex-start;
-            margin-bottom: 16px;
-            color: var(--muted);
-            font-size: 15px;
-            text-decoration: none;
-        }
-
-        .back-link:hover {
-            text-decoration: underline;
-        }
-
-        @media (max-width: 700px) {
-            .subhead {
-                margin-bottom: 16px;
-            }
-
-            .legend {
-                gap: 16px;
-                row-gap: 8px;
-                margin-top: 12px;
-                font-size: 14px;
-            }
-
-            .swatch {
-                width: 14px;
-                height: 14px;
-            }
-
-            .sources {
-                display: none;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/map.css') }}">
 </head>
 
 <body>
@@ -145,7 +13,7 @@
         <a href="/" class="back-link">← All maps</a>
         <h1 class="headline">{{ label }}</h1>
         <p class="subhead">
-            Covered in {{ covered|length }} of {{ countries|length }} countries tracked.
+            {{ coverage_copy }}
         </p>
 
         <div id="map"></div>
@@ -161,6 +29,10 @@
             <div><b>{{ code }}</b> — {{ names|join(", ") }}</div>
             {% endfor %}
         </div>
+        <p class="coverage-note">
+            We track a fixed set of European and international outlets.<br>
+            Countries not listed here are not part of our source list.
+        </p>
     </div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>

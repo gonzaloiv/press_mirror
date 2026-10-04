@@ -34,6 +34,63 @@ def tracked_countries() -> list[str]:
 
 
 TRACKED_COUNTRIES = tracked_countries()
+COUNTRY_NAMES = {
+    "AU": "Australia",
+    "BR": "Brazil",
+    "CA": "Canada",
+    "CN": "China",
+    "DE": "Germany",
+    "ES": "Spain",
+    "FR": "France",
+    "GB": "the UK",
+    "IN": "India",
+    "IT": "Italy",
+    "JP": "Japan",
+    "MX": "Mexico",
+    "NL": "the Netherlands",
+    "PL": "Poland",
+    "PT": "Portugal",
+    "QA": "Qatar",
+    "RU": "Russia",
+    "UA": "Ukraine",
+    "US": "the United States",
+}
+COUNTRY_SORT_NAMES = {
+    "GB": "United Kingdom",
+    "NL": "Netherlands",
+    "US": "United States",
+}
+
+
+def european_coverage(countries: list[str]) -> str:
+    """Format covered country codes as concise European-coverage copy."""
+    normalized_countries = {to_iso(code) for code in countries}
+    names = sorted(
+        (
+            COUNTRY_SORT_NAMES.get(code, COUNTRY_NAMES.get(code, code)).casefold(),
+            COUNTRY_NAMES.get(code, code),
+        )
+        for code in normalized_countries
+    )
+    if not names:
+        return "No European coverage found."
+
+    display_names = [name for _, name in names]
+    if len(display_names) > 5:
+        display_names = display_names[:4] + [
+            f"{len(display_names) - 4} others"
+        ]
+
+    if len(display_names) == 1:
+        country_list = display_names[0]
+    elif len(display_names) == 2:
+        country_list = " and ".join(display_names)
+    elif len(display_names) == 3:
+        country_list = f"{display_names[0]}, {display_names[1]} and {display_names[2]}"
+    else:
+        country_list = f"{', '.join(display_names[:-1])}, and {display_names[-1]}"
+
+    return f"European coverage from {country_list}."
 
 
 @app.route("/")
@@ -82,6 +139,7 @@ def map_view(cluster_id):
         "map.html",
         label=cluster["label"],
         covered=covered,
+        coverage_copy=european_coverage(covered),
         countries=TRACKED_COUNTRIES,
         sources_by_country=sources_by_country,
         iso_fix=ISO_FIX,
