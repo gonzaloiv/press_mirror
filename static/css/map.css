@@ -110,6 +110,18 @@ body {
     line-height: 1.4;
 }
 
+.page-meta {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: auto;
+    padding-top: 12px;
+    color: var(--muted);
+    font-size: 17px;
+}
+
 .back-link {
     align-self: flex-start;
     margin-bottom: 16px;
@@ -122,9 +134,16 @@ body {
     text-decoration: underline;
 }
 
+@media (min-width: 701px) {
+    .canvas {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+}
+
 @media (max-width: 700px) {
     .canvas {
-        padding: 12px 20px;
+        padding: 8px 20px;
     }
 
     .back-link {
@@ -141,7 +160,7 @@ body {
     }
 
     #map {
-        width: min(100%, 360px);
+        width: min(100%, 330px);
         margin-inline: auto;
     }
 
@@ -164,5 +183,10 @@ body {
     .coverage-note {
         font-size: 11px;
         line-height: 1.25;
+    }
+
+    .page-meta {
+        padding-top: 8px;
+        font-size: 17px;
     }
 }

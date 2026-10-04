@@ -84,17 +84,6 @@ h1 {
     padding: 1rem;
 }
 
-.headline {
-    display: -webkit-box;
-    overflow: hidden;
-    min-height: 2.7em;
-    font-size: 1rem;
-    font-weight: 700;
-    line-height: 1.35;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-}
-
 .codes {
     margin-top: auto;
     padding-top: 0.75rem;
