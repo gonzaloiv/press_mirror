@@ -1,6 +1,6 @@
 [
   {
-    "label": "Au Brésil, une campagne présidentielle morne et un scrutin très incertain dans l’ombre de l’ingérence américaine",
+    "label": "Brazilian presidential election",
     "size": 6,
     "avg_similarity": 0.787,
     "articles": [
@@ -43,7 +43,7 @@
     ]
   },
   {
-    "label": "Droit au logement : des manifestations d'ampleur en Espagne en pleine tension politique",
+    "label": "Protests Over Housing Crisis In Spain",
     "size": 6,
     "avg_similarity": 0.827,
     "articles": [
@@ -86,7 +86,7 @@
     ]
   },
   {
-    "label": "Élections générales en Bosnie-Herzégovine : quels enjeux ?",
+    "label": "Bosnia general election 2026",
     "size": 5,
     "avg_similarity": 0.81,
     "articles": [
@@ -123,7 +123,7 @@
     ]
   },
   {
-    "label": "En Lettonie, le parti pro-européen au pouvoir en tête d’élections législatives marquées par la progression des populistes",
+    "label": "Lettonian conservative party wins elections",
     "size": 3,
     "avg_similarity": 0.801,
     "articles": [
@@ -148,7 +148,7 @@
     ]
   },
   {
-    "label": "Exécution ratée de Christa Pike : le chef de l'administration pénitentiaire du Tennessee démissionne",
+    "label": "Tennessee Prison Execution Failure",
     "size": 3,
     "avg_similarity": 0.837,
     "articles": [
@@ -173,7 +173,159 @@
     ]
   },
   {
-    "label": "La Policía empieza a desalojar el asentamiento de migrantes de la playa de El Trampolín de Ceuta",
+    "label": "Ukraine bridges targeted by Russian strikes",
+    "size": 2,
+    "avg_similarity": 0.789,
+    "articles": [
+      {
+        "title": "Ukraine : un deuxième pont de Kiev touché par des frappes russes",
+        "source": "France 24",
+        "country": "FR",
+        "link": "https://www.france24.com/fr/vid%C3%A9o/20261003-ukraine-un-deuxi%C3%A8me-pont-de-kiev-touch%C3%A9-par-des-frappes-russes"
+      },
+      {
+        "title": "Rusia bombardea puentes clave en Kiev e insta a los diplomáticos a abandonar la ciudad",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/internacional/2026-10-03/rusia-bombardea-cuatro-puentes-clave-en-kiev-y-siembra-el-caos.html"
+      }
+    ]
+  },
+  {
+    "label": "Houthis Claim Strike On Aramco Site",
+    "size": 2,
+    "avg_similarity": 0.75,
+    "articles": [
+      {
+        "title": "Les Houthis disent avoir ciblé un site d'Aramco à Riyad après des raids saoudiens sur Sanaa",
+        "source": "France 24",
+        "country": "FR",
+        "link": "https://www.france24.com/fr/moyen-orient/20261003-y%C3%A9men-fortes-explosions-entendues-capitale-sanaa-contr%C3%B4l%C3%A9e-houthis-arabie-saoudite"
+      },
+      {
+        "title": "Houthis claim strike on Aramco site as Yemen fighting intensifies",
+        "source": "Al Jazeera",
+        "country": "QA",
+        "link": "https://www.aljazeera.com/news/2026/10/4/houthis-claim-strike-on-saudi-energy-facility-as-yemen-fighting-intensifies?traffic_source=rss"
+      }
+    ]
+  },
+  {
+    "label": "Kaliningrad and Ukraine",
+    "size": 2,
+    "avg_similarity": 0.757,
+    "articles": [
+      {
+        "title": "Kaliningrado, el exclave militarizado ruso encajado en la OTAN que desató la amenaza nuclear de Putin",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/internacional/2026-10-03/kaliningrado-el-exclave-militarizado-ruso-encajado-en-la-otan-que-desato-la-amenaza-nuclear-de-putin.html"
+      },
+      {
+        "title": "Putin's War of Aggression: A Journey Along the Dnipro in Wartime Ukraine",
+        "source": "Der Spiegel",
+        "country": "DE",
+        "link": "https://www.spiegel.de/international/world/putins-war-of-aggression-a-journey-along-the-dnipro-in-wartime-ukraine-a-b943efc8-a374-4f78-a8e9-0d55e750a8dc#ref=rss"
+      }
+    ]
+  },
+  {
+    "label": "Cornell University response to sexual assault claims",
+    "size": 2,
+    "avg_similarity": 0.976,
+    "articles": [
+      {
+        "title": "Cornell president says university 'must do better' after frat house rape allegations",
+        "source": "BBC World",
+        "country": "UK",
+        "link": "https://www.bbc.co.uk/news/articles/ckly0leelnz4o?at_medium=RSS&at_campaign=rss"
+      },
+      {
+        "title": "Cornell president says university ‘must do better’ after rape allegations",
+        "source": "Al Jazeera",
+        "country": "QA",
+        "link": "https://www.aljazeera.com/video/newsfeed/2026/10/4/cornell-president-says-university-must-do-better-after-rape-allegations?traffic_source=rss"
+      }
+    ]
+  },
+  {
+    "label": "Debris Found From Missing Aircraft",
+    "size": 2,
+    "avg_similarity": 0.892,
+    "articles": [
+      {
+        "title": "Debris found from plane that went missing off US coast",
+        "source": "BBC World",
+        "country": "UK",
+        "link": "https://www.bbc.co.uk/news/articles/cme3x85013llo?at_medium=RSS&at_campaign=rss"
+      },
+      {
+        "title": "Debris from missing medical plane found, US coastguard says",
+        "source": "Al Jazeera",
+        "country": "QA",
+        "link": "https://www.aljazeera.com/news/2026/10/3/air-ambulance-missing-on-flight-from-bermuda-to-boston?traffic_source=rss"
+      }
+    ]
+  },
+  {
+    "label": "US Coast Guard intercepts ships with Cuban fuel",
+    "size": 2,
+    "avg_similarity": 0.79,
+    "articles": [
+      {
+        "title": "US Coast Guard says it intercepted ship carrying fuel to Cuba",
+        "source": "The Guardian",
+        "country": "UK",
+        "link": "https://www.theguardian.com/world/2026/oct/02/us-coast-guard-says-it-has-intercepted-ship-carrying-fuel-to-cuba"
+      },
+      {
+        "title": "Coast Guard Says It Stopped Ships Carrying Fuel to Cuba",
+        "source": "New York Times",
+        "country": "US",
+        "link": "https://www.nytimes.com/2026/10/02/world/americas/coast-guard-cuba-ships-oil.html"
+      }
+    ]
+  },
+  {
+    "label": "Flydubai Co-Pilot Axe Attack",
+    "size": 2,
+    "avg_similarity": 0.894,
+    "articles": [
+      {
+        "title": "Flydubai co-pilot used crash axe to attack captain, says UAE",
+        "source": "The Guardian",
+        "country": "UK",
+        "link": "https://www.theguardian.com/world/2026/oct/03/flydubai-co-pilot-used-crash-axe-to-attack-captain-says-uae"
+      },
+      {
+        "title": "FlyDubai Co-Pilot Used Crash Ax in ‘Terrorist’ Cockpit Attack, Emirates Says",
+        "source": "New York Times",
+        "country": "US",
+        "link": "https://www.nytimes.com/2026/10/03/world/middleeast/flydubai-ax-cockpit.html"
+      }
+    ]
+  },
+  {
+    "label": "Canada's Role in European Union",
+    "size": 2,
+    "avg_similarity": 0.819,
+    "articles": [
+      {
+        "title": "Understanding Canada’s Europe Pivot",
+        "source": "New York Times",
+        "country": "US",
+        "link": "https://www.nytimes.com/2026/10/03/world/canada/carney-canada-european-union-trade-currency.html"
+      },
+      {
+        "title": "The Future of Europe: Canada in the EU Sounds Crazy. Is It?",
+        "source": "Der Spiegel",
+        "country": "DE",
+        "link": "https://www.spiegel.de/international/world/the-future-of-europe-canada-in-the-eu-sounds-crazy-is-it-a-57073424-ab99-4c05-808b-e373a1f4edf5#ref=rss"
+      }
+    ]
+  },
+  {
+    "label": "Desalojo policial de asentamiento migratorio",
     "size": 3,
     "avg_similarity": 0.853,
     "articles": [
@@ -198,7 +350,7 @@
     ]
   },
   {
-    "label": "Marc Márquez supera de nuevo a Jorge Martín en el GP de Japón: el Mundial está en un puño",
+    "label": "MotoGP battle between Marc Márquez and Jorge Martín",
     "size": 3,
     "avg_similarity": 0.769,
     "articles": [
@@ -223,7 +375,7 @@
     ]
   },
   {
-    "label": "España: quién lo hubiera dicho",
+    "label": "Spanish tourism marketing tactics",
     "size": 3,
     "avg_similarity": 0.831,
     "articles": [
@@ -248,7 +400,7 @@
     ]
   },
   {
-    "label": "El ascenso de la ultraderecha aboca a una Catalunya ingobernable",
+    "label": "Catalonia's Unrest",
     "size": 3,
     "avg_similarity": 0.791,
     "articles": [
@@ -273,7 +425,7 @@
     ]
   },
   {
-    "label": "Visite imprévue du chancelier allemand à Kiev : \"Merz arrive avec des annonces très concrètes\"",
+    "label": "Friedrich Merz visit Ukraine",
     "size": 2,
     "avg_similarity": 0.786,
     "articles": [
@@ -292,7 +444,7 @@
     ]
   },
   {
-    "label": "\"Le courage est contagieux\" : Zara Esmaeili raconte son combat pour chanter en Iran",
+    "label": "Contagious Courage",
     "size": 2,
     "avg_similarity": 0.915,
     "articles": [
@@ -311,7 +463,7 @@
     ]
   },
   {
-    "label": "Éthiopie : les troupes fédérales sont entrées dans Mekele capitale du Tigré",
+    "label": "Ethiopian federal troops advancing on Mekele",
     "size": 2,
     "avg_similarity": 0.786,
     "articles": [
@@ -330,45 +482,7 @@
     ]
   },
   {
-    "label": "Ukraine : un deuxième pont de Kiev touché par des frappes russes",
-    "size": 2,
-    "avg_similarity": 0.789,
-    "articles": [
-      {
-        "title": "Ukraine : un deuxième pont de Kiev touché par des frappes russes",
-        "source": "France 24",
-        "country": "FR",
-        "link": "https://www.france24.com/fr/vid%C3%A9o/20261003-ukraine-un-deuxi%C3%A8me-pont-de-kiev-touch%C3%A9-par-des-frappes-russes"
-      },
-      {
-        "title": "Rusia bombardea puentes clave en Kiev e insta a los diplomáticos a abandonar la ciudad",
-        "source": "El País",
-        "country": "ES",
-        "link": "https://elpais.com/internacional/2026-10-03/rusia-bombardea-cuatro-puentes-clave-en-kiev-y-siembra-el-caos.html"
-      }
-    ]
-  },
-  {
-    "label": "Les Houthis disent avoir ciblé un site d'Aramco à Riyad après des raids saoudiens sur Sanaa",
-    "size": 2,
-    "avg_similarity": 0.75,
-    "articles": [
-      {
-        "title": "Les Houthis disent avoir ciblé un site d'Aramco à Riyad après des raids saoudiens sur Sanaa",
-        "source": "France 24",
-        "country": "FR",
-        "link": "https://www.france24.com/fr/moyen-orient/20261003-y%C3%A9men-fortes-explosions-entendues-capitale-sanaa-contr%C3%B4l%C3%A9e-houthis-arabie-saoudite"
-      },
-      {
-        "title": "Houthis claim strike on Aramco site as Yemen fighting intensifies",
-        "source": "Al Jazeera",
-        "country": "QA",
-        "link": "https://www.aljazeera.com/news/2026/10/4/houthis-claim-strike-on-saudi-energy-facility-as-yemen-fighting-intensifies?traffic_source=rss"
-      }
-    ]
-  },
-  {
-    "label": "La mayoría del PSOE y el Gobierno anima a Sánchez a convocar elecciones ya: “Ahora hay una oportunidad”",
+    "label": "Spanish Socialist Workers Party and Government urging...",
     "size": 2,
     "avg_similarity": 0.774,
     "articles": [
@@ -387,7 +501,7 @@
     ]
   },
   {
-    "label": "Dos muertos y un desaparecido en Cataluña por las lluvias torrenciales",
+    "label": "Catalonia Floods",
     "size": 2,
     "avg_similarity": 0.78,
     "articles": [
@@ -406,7 +520,7 @@
     ]
   },
   {
-    "label": "España supera una desconexión ante República Checa en un partido con multitud de ocasiones",
+    "label": "Spain beats Czech Republic",
     "size": 2,
     "avg_similarity": 0.785,
     "articles": [
@@ -425,26 +539,7 @@
     ]
   },
   {
-    "label": "Kaliningrado, el exclave militarizado ruso encajado en la OTAN que desató la amenaza nuclear de Putin",
-    "size": 2,
-    "avg_similarity": 0.757,
-    "articles": [
-      {
-        "title": "Kaliningrado, el exclave militarizado ruso encajado en la OTAN que desató la amenaza nuclear de Putin",
-        "source": "El País",
-        "country": "ES",
-        "link": "https://elpais.com/internacional/2026-10-03/kaliningrado-el-exclave-militarizado-ruso-encajado-en-la-otan-que-desato-la-amenaza-nuclear-de-putin.html"
-      },
-      {
-        "title": "Putin's War of Aggression: A Journey Along the Dnipro in Wartime Ukraine",
-        "source": "Der Spiegel",
-        "country": "DE",
-        "link": "https://www.spiegel.de/international/world/putins-war-of-aggression-a-journey-along-the-dnipro-in-wartime-ukraine-a-b943efc8-a374-4f78-a8e9-0d55e750a8dc#ref=rss"
-      }
-    ]
-  },
-  {
-    "label": "El buen legado del decreto de vivienda",
+    "label": "Decree on Housing",
     "size": 2,
     "avg_similarity": 0.773,
     "articles": [
@@ -463,7 +558,7 @@
     ]
   },
   {
-    "label": "La zona de Barcelona vive el día con más lluvia de los últimos veinte años",
+    "label": "Barcelona's rainy day",
     "size": 2,
     "avg_similarity": 0.753,
     "articles": [
@@ -482,7 +577,7 @@
     ]
   },
   {
-    "label": "¿Cuál es el mejor banco para pymes en España? El modelo de Santander reconocido por Euromoney",
+    "label": "Banking model comparison in Spain",
     "size": 2,
     "avg_similarity": 0.766,
     "articles": [
@@ -501,83 +596,7 @@
     ]
   },
   {
-    "label": "Cornell president says university 'must do better' after frat house rape allegations",
-    "size": 2,
-    "avg_similarity": 0.976,
-    "articles": [
-      {
-        "title": "Cornell president says university 'must do better' after frat house rape allegations",
-        "source": "BBC World",
-        "country": "UK",
-        "link": "https://www.bbc.co.uk/news/articles/ckly0leelnz4o?at_medium=RSS&at_campaign=rss"
-      },
-      {
-        "title": "Cornell president says university ‘must do better’ after rape allegations",
-        "source": "Al Jazeera",
-        "country": "QA",
-        "link": "https://www.aljazeera.com/video/newsfeed/2026/10/4/cornell-president-says-university-must-do-better-after-rape-allegations?traffic_source=rss"
-      }
-    ]
-  },
-  {
-    "label": "Debris found from plane that went missing off US coast",
-    "size": 2,
-    "avg_similarity": 0.892,
-    "articles": [
-      {
-        "title": "Debris found from plane that went missing off US coast",
-        "source": "BBC World",
-        "country": "UK",
-        "link": "https://www.bbc.co.uk/news/articles/cme3x85013llo?at_medium=RSS&at_campaign=rss"
-      },
-      {
-        "title": "Debris from missing medical plane found, US coastguard says",
-        "source": "Al Jazeera",
-        "country": "QA",
-        "link": "https://www.aljazeera.com/news/2026/10/3/air-ambulance-missing-on-flight-from-bermuda-to-boston?traffic_source=rss"
-      }
-    ]
-  },
-  {
-    "label": "US Coast Guard says it intercepted ship carrying fuel to Cuba",
-    "size": 2,
-    "avg_similarity": 0.79,
-    "articles": [
-      {
-        "title": "US Coast Guard says it intercepted ship carrying fuel to Cuba",
-        "source": "The Guardian",
-        "country": "UK",
-        "link": "https://www.theguardian.com/world/2026/oct/02/us-coast-guard-says-it-has-intercepted-ship-carrying-fuel-to-cuba"
-      },
-      {
-        "title": "Coast Guard Says It Stopped Ships Carrying Fuel to Cuba",
-        "source": "New York Times",
-        "country": "US",
-        "link": "https://www.nytimes.com/2026/10/02/world/americas/coast-guard-cuba-ships-oil.html"
-      }
-    ]
-  },
-  {
-    "label": "Flydubai co-pilot used crash axe to attack captain, says UAE",
-    "size": 2,
-    "avg_similarity": 0.894,
-    "articles": [
-      {
-        "title": "Flydubai co-pilot used crash axe to attack captain, says UAE",
-        "source": "The Guardian",
-        "country": "UK",
-        "link": "https://www.theguardian.com/world/2026/oct/03/flydubai-co-pilot-used-crash-axe-to-attack-captain-says-uae"
-      },
-      {
-        "title": "FlyDubai Co-Pilot Used Crash Ax in ‘Terrorist’ Cockpit Attack, Emirates Says",
-        "source": "New York Times",
-        "country": "US",
-        "link": "https://www.nytimes.com/2026/10/03/world/middleeast/flydubai-ax-cockpit.html"
-      }
-    ]
-  },
-  {
-    "label": "American High School Students Are Selling Guns Bound for Cartels",
+    "label": "Gun Trafficking by American Teens",
     "size": 2,
     "avg_similarity": 0.781,
     "articles": [
@@ -596,7 +615,7 @@
     ]
   },
   {
-    "label": "Student Protests Rattle France as Police Clashes Bring Blockades and Tear Gas",
+    "label": "French High School Protests",
     "size": 2,
     "avg_similarity": 0.752,
     "articles": [
@@ -611,25 +630,6 @@
         "source": "New York Times",
         "country": "US",
         "link": "https://www.nytimes.com/2026/10/03/world/europe/high-school-student-protest-what-to-know.html"
-      }
-    ]
-  },
-  {
-    "label": "Understanding Canada’s Europe Pivot",
-    "size": 2,
-    "avg_similarity": 0.819,
-    "articles": [
-      {
-        "title": "Understanding Canada’s Europe Pivot",
-        "source": "New York Times",
-        "country": "US",
-        "link": "https://www.nytimes.com/2026/10/03/world/canada/carney-canada-european-union-trade-currency.html"
-      },
-      {
-        "title": "The Future of Europe: Canada in the EU Sounds Crazy. Is It?",
-        "source": "Der Spiegel",
-        "country": "DE",
-        "link": "https://www.spiegel.de/international/world/the-future-of-europe-canada-in-the-eu-sounds-crazy-is-it-a-57073424-ab99-4c05-808b-e373a1f4edf5#ref=rss"
       }
     ]
   }

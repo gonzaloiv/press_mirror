@@ -1,12 +1,15 @@
 import json
 import re
+from datetime import date
+from pathlib import Path
+
 import numpy as np
 from sklearn.cluster import AgglomerativeClustering
 from sklearn.metrics.pairwise import cosine_similarity
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 INPUT_FILE = "embeddings.npz"
-OUTPUT_FILE = "clusters.json"
+HISTORY_DIR = Path(__file__).resolve().parent / "history"
 
 SIMILARITY_THRESHOLD = 0.75    # tune this — see notes below
 LABEL_MODEL_NAME = "Qwen/Qwen2.5-1.5B-Instruct"
@@ -159,9 +162,11 @@ def main():
     )
     print(f"Kept {len(clusters)} clusters with 2+ articles.")
 
-    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
+    HISTORY_DIR.mkdir(parents=True, exist_ok=True)
+    output_file = HISTORY_DIR / f"clusters_{date.today().isoformat()}.json"
+    with output_file.open("w", encoding="utf-8") as f:
         json.dump(clusters, f, ensure_ascii=False, indent=2)
-    print(f"Written to {OUTPUT_FILE}")
+    print(f"Written to {output_file}")
 
 
 if __name__ == "__main__":

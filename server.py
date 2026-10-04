@@ -1,8 +1,18 @@
 import json
+from pathlib import Path
+
 from flask import Flask, render_template
 
 app = Flask(__name__)
-CLUSTERS_FILE = "clusters.json"
+HISTORY_DIR = Path(__file__).resolve().parent / "history"
+
+
+def latest_clusters_file() -> Path:
+    """Find the most recent dated cluster snapshot."""
+    files = sorted(HISTORY_DIR.glob("clusters_????-??-??.json"), reverse=True)
+    if not files:
+        raise FileNotFoundError(f"No dated cluster files found in {HISTORY_DIR}")
+    return files[0]
 
 
 def similarity_band(score: float) -> tuple[str, str]:
@@ -16,7 +26,7 @@ def similarity_band(score: float) -> tuple[str, str]:
 
 @app.route("/")
 def index():
-    with open(CLUSTERS_FILE, encoding="utf-8") as f:
+    with latest_clusters_file().open(encoding="utf-8") as f:
         clusters = json.load(f)
 
     # Enrich each cluster with band labels for display.
@@ -33,7 +43,7 @@ ISO_FIX = {
 
 @app.route("/map/<int:cluster_id>")
 def map_view(cluster_id):
-    with open("clusters.json", encoding="utf-8") as f:
+    with latest_clusters_file().open(encoding="utf-8") as f:
         clusters = json.load(f)
 
     cluster = clusters[cluster_id]
