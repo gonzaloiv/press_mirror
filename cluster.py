@@ -134,8 +134,14 @@ def build_clusters(labels, titles, sources, countries, links, embeddings, labele
             "articles": articles,
         })
 
-    # Show the most-covered stories first.
-    result.sort(key=lambda c: c["size"], reverse=True)
+    # Prefer stories covered in more countries; use article count only for ties.
+    result.sort(
+        key=lambda c: (
+            len({article["country"] for article in c["articles"]}),
+            c["size"],
+        ),
+        reverse=True,
+    )
     return result
 
 
