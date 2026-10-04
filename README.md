@@ -9,3 +9,5 @@ Terminal 2 — runs ingest, embed, cluster, and render in sequence: python pipel
 Renders images only for the latest cluster snapshot, replacing only that day's images: python pipeline\render.py --clean
 
 Daily headlines and clusters are saved under history/ as headlines_YYYY-MM-DD.json and clusters_YYYY-MM-DD.json. Rendered images are archived under static/maps/YYYY-MM-DD/.
+
+Shared country-code helpers are in shared/, and the generated embedding artifact is stored at data/embeddings.npz.

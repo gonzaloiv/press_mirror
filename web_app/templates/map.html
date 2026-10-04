@@ -61,6 +61,7 @@
 
         .legend {
             display: flex;
+            flex-wrap: wrap;
             gap: 32px;
             align-items: center;
             margin-top: 24px;
@@ -86,6 +87,11 @@
             border: 1px solid var(--border);
         }
 
+        .swatch.untracked {
+            background: transparent;
+            border: 1px solid #9ca3af;
+        }
+
         .sources {
             margin-top: 20px;
             font-size: 17px;
@@ -98,6 +104,18 @@
             font-weight: 600;
         }
 
+        .back-link {
+            align-self: flex-start;
+            margin-bottom: 16px;
+            color: var(--muted);
+            font-size: 15px;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
         @media (max-width: 700px) {
             .subhead {
                 margin-bottom: 16px;
@@ -105,6 +123,7 @@
 
             .legend {
                 gap: 16px;
+                row-gap: 8px;
                 margin-top: 12px;
                 font-size: 14px;
             }
@@ -123,6 +142,7 @@
 
 <body>
     <div class="canvas">
+        <a href="/" class="back-link">← All maps</a>
         <h1 class="headline">{{ label }}</h1>
         <p class="subhead">
             Covered in {{ covered|length }} of {{ countries|length }} countries tracked.
@@ -132,7 +152,8 @@
 
         <div class="legend">
             <span><span class="swatch covered"></span>Covered</span>
-            <span><span class="swatch silent"></span>Not covered</span>
+            <span><span class="swatch silent"></span>Not covered by tracked sources</span>
+            <span><span class="swatch untracked"></span>Not tracked</span>
         </div>
 
         <div class="sources">
@@ -146,6 +167,7 @@
     <script>
         // Data injected by Flask.
         const covered = {{ covered| tojson }};
+        const tracked = {{ countries| tojson }};
 
         // --- Country code normalization -----------------------------------------
         // Natural Earth quirks: ISO_A2 is often "-99" for France, Norway, Kosovo,
@@ -160,8 +182,9 @@
             return ISO_FIX[raw] || raw;
         }
 
-        // Normalize our own covered list the same way, so comparison is apples-to-apples.
+        // Normalize both lists so comparisons match the GeoJSON country codes.
         const coveredNorm = covered.map(c => ISO_FIX[c] || c);
+        const trackedNorm = tracked.map(c => ISO_FIX[c] || c);
 
         // --- Map setup -----------------------------------------------------------
         const map = L.map('map', {
@@ -177,6 +200,7 @@
 
         const COVERED = '#2563eb';
         const SILENT = '#e5e7eb';
+        const UNTRACKED_OUTLINE = '#9ca3af';
 
         // --- Load country borders -----------------------------------------------
         const GEOJSON_URL = 'https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson';
@@ -188,11 +212,27 @@
                     style: feature => {
                         const iso = getIso(feature);
                         const isCovered = coveredNorm.includes(iso);
+                        const isTracked = trackedNorm.includes(iso);
+                        if (isCovered) {
+                            return {
+                                color: '#ffffff',
+                                weight: 1,
+                                fillColor: COVERED,
+                                fillOpacity: 1,
+                            };
+                        }
+                        if (isTracked) {
+                            return {
+                                color: '#ffffff',
+                                weight: 1,
+                                fillColor: SILENT,
+                                fillOpacity: 1,
+                            };
+                        }
                         return {
-                            color: '#ffffff',
+                            color: UNTRACKED_OUTLINE,
                             weight: 1,
-                            fillColor: isCovered ? COVERED : SILENT,
-                            fillOpacity: 1,
+                            fillOpacity: 0,
                         };
                     },
                 }).addTo(map);

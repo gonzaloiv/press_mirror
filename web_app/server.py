@@ -8,9 +8,10 @@ PROJECT_DIR = Path(__file__).resolve().parent.parent
 if str(PROJECT_DIR) not in sys.path:
     sys.path.insert(0, str(PROJECT_DIR))
 
-from country_codes import ISO_FIX, to_iso
+from shared.country_codes import ISO_FIX, to_iso
 
 HISTORY_DIR = PROJECT_DIR / "history"
+SOURCES_FILE = PROJECT_DIR / "pipeline" / "sources.json"
 STATIC_DIR = PROJECT_DIR / "static"
 STATIC_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -25,20 +26,40 @@ def latest_clusters_file() -> Path:
     return files[0]
 
 
+def tracked_countries() -> list[str]:
+    """Return normalized country codes for configured news sources."""
+    with SOURCES_FILE.open(encoding="utf-8") as f:
+        sources = json.load(f)
+    return sorted({to_iso(feed["country"]) for feed in sources["feeds"]})
+
+
+TRACKED_COUNTRIES = tracked_countries()
+
+
 @app.route("/")
 def index():
     clusters_file = latest_clusters_file()
     with clusters_file.open(encoding="utf-8") as f:
         clusters = json.load(f)
 
-    for c in clusters:
-        c["countries"] = sorted({to_iso(a["country"]) for a in c["articles"]})
-
     snapshot_date = clusters_file.stem.removeprefix("clusters_")
+    cards = [
+        {
+            "index": index,
+            "label": cluster["label"],
+            "countries": sorted({
+                to_iso(article["country"])
+                for article in cluster["articles"]
+            }),
+            "image_path": (
+                f"/static/maps/{snapshot_date}/{index}_small.png"
+            ),
+        }
+        for index, cluster in enumerate(clusters[:6])
+    ]
     return render_template(
-        "index.html",
-        clusters=clusters,
-        maps_date=snapshot_date,
+        "grid.html",
+        cards=cards,
     )
 
 @app.route("/map/<int:cluster_id>")
@@ -61,7 +82,7 @@ def map_view(cluster_id):
         "map.html",
         label=cluster["label"],
         covered=covered,
-        countries=["FR", "ES", "DE", "IT", "GB", "US", "QA", "NL", "PT", "PL"],
+        countries=TRACKED_COUNTRIES,
         sources_by_country=sources_by_country,
         iso_fix=ISO_FIX,
     )

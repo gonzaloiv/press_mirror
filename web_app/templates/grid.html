@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Press Mirror</title>
+    <style>
+        :root {
+            --background: #f8fafc;
+            --card: #ffffff;
+            --border: #dbe1e8;
+            --border-hover: #9aa7b5;
+            --text: #17212b;
+            --muted: #667382;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 3rem 1.5rem;
+            background: var(--background);
+            color: var(--text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            margin: 0 0 0.5rem;
+            font-size: 2rem;
+        }
+
+        .tagline {
+            margin: 0;
+            color: var(--muted);
+            font-size: 1rem;
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: var(--card);
+            color: inherit;
+            text-decoration: none;
+            transition: transform 150ms ease, border-color 150ms ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            border-color: var(--border-hover);
+        }
+
+        .card:focus-visible {
+            outline: 3px solid #7c9ec4;
+            outline-offset: 3px;
+        }
+
+        .card img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: contain;
+            background: #ffffff;
+        }
+
+        .card-content {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            padding: 1rem;
+        }
+
+        .headline {
+            display: -webkit-box;
+            overflow: hidden;
+            min-height: 2.7em;
+            font-size: 1rem;
+            font-weight: 700;
+            line-height: 1.35;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+        }
+
+        .codes {
+            margin-top: auto;
+            padding-top: 0.75rem;
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 900px) {
+            .story-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 599px) {
+            body {
+                padding: 2rem 1rem;
+            }
+
+            .story-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+        <header>
+            <h1>Press Mirror</h1>
+            <p class="tagline">One story. Every front page.</p>
+        </header>
+
+        <section class="story-grid" aria-label="Today's top stories">
+            {% for card in cards %}
+            <a class="card" href="/map/{{ card.index }}">
+                <img src="{{ card.image_path }}" alt="">
+                <div class="card-content">
+                    <div class="headline">{{ card.label }}</div>
+                    <div class="codes">{{ card.countries|join(" · ") }}</div>
+                </div>
+            </a>
+            {% endfor %}
+        </section>
+    </main>
+</body>
+
+</html>

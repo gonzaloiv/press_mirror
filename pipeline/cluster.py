@@ -13,9 +13,9 @@ from sklearn.cluster import AgglomerativeClustering
 from sklearn.metrics.pairwise import cosine_similarity
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
-from country_codes import to_iso
+from shared.country_codes import to_iso
 
-INPUT_FILE = PROJECT_DIR / "embeddings.npz"
+INPUT_FILE = PROJECT_DIR / "data" / "embeddings.npz"
 HISTORY_DIR = PROJECT_DIR / "history"
 
 SIMILARITY_THRESHOLD = 0.75    # tune this — see notes below

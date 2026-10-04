@@ -6,7 +6,7 @@ from numpy.linalg import norm
 
 PROJECT_DIR = Path(__file__).resolve().parent.parent
 HISTORY_DIR = PROJECT_DIR / "history"
-OUTPUT_FILE = PROJECT_DIR / "embeddings.npz"
+OUTPUT_FILE = PROJECT_DIR / "data" / "embeddings.npz"
 MODEL_NAME = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
 
 
@@ -26,6 +26,7 @@ def main():
     if not articles:
         raise ValueError(f"No headlines found in {input_file}. Run ingest.py first.")
 
+    OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
     headlines = [a["title"] for a in articles]
     print(f"Loaded {len(headlines)} headlines.")
 
