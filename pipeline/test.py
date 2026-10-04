@@ -2,7 +2,7 @@
 import json
 from pathlib import Path
 
-history_dir = Path(__file__).resolve().parent / "history"
+history_dir = Path(__file__).resolve().parent.parent / "history"
 cluster_files = sorted(history_dir.glob("clusters_????-??-??.json"), reverse=True)
 if not cluster_files:
     raise FileNotFoundError(f"No dated cluster files found in {history_dir}")

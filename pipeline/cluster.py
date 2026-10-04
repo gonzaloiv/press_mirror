@@ -8,8 +8,9 @@ from sklearn.cluster import AgglomerativeClustering
 from sklearn.metrics.pairwise import cosine_similarity
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
-INPUT_FILE = "embeddings.npz"
-HISTORY_DIR = Path(__file__).resolve().parent / "history"
+PROJECT_DIR = Path(__file__).resolve().parent.parent
+INPUT_FILE = PROJECT_DIR / "embeddings.npz"
+HISTORY_DIR = PROJECT_DIR / "history"
 
 SIMILARITY_THRESHOLD = 0.75    # tune this — see notes below
 LABEL_MODEL_NAME = "Qwen/Qwen2.5-1.5B-Instruct"

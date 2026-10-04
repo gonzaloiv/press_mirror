@@ -4,7 +4,7 @@ from pathlib import Path
 from flask import Flask, render_template
 
 app = Flask(__name__)
-HISTORY_DIR = Path(__file__).resolve().parent / "history"
+HISTORY_DIR = Path(__file__).resolve().parent.parent / "history"
 
 
 def latest_clusters_file() -> Path:

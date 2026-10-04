@@ -1,16 +1,18 @@
 import json
 import numpy as np
+from pathlib import Path
 from sentence_transformers import SentenceTransformer
 from numpy.linalg import norm
 
-INPUT_FILE = "headlines.json"
-OUTPUT_FILE = "embeddings.npz"
+PROJECT_DIR = Path(__file__).resolve().parent.parent
+INPUT_FILE = PROJECT_DIR / "headlines.json"
+OUTPUT_FILE = PROJECT_DIR / "embeddings.npz"
 MODEL_NAME = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
 
 
 def main():
     # 1. Load the headlines we collected in Task 2.
-    with open(INPUT_FILE, encoding="utf-8") as f:
+    with INPUT_FILE.open(encoding="utf-8") as f:
         articles = json.load(f)
 
     if not articles:
@@ -52,9 +54,6 @@ def main():
         order = np.argsort(-sims)[:top_k]
         for i in order:
             print(f"  {sims[i]:.3f}  {headlines[i]}")
-
-    print("\nSimilar to 'ukraine war':")
-    most_similar("ukraine war")
 
 if __name__ == "__main__":
     main()

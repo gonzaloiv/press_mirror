@@ -1,6 +1,7 @@
 import json
 import time
 from datetime import datetime, timezone
+from pathlib import Path
 
 import feedparser
 
@@ -28,7 +29,8 @@ FEEDS = [
     {"source": "Der Spiegel",     "country": "DE", "url": "https://www.spiegel.de/international/index.rss"},
 ]
 
-OUTPUT_FILE = "headlines.json"
+PROJECT_DIR = Path(__file__).resolve().parent.parent
+OUTPUT_FILE = PROJECT_DIR / "headlines.json"
 
 
 def fetch_feed(feed: dict) -> list[dict]:
@@ -90,7 +92,7 @@ def main():
             seen.add(a["link"])
             unique.append(a)
 
-    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
+    with OUTPUT_FILE.open("w", encoding="utf-8") as f:
         json.dump(unique, f, ensure_ascii=False, indent=2)
 
     print(f"\nDone. {len(unique)} unique headlines written to {OUTPUT_FILE}")
