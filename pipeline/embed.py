@@ -59,6 +59,7 @@ def main():
         sources=np.array([a["source"] for a in articles], dtype=object),
         countries=np.array([a["country"] for a in articles], dtype=object),
         links=np.array([a["link"] for a in articles], dtype=object),
+        fetched_at=np.array([a.get("fetched_at") for a in articles], dtype=object),
     )
     print(f"Saved to {OUTPUT_FILE}")
 

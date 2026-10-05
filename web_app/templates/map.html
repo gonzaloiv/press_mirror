@@ -14,7 +14,7 @@
         <a href="{{ url_for('index', date=snapshot_date) }}" class="back-link">← All maps</a>
         {% endif %}
         <div id="thumbnail-content">
-            <h1 class="headline">{{ label }}</h1>
+            <h1 class="headline{% if thumbnail %} thumbnail-headline{% endif %}">{{ label }}</h1>
             <p class="subhead">
                 {{ coverage_copy }}
             </p>

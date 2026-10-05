@@ -67,9 +67,22 @@ h1 {
     text-decoration: underline;
 }
 
-.date-pagination time {
+.date-info {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.date-pagination .date-info > time:first-child {
     font-weight: 600;
     color: var(--text);
+}
+
+.ingestion-time {
+    color: var(--muted);
+    font-size: 0.75rem;
+    white-space: nowrap;
 }
 
 .story-grid {

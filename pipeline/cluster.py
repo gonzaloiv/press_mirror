@@ -39,12 +39,18 @@ class ClusterMembers:
 
 def load_data():
     data = np.load(INPUT_FILE, allow_pickle=True)
+    titles = list(data["titles"])
     return (
         data["embeddings"],
-        list(data["titles"]),
+        titles,
         list(data["sources"]),
         list(data["countries"]),
         list(data["links"]),
+        (
+            list(data["fetched_at"])
+            if "fetched_at" in data.files
+            else [None] * len(titles)
+        ),
     )
 
 
@@ -320,6 +326,7 @@ def build_clusters(
     labeler,
     deduplicate: bool = DEDUPLICATE_WITHIN_CLUSTERS,
     merge: bool = MERGE_RELATED_CLUSTERS,
+    fetched_at=None,
 ):
     """Post-process primary clusters, then build output with similarity stats."""
     raw_clusters = {}
@@ -363,12 +370,15 @@ def build_clusters(
 
         articles = []
         for i in indices:
-            articles.append({
+            article = {
                 "title": titles[i],
                 "source": sources[i],
                 "country": countries[i],
                 "link": links[i],
-            })
+            }
+            if fetched_at is not None and fetched_at[i] is not None:
+                article["fetched_at"] = str(fetched_at[i])
+            articles.append(article)
 
         centroid = sub.mean(axis=0)
         similarities = cosine_similarity(
@@ -406,7 +416,7 @@ def build_clusters(
 
 
 def main():
-    embeddings, titles, sources, countries, links = load_data()
+    embeddings, titles, sources, countries, links, fetched_at = load_data()
     print(f"Loaded {len(titles)} headlines.")
 
     labels = cluster(embeddings)
@@ -424,6 +434,7 @@ def main():
         links,
         embeddings,
         labeler,
+        fetched_at=fetched_at,
     )
     print(f"Kept {len(clusters)} clusters with 2+ articles.")
 

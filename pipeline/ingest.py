@@ -127,6 +127,7 @@ def recover_malformed_feed(feed: dict):
 def fetch_feed(feed: dict, parsed) -> list[dict]:
     """Convert a parsed feed response into headline dicts."""
     articles = []
+    fetched_at = datetime.now(timezone.utc).isoformat()
     for entry in parsed.entries:
         # Every feed names things slightly differently. Be defensive.
         title = str(entry.get("title") or "").strip()
@@ -148,7 +149,7 @@ def fetch_feed(feed: dict, parsed) -> list[dict]:
             "source": feed["source"],
             "country": feed["country"],
             "published": published_iso,
-            "fetched_at": datetime.now(timezone.utc).isoformat(),
+            "fetched_at": fetched_at,
         })
 
     print(f"    -> {len(articles)} headlines")

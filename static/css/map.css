@@ -43,6 +43,10 @@ body {
     margin: 0 0 12px;
 }
 
+.thumbnail-headline {
+    min-height: 2.3em;
+}
+
 .subhead {
     font-size: clamp(16px, 2vw, 22px);
     color: var(--muted);

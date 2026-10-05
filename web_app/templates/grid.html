@@ -21,7 +21,12 @@
             {% else %}
             <span></span>
             {% endif %}
-            <time datetime="{{ selected_date }}">{{ date_label }}</time>
+            <div class="date-info">
+                <time datetime="{{ selected_date }}">{{ date_label }}</time>
+                {% if ingestion_time %}
+                <time class="ingestion-time" datetime="{{ ingestion_time }}">Collected {{ ingestion_time_label }}</time>
+                {% endif %}
+            </div>
             {% if newer_url %}
             <a class="newer-day" href="{{ newer_url }}" rel="prev">Newer day →</a>
             {% else %}

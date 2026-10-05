@@ -1,6 +1,6 @@
 import json
 import sys
-from datetime import date
+from datetime import date, datetime, timezone
 from pathlib import Path
 
 from flask import Flask, abort, render_template, request, url_for
@@ -21,6 +21,19 @@ STATIC_DIR = PROJECT_DIR / "static"
 STATIC_DIR.mkdir(parents=True, exist_ok=True)
 
 app = Flask(__name__, static_folder=str(STATIC_DIR), static_url_path="/static")
+
+
+def latest_fetched_at(articles: list[dict]) -> datetime | None:
+    timestamps = []
+    for article in articles:
+        fetched_at = article.get("fetched_at")
+        if not fetched_at:
+            continue
+        timestamp = datetime.fromisoformat(fetched_at.replace("Z", "+00:00"))
+        if timestamp.tzinfo is None:
+            timestamp = timestamp.replace(tzinfo=timezone.utc)
+        timestamps.append(timestamp.astimezone(timezone.utc))
+    return max(timestamps, default=None)
 
 
 def cluster_files() -> list[Path]:
@@ -62,6 +75,13 @@ def index():
     with clusters_file.open(encoding="utf-8") as f:
         clusters = json.load(f)
 
+    headlines_file = HISTORY_DIR / f"headlines_{selected_date}.json"
+    headlines = []
+    if headlines_file.exists():
+        with headlines_file.open(encoding="utf-8") as f:
+            headlines = json.load(f)
+    ingestion_time = latest_fetched_at(headlines)
+
     cards = [
         {
             "index": index,
@@ -81,6 +101,12 @@ def index():
         date_label=f"{date.fromisoformat(selected_date).day} "
         f"{date.fromisoformat(selected_date):%b %Y}",
         selected_date=selected_date,
+        ingestion_time=(
+            ingestion_time.isoformat() if ingestion_time else None
+        ),
+        ingestion_time_label=(
+            ingestion_time.strftime("%H:%M UTC") if ingestion_time else None
+        ),
         newer_url=url_for("index", date=newer_date) if newer_date else None,
         older_url=url_for("index", date=older_date) if older_date else None,
     )
