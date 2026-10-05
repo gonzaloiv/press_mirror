@@ -27,8 +27,25 @@
         </div>
 
         <div class="sources">
-            {% for code, names in sources_by_country.items() %}
-            <div><b>{{ code }}</b> — {{ names|join(", ") }}</div>
+            {% for group in source_groups %}
+            <section class="source-country">
+                <div class="source-country-name">{{ group.name }}</div>
+                <ul class="source-outlets">
+                    {% for outlet in group.outlets %}
+                    <li>
+                        <span class="source-outlet-name">{{ outlet.name }}</span>
+                        {% if outlet.headline %}
+                        <span class="source-outlet-separator"> — </span>
+                        {% if outlet.url %}
+                        <a class="source-headline" href="{{ outlet.url }}" target="_blank" rel="noopener noreferrer">{{ outlet.headline }}</a>
+                        {% else %}
+                        <span class="source-headline">{{ outlet.headline }}</span>
+                        {% endif %}
+                        {% endif %}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </section>
             {% endfor %}
         </div>
         <p class="coverage-note">

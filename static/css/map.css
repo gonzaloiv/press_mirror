@@ -98,9 +98,44 @@ body {
     line-height: 1.5;
 }
 
-.sources b {
+.source-country {
+    margin-bottom: 0;
+}
+
+.source-country + .source-country {
+    margin-top: 2em;
+}
+
+.source-country-name {
+    margin-bottom: 2px;
+    color: var(--muted);
+    font-size: 14px;
+    font-variant: small-caps;
+    letter-spacing: 0.04em;
+}
+
+.source-outlets {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.source-outlets li {
     color: var(--ink);
-    font-weight: 600;
+}
+
+.source-outlet-name {
+    color: var(--muted);
+}
+
+.source-headline {
+    color: var(--ink);
+    text-decoration: none;
+}
+
+.source-headline:hover,
+.source-headline:focus-visible {
+    text-decoration: underline;
 }
 
 .coverage-note {
@@ -174,10 +209,6 @@ body {
     .swatch {
         width: 13px;
         height: 13px;
-    }
-
-    .sources {
-        display: none;
     }
 
     .coverage-note {

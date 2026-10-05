@@ -10,6 +10,7 @@ if str(PROJECT_DIR) not in sys.path:
     sys.path.insert(0, str(PROJECT_DIR))
 
 from shared.country_codes import (
+    COUNTRY_NAMES,
     ISO_FIX,
     to_iso,
 )
@@ -20,6 +21,7 @@ STATIC_DIR = PROJECT_DIR / "static"
 STATIC_DIR.mkdir(parents=True, exist_ok=True)
 
 app = Flask(__name__, static_folder=str(STATIC_DIR), static_url_path="/static")
+
 
 def cluster_files() -> list[Path]:
     """Return available dated cluster snapshots, newest first."""
@@ -101,11 +103,38 @@ def map_view(cluster_id):
     # Normalize once, here. Footer still shows the original "UK" for readability.
     covered = sorted({to_iso(a["country"]) for a in cluster["articles"]})
 
-    # Dedupe sources per country for the footer.
+    # Cluster snapshots retain the source article nearest the centroid.
     sources_by_country = {}
-    for a in cluster["articles"]:
-        sources_by_country.setdefault(a["country"], set()).add(a["source"])
-    sources_by_country = {k: sorted(v) for k, v in sorted(sources_by_country.items())}
+    for article in cluster["articles"]:
+        source = article.get("source")
+        if not source:
+            continue
+
+        country_code = to_iso(article["country"])
+        country_sources = sources_by_country.setdefault(country_code, {})
+        country_sources.setdefault(
+            source,
+            {
+                "url": article.get("link") or None,
+                "headline": article.get("title", ""),
+            },
+        )
+
+    source_groups = [
+        {
+            "name": COUNTRY_NAMES.get(country_code, country_code),
+            "outlets": [
+                {"name": source, **article}
+                for source, article in sorted(
+                    country_sources.items(), key=lambda outlet: outlet[0].casefold()
+                )
+            ],
+        }
+        for country_code, country_sources in sources_by_country.items()
+    ]
+    source_groups.sort(
+        key=lambda group: (-len(group["outlets"]), group["name"].casefold())
+    )
 
     return render_template(
         "map.html",
@@ -119,7 +148,7 @@ def map_view(cluster_id):
         snapshot_date=snapshot_date.isoformat(),
         date_label=f"{snapshot_date.day} {snapshot_date:%b %Y}",
         countries=available_countries,
-        sources_by_country=sources_by_country,
+        source_groups=source_groups,
         iso_fix=ISO_FIX,
     )
 

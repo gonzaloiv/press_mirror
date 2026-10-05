@@ -206,17 +206,28 @@ def load_label_model():
 
 
 def generate_topic_label(titles, tokenizer, model):
-    """Generate an English topic label, retrying if it includes another script."""
+    """Generate an English label anchored to the centroid-nearest headline."""
+    representative_title = titles[0]
     headlines = "\n".join(f"- {title}" for title in titles)
     system_message = (
         "Write one concise topic label entirely in English, using at most "
-        f"{LABEL_MAX_WORDS} words. The headlines may be in any language: "
-        "understand and translate their shared topic into natural English. "
+        f"{LABEL_MAX_WORDS} words. The first headline is the representative "
+        "article, selected as closest to the cluster centroid. Preserve its "
+        "main event and status in the label. Use the other headlines only to "
+        "clarify the same event. Headlines may be in any language: understand "
+        "and translate the supported topic into natural English. "
         "Never copy a non-English phrase into the label. Use a clear, "
-        "natural noun phrase, not a sentence. Name only the shared subject; "
-        "do not add facts, entities, numbers, dates, results, predictions, "
-        "causes, or relationships that are not supported by the headlines. "
+        "natural noun phrase, not a sentence. Do not change what happened or "
+        "whether it is proposed, planned, delayed, completed, or cancelled. "
+        "Do not infer causes, results, dates, predictions, or relationships "
+        "between facts unless the representative headline explicitly states "
+        "them. Never turn background context into a cause. "
         "Output only the English label."
+    )
+    headline_context = (
+        f"Representative headline:\n- {representative_title}\n\n"
+        "Other related headlines:\n"
+        + "\n".join(f"- {title}" for title in titles[1:])
     )
 
     def generate(system_content):
@@ -225,7 +236,7 @@ def generate_topic_label(titles, tokenizer, model):
                 "role": "system",
                 "content": system_content,
             },
-            {"role": "user", "content": f"Headlines:\n{headlines}"},
+            {"role": "user", "content": headline_context},
         ]
         inputs = tokenizer.apply_chat_template(
             messages,
@@ -269,19 +280,19 @@ def generate_topic_label(titles, tokenizer, model):
                 "Use only the Latin alphabet."
             )
         if has_non_latin_letters(label):
-            first_non_latin = next(
-                index
-                for index, character in enumerate(label)
-                if character.isalpha()
-                and not unicode_name(character, "").startswith("LATIN ")
-            )
-            label = label[:first_non_latin].rstrip(" ,;:-")
             print(
-                "Warning: removed a non-Latin suffix from a generated label.",
+                "Warning: using the representative headline because the "
+                "label model did not return an English label.",
                 file=sys.stderr,
             )
+            return representative_title
     if not label:
-        raise RuntimeError("The label model returned an empty cluster summary.")
+        print(
+            "Warning: using the representative headline because the label "
+            "model returned an empty label.",
+            file=sys.stderr,
+        )
+        return representative_title
     source_numbers = set(re.findall(r"\b\d+\b", headlines))
     label = re.sub(
         r"\b\d+\b",
@@ -290,7 +301,12 @@ def generate_topic_label(titles, tokenizer, model):
     )
     label = " ".join(label.split())
     if not label:
-        raise RuntimeError("The label model returned no supported cluster summary.")
+        print(
+            "Warning: using the representative headline because the generated "
+            "label contained no supported content.",
+            file=sys.stderr,
+        )
+        return representative_title
     return label
 
 
@@ -354,8 +370,19 @@ def build_clusters(
                 "link": links[i],
             })
 
+        centroid = sub.mean(axis=0)
+        similarities = cosine_similarity(
+            sub,
+            centroid.reshape(1, -1),
+        ).ravel()
+        representative_position = int(np.argmax(similarities))
+        representative_index = indices[representative_position]
+        cluster_titles = [titles[representative_index]] + [
+            titles[i] for i in indices if i != representative_index
+        ]
+
         print(f"Generating label {label_number}/{len(label_clusters)}...", flush=True)
-        cluster_label = labeler([titles[i] for i in indices])
+        cluster_label = labeler(cluster_titles)
 
         cluster_result = {
             "label": cluster_label,
