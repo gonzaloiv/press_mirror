@@ -15,6 +15,9 @@ dist/
 
 # dotenv environment variable files
 .env
+.env.*
+*.token
+*[h]f_*
 
 # Virtual environments
 .venv

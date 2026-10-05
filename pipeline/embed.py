@@ -1,10 +1,16 @@
 import json
+import sys
 import numpy as np
 from pathlib import Path
 from sentence_transformers import SentenceTransformer
 from numpy.linalg import norm
 
 PROJECT_DIR = Path(__file__).resolve().parent.parent
+if str(PROJECT_DIR) not in sys.path:
+    sys.path.insert(0, str(PROJECT_DIR))
+
+from config import HF_TOKEN
+
 HISTORY_DIR = PROJECT_DIR / "history"
 OUTPUT_FILE = PROJECT_DIR / "data" / "embeddings.npz"
 MODEL_NAME = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
@@ -32,7 +38,7 @@ def main():
 
     # 2. Load the model. First run downloads ~470 MB from Hugging Face.
     print(f"Loading model {MODEL_NAME}...")
-    model = SentenceTransformer(MODEL_NAME)
+    model = SentenceTransformer(MODEL_NAME, token=HF_TOKEN)
 
     # 3. Encode. This is the entire "AI" step.
     print("Encoding...")
