@@ -1,6 +1,6 @@
 {
-    "version": 1,
-    "generated": "2026-10-04",
+    "version": 2,
+    "generated": "2026-10-05",
     "notes": "Curated RSS feeds for Press Mirror. Country codes use ISO 3166-1 alpha-2 except UK (which is GB in ISO but UK in common usage — normalize to GB before matching against GeoJSON).",
     "feeds": [
         {
@@ -102,20 +102,6 @@
             "lean": "centre"
         },
         {
-            "source": "New York Times",
-            "country": "US",
-            "url": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
-            "lang": "en",
-            "lean": "centre-left"
-        },
-        {
-            "source": "NPR",
-            "country": "US",
-            "url": "https://feeds.npr.org/1001/rss.xml",
-            "lang": "en",
-            "lean": "public"
-        },
-        {
             "source": "Deutsche Welle",
             "country": "DE",
             "url": "https://rss.dw.com/rdf/rss-en-world",
@@ -137,6 +123,27 @@
             "lean": "public"
         },
         {
+            "source": "Süddeutsche Zeitung",
+            "country": "DE",
+            "url": "https://rss.sueddeutsche.de/rss/Topthemen",
+            "lang": "de",
+            "lean": "centre-left"
+        },
+        {
+            "source": "Frankfurter Allgemeine",
+            "country": "DE",
+            "url": "https://www.faz.net/rss/aktuell/",
+            "lang": "de",
+            "lean": "centre-right"
+        },
+        {
+            "source": "Die Zeit",
+            "country": "DE",
+            "url": "https://newsfeed.zeit.de/index",
+            "lang": "de",
+            "lean": "centre"
+        },
+        {
             "source": "ANSA",
             "country": "IT",
             "url": "https://www.ansa.it/sito/ansait_rss.xml",
@@ -151,11 +158,102 @@
             "lean": "centre-left"
         },
         {
-            "source": "Al Jazeera",
-            "country": "QA",
-            "url": "https://www.aljazeera.com/xml/rss/all.xml",
+            "source": "Corriere della Sera",
+            "country": "IT",
+            "url": "https://www.corriere.it/rss/homepage.xml",
+            "lang": "it",
+            "lean": "centre"
+        },
+        {
+            "source": "Il Sole 24 Ore",
+            "country": "IT",
+            "url": "https://www.ilsole24ore.com/rss/italia.xml",
+            "lang": "it",
+            "lean": "centre"
+        },
+        {
+            "source": "De Telegraaf",
+            "country": "NL",
+            "url": "https://www.telegraaf.nl/rss",
+            "lang": "nl",
+            "lean": "right"
+        },
+        {
+            "source": "de Volkskrant",
+            "country": "NL",
+            "url": "https://www.volkskrant.nl/nieuws/rss.xml",
+            "lang": "nl",
+            "lean": "centre-left"
+        },
+        {
+            "source": "NRC",
+            "country": "NL",
+            "url": "https://www.nrc.nl/rss/",
+            "lang": "nl",
+            "lean": "centre-right"
+        },
+        {
+            "source": "Correio da Manhã",
+            "country": "PT",
+            "url": "https://www.cmjornal.pt/rss",
+            "lang": "pt",
+            "lean": "right"
+        },
+        {
+            "source": "Rzeczpospolita",
+            "country": "PL",
+            "url": "https://www.rp.pl/rss_main",
+            "lang": "pl",
+            "lean": "centre-right"
+        },
+        {
+            "source": "Onet Wiadomości",
+            "country": "PL",
+            "url": "https://wiadomosci.onet.pl/.feed",
+            "lang": "pl",
+            "lean": "centre"
+        },
+        {
+            "source": "La Libre Belgique",
+            "country": "BE",
+            "url": "https://www.lalibre.be/rss/",
+            "lang": "fr",
+            "lean": "centre"
+        },
+        {
+            "source": "Der Standard",
+            "country": "AT",
+            "url": "https://www.derstandard.at/rss",
+            "lang": "de",
+            "lean": "centre-left"
+        },
+        {
+            "source": "Kurier",
+            "country": "AT",
+            "url": "https://kurier.at/xml/rss",
+            "lang": "de",
+            "lean": "centre"
+        },
+        {
+            "source": "Dagens Nyheter",
+            "country": "SE",
+            "url": "https://www.dn.se/rss/",
+            "lang": "sv",
+            "lean": "centre"
+        },
+        {
+            "source": "Helsingin Sanomat",
+            "country": "FI",
+            "url": "https://www.hs.fi/rss/tuoreimmat.xml",
+            "lang": "fi",
+            "lean": "centre"
+        },
+        {
+            "source": "Irish Independent",
+            "country": "IE",
+            "url": "https://www.independent.ie/rss/",
             "lang": "en",
-            "lean": "international"
+            "lean": "centre-right"
         }
     ]
 }
