@@ -10,9 +10,9 @@ STATIC_DIR = PROJECT_DIR / "static"
 MAPS_DIR = STATIC_DIR / "maps"
 BASE_URL = "http://localhost:5000"
 CLUSTER_LIMIT = 6
-IMAGE_SIZES = {
-    "large": (1080, 1080),
-    "small": (600, 450),
+IMAGE_WIDTHS = {
+    "large": 1080,
+    "small": 600,
 }
 
 
@@ -40,6 +40,7 @@ def render_images(clean: bool = False) -> None:
         browser = playwright.chromium.launch()
         try:
             page = browser.new_page()
+            viewport_height = page.viewport_size["height"]
             for snapshot_index, clusters_file in enumerate(snapshots):
                 snapshot_date = clusters_file.stem.removeprefix("clusters_")
                 dated_maps_dir = MAPS_DIR / snapshot_date
@@ -61,12 +62,15 @@ def render_images(clean: bool = False) -> None:
                     continue
 
                 for cluster_index in range(len(selected_clusters)):
-                    for size_name, (width, height) in IMAGE_SIZES.items():
+                    for size_name, width in IMAGE_WIDTHS.items():
                         output_file = dated_maps_dir / f"{cluster_index}_{size_name}.png"
                         if output_file.exists():
                             continue
 
-                        page.set_viewport_size({"width": width, "height": height})
+                        page.set_viewport_size({
+                            "width": width,
+                            "height": viewport_height,
+                        })
                         url = (
                             f"{BASE_URL}/map/{cluster_index}"
                             f"?date={snapshot_date}&thumbnail=1"
@@ -91,7 +95,9 @@ def render_images(clean: bool = False) -> None:
 
                         page.wait_for_function("window.mapReady === true")
                         page.wait_for_timeout(300)
-                        page.screenshot(path=str(output_file))
+                        page.locator("#thumbnail-content").screenshot(
+                            path=str(output_file)
+                        )
                         print(f"Saved {output_file}")
         finally:
             browser.close()

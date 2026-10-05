@@ -13,17 +13,19 @@
         {% if not thumbnail %}
         <a href="{{ url_for('index', date=snapshot_date) }}" class="back-link">← All maps</a>
         {% endif %}
-        <h1 class="headline">{{ label }}</h1>
-        <p class="subhead">
-            {{ coverage_copy }}
-        </p>
+        <div id="thumbnail-content">
+            <h1 class="headline">{{ label }}</h1>
+            <p class="subhead">
+                {{ coverage_copy }}
+            </p>
 
-        <div id="map"></div>
+            <div id="map"></div>
 
-        <div class="legend">
-            <span><span class="swatch covered"></span>Covered</span>
-            <span><span class="swatch silent"></span>Not covered by tracked sources</span>
-            <span><span class="swatch untracked"></span>Not tracked</span>
+            <div class="legend">
+                <span><span class="swatch covered"></span>Covered</span>
+                <span><span class="swatch silent"></span>Not covered by tracked sources</span>
+                <span><span class="swatch untracked"></span>Not tracked</span>
+            </div>
         </div>
 
         <div class="sources">
