@@ -3,7 +3,7 @@ import sys
 from datetime import date
 from pathlib import Path
 
-from flask import Flask, render_template, request
+from flask import Flask, abort, render_template, request, url_for
 
 PROJECT_DIR = Path(__file__).resolve().parent.parent
 if str(PROJECT_DIR) not in sys.path:
@@ -21,12 +21,23 @@ STATIC_DIR.mkdir(parents=True, exist_ok=True)
 
 app = Flask(__name__, static_folder=str(STATIC_DIR), static_url_path="/static")
 
-def latest_clusters_file() -> Path:
-    """Find the most recent dated cluster snapshot."""
+def cluster_files() -> list[Path]:
+    """Return available dated cluster snapshots, newest first."""
     files = sorted(HISTORY_DIR.glob("clusters_????-??-??.json"), reverse=True)
     if not files:
         raise FileNotFoundError(f"No dated cluster files found in {HISTORY_DIR}")
-    return files[0]
+    return files
+
+
+def snapshot_file(snapshot_date: str | None = None) -> Path:
+    """Find a requested snapshot or default to the most recent one."""
+    files = cluster_files()
+    if snapshot_date is None:
+        return files[0]
+    for path in files:
+        if path.stem == f"clusters_{snapshot_date}":
+            return path
+    abort(404)
 
 
 def active_countries(snapshot_date: str) -> list[str]:
@@ -39,31 +50,47 @@ def active_countries(snapshot_date: str) -> list[str]:
 
 @app.route("/")
 def index():
-    clusters_file = latest_clusters_file()
+    files = cluster_files()
+    dates = [path.stem.removeprefix("clusters_") for path in files]
+    selected_date = request.args.get("date", dates[0])
+    if selected_date not in dates:
+        abort(404)
+
+    clusters_file = snapshot_file(selected_date)
     with clusters_file.open(encoding="utf-8") as f:
         clusters = json.load(f)
 
-    snapshot_date = clusters_file.stem.removeprefix("clusters_")
     cards = [
         {
             "index": index,
             "image_path": (
-                f"/static/maps/{snapshot_date}/{index}_small.png"
+                f"/static/maps/{selected_date}/{index}_small.png"
             ),
+            "map_url": url_for("map_view", cluster_id=index, date=selected_date),
         }
         for index in range(min(6, len(clusters)))
     ]
+    date_index = dates.index(selected_date)
+    newer_date = dates[date_index - 1] if date_index > 0 else None
+    older_date = dates[date_index + 1] if date_index + 1 < len(dates) else None
     return render_template(
         "grid.html",
         cards=cards,
+        date_label=f"{date.fromisoformat(selected_date).day} "
+        f"{date.fromisoformat(selected_date):%b %Y}",
+        selected_date=selected_date,
+        newer_url=url_for("index", date=newer_date) if newer_date else None,
+        older_url=url_for("index", date=older_date) if older_date else None,
     )
 
 @app.route("/map/<int:cluster_id>")
 def map_view(cluster_id):
-    clusters_file = latest_clusters_file()
+    clusters_file = snapshot_file(request.args.get("date"))
     with clusters_file.open(encoding="utf-8") as f:
         clusters = json.load(f)
 
+    if cluster_id >= len(clusters):
+        abort(404)
     cluster = clusters[cluster_id]
     snapshot_date = date.fromisoformat(
         clusters_file.stem.removeprefix("clusters_")

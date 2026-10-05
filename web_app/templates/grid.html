@@ -11,13 +11,27 @@
 <body>
     <main class="container">
         <header>
-            <h1>The Press Mirror</h1>
+            <h1>Press Mirror</h1>
             <p class="tagline">European coverage of world news, seen from every country that covered it.</p>
         </header>
 
-        <section class="story-grid" aria-label="Today's top stories">
+        <nav class="date-pagination" aria-label="Browse snapshot dates">
+            {% if older_url %}
+            <a class="older-day" href="{{ older_url }}" rel="next">← Older day</a>
+            {% else %}
+            <span></span>
+            {% endif %}
+            <time datetime="{{ selected_date }}">{{ date_label }}</time>
+            {% if newer_url %}
+            <a class="newer-day" href="{{ newer_url }}" rel="prev">Newer day →</a>
+            {% else %}
+            <span></span>
+            {% endif %}
+        </nav>
+
+        <section class="story-grid" aria-label="Top stories for {{ date_label }}">
             {% for card in cards %}
-            <a class="card" href="/map/{{ card.index }}">
+            <a class="card" href="{{ card.map_url }}">
                 <img src="{{ card.image_path }}" alt="">
             </a>
             {% endfor %}

@@ -16,11 +16,11 @@ IMAGE_SIZES = {
 }
 
 
-def latest_clusters_file() -> Path:
+def cluster_files() -> list[Path]:
     files = sorted(HISTORY_DIR.glob("clusters_????-??-??.json"), reverse=True)
     if not files:
         raise FileNotFoundError(f"No dated cluster files found in {HISTORY_DIR}")
-    return files[0]
+    return files
 
 
 def render_images(clean: bool = False) -> None:
@@ -33,59 +33,66 @@ def render_images(clean: bool = False) -> None:
         ) from error
     playwright_error = playwright_api.Error
 
-    clusters_file = latest_clusters_file()
-    with clusters_file.open(encoding="utf-8") as f:
-        clusters = json.load(f)
-
     STATIC_DIR.mkdir(parents=True, exist_ok=True)
-    snapshot_date = clusters_file.stem.removeprefix("clusters_")
-    dated_maps_dir = MAPS_DIR / snapshot_date
-    if clean:
-        if dated_maps_dir.exists():
-            for path in dated_maps_dir.iterdir():
-                if path.is_file() or path.is_symlink():
-                    path.unlink()
-                elif path.is_dir():
-                    raise IsADirectoryError(
-                        f"Refusing to remove unexpected directory: {path}"
-                    )
-        dated_maps_dir.mkdir(parents=True, exist_ok=True)
-    else:
-        dated_maps_dir.mkdir(parents=True, exist_ok=True)
-
-    selected_clusters = clusters[:CLUSTER_LIMIT]
-    if not selected_clusters:
-        print("No clusters to render.")
-        return
+    snapshots = cluster_files()
 
     with playwright_api.sync_playwright() as playwright:
         browser = playwright.chromium.launch()
         try:
             page = browser.new_page()
-            for cluster_index in range(len(selected_clusters)):
-                for size_name, (width, height) in IMAGE_SIZES.items():
-                    page.set_viewport_size({"width": width, "height": height})
-                    url = f"{BASE_URL}/map/{cluster_index}?thumbnail=1"
-                    try:
-                        page.goto(url, wait_until="domcontentloaded")
-                    except playwright_error as error:
-                        if any(
-                            marker in str(error).lower()
-                            for marker in ("err_connection_refused", "econnrefused")
-                        ):
-                            print(
-                                "Start the Flask server with "
-                                "`python web_app\\server.py` first.",
-                                file=sys.stderr,
+            for snapshot_index, clusters_file in enumerate(snapshots):
+                snapshot_date = clusters_file.stem.removeprefix("clusters_")
+                dated_maps_dir = MAPS_DIR / snapshot_date
+                dated_maps_dir.mkdir(parents=True, exist_ok=True)
+                if clean and snapshot_index == 0:
+                    for path in dated_maps_dir.iterdir():
+                        if path.is_file() or path.is_symlink():
+                            path.unlink()
+                        elif path.is_dir():
+                            raise IsADirectoryError(
+                                f"Refusing to remove unexpected directory: {path}"
                             )
-                            raise SystemExit(1) from error
-                        raise
 
-                    page.wait_for_function("window.mapReady === true")
-                    page.wait_for_timeout(300)
-                    output_file = dated_maps_dir / f"{cluster_index}_{size_name}.png"
-                    page.screenshot(path=str(output_file))
-                    print(f"Saved {output_file}")
+                with clusters_file.open(encoding="utf-8") as f:
+                    clusters = json.load(f)
+                selected_clusters = clusters[:CLUSTER_LIMIT]
+                if not selected_clusters:
+                    print(f"No clusters to render for {snapshot_date}.")
+                    continue
+
+                for cluster_index in range(len(selected_clusters)):
+                    for size_name, (width, height) in IMAGE_SIZES.items():
+                        output_file = dated_maps_dir / f"{cluster_index}_{size_name}.png"
+                        if output_file.exists():
+                            continue
+
+                        page.set_viewport_size({"width": width, "height": height})
+                        url = (
+                            f"{BASE_URL}/map/{cluster_index}"
+                            f"?date={snapshot_date}&thumbnail=1"
+                        )
+                        try:
+                            page.goto(url, wait_until="domcontentloaded")
+                        except playwright_error as error:
+                            if any(
+                                marker in str(error).lower()
+                                for marker in (
+                                    "err_connection_refused",
+                                    "econnrefused",
+                                )
+                            ):
+                                print(
+                                    "Start the Flask server with "
+                                    "`python web_app\\server.py` first.",
+                                    file=sys.stderr,
+                                )
+                                raise SystemExit(1) from error
+                            raise
+
+                        page.wait_for_function("window.mapReady === true")
+                        page.wait_for_timeout(300)
+                        page.screenshot(path=str(output_file))
+                        print(f"Saved {output_file}")
         finally:
             browser.close()
 

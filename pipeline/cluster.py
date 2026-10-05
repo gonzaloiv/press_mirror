@@ -4,6 +4,7 @@ import sys
 from dataclasses import dataclass, field
 from datetime import date
 from pathlib import Path
+from unicodedata import name as unicode_name
 
 PROJECT_DIR = Path(__file__).resolve().parent.parent
 if str(PROJECT_DIR) not in sys.path:
@@ -25,7 +26,7 @@ MAX_MERGE_PASSES = 3
 DEDUPLICATE_WITHIN_CLUSTERS = True
 MERGE_RELATED_CLUSTERS = True
 LABEL_MODEL_NAME = "Qwen/Qwen2.5-1.5B-Instruct"
-LABEL_MAX_WORDS = 8
+LABEL_MAX_WORDS = 12
 LABEL_MAX_NEW_TOKENS = 48
 
 
@@ -120,21 +121,22 @@ def merge_clusters(
     """Merge similar cluster centroids and deduplicate merged article lists."""
     current = [cluster for cluster in clusters if cluster.indices]
     for pass_number in range(1, max_passes + 1):
-        pair_scores = []
         centroids = [
             embeddings[cluster.indices].mean(axis=0)
             for cluster in current
         ]
-        for left in range(len(current)):
-            for right in range(left + 1, len(current)):
-                similarity = float(
-                    cosine_similarity(
-                        centroids[left].reshape(1, -1),
-                        centroids[right].reshape(1, -1),
-                    )[0, 0]
-                )
-                if similarity >= threshold:
-                    pair_scores.append((similarity, left, right))
+        print(
+            f"Merge pass {pass_number}: comparing {len(current)} cluster centroids.",
+            flush=True,
+        )
+        similarity_matrix = cosine_similarity(centroids)
+        matching_pairs = np.argwhere(
+            np.triu(similarity_matrix >= threshold, k=1)
+        )
+        pair_scores = [
+            (float(similarity_matrix[left, right]), int(left), int(right))
+            for left, right in matching_pairs
+        ]
 
         if not pair_scores:
             break
@@ -180,23 +182,12 @@ def merge_clusters(
         current = next_clusters
 
         if pass_number == max_passes:
-            remaining_merge = False
             final_centroids = [
                 embeddings[cluster.indices].mean(axis=0)
                 for cluster in current
             ]
-            for left in range(len(current)):
-                for right in range(left + 1, len(current)):
-                    similarity = cosine_similarity(
-                        final_centroids[left].reshape(1, -1),
-                        final_centroids[right].reshape(1, -1),
-                    )[0, 0]
-                    if similarity >= threshold:
-                        remaining_merge = True
-                        break
-                if remaining_merge:
-                    break
-            if remaining_merge:
+            final_similarities = cosine_similarity(final_centroids)
+            if np.any(np.triu(final_similarities >= threshold, k=1)):
                 print(
                     f"Warning: similar clusters remain after {max_passes} "
                     "merge passes."
@@ -215,39 +206,80 @@ def load_label_model():
 
 
 def generate_topic_label(titles, tokenizer, model):
-    """Generate a concise English summary from the headlines in one cluster."""
+    """Generate an English topic label, retrying if it includes another script."""
     headlines = "\n".join(f"- {title}" for title in titles)
-    messages = [
-        {
-            "role": "system",
-            "content": (
-                "Create an English topic label as a noun phrase, not a sentence. "
-                "Use at most "
-                f"{LABEL_MAX_WORDS} words. Name only the shared subject, not what "
-                "happened to it. Use no dates, results, predictions, causes, or "
-                "relationships. Do not introduce entities or facts absent from the "
-                "headlines. For headlines in other languages, translate the shared "
-                "topic into English. Output only the label."
-            ),
-        },
-        {"role": "user", "content": f"Headlines:\n{headlines}"},
-    ]
-    inputs = tokenizer.apply_chat_template(
-        messages,
-        tokenize=True,
-        add_generation_prompt=True,
-        return_tensors="pt",
-        return_dict=True,
-    ).to(model.device)
-
-    output = model.generate(
-        **inputs,
-        max_new_tokens=LABEL_MAX_NEW_TOKENS,
-        do_sample=False,
-        pad_token_id=tokenizer.eos_token_id,
+    system_message = (
+        "Write one concise topic label entirely in English, using at most "
+        f"{LABEL_MAX_WORDS} words. The headlines may be in any language: "
+        "understand and translate their shared topic into natural English. "
+        "Never copy a non-English phrase into the label. Use a clear, "
+        "natural noun phrase, not a sentence. Name only the shared subject; "
+        "do not add facts, entities, numbers, dates, results, predictions, "
+        "causes, or relationships that are not supported by the headlines. "
+        "Output only the English label."
     )
-    new_tokens = output[0, inputs["input_ids"].shape[-1]:]
-    label = tokenizer.decode(new_tokens, skip_special_tokens=True).strip().strip('"')
+
+    def generate(system_content):
+        messages = [
+            {
+                "role": "system",
+                "content": system_content,
+            },
+            {"role": "user", "content": f"Headlines:\n{headlines}"},
+        ]
+        inputs = tokenizer.apply_chat_template(
+            messages,
+            tokenize=True,
+            add_generation_prompt=True,
+            return_tensors="pt",
+            return_dict=True,
+        ).to(model.device)
+        output = model.generate(
+            **inputs,
+            max_new_tokens=LABEL_MAX_NEW_TOKENS,
+            do_sample=False,
+            pad_token_id=tokenizer.eos_token_id,
+        )
+        new_tokens = output[0, inputs["input_ids"].shape[-1]:]
+        return (
+            tokenizer.decode(new_tokens, skip_special_tokens=True)
+            .strip()
+            .strip('"')
+        )
+
+    def has_non_latin_letters(text):
+        """Detect script leakage without rejecting accented English names."""
+        return any(
+            character.isalpha()
+            and not unicode_name(character, "").startswith("LATIN ")
+            for character in text
+        )
+
+    label = generate(system_message)
+    if has_non_latin_letters(label):
+        label = generate(
+            system_message
+            + " Your previous draft contained non-English characters. Translate "
+            "the entire topic into natural English, using only the Latin alphabet."
+        )
+        if has_non_latin_letters(label):
+            label = generate(
+                system_message
+                + f" Translate this draft into English: {label}. "
+                "Use only the Latin alphabet."
+            )
+        if has_non_latin_letters(label):
+            first_non_latin = next(
+                index
+                for index, character in enumerate(label)
+                if character.isalpha()
+                and not unicode_name(character, "").startswith("LATIN ")
+            )
+            label = label[:first_non_latin].rstrip(" ,;:-")
+            print(
+                "Warning: removed a non-Latin suffix from a generated label.",
+                file=sys.stderr,
+            )
     if not label:
         raise RuntimeError("The label model returned an empty cluster summary.")
     source_numbers = set(re.findall(r"\b\d+\b", headlines))
@@ -259,9 +291,6 @@ def generate_topic_label(titles, tokenizer, model):
     label = " ".join(label.split())
     if not label:
         raise RuntimeError("The label model returned no supported cluster summary.")
-    words = label.split()
-    if len(words) > LABEL_MAX_WORDS:
-        label = " ".join(words[:LABEL_MAX_WORDS - 1]) + "..."
     return label
 
 
@@ -299,10 +328,15 @@ def build_clusters(
         cluster_groups = merge_clusters(cluster_groups, sources, embeddings)
 
     result = []
-    for cluster in cluster_groups:
+    label_clusters = [
+        cluster for cluster in cluster_groups if len(cluster.indices) >= 2
+    ]
+    print(
+        f"Selecting labels for {len(label_clusters)} clusters.",
+        flush=True,
+    )
+    for label_number, cluster in enumerate(label_clusters, start=1):
         indices = cluster.indices
-        if len(indices) < 2:
-            continue                        # skip singletons for the MVP
 
         # Recompute pairwise similarity *within* this cluster for the display.
         sub = embeddings[indices]
@@ -320,6 +354,7 @@ def build_clusters(
                 "link": links[i],
             })
 
+        print(f"Generating label {label_number}/{len(label_clusters)}...", flush=True)
         cluster_label = labeler([titles[i] for i in indices])
 
         cluster_result = {
@@ -351,9 +386,17 @@ def main():
     print(f"Found {len(set(labels))} raw clusters.")
 
     tokenizer, model = load_label_model()
-    labeler = lambda cluster_titles: generate_topic_label(cluster_titles, tokenizer, model)
+    labeler = lambda cluster_titles: generate_topic_label(
+        cluster_titles, tokenizer, model
+    )
     clusters = build_clusters(
-        labels, titles, sources, countries, links, embeddings, labeler
+        labels,
+        titles,
+        sources,
+        countries,
+        links,
+        embeddings,
+        labeler,
     )
     print(f"Kept {len(clusters)} clusters with 2+ articles.")
 

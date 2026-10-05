@@ -11,7 +11,7 @@
 <body>
     <div class="canvas">
         {% if not thumbnail %}
-        <a href="/" class="back-link">← All maps</a>
+        <a href="{{ url_for('index', date=snapshot_date) }}" class="back-link">← All maps</a>
         {% endif %}
         <h1 class="headline">{{ label }}</h1>
         <p class="subhead">

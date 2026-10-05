@@ -1,14 +1,19 @@
 ISO_FIX = {"UK": "GB"}
 
 COUNTRY_NAMES = {
+    "AT": "Austria",
     "AU": "Australia",
+    "BE": "Belgium",
     "BR": "Brazil",
     "CA": "Canada",
     "CN": "China",
     "DE": "Germany",
+    "DK": "Denmark",
     "ES": "Spain",
+    "FI": "Finland",
     "FR": "France",
     "GB": "the UK",
+    "IE": "Ireland",
     "IN": "India",
     "IT": "Italy",
     "JP": "Japan",
@@ -18,6 +23,7 @@ COUNTRY_NAMES = {
     "PT": "Portugal",
     "QA": "Qatar",
     "RU": "Russia",
+    "SE": "Sweden",
     "UA": "Ukraine",
     "US": "the United States",
 }
