@@ -12,7 +12,7 @@
     <main class="container">
         <header>
             <div class="header-copy">
-                <h1>Press Mirror</h1>
+                <h1><a class="site-title-link" href="{{ url_for('index') }}">Press Mirror</a></h1>
                 <p class="tagline">What happened today, and who covered it.</p>
                 <p class="definition">Each card is one event. The map shows which countries covered it.</p>
             </div>
@@ -46,6 +46,7 @@
             {% endfor %}
         </section>
     </main>
+    <script src="{{ url_for('static', filename='js/grid.js') }}" defer></script>
 </body>
 
 </html>
