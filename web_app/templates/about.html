@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>How it works — Press Mirror</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:wght@500;600;700&display=swap');
+
+        body {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 2rem 1.25rem;
+            color: #17212b;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-size: 17px;
+            line-height: 1.65;
+        }
+
+        .home-link {
+            display: inline-flex;
+            align-items: center;
+            min-height: 44px;
+            color: #667382;
+            font-size: 15px;
+            text-decoration: none;
+        }
+
+        .home-link:hover,
+        .home-link:focus-visible {
+            outline: 3px solid #2563eb;
+            outline-offset: 3px;
+            text-decoration: underline;
+        }
+
+        h1 {
+            margin: 1.5rem 0 2rem;
+            font-size: 2rem;
+            line-height: 1.2;
+            font-family: 'Lora', Georgia, serif;
+        }
+
+        section + section {
+            margin-top: 2rem;
+        }
+
+        h2 {
+            margin: 0 0 0.75rem;
+            font-size: 1.25rem;
+            line-height: 1.35;
+            font-family: 'Lora', Georgia, serif;
+        }
+
+        p {
+            margin: 0 0 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <a class="home-link" href="{{ url_for('index') }}">← Home</a>
+    <main>
+        <h1>How Press Mirror works</h1>
+
+        <section>
+            <h2>What Press Mirror is</h2>
+            <p>Press Mirror groups news articles from different outlets that cover the same event. Each card on the homepage is one event, as told by every outlet that published a story about it. The map shows which countries covered that event — and which ones didn't.</p>
+        </section>
+
+        <section>
+            <h2>How the grouping works</h2>
+            <p>Every day, Press Mirror collects headlines from a fixed set of European and international news outlets. It compares each headline with headlines from other outlets that day to see whether they are about the same event. Headlines about the same event are grouped together. A cluster is the smallest unit of the product: one event, many voices.</p>
+            <p>The grouping compares the meaning of headlines across languages, not just their words. A French headline and an English headline about the same event can be grouped together even when they share no vocabulary.</p>
+        </section>
+
+        <section>
+            <h2>What the map shows, and what it doesn't</h2>
+            <p>The map colors every country in one of three states:</p>
+            <p><strong>Blue — Covered</strong> — we have sources from this country, and at least one published a story about this event.</p>
+            <p><strong>Gray — Not covered by tracked sources</strong> — we have sources from this country, and none published a story about this event.</p>
+            <p><strong>Outlined — Not tracked</strong> — we don't have sources from this country. We make no claim about whether it covered the event.</p>
+            <p>The distinction between “not covered” and “not tracked” matters. When a country is gray, our sources there didn't cover the story. When it's outlined, we don't know because we don't read its press. We don't claim a global view; we show a European view and where it ends.</p>
+        </section>
+
+        <section>
+            <h2>What we don't do</h2>
+            <p>We don't rate bias or label outlets as left or right in the interface. We don't tell you what to think about the coverage we show.</p>
+            <p>We don't claim to be complete. If a country doesn't appear on a map, we may not have sources there; that doesn't mean the event wasn't covered. Every headline links to the original article at its original outlet. To know what an outlet said, read its article.</p>
+            <p>We show, side by side, what the press said about one event. The comparison is yours to make.</p>
+        </section>
+    </main>
+</body>
+
+</html>

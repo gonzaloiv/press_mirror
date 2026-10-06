@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:wght@500;600;700&display=swap');
+
 :root {
     --covered: #2563eb;
     --silent: #e5e7eb;
@@ -16,7 +18,7 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     background: #ffffff;
     color: var(--ink);
 }
@@ -36,21 +38,59 @@ body {
     margin: 0 auto;
 }
 
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+a:focus-visible {
+    outline: 3px solid #1d4ed8;
+    outline-offset: 3px;
+}
+
+.skip-link {
+    position: absolute;
+    z-index: 1000;
+    top: 0.5rem;
+    left: 0.5rem;
+    padding: 0.65rem 0.85rem;
+    transform: translateY(-150%);
+    border-radius: 4px;
+    background: #ffffff;
+    color: var(--ink);
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
+
 .headline {
+    font-family: 'Lora', Georgia, serif;
     font-size: clamp(26px, 4.25vw, 46px);
     font-weight: 700;
     line-height: 1.15;
-    margin: 0 0 12px;
+    margin: 0 0 6px;
 }
 
 .thumbnail-headline {
-    min-height: 2.3em;
+    font-family: 'Lora', Georgia, serif;
+    font-size: clamp(26px, 4.5vw, 38px);
+    line-height: 1.2;
+    min-height: 0;
 }
 
 .subhead {
     font-size: clamp(16px, 2vw, 22px);
     color: var(--muted);
-    margin: 0 0 32px;
+    margin: 0 0 20px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 #map {
@@ -63,13 +103,20 @@ body {
 }
 
 .legend {
+    list-style: none;
     display: flex;
     flex-wrap: wrap;
     gap: 32px;
     align-items: center;
     margin-top: 24px;
+    padding: 0;
     font-size: 20px;
     color: var(--muted);
+}
+
+.legend li {
+    display: inline-flex;
+    align-items: center;
 }
 
 .swatch {
@@ -86,13 +133,13 @@ body {
 }
 
 .swatch.silent {
-    background: var(--silent);
-    border: 1px solid var(--border);
+    background: #8a929f;
+    border: 1px solid #6b7280;
 }
 
 .swatch.untracked {
     background: transparent;
-    border: 1px solid #9ca3af;
+    border: 2px solid #6b7280;
 }
 
 .sources {
@@ -111,11 +158,10 @@ body {
 }
 
 .source-country-name {
-    margin-bottom: 2px;
-    color: var(--muted);
-    font-size: 14px;
-    font-variant: small-caps;
-    letter-spacing: 0.04em;
+    margin: 0 0 2px;
+    color: var(--ink);
+    font-size: 1rem;
+    font-weight: 600;
 }
 
 .source-outlets {
@@ -142,28 +188,69 @@ body {
     text-decoration: underline;
 }
 
+.map-error {
+    margin: 0.75rem 0 0;
+    color: var(--ink);
+    font-size: 0.95rem;
+}
+
 .coverage-note {
-    margin: 8px 0 0;
+    margin: 0;
     color: var(--muted);
     font-size: 13px;
     line-height: 1.4;
 }
 
 .page-meta {
-    display: flex;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
     flex: 0 0 auto;
-    align-items: center;
-    justify-content: space-between;
     gap: 16px;
     margin-top: auto;
-    padding-top: 12px;
     color: var(--muted);
     font-size: 17px;
 }
 
+.page-meta::before {
+    content: "";
+    width: 100%;
+    margin-top: 24px;
+    border-top: 1px solid var(--border);
+}
+
+.page-meta-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.page-meta-links > * {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+.page-meta-links a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.page-meta-links a:hover,
+.page-meta-links a:focus-visible {
+    text-decoration: underline;
+}
+
+.page-meta-links a,
+.back-link {
+    min-height: 44px;
+}
+
 .back-link {
     align-self: flex-start;
-    margin-bottom: 16px;
+    margin-bottom: 8px;
     color: var(--muted);
     font-size: 15px;
     text-decoration: none;
@@ -207,7 +294,7 @@ body {
         gap: 16px;
         row-gap: 8px;
         margin-top: 8px;
-        font-size: 13px;
+        font-size: 14px;
     }
 
     .swatch {
@@ -216,12 +303,15 @@ body {
     }
 
     .coverage-note {
-        font-size: 11px;
-        line-height: 1.25;
+        font-size: 13px;
+        line-height: 1.4;
     }
 
     .page-meta {
-        padding-top: 8px;
-        font-size: 17px;
+        font-size: 14px;
+    }
+
+    .page-meta-links {
+        gap: 4px;
     }
 }

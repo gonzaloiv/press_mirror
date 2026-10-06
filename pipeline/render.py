@@ -5,11 +5,15 @@ import sys
 from pathlib import Path
 
 PROJECT_DIR = Path(__file__).resolve().parent.parent
+if str(PROJECT_DIR) not in sys.path:
+    sys.path.insert(0, str(PROJECT_DIR))
+
+from shared.cluster_selection import selected_cluster_indices
+
 HISTORY_DIR = PROJECT_DIR / "history"
 STATIC_DIR = PROJECT_DIR / "static"
 MAPS_DIR = STATIC_DIR / "maps"
 BASE_URL = "http://localhost:5000"
-CLUSTER_LIMIT = 6
 IMAGE_WIDTHS = {
     "large": 1080,
     "small": 600,
@@ -56,12 +60,12 @@ def render_images(clean: bool = False) -> None:
 
                 with clusters_file.open(encoding="utf-8") as f:
                     clusters = json.load(f)
-                selected_clusters = clusters[:CLUSTER_LIMIT]
-                if not selected_clusters:
+                selected_indices = selected_cluster_indices(clusters)
+                if not selected_indices:
                     print(f"No clusters to render for {snapshot_date}.")
                     continue
 
-                for cluster_index in range(len(selected_clusters)):
+                for cluster_index in selected_indices:
                     for size_name, width in IMAGE_WIDTHS.items():
                         output_file = dated_maps_dir / f"{cluster_index}_{size_name}.png"
                         if output_file.exists():
@@ -105,7 +109,10 @@ def render_images(clean: bool = False) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Render large and small PNGs for the six top story clusters."
+        description=(
+            "Render large and small PNGs for clusters meeting the "
+            "similarity and coverage minimums."
+        )
     )
     parser.add_argument(
         "--clean",

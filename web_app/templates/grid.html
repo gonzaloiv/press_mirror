@@ -4,15 +4,19 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>The Press Mirror</title>
+    <title>Press Mirror</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/grid.css') }}">
 </head>
 
 <body>
     <main class="container">
         <header>
-            <h1>Press Mirror</h1>
-            <p class="tagline">European coverage of world news, seen from every country that covered it.</p>
+            <div class="header-copy">
+                <h1>Press Mirror</h1>
+                <p class="tagline">What happened today, and who covered it.</p>
+                <p class="definition">Each card is one event. The map shows which countries covered it.</p>
+            </div>
+            <a class="about-link" href="{{ url_for('about') }}">How it works</a>
         </header>
 
         <nav class="date-pagination" aria-label="Browse snapshot dates">

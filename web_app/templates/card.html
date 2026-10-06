@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ label }}</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/card.css') }}">
+</head>
+
+<body>
+    <main id="thumbnail-content" class="card-content">
+        <h1 class="card-label">{{ label }}</h1>
+        <div id="map"></div>
+        <div class="card-legend" aria-label="Map legend">
+            <span><span class="swatch covered"></span>Covered</span>
+            <span><span class="swatch silent"></span>Not covered</span>
+            <span><span class="swatch untracked"></span>Not tracked</span>
+        </div>
+        <p class="card-sources" aria-label="Source metadata">
+            {{ outlet_count }} outlet{% if outlet_count != 1 %}s{% endif %}
+            in {{ country_count }} countr{% if country_count == 1 %}y{% else %}ies{% endif %}
+            —
+            {% for outlet in source_names[:3] %}
+            <span class="source-wide">{{ outlet }}</span>{% if not loop.last %}<span class="source-wide" aria-hidden="true"> · </span>{% endif %}
+            {% endfor %}
+            {% if outlet_count > 3 %}<span class="source-wide"> +{{ outlet_count - 3 }} more</span>{% endif %}
+            {% for outlet in source_names[:2] %}
+            <span class="source-narrow">{{ outlet }}</span>{% if not loop.last %}<span class="source-narrow" aria-hidden="true"> · </span>{% endif %}
+            {% endfor %}
+            {% if outlet_count > 2 %}<span class="source-narrow"> +{{ outlet_count - 2 }} more</span>{% endif %}
+        </p>
+    </main>
+    {% include "_map_runtime.html" %}
+</body>
+
+</html>

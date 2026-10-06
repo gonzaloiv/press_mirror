@@ -14,6 +14,7 @@ from shared.country_codes import (
     ISO_FIX,
     to_iso,
 )
+from shared.cluster_selection import selected_cluster_indices
 from web_app.map_presentation import european_coverage, map_viewport
 
 HISTORY_DIR = PROJECT_DIR / "history"
@@ -82,16 +83,35 @@ def index():
             headlines = json.load(f)
     ingestion_time = latest_fetched_at(headlines)
 
-    cards = [
-        {
-            "index": index,
-            "image_path": (
-                f"/static/maps/{selected_date}/{index}_small.png"
-            ),
-            "map_url": url_for("map_view", cluster_id=index, date=selected_date),
-        }
-        for index in range(min(6, len(clusters)))
-    ]
+    cards = []
+    for index in selected_cluster_indices(clusters):
+        cluster = clusters[index]
+        source_names = sorted(
+            {
+                article["source"]
+                for article in cluster["articles"]
+                if article.get("source")
+            },
+            key=str.casefold,
+        )
+        country_count = len(
+            {to_iso(article["country"]) for article in cluster["articles"]}
+        )
+        cards.append(
+            {
+                "index": index,
+                "image_path": (
+                    f"/static/maps/{selected_date}/{index}_small.png"
+                ),
+                "map_url": url_for(
+                    "map_view", cluster_id=index, date=selected_date
+                ),
+                "label": cluster["label"],
+                "source_names": source_names,
+                "outlet_count": len(source_names),
+                "country_count": country_count,
+            }
+        )
     date_index = dates.index(selected_date)
     newer_date = dates[date_index - 1] if date_index > 0 else None
     older_date = dates[date_index + 1] if date_index + 1 < len(dates) else None
@@ -111,6 +131,12 @@ def index():
         older_url=url_for("index", date=older_date) if older_date else None,
     )
 
+
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
+
 @app.route("/map/<int:cluster_id>")
 def map_view(cluster_id):
     clusters_file = snapshot_file(request.args.get("date"))
@@ -128,6 +154,21 @@ def map_view(cluster_id):
 
     # Normalize once, here. Footer still shows the original "UK" for readability.
     covered = sorted({to_iso(a["country"]) for a in cluster["articles"]})
+    tracked = sorted({to_iso(country) for country in available_countries})
+    covered_country_names = sorted(
+        (
+            COUNTRY_NAMES.get(country, country).removeprefix("the ")
+            for country in covered
+        ),
+        key=str.casefold,
+    )
+    not_covered_country_names = sorted(
+        (
+            COUNTRY_NAMES.get(country, country).removeprefix("the ")
+            for country in set(tracked) - set(covered)
+        ),
+        key=str.casefold,
+    )
 
     # Cluster snapshots retain the source article nearest the centroid.
     sources_by_country = {}
@@ -163,13 +204,33 @@ def map_view(cluster_id):
     )
 
     return render_template(
-        "map.html",
+        "card.html" if thumbnail else "map.html",
         label=cluster["label"],
         thumbnail=thumbnail,
         covered=covered,
+        covered_country_names=covered_country_names,
+        not_covered_country_names=not_covered_country_names,
         map_bounds=map_viewport(covered),
         coverage_copy=european_coverage(
             covered, max_countries=5 if thumbnail else None
+        ),
+        source_names=sorted(
+            {
+                article["source"]
+                for article in cluster["articles"]
+                if article.get("source")
+            },
+            key=str.casefold,
+        ),
+        outlet_count=len(
+            {
+                article["source"]
+                for article in cluster["articles"]
+                if article.get("source")
+            }
+        ),
+        country_count=len(
+            {to_iso(article["country"]) for article in cluster["articles"]}
         ),
         snapshot_date=snapshot_date.isoformat(),
         date_label=f"{snapshot_date.day} {snapshot_date:%b %Y}",
@@ -177,6 +238,7 @@ def map_view(cluster_id):
         source_groups=source_groups,
         iso_fix=ISO_FIX,
     )
+
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)

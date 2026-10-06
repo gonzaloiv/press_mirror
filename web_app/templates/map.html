@@ -10,11 +10,9 @@
 
 <body>
     <div class="canvas">
-        {% if not thumbnail %}
         <a href="{{ url_for('index', date=snapshot_date) }}" class="back-link">← All maps</a>
-        {% endif %}
         <div id="thumbnail-content">
-            <h1 class="headline{% if thumbnail %} thumbnail-headline{% endif %}">{{ label }}</h1>
+            <h1 class="headline">{{ label }}</h1>
             <p class="subhead">
                 {{ coverage_copy }}
             </p>
@@ -50,123 +48,20 @@
             </section>
             {% endfor %}
         </div>
-        <p class="coverage-note">
-            We track a fixed set of European and international outlets.<br>
-            Countries not listed here are not part of our source list.
-        </p>
         <footer class="page-meta">
-            <span>pressmirror.eu</span>
-            <time datetime="{{ snapshot_date }}">{{ date_label }}</time>
+            <p class="coverage-note">
+                We track a fixed set of European and international outlets.<br>
+                Countries not listed here are not part of our source list.
+            </p>
+            <div class="page-meta-links">
+                <a href="{{ url_for('about') }}">How it works</a>
+                <span>pressmirror.eu</span>
+                <time datetime="{{ snapshot_date }}">{{ date_label }}</time>
+            </div>
         </footer>
     </div>
 
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script>
-        // Data injected by Flask.
-        const covered = {{ covered| tojson }};
-        const tracked = {{ countries| tojson }};
-        const mapBounds = {{ map_bounds| tojson }};
-
-        // --- Country code normalization -----------------------------------------
-        // Natural Earth quirks: ISO_A2 is often "-99" for France, Norway, Kosovo,
-        // N. Cyprus, Somaliland. ISO_A2_EH is a corrected field. Prefer it.
-        const ISO_FIX = {{ iso_fix|tojson }};
-
-        function getIso(feature) {
-            const p = feature.properties || {};
-            const eh = (p.ISO_A2_EH || "").toUpperCase();
-            const a2 = (p.ISO_A2 || "").toUpperCase();
-            const raw = (eh && eh !== "-99") ? eh : a2;
-            return ISO_FIX[raw] || raw;
-        }
-
-        // Normalize both lists so comparisons match the GeoJSON country codes.
-        const coveredNorm = covered.map(c => ISO_FIX[c] || c);
-        const trackedNorm = tracked.map(c => ISO_FIX[c] || c);
-
-        // --- Map setup -----------------------------------------------------------
-        const map = L.map('map', {
-            zoomControl: false,
-            attributionControl: false,
-            dragging: false,
-            scrollWheelZoom: false,
-            doubleClickZoom: false,
-            boxZoom: false,
-            keyboard: false,
-            tap: false,
-        }).setView([54, 10], 3);
-
-        const COVERED = '#2563eb';
-        const SILENT = '#e5e7eb';
-        const UNTRACKED_OUTLINE = '#9ca3af';
-
-        // --- Load country borders -----------------------------------------------
-        const GEOJSON_URL = 'https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson';
-
-        fetch(GEOJSON_URL)
-            .then(r => r.json())
-            .then(geo => {
-                const countryLayer = L.geoJSON(geo, {
-                    style: feature => {
-                        const iso = getIso(feature);
-                        const isCovered = coveredNorm.includes(iso);
-                        const isTracked = trackedNorm.includes(iso);
-                        if (isCovered) {
-                            return {
-                                color: '#ffffff',
-                                weight: 1,
-                                fillColor: COVERED,
-                                fillOpacity: 1,
-                            };
-                        }
-                        if (isTracked) {
-                            return {
-                                color: '#ffffff',
-                                weight: 1,
-                                fillColor: SILENT,
-                                fillOpacity: 1,
-                            };
-                        }
-                        return {
-                            color: UNTRACKED_OUTLINE,
-                            weight: 1,
-                            fillOpacity: 0,
-                        };
-                    },
-                }).addTo(map);
-
-                if (mapBounds) {
-                    map.fitBounds(mapBounds, { padding: [24, 24] });
-                }
-
-                countryLayer.eachLayer(country => {
-                    const iso = getIso(country.feature);
-                    if (!coveredNorm.includes(iso)) {
-                        return;
-                    }
-
-                    const bounds = country.getBounds();
-                    const northWest = map.latLngToContainerPoint(bounds.getNorthWest());
-                    const southEast = map.latLngToContainerPoint(bounds.getSouthEast());
-                    const pixelArea = Math.abs(southEast.x - northWest.x)
-                        * Math.abs(southEast.y - northWest.y);
-                    if (pixelArea < 64) {
-                        L.circleMarker(bounds.getCenter(), {
-                            radius: 4,
-                            color: '#ffffff',
-                            weight: 1,
-                            fillColor: COVERED,
-                            fillOpacity: 1,
-                            interactive: false,
-                        }).addTo(map);
-                    }
-                });
-
-                // Signal that the map has finished drawing.
-                window.mapReady = true;
-            })
-            .catch(err => console.error("GeoJSON load failed:", err));
-    </script>
+    {% include "_map_runtime.html" %}
 </body>
 
 </html>

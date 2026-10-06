@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:wght@500;600;700&display=swap');
+
+:root {
+    --covered: #2563eb;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #ffffff;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.card-content {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px 64px 48px;
+}
+
+.card-label {
+    margin: 0 0 6px;
+    font-family: 'Lora', Georgia, serif;
+    font-size: clamp(26px, 4.5vw, 38px);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+#map {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: #f9fafb;
+}
+
+.card-legend {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 16px;
+    margin-top: 12px;
+    color: var(--muted);
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+.card-legend > span {
+    display: inline-flex;
+    align-items: center;
+}
+
+.swatch {
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    margin-right: 6px;
+    border-radius: 4px;
+}
+
+.swatch.covered {
+    background: var(--covered);
+}
+
+.swatch.silent {
+    border: 1px solid #6b7280;
+    background: #8a929f;
+}
+
+.swatch.untracked {
+    border: 2px solid #6b7280;
+    background: transparent;
+}
+
+.card-sources {
+    margin: 10px 0 0;
+    overflow: hidden;
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.4;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.source-narrow {
+    display: none;
+}
+
+@media (max-width: 700px) {
+    .card-content {
+        padding: 8px 20px 32px;
+    }
+
+    .card-label {
+        margin-bottom: 8px;
+    }
+
+    #map {
+        width: min(100%, 330px);
+        margin-inline: auto;
+    }
+
+    .card-legend {
+        gap: 8px;
+        margin-top: 8px;
+        font-size: 14px;
+    }
+
+    .swatch {
+        width: 11px;
+        height: 11px;
+        margin-right: 4px;
+    }
+
+    .card-sources {
+        margin-top: 8px;
+        font-size: 14px;
+    }
+
+    .source-wide {
+        display: none;
+    }
+
+    .source-narrow {
+        display: inline;
+    }
+}
