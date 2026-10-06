@@ -28,7 +28,7 @@ body {
 }
 
 .card-label {
-    margin: 0 0 6px;
+    margin: 0 0 4px;
     font-family: 'Lora', Georgia, serif;
     font-size: clamp(26px, 4.5vw, 38px);
     font-weight: 700;
@@ -43,15 +43,27 @@ body {
     background: #f9fafb;
 }
 
+.card-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) max-content;
+    align-items: stretch;
+    gap: 20px;
+}
+
+.card-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-width: 0;
+}
+
 .card-legend {
     display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    gap: 16px;
-    margin-top: 12px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
     color: var(--muted);
     font-size: 16px;
-    white-space: nowrap;
 }
 
 .card-legend > span {
@@ -82,13 +94,11 @@ body {
 }
 
 .card-sources {
-    margin: 10px 0 0;
-    overflow: hidden;
+    margin: 0 0 12px;
     color: var(--muted);
     font-size: 16px;
     line-height: 1.4;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    overflow-wrap: anywhere;
 }
 
 .source-narrow {
@@ -104,14 +114,8 @@ body {
         margin-bottom: 8px;
     }
 
-    #map {
-        width: min(100%, 330px);
-        margin-inline: auto;
-    }
-
     .card-legend {
-        gap: 8px;
-        margin-top: 8px;
+        gap: 6px;
         font-size: 14px;
     }
 
@@ -122,7 +126,7 @@ body {
     }
 
     .card-sources {
-        margin-top: 8px;
+        margin-bottom: 10px;
         font-size: 14px;
     }
 
@@ -132,5 +136,22 @@ body {
 
     .source-narrow {
         display: inline;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    #map {
+        width: min(100%, 330px);
+        margin-inline: auto;
+    }
+
+    .card-details {
+        width: min(100%, 330px);
+        margin-inline: auto;
     }
 }

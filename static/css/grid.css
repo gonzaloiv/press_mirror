@@ -41,7 +41,7 @@ header {
 
 h1 {
     margin: 0 0 0.5rem;
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-family: 'Lora', Georgia, serif;
 }
 
@@ -126,10 +126,12 @@ a:focus-visible {
 }
 
 .date-pagination .older-day {
+    justify-content: flex-start;
     text-align: left;
 }
 
 .date-pagination .newer-day {
+    justify-content: flex-end;
     text-align: right;
 }
 

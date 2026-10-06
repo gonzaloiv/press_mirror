@@ -12,12 +12,6 @@
 <body>
     <main id="thumbnail-content" class="card-content">
         <h1 class="card-label">{{ label }}</h1>
-        <div id="map"></div>
-        <div class="card-legend" aria-label="Map legend">
-            <span><span class="swatch covered"></span>Covered</span>
-            <span><span class="swatch silent"></span>Not covered</span>
-            <span><span class="swatch untracked"></span>Not tracked</span>
-        </div>
         <p class="card-sources" aria-label="Source metadata">
             {{ outlet_count }} outlet{% if outlet_count != 1 %}s{% endif %}
             in {{ country_count }} countr{% if country_count == 1 %}y{% else %}ies{% endif %}
@@ -31,6 +25,16 @@
             {% endfor %}
             {% if outlet_count > 2 %}<span class="source-narrow"> +{{ outlet_count - 2 }} more</span>{% endif %}
         </p>
+        <div class="card-layout">
+            <div id="map"></div>
+            <div class="card-details">
+                <div class="card-legend" aria-label="Map legend">
+                    <span><span class="swatch covered"></span>Covered</span>
+                    <span><span class="swatch silent"></span>Not covered</span>
+                    <span><span class="swatch untracked"></span>Not tracked</span>
+                </div>
+            </div>
+        </div>
     </main>
     {% include "_map_runtime.html" %}
 </body>
