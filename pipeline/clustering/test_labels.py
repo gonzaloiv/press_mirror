@@ -1,6 +1,6 @@
 import unittest
 
-from pipeline.cluster import generate_topic_label
+from pipeline.clustering.labels import generate_topic_label
 
 
 class GenerateTopicLabelTests(unittest.TestCase):
