@@ -14,6 +14,6 @@ The web app opens on the newest cluster snapshot. Use the Newer day and Older da
 
 The grid shows every cluster whose average similarity is at least 0.75, with at least 10 distinct sources across at least 4 countries. The same criteria are used when rendering map images.
 
-Cluster labels are deterministic noun phrases built from terms shared by the cluster headlines, with a maximum of seven words. English headlines are preferred when present; otherwise the source language is retained.
+Cluster labels are extractive, not generated: each cluster reports up to seven terms that recur across its headlines, ranked by how many headlines they touch. The multilingual embedding model groups equivalent forms from different languages (for example "drone" / "Drohne" / "dron") into one concept, so translations compete as a single shared term. The list is stored as `terms`. A local LLM (Qwen2.5-1.5B-Instruct) rewrites those terms plus the cluster's headlines into one short neutral English headline for `label`, translating non-English clusters when needed; if the model is unavailable or fails, `label` falls back to placing the terms in the word order of the headline nearest the cluster centroid (for example "Moscow drone attack") or, failing that, joining them with ` · `. `label_source` records whether the label came from the LLM or the terms. Pages show `label` as the title and `terms` as the subtitle.
 
 Shared country-code helpers are in shared/, and the generated embedding artifact is stored at data/embeddings.npz.

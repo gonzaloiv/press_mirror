@@ -1,749 +1,351 @@
+"""Extract the terms a cluster's headlines have in common.
+
+This module does not write a sentence. For each cluster it reports the words
+and short phrases that recur across the headlines, ranked by how many
+headlines they touch. Equivalent surface forms are grouped into a single
+concept with the shared multilingual embedding model, so translations of the
+same term ("drone" / "Drohne" / "dron") compete as one shared term instead of
+three rare ones.
+"""
+
 import re
+from dataclasses import dataclass
 from unicodedata import combining, normalize
 
-LABEL_MAX_WORDS = 7
+import numpy as np
+
+MAX_SHARED_TERMS = 7
+MIN_SHARED_HEADLINES = 2
+MAX_TERM_WORDS = 3
+CONCEPT_SIMILARITY_THRESHOLD = 0.72
+
+MODEL_NAME = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+_model = None
 
 _WORD_RE = re.compile(r"[^\W_]+(?:['’][^\W_]+)?", re.UNICODE)
-_ENGLISH_VOCABULARY = frozenset(
+
+# Generic function words only. Content-bearing vocabulary is never listed here.
+_FUNCTION_WORDS = frozenset(
     """
-    attack attacks drone drones strike strikes school schools election
-    elections vote votes voter voters bomber bombers withdrawal withdraw
-    withdraws base bases threat threats outbreak plague denies deny denial
-    lab worker death family rule democracy angry upperclassmen delays delay
-    delayed hopes punish housing crisis conflict protest protests leaves
-    leaving plans calls pictures prolific author parliamentarian prisoner
-    dies died aged projected separatist separatists party poised elect win
-    wins power first time canada unity invasion launches intensifies under
-    parliament votes children approves social media minors law bans ban
-    election victory wins french elections spain brazilian french strikes
-    russian ukraine moscow turkey earthquake
+    a an the and or but if then than so as of at by for from in into on onto
+    to with without over under after before during while about against between
+    through is are was were be been being has have had do does did this that
+    these those it its their his her he she they them we you your who why what
+    when where how not no now new more most all any only
+    le la les un une des du de dans pour avec sur au aux et est sont ce cette
+    ces
+    il elle ils elles que qui ne pas plus son sa ses contre chez par vers sous
+    entre sans tout tous leur leurs notre votre mais ou donc car ni
+    der die das den dem des ein eine einer und oder von fur mit nach auf zu im
+    am an als ist sind wird werden nicht auch gegen aus bei vom zum zur vor
+    seit durch ohne um uber zwischen dass wie nur noch schon sehr mehr beim
+    el los las del una unos unas y o pero si como por para con en al es son fue
+    fueron ser estar esta estan se su sus lo les mas sin sobre entre hasta
+    desde muy ya todo
+    il gli le dei delle nel sulle non piu di della da su per tra fra che si
+    os as dos das uma para com na no sao nao do da em ao aos um mais
+    het een van bij voor met zijn wordt niet ook de den te op om als dat die
+    deze
+    och ar det den som att for med av pa inte i till utan over under vid
+    w na ze i nie do od po za pod nad
+    ja on ovat etta kanssa ei se kuin mutta
+    one two three first last how why warum wie was zwei drei jeden deux trois
+    comment pourquoi dos tres como porque due come perche dois como porque twee
+    drie hoe waarom dwa trzy jak dlaczego tva tre hur varfor kaksi kolme miten
+    miksi
+    us
     """.split()
 )
-_LANGUAGE_MARKERS = {
-    "de": frozenset(
-        "der die das den dem des und von für mit nach auf ist sind wird werden "
-        "schüler frankreich deutschland meer schiff drohnenangriff gestorben "
-        "wütender warum".split()
-    ),
-    "fr": frozenset(
-        "le la les des du une et est sont pour avec dans sur aux france élèves "
-        "lycéens mobilisation cortèges".split()
-    ),
-    "es": frozenset(
-        "el los las del una y pero que como por para con en es son está barco "
-        "barcos mar negro".split()
-    ),
-    "it": frozenset(
-        "il gli le dei delle una e per con nel sulle sono nave navi colpite "
-        "affondata".split()
-    ),
-    "pt": frozenset(
-        "os as dos das uma e para com na no são barco barcos juntam protestos "
-        "estudantes".split()
-    ),
-    "nl": frozenset(
-        "het een van bij voor met zijn wordt afscheid verkiezing separatisten "
-        "wint".split()
-    ),
-    "sv": frozenset(
-        "och är det den som att för med av på död författaren vann".split()
-    ),
-    "fi": frozenset(
-        "ja on ovat että kanssa tuhansia odotetaan kiihtyvät lukioprotestit".split()
-    ),
-    "pl": frozenset(
-        "w na ze jeden statek atak dronów wybrzeży załogi nieznany".split()
-    ),
-}
-_ENGLISH_MARKERS = frozenset(
-    """
-    the and but or for from with after before has have had are is were been
-    being into than about against during while who why how does did projected
-    poised aged dies died author pictures
-    """.split()
-)
-_CROSS_LANGUAGE_STEMS = {
-    "france": ("france", "frankreich", "francia", "franca", "frança"),
-    "black sea": ("schwarzen meer", "schwarzem meer", "mer noire", "mar negro", "mar nero", "morze czarne"),
-    "ship": ("ship", "vessel", "schiff", "bateau", "navire", "barco", "nave", "statek", "laiva"),
-    "drone": ("drone", "drohn", "dron"),
-    "attack": ("attack", "angriff", "attac", "atak", "frapp", "colpit", "atac"),
-    "student": ("student", "schuler", "eleve", "etudiant", "lyceen", "estudant", "studenti", "opiskelija"),
-    "protest": ("protest", "demonstration", "demo", "mobilisation", "mobilization", "corteg", "streik", "huelga", "grève"),
-    "messi": ("messi",),
-    "argentina": ("argentina",),
-    "farewell": (
-        "farewell", "despedi", "despide", "afscheid", "abschied",
-        "verabschied", "adieu", "adios",
-    ),
-    "jeffrey archer": ("jeffrey archer",),
-    "death": ("dies", "died", "death", "gestorben", "verstorben", "decede", "deceded", "död"),
-    "quebec": ("quebec", "québec"),
-    "separatist": ("separatist", "independentist", "indépendantiste"),
-    "election": ("election", "elect", "wahl", "eleccion", "elección", "elezioni", "verkiezing"),
-    "win": ("win", "won", "wins", "gewinnt", "l'emporte", "gana"),
-    "turkey": ("turkey", "türkei", "turquie", "turquia", "turchia"),
-    "earthquake": ("earthquake", "erdbeben", "seisme", "séisme", "terremoto", "deprem"),
-    "spain": ("spain", "spanien", "españa", "espana"),
-    "delay": ("delay", "retras", "aplaz", "pospon", "verzög"),
-    "students": ("students", "alunos", "eleves", "schuler"),
-    "school": (
-        "school", "lycee", "lycée", "ecole", "école", "schul", "escuela",
-        "escolar",
-    ),
-    "nobel": ("nobel",),
-    "physics": ("physics", "physik", "physique", "fisica", "física"),
-    "francis halzen": ("francis halzen",),
-    "medicine": (
-        "medicine", "medicina", "medizin", "geneeskunde", "medisin",
-    ),
-    "optogenetics": (
-        "optogenetics", "optogenetik", "optogenetica", "optogenetica",
-    ),
-    "cornell": ("cornell",),
-    "sexual assault": (
-        "sexual assault", "rape", "vergewaltigung", "viol", "verkrachting",
-        "våldtäk", "voldtægt",
-    ),
-}
-_STOPWORDS = frozenset(
-    """
-    a an the and or but if then than so because as of at by for from in into
-    on onto to with without over under after before during while about against
-    between through is are was were be been being has have had do does did
-    this that these those it its their his her he she they them we you your
-    who why what when where how vs not no now new more most all any only
-    de del la las el los un una unos unas y o pero si que como por para con
-    en al es son fue fueron ser estar está están se su sus lo le les
-    le la les des du dans pour avec sur au aux et est sont une un
-    der die das den dem des ein eine einer und oder von für mit nach auf
-    zu im am an als ist sind wird werden
-    """.split()
-)
-_EDITORIAL_TERMS = frozenset(
-    "vs versus why how what massive major shocking huge controversial".split()
-)
-_EVENT_TERMS = frozenset(
-    """
-    attack strike outbreak protest election vote denial deny delay withdrawal
-    leave departure crisis death visit meeting talks deal agreement ban arrest
-    trial ruling court law launch win defeat resignation invasion ceasefire
-    earthquake flood wildfire fire explosion crash collision shooting bombing
-    killing massacre summit peace approval rejection lawsuit strike
-    """.split()
-)
-_EVENT_CANONICAL = {
-    "attacks": "attack",
-    "strikes": "strike",
-    "outbreaks": "outbreak",
-    "protests": "protest",
-    "elections": "election",
-    "votes": "vote",
-    "denies": "deny",
-    "denied": "deny",
-    "denial": "deny",
-    "withdraw": "withdrawal",
-    "withdraws": "withdrawal",
-    "withdrawn": "withdrawal",
-    "leave": "withdrawal",
-    "leaves": "withdrawal",
-    "leaving": "withdrawal",
-    "left": "withdrawal",
-    "depart": "withdrawal",
-    "departs": "withdrawal",
-    "departure": "withdrawal",
-    "delays": "delay",
-    "delayed": "delay",
-    "departures": "withdrawal",
-    "trials": "trial",
-    "rulings": "ruling",
-    "talk": "talks",
-    "deals": "deal",
-    "bans": "ban",
-    "arrests": "arrest",
-    "wins": "win",
-    "defeats": "defeat",
-    "earthquakes": "earthquake",
-    "floods": "flood",
-    "wildfires": "wildfire",
-    "fires": "fire",
-    "explosions": "explosion",
-    "crashes": "crash",
-    "collisions": "collision",
-    "shootings": "shooting",
-    "bombings": "bombing",
-    "killings": "killing",
-    "massacres": "massacre",
-    "summits": "summit",
-    "approves": "approval",
-    "approved": "approval",
-    "rejects": "rejection",
-    "rejected": "rejection",
-    "banning": "ban",
-    "banned": "ban",
-    "invades": "invasion",
-    "invaded": "invasion",
-}
-_ENTITY_TERMS = frozenset(
-    """
-    us usa uk ukraine ukrainian russian russia moscow brazil brazilian spain
-    spanish france french iran iranian israel israeli china chinese taiwan
-    taiwanese japan japanese germany german britain british england english
-    london paris kyiv kiev washington beijing delhi mexico mexican canada
-    canadian australia australian italy italian poland polish syria syrian
-    gaza palestine palestinian israel saudi arabia turkey turkish
-    """.split()
-)
-_ENTITY_CANONICAL = {
-    "russian": "russia",
-    "russians": "russia",
-    "ukrainian": "ukraine",
-    "ukrainians": "ukraine",
-    "brazilian": "brazil",
-    "brazilians": "brazil",
-    "spanish": "spain",
-    "french": "france",
-    "iranian": "iran",
-    "iranians": "iran",
-    "israeli": "israel",
-    "israelis": "israel",
-    "chinese": "china",
-    "taiwanese": "taiwan",
-    "japanese": "japan",
-    "german": "germany",
-    "british": "britain",
-    "canadian": "canada",
-    "australian": "australia",
-    "italian": "italy",
-    "polish": "poland",
-    "syrian": "syria",
-    "turkish": "turkey",
-}
-_COUNTRY_ADJECTIVES = {
-    "russia": "Russian",
-    "ukraine": "Ukrainian",
-    "brazil": "Brazilian",
-    "spain": "Spanish",
-    "france": "French",
-    "iran": "Iranian",
-    "israel": "Israeli",
-    "china": "Chinese",
-    "taiwan": "Taiwanese",
-    "japan": "Japanese",
-    "germany": "German",
-    "britain": "British",
-    "canada": "Canadian",
-    "australia": "Australian",
-    "italy": "Italian",
-    "poland": "Polish",
-    "syria": "Syrian",
-    "turkey": "Turkish",
-}
-_PLACE_TERMS = frozenset(
-    """
-    moscow kyiv kiev london paris washington beijing delhi gaza ukraine russia
-    brazil spain france iran israel china taiwan japan germany britain england
-    mexico canada australia italy poland syria turkey palestine
-    """.split()
-)
-_TOPIC_MODIFIERS = {
-    "attack": ("drone", "missile", "rocket", "bomb", "bombing", "airstrike"),
-    "strike": ("school", "teacher", "worker", "student"),
-    "outbreak": ("plague", "disease", "virus"),
-    "protest": ("school", "student", "teacher"),
-}
-_EVENT_PRIORITY = {
-    "deny": 15,
-    "delay": 14,
-    "invasion": 13,
-    "withdrawal": 12,
-    "attack": 11,
-    "strike": 10,
-    "protest": 9,
-    "earthquake": 8,
-    "outbreak": 7,
-    "ban": 6,
-    "election": 5,
-    "vote": 4,
-}
+
+
+def _normalize_token(token: str) -> str:
+    decomposed = normalize("NFKD", token.replace("’", "'").casefold())
+    return "".join(
+        character for character in decomposed if not combining(character)
+    )
 
 
 def _tokens(text: str) -> list[str]:
-    return [match.group().replace("’", "'").casefold() for match in _WORD_RE.finditer(text)]
+    return [_normalize_token(match.group()) for match in _WORD_RE.finditer(text)]
 
 
-def _normalized_tokens(text: str) -> list[str]:
-    decomposed = normalize("NFKD", text.casefold())
-    plain = "".join(
-        character for character in decomposed if not combining(character)
-    )
-    return [match.group() for match in _WORD_RE.finditer(plain)]
+def _raw_tokens(text: str) -> list[str]:
+    return [match.group() for match in _WORD_RE.finditer(text)]
 
 
-def _is_english_headline(title: str) -> bool:
-    words = set(_normalized_tokens(title))
-    english_score = len(words & _ENGLISH_MARKERS) + len(
-        words & _ENGLISH_VOCABULARY
-    )
-    other_language_score = max(
-        (
-            len(words & set(_normalized_tokens(" ".join(markers))))
-            for markers in _LANGUAGE_MARKERS.values()
-        ),
-        default=0,
-    )
-    return english_score >= 2 and english_score > other_language_score
+def _is_content(token: str) -> bool:
+    return len(token) >= 2 and not token.isdigit() and token not in _FUNCTION_WORDS
 
 
-def _canonical_word(word: str) -> str:
-    if word in _EVENT_CANONICAL:
-        return _EVENT_CANONICAL[word]
-    if word in _ENTITY_CANONICAL:
-        return _ENTITY_CANONICAL[word]
-    if word.endswith("'s"):
-        word = word[:-2]
-    if word.endswith("ies") and len(word) > 4:
-        return word[:-3] + "y"
-    if word.endswith("s") and len(word) > 4 and not word.endswith(("ss", "us", "is")):
-        return word[:-1]
-    return word
+@dataclass
+class _Form:
+    headlines: set[int]
+    mentions: int
+    surfaces: dict[str, int]
 
 
-def _clean_fallback(title: str) -> str:
-    """Keep the centroid headline as a short, non-rhetorical last resort."""
-    title = re.sub(
-        r"^\s*(?:in pictures|pictures|photos?|watch|video)\s*:\s*",
-        "",
-        title,
-        flags=re.IGNORECASE,
-    )
-    title = re.split(r"[:?—–]", title, maxsplit=1)[0]
-    title = re.split(r"\b(?:vs\.?|versus|why|how|what|who)\b", title, maxsplit=1, flags=re.I)[0]
-    words = _WORD_RE.findall(title)
-    while words and words[-1].casefold() in {
-        "a", "an", "and", "at", "for", "from", "in", "of", "on", "over", "the", "to", "with"
-    }:
-        words.pop()
-    return " ".join(words[:LABEL_MAX_WORDS]).strip()
-
-
-def _shared_headline_terms(titles: list[str]):
-    """Return words found in at least two titles with their observed forms."""
-    occurrences: dict[str, set[int]] = {}
-    surfaces: dict[str, dict[str, int]] = {}
-    entity_surfaces: dict[str, dict[str, int]] = {}
-    entity_occurrences: dict[str, set[int]] = {}
-    entity_first_seen: dict[str, tuple[int, int]] = {}
-
-    for headline_index, title in enumerate(titles):
+def _collect_forms(sentences: list[str]) -> dict[str, _Form]:
+    forms: dict[str, _Form] = {}
+    for index, title in enumerate(sentences):
         words = _tokens(title)
-        original_words = _WORD_RE.findall(title)
-        for position, word in enumerate(words):
-            canonical = _canonical_word(word)
-            if canonical in _STOPWORDS or canonical in _EDITORIAL_TERMS or len(canonical) < 2:
-                continue
-            occurrences.setdefault(canonical, set()).add(headline_index)
-            forms = surfaces.setdefault(canonical, {})
-            forms[word] = forms.get(word, 0) + 1
-
-            original = original_words[position] if position < len(original_words) else word
-            is_capitalized = original.isupper() or (
-                original[:1].isupper() and position > 0
-            )
-            if canonical in _ENTITY_TERMS or (
-                is_capitalized
-                and canonical not in _EVENT_TERMS
-                and canonical not in _STOPWORDS
-            ):
-                entity_occurrences.setdefault(canonical, set()).add(headline_index)
-                entity_first_seen.setdefault(canonical, (headline_index, position))
-                entity_forms = entity_surfaces.setdefault(canonical, {})
-                entity_forms[original] = entity_forms.get(original, 0) + 1
-
-    shared = {
-        word for word, indices in occurrences.items() if len(indices) >= 2
-    }
-    entities = {
-        word for word, indices in entity_occurrences.items() if len(indices) >= 2
-    }
-    return shared, entities, surfaces, entity_surfaces, entity_first_seen
-
-
-def _best_form(word: str, surfaces: dict[str, dict[str, int]]) -> str:
-    forms = surfaces.get(word, {})
-    if not forms:
-        return word
-    chosen = max(forms, key=lambda form: (forms[form], len(form)))
-    return chosen.lower()
-
-
-def _entity_form(word: str, surfaces: dict[str, dict[str, int]], entity_surfaces) -> str:
-    forms = entity_surfaces.get(word) or surfaces.get(word, {})
-    if not forms:
-        return word.title()
-    chosen = max(forms, key=lambda form: (forms[form], len(form)))
-    if chosen.casefold() in {"us", "usa", "uk"}:
-        return chosen.upper()
-    return chosen[0].upper() + chosen[1:]
-
-
-def _entities_around_term(
-    titles: list[str],
-    entities: set[str],
-    term: str | None,
-) -> tuple[str | None, str | None]:
-    if not term:
-        return None, None
-
-    before_counts: dict[str, int] = {}
-    after_counts: dict[str, int] = {}
-    for title in titles:
-        words = [_canonical_word(word) for word in _tokens(title)]
-        for term_position, word in enumerate(words):
-            if word != term:
-                continue
-            before = next(
-                (
-                    candidate
-                    for candidate in reversed(words[:term_position])
-                    if candidate in entities
-                ),
-                None,
-            )
-            after = next(
-                (
-                    candidate
-                    for candidate in words[term_position + 1:]
-                    if candidate in entities
-                ),
-                None,
-            )
-            if before and before != after:
-                before_counts[before] = before_counts.get(before, 0) + 1
-            if after and after != before:
-                after_counts[after] = after_counts.get(after, 0) + 1
-
-    def most_common(counts: dict[str, int]) -> str | None:
-        return min(counts, key=lambda word: (-counts[word], word), default=None)
-
-    return most_common(before_counts), most_common(after_counts)
-
-
-def _shared_topic_phrase(
-    titles: list[str],
-    shared: set[str],
-    entities: set[str],
-    event: str,
-) -> str | None:
-    candidates: dict[tuple[str, ...], set[int]] = {}
-    order: dict[tuple[str, ...], tuple[int, int]] = {}
-    excluded = entities | _EVENT_TERMS | _STOPWORDS | {event}
-    for title_index, title in enumerate(titles):
-        words = [_canonical_word(word) for word in _tokens(title)]
-        for size in (3, 2):
+        raw = _raw_tokens(title)
+        if len(raw) != len(words):
+            raw = words
+        for size in range(1, MAX_TERM_WORDS + 1):
             for start in range(len(words) - size + 1):
-                phrase_words = tuple(words[start:start + size])
-                if any(word not in shared or word in excluded for word in phrase_words):
+                window = words[start:start + size]
+                if not all(_is_content(word) for word in window):
                     continue
-                candidates.setdefault(phrase_words, set()).add(title_index)
-                order.setdefault(phrase_words, (title_index, start))
+                form = " ".join(window)
+                surface = " ".join(raw[start:start + size])
+                entry = forms.setdefault(form, _Form(set(), 0, {}))
+                entry.headlines.add(index)
+                entry.mentions += 1
+                entry.surfaces[surface] = entry.surfaces.get(surface, 0) + 1
+    return forms
 
-    repeated = [
-        phrase_words
-        for phrase_words, title_indices in candidates.items()
-        if len(title_indices) >= 2
+
+def _unit_vectors(rows) -> np.ndarray:
+    vectors = np.asarray(rows, dtype=float)
+    if vectors.ndim != 2 or vectors.shape[0] == 0:
+        return np.zeros((0, 0))
+    norms = np.linalg.norm(vectors, axis=1, keepdims=True)
+    return vectors / np.where(norms == 0.0, 1.0, norms)
+
+
+def _concept_groups(
+    names: list[str],
+    vectors: np.ndarray,
+    forms: dict[str, _Form],
+    threshold: float,
+) -> list[list[str]]:
+    """Greedily attach each form to the closest existing concept.
+
+    Forms are visited strongest first and a match is only accepted against an
+    existing concept's centroid. This avoids the transitive chaining that
+    single-linkage clustering produces on noisy word embeddings.
+    """
+    order = sorted(
+        range(len(names)),
+        key=lambda index: (
+            -len(forms[names[index]].headlines),
+            -forms[names[index]].mentions,
+            len(names[index].split()),
+            len(names[index]),
+            names[index],
+        ),
+    )
+    groups: list[list[int]] = []
+    centroids: list[np.ndarray] = []
+    for index in order:
+        vector = vectors[index]
+        best = -1
+        best_similarity = threshold
+        for group_index, centroid in enumerate(centroids):
+            similarity = float(vector @ centroid)
+            if similarity >= best_similarity:
+                best_similarity = similarity
+                best = group_index
+        if best < 0:
+            groups.append([index])
+            centroids.append(vector.copy())
+            continue
+        groups[best].append(index)
+        member_vectors = [vectors[member] for member in groups[best]]
+        centroid = np.mean(member_vectors, axis=0)
+        norm = float(np.linalg.norm(centroid))
+        centroids[best] = centroid / norm if norm else centroid
+
+    return [
+        [names[index] for index in group]
+        for group in groups
     ]
-    if not repeated:
-        return None
-    selected = min(
-        repeated,
-        key=lambda phrase_words: (
-            -len(phrase_words),
-            order[phrase_words],
-            phrase_words,
-        ),
-    )
-    label = " ".join(selected)
-    return label[0].upper() + label[1:]
 
 
-def _select_label_terms(titles: list[str]) -> str | None:
-    shared, entities, surfaces, entity_surfaces, entity_first_seen = (
-        _shared_headline_terms(titles)
-    )
-    if not shared:
-        return None
+def _merge_concepts(
+    forms: dict[str, _Form], encode, threshold: float
+) -> list[list[str]]:
+    names = list(forms)
+    if len(names) < 2:
+        return [[name] for name in names]
+    vectors = _unit_vectors(encode(names))
+    if len(vectors) != len(names):
+        return [[name] for name in names]
+    return _concept_groups(names, vectors, forms, threshold)
 
-    event_words = shared & _EVENT_TERMS
-    event = max(
-        event_words,
-        key=lambda word: (
-            _EVENT_PRIORITY.get(word, 0),
-            sum(surfaces.get(word, {}).values()),
-            word,
-        ),
-        default=None,
-    )
-    entity_order = sorted(
-        entities,
-        key=lambda word: (
-            -max(entity_surfaces.get(word, {}).values(), default=0),
-            -(word in _ENTITY_TERMS),
-            entity_first_seen[word],
-            word,
-        ),
-    )
-    entity = entity_order[0] if entity_order else None
-    entity_text = _entity_form(entity, surfaces, entity_surfaces) if entity else None
 
-    def phrase(*parts: str | None) -> str | None:
-        words = " ".join(part for part in parts if part).split()
-        result = " ".join(words[:LABEL_MAX_WORDS]).strip()
-        return result if result else None
+@dataclass
+class _Concept:
+    display: str
+    tokens: tuple[str, ...]
+    headlines: frozenset[int]
+    mentions: int
 
-    if event == "deny" and entity_text:
-        topic = next(
-            (word for word in ("plague", "outbreak", "disease", "virus") if word in shared),
-            None,
-        )
-        related = (
-            _best_form(topic, surfaces) if topic else None,
-            _best_form("outbreak", surfaces) if "outbreak" in shared else None,
-        )
-        return phrase(entity_text, "denies", *related)
 
-    if event == "delay" and entity_text:
-        topic = next(
-            (word for word in ("election", "vote", "poll") if word in shared),
-            None,
-        )
-        return phrase(
-            entity_text,
-            "delays",
-            _best_form(topic, surfaces) if topic else None,
-        )
+def _display_surface(form: str, surfaces: dict[str, int]) -> str:
+    if not surfaces:
+        return form
+    return max(surfaces, key=lambda surface: (surfaces[surface], len(surface)))
 
-    if event == "withdrawal" and entity_text:
-        actor = next(
-            (word for word in ("bomber", "troop", "soldier") if word in shared),
-            None,
-        )
-        actor_entity, location_entity = _entities_around_term(
-            titles, entities, actor
-        ) if actor else (None, None)
-        actor_entity = actor_entity or entity
-        location_entity = location_entity or next(
-            (
-                candidate
-                for candidate in entity_order
-                if candidate != actor_entity and candidate in _PLACE_TERMS
+
+def _concepts(groups: list[list[str]], forms: dict[str, _Form]) -> list[_Concept]:
+    concepts = []
+    for group in groups:
+        headlines: set[int] = set()
+        mentions = 0
+        for form in group:
+            headlines |= forms[form].headlines
+            mentions += forms[form].mentions
+        representative = max(
+            group,
+            key=lambda form: (
+                len(forms[form].headlines),
+                forms[form].mentions,
+                -len(form.split()),
+                -len(form),
+                form,
             ),
-            None,
         )
-        location = (
-            _entity_form(location_entity, surfaces, entity_surfaces)
-            if location_entity
-            else None
-        )
-        base = _best_form("base", surfaces) if "base" in shared else None
-        if actor and location:
-            actor_form = _best_form(actor, surfaces)
-            if actor_form == "bomber":
-                actor_form = "bombers"
-            return phrase(
-                _entity_form(actor_entity, surfaces, entity_surfaces),
-                actor_form,
-                "leave",
-                location,
-                base,
-            )
-        return phrase(entity_text, "withdrawal")
-
-    if event == "invasion":
-        actor, target = _entities_around_term(titles, entities, event)
-        if actor and target:
-            actor_label = _COUNTRY_ADJECTIVES.get(actor)
-            if not actor_label:
-                actor_label = _entity_form(actor, surfaces, entity_surfaces)
-            target_label = _entity_form(target, surfaces, entity_surfaces)
-            return phrase(actor_label, "invasion of", target_label)
-        if target or entity:
-            location = target or entity
-            return phrase(
-                "Invasion of",
-                _entity_form(location, surfaces, entity_surfaces),
-            )
-
-    if event in {"attack", "strike", "outbreak", "protest"}:
-        place = next((word for word in entity_order if word in _PLACE_TERMS), None)
-        label_entity = place or entity
-        label_entity_text = (
-            _entity_form(label_entity, surfaces, entity_surfaces)
-            if label_entity
-            else None
-        )
-        modifier = next(
-            (word for word in _TOPIC_MODIFIERS.get(event, ()) if word in shared),
-            None,
-        )
-        if label_entity_text:
-            return phrase(
-                label_entity_text,
-                _best_form(modifier, surfaces) if modifier else None,
-                _best_form(event, surfaces),
-            )
-        return phrase(
-            _best_form(modifier, surfaces) if modifier else None,
-            _best_form(event, surfaces),
-        )
-
-    if event == "earthquake":
-        place = next((word for word in entity_order if word in _PLACE_TERMS), None)
-        return phrase(
-            _entity_form(place, surfaces, entity_surfaces) if place else None,
-            "earthquake",
-        )
-
-    if event == "ban":
-        topic = _shared_topic_phrase(titles, shared, entities, event)
-        if not topic:
-            topic_words = sorted(
-                shared - entities - _EVENT_TERMS - _STOPWORDS,
-                key=lambda word: (
-                    -sum(surfaces.get(word, {}).values()),
-                    word,
+        concepts.append(
+            _Concept(
+                display=_display_surface(
+                    representative, forms[representative].surfaces
                 ),
+                tokens=tuple(representative.split()),
+                headlines=frozenset(headlines),
+                mentions=mentions,
             )
-            topic = " ".join(_best_form(word, surfaces) for word in topic_words[:2])
-        return phrase(topic, "ban")
+        )
+    return concepts
 
-    if event == "election":
-        return phrase(entity_text, "elections" if "elections" in surfaces.get(event, {}) else "election")
 
-    if event and entity_text:
-        return phrase(entity_text, _best_form(event, surfaces))
-    if entity_text:
-        return phrase(entity_text, _best_form(entity_order[1], surfaces) if len(entity_order) > 1 else None)
-
-    ranked_terms = sorted(
-        shared,
-        key=lambda word: (
-            -sum(surfaces.get(word, {}).values()),
-            -(word in _EVENT_TERMS),
-            word,
+def _ranked(concepts: list[_Concept]) -> list[_Concept]:
+    return sorted(
+        concepts,
+        key=lambda concept: (
+            -len(concept.headlines),
+            -concept.mentions,
+            -len(concept.tokens),
+            concept.display,
         ),
     )
-    return phrase(*(_best_form(word, surfaces) for word in ranked_terms[:4]))
 
 
-def _has_cross_language_term(titles: list[str], concept: str) -> bool:
-    stems = tuple(
-        "".join(
-            character
-            for character in normalize("NFKD", stem.casefold())
-            if not combining(character)
-        )
-        for stem in _CROSS_LANGUAGE_STEMS[concept]
-    )
-    for title in titles:
-        words = _normalized_tokens(title)
-        joined = " ".join(words)
-        if any(
-            (" " in stem and stem in joined)
-            or (" " not in stem and any(word.startswith(stem) for word in words))
-            for stem in stems
-        ):
+def _covered_by_stronger(concept: _Concept, kept: list[_Concept]) -> bool:
+    tokens = set(concept.tokens)
+    for stronger in kept:
+        if tokens < set(stronger.tokens) and concept.headlines <= stronger.headlines:
             return True
     return False
 
 
-def _cross_language_label(titles: list[str]) -> str | None:
-    """Assemble English phrases from a small audited multilingual vocabulary."""
-    has = lambda concept: _has_cross_language_term(titles, concept)
+def _suppress_overlapping(concepts: list[_Concept]) -> list[_Concept]:
+    kept: list[_Concept] = []
+    for concept in concepts:
+        if not _covered_by_stronger(concept, kept):
+            kept.append(concept)
+    return kept
 
-    if has("nobel") and has("physics") and has("francis halzen"):
-        return "Physics Nobel for Francis Halzen"
 
-    if has("nobel") and has("medicine") and has("optogenetics"):
-        return "Medicine Nobel for Optogenetics"
+def _default_encode(texts: list[str]) -> np.ndarray:
+    global _model
+    if _model is None:
+        from sentence_transformers import SentenceTransformer
 
-    if has("cornell") and has("sexual assault"):
-        return "Cornell sexual assault allegations"
+        try:
+            from config import HF_TOKEN
+        except ImportError:
+            HF_TOKEN = None
+        _model = SentenceTransformer(MODEL_NAME, token=HF_TOKEN)
+    return _model.encode(
+        list(texts),
+        batch_size=32,
+        normalize_embeddings=True,
+    )
 
-    if (
-        has("black sea")
-        and has("ship")
-        and has("drone")
-        and has("attack")
-    ):
-        return "Drone attacks on ships in Black Sea"
 
-    if has("france") and has("student") and has("protest"):
-        return "French student protests"
+def extract_common_terms(
+    titles: list[str],
+    *,
+    encode=None,
+    max_terms: int = MAX_SHARED_TERMS,
+    min_headlines: int = MIN_SHARED_HEADLINES,
+    similarity_threshold: float = CONCEPT_SIMILARITY_THRESHOLD,
+) -> list[str]:
+    """Return the strongest terms shared by a cluster's headlines."""
+    sentences = [title for title in titles if title and title.strip()]
+    if not sentences:
+        return []
+    forms = _collect_forms(sentences)
+    if not forms:
+        return []
 
-    if has("messi") and has("argentina") and has("farewell"):
-        return "Messi's Argentina farewell"
+    encoder = encode or _default_encode
+    groups = _merge_concepts(forms, encoder, similarity_threshold)
+    concepts = _ranked(_concepts(groups, forms))
 
-    if has("jeffrey archer") and has("death"):
-        return "Jeffrey Archer dies"
+    recurring = [
+        concept for concept in concepts if len(concept.headlines) >= min_headlines
+    ]
+    selected = recurring if recurring else concepts[:1]
+    selected = _suppress_overlapping(selected)
+    return [concept.display for concept in selected[:max_terms]]
 
-    if (
-        has("quebec")
-        and has("separatist")
-        and has("election")
-        and has("win")
-    ):
-        return "Quebec separatists win election"
 
-    if has("turkey") and has("earthquake"):
-        return "Turkey earthquake"
+def generate_topic_label(titles: list[str], **options) -> str:
+    """Legacy entry point: the shared terms assembled for display."""
+    terms = extract_common_terms(titles, **options)
+    representative = next(
+        (title for title in titles if title and title.strip()), ""
+    )
+    return build_cluster_label(terms, representative)
 
-    if has("spain") and has("election") and has("delay"):
-        return "Spain delays elections"
 
-    if has("france") and has("school") and has("protest"):
-        return "French school protests"
-
-    if has("france") and has("protest"):
-        return "Protests in France"
-
-    if has("earthquake"):
-        return "Earthquake"
-
-    if has("protest"):
-        return "Student protests" if has("student") else "Protests"
-
-    if has("election"):
-        return "Election"
-
+def _find_span(representative: list[str], tokens: list[str]) -> int | None:
+    limit = len(representative) - len(tokens)
+    for start in range(limit + 1):
+        if representative[start:start + len(tokens)] == tokens:
+            return start
     return None
 
 
-def generate_topic_label(titles: list[str]) -> str:
-    """Build a short English label from shared cluster-wide headline concepts."""
-    if not titles:
-        return ""
-    english_titles = [title for title in titles if _is_english_headline(title)]
-    if not english_titles:
-        return _cross_language_label(titles) or "News event"
+def _select_non_overlapping(spans: list[tuple[int, int, int]]):
+    """Keep longest spans first; None when two spans partially overlap."""
+    accepted: list[tuple[int, int, int]] = []
+    for span in sorted(spans, key=lambda item: (-(item[1] - item[0]), item[0], item[2])):
+        start, end, _ = span
+        for kept_start, kept_end, _ in accepted:
+            if start < kept_end and kept_start < end:
+                if kept_start <= start and end <= kept_end:
+                    break
+                return None
+        else:
+            accepted.append(span)
+    return accepted
 
-    if (
-        _has_cross_language_term(english_titles, "jeffrey archer")
-        and _has_cross_language_term(english_titles, "death")
-    ):
-        return "Jeffrey Archer dies"
 
-    if (
-        _has_cross_language_term(english_titles, "quebec")
-        and _has_cross_language_term(english_titles, "separatist")
-        and _has_cross_language_term(english_titles, "election")
-        and _has_cross_language_term(english_titles, "win")
-    ):
-        return "Quebec separatists win election"
+def build_cluster_label(terms: list[str], representative: str = "") -> str:
+    """Assemble a label from shared terms using the headline's word order.
 
-    label = _select_label_terms(english_titles)
-    if label:
-        return label
-    fallback_title = english_titles[0]
-    return _clean_fallback(fallback_title)
+    This is deliberately conservative: it only reorders when every term is
+    found in the representative headline and the spans do not conflict.
+    Otherwise it returns the plain joined-term string, so a label is either a
+    clean subsequence of a real headline or the same term list as before.
+    """
+    if not terms:
+        return representative.strip()
+    representative_tokens = _tokens(representative)
+    spans: list[tuple[int, int, int]] = []
+    for index, term in enumerate(terms):
+        tokens = _tokens(term)
+        start = _find_span(representative_tokens, tokens) if tokens else None
+        if start is None:
+            return " · ".join(terms)
+        spans.append((start, start + len(tokens), index))
+
+    accepted = _select_non_overlapping(spans)
+    if accepted is None:
+        return " · ".join(terms)
+    ordered = sorted(accepted, key=lambda span: span[0])
+    return " ".join(terms[index] for _, _, index in ordered)
 

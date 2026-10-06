@@ -206,6 +206,7 @@ def map_view(cluster_id):
     return render_template(
         "card.html" if thumbnail else "map.html",
         label=cluster["label"],
+        terms=cluster.get("terms", []),
         thumbnail=thumbnail,
         covered=covered,
         covered_country_names=covered_country_names,

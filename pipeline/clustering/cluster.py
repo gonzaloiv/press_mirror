@@ -13,7 +13,9 @@ from sklearn.cluster import AgglomerativeClustering
 from sklearn.metrics.pairwise import cosine_similarity
 
 from shared.country_codes import to_iso
-from pipeline.clustering.labels import generate_topic_label
+from shared.cluster_selection import selected_cluster_indices
+from pipeline.clustering.labels import build_cluster_label, extract_common_terms
+from pipeline.clustering.llm_label import generate_llm_label
 
 INPUT_FILE = PROJECT_DIR / "data" / "embeddings.npz"
 HISTORY_DIR = PROJECT_DIR / "history"
@@ -231,15 +233,15 @@ def build_clusters(
     if merge:
         cluster_groups = merge_clusters(cluster_groups, sources, embeddings)
 
-    result = []
+    entries = []
     label_clusters = [
         cluster for cluster in cluster_groups if len(cluster.indices) >= 2
     ]
     print(
-        f"Selecting labels for {len(label_clusters)} clusters.",
+        f"Measuring {len(label_clusters)} clusters.",
         flush=True,
     )
-    for label_number, cluster in enumerate(label_clusters, start=1):
+    for cluster in label_clusters:
         indices = cluster.indices
 
         # Recompute pairwise similarity *within* this cluster for the display.
@@ -272,27 +274,44 @@ def build_clusters(
             titles[i] for i in indices if i != representative_index
         ]
 
-        print(f"Generating label {label_number}/{len(label_clusters)}...", flush=True)
-        cluster_label = labeler(cluster_titles)
-
         cluster_result = {
-            "label": cluster_label,
+            "label": "",
+            "terms": [],
             "size": len(indices),
             "avg_similarity": round(float(avg_sim), 3),
             "articles": articles,
         }
         if cluster.dropped_sources:
             cluster_result["dropped_sources"] = cluster.dropped_sources
-        result.append(cluster_result)
+        entries.append((cluster_result, cluster_titles))
 
     # Prefer stories covered in more countries; use article count only for ties.
-    result.sort(
-        key=lambda c: (
-            len({to_iso(article["country"]) for article in c["articles"]}),
-            c["size"],
+    entries.sort(
+        key=lambda entry: (
+            len({to_iso(a["country"]) for a in entry[0]["articles"]}),
+            entry[0]["size"],
         ),
         reverse=True,
     )
+    result = [entry[0] for entry in entries]
+
+    # Labels are only needed for clusters that pass the display filters.
+    shown = selected_cluster_indices(result)
+    print(
+        f"Generating labels for {len(shown)} displayed clusters.",
+        flush=True,
+    )
+    for label_number, index in enumerate(shown, start=1):
+        cluster_result, cluster_titles = entries[index]
+        print(f"Generating label {label_number}/{len(shown)}...", flush=True)
+        cluster_terms = labeler(cluster_titles)
+        llm_label = generate_llm_label(cluster_terms, cluster_titles)
+        cluster_result["terms"] = cluster_terms
+        cluster_result["label"] = llm_label or build_cluster_label(
+            cluster_terms, cluster_titles[0]
+        )
+        cluster_result["label_source"] = "llm" if llm_label else "terms"
+
     return result
 
 
@@ -310,7 +329,7 @@ def main():
         countries,
         links,
         embeddings,
-        generate_topic_label,
+        extract_common_terms,
         fetched_at=fetched_at,
     )
     print(f"Kept {len(clusters)} clusters with 2+ articles.")

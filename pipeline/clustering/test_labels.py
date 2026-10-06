@@ -1,224 +1,185 @@
 import unittest
+from unicodedata import combining, normalize
 
-from pipeline.clustering.labels import generate_topic_label
+import numpy as np
+
+from pipeline.clustering.labels import (
+    build_cluster_label,
+    extract_common_terms,
+)
 
 
-class GenerateTopicLabelTests(unittest.TestCase):
-    def test_builds_labels_from_terms_shared_by_all_headlines(self):
-        examples = [
-            (
-                [
-                    "Moscow drone attack disrupts power grid",
-                    "Drone attack targets Moscow",
-                    "Russia faces drone strike on Moscow",
-                ],
-                "Moscow drone attack",
-            ),
-            (
-                [
-                    "Russia denies plague outbreak after lab worker death",
-                    "Russia rejects plague outbreak following lab worker death",
-                    "Russian officials deny outbreak linked to plague",
-                ],
-                "Russia denies plague outbreak",
-            ),
-            (
-                [
-                    "US bomber withdrawal from UK base",
-                    "US bombers leave UK base",
-                    "Bombers depart UK base as US aircraft returns",
-                ],
-                "US bombers leave UK base",
-            ),
-            (
-                [
-                    "Brazilian election: family rule vs. democracy",
-                    "Brazilian election draws voters",
-                ],
-                "Brazilian election",
-            ),
-            (
-                [
-                    "French school strikes: why are upperclassmen so angry?",
-                    "French school strikes continue",
-                ],
-                "French school strikes",
-            ),
-            (
-                [
-                    "Spain delays elections: Sanchez hopes voters punish housing crisis",
-                    "Spain delays elections amid housing crisis",
-                ],
-                "Spain delays elections",
-            ),
+def _normalize(text: str) -> str:
+    decomposed = normalize("NFKD", text.replace("’", "'").casefold())
+    return "".join(
+        character for character in decomposed if not combining(character)
+    )
+
+
+class _ConceptEncoder:
+    """Deterministic stand-in for the multilingual sentence model.
+
+    Words listed in the same group are embedded as one concept vector,
+    mimicking how the real model places translations of a term close together.
+    Every other token gets its own vector so unrelated words never merge.
+    """
+
+    def __init__(self, concept_words=(), titles=()):
+        concepts = [set(words) for words in concept_words]
+        known = set().union(*concepts) if concepts else set()
+        for title in titles:
+            for token in _normalize(title).split():
+                if token not in known:
+                    concepts.append({token})
+                    known.add(token)
+        self._size = len(concepts)
+        self._vectors: dict[str, np.ndarray] = {}
+        for index, words in enumerate(concepts):
+            vector = np.zeros(self._size)
+            vector[index] = 1.0
+            for word in words:
+                self._vectors[word] = vector
+
+    def encode(self, texts):
+        rows = []
+        for text in texts:
+            parts = [self._vectors[token] for token in text.split()]
+            rows.append(
+                np.mean(parts, axis=0) if parts else np.zeros(self._size)
+            )
+        return np.asarray(rows)
+
+    __call__ = encode
+
+
+def _concepts_present(terms, concept_words):
+    present = set()
+    for term in terms:
+        for token in _normalize(term).split():
+            for name, words in concept_words.items():
+                if token in words:
+                    present.add(name)
+    return present
+
+
+class ExtractCommonTermsTests(unittest.TestCase):
+    def test_same_language_cluster_returns_shared_terms(self):
+        titles = [
+            "Moscow drone attack disrupts the power grid",
+            "Drone attack targets Moscow",
+            "Russia faces drone strike on Moscow",
         ]
 
-        for headlines, expected in examples:
-            with self.subTest(headlines=headlines):
-                label = generate_topic_label(headlines)
-                self.assertEqual(label, expected)
-                self.assertLessEqual(len(label.split()), 7)
-                self.assertNotIn("?", label)
-                self.assertNotIn("vs.", label.casefold())
+        terms = extract_common_terms(
+            titles, encode=_ConceptEncoder(titles=titles)
+        )
+        normalized = [term.casefold() for term in terms]
 
-    def test_fallback_removes_editorial_tail_and_obeys_word_limit(self):
-        label = generate_topic_label(
-            ["Brazilian Election: Family Rule vs. Democracy"]
+        self.assertIn("moscow", normalized)
+        self.assertIn("drone", normalized)
+        self.assertIn("drone attack", normalized)
+        self.assertLessEqual(len(terms), 7)
+        for term in terms:
+            self.assertNotIn("?", term)
+            self.assertNotIn("the", _normalize(term).split())
+
+    def test_multilingual_cluster_merges_translated_terms(self):
+        concepts = {
+            "student": {"students", "eleves", "schuler"},
+            "france": {"french", "francais", "franzosische"},
+            "protest": {"protest", "manifestent", "protestieren"},
+            "reform": {"reform", "reforme"},
+        }
+        titles = [
+            "French students protest school reform",
+            "Des élèves français manifestent contre la réforme",
+            "Französische Schüler protestieren gegen die Reform",
+        ]
+
+        merged = _concepts_present(
+            extract_common_terms(
+                titles, encode=_ConceptEncoder(concepts.values(), titles)
+            ),
+            concepts,
         )
 
-        self.assertEqual(label, "Brazilian Election")
-        self.assertLessEqual(len(label.split()), 7)
-        self.assertNotIn("?", label)
-        self.assertNotIn("vs.", label.casefold())
-
-    def test_non_english_cluster_gets_an_english_label(self):
-        label = generate_topic_label(
-            [
-                "Huelga escolar en Francia",
-                "Francia mantiene huelga escolar",
-            ]
+        self.assertLessEqual(
+            {"student", "france", "protest", "reform"}, merged
         )
 
-        self.assertEqual(label, "French school protests")
-        self.assertTrue(label.isascii())
-        self.assertLessEqual(len(label.split()), 7)
+    def test_translations_merge_only_through_the_encoder(self):
+        concepts = {
+            "student": {"students", "eleves", "schuler"},
+            "france": {"french", "francais", "franzosische"},
+            "protest": {"protest", "manifestent", "protestieren"},
+            "reform": {"reform", "reforme"},
+        }
+        titles = [
+            "French students protest school reform",
+            "Des élèves français manifestent contre la réforme",
+            "Französische Schüler protestieren gegen die Reform",
+        ]
 
-    def test_mixed_language_cluster_uses_only_english_headlines(self):
-        label = generate_topic_label(
-            [
-                "Guerra de drones en Moscú",
-                "Russia denies drone attack on Moscow",
-                "Russian drone attack targets Moscow",
-            ]
+        encoded_terms = extract_common_terms(
+            titles, encode=_ConceptEncoder(concepts.values(), titles)
+        )
+        identity_terms = extract_common_terms(
+            titles, encode=_ConceptEncoder(titles=titles)
+        )
+
+        encoded = _concepts_present(encoded_terms, concepts)
+        identity = _concepts_present(identity_terms, concepts)
+
+        self.assertLessEqual({"student", "protest"}, encoded)
+        self.assertNotIn("student", identity)
+        self.assertNotIn("protest", identity)
+
+    def test_no_titles_returns_no_terms(self):
+        self.assertEqual(extract_common_terms([], encode=_ConceptEncoder()), [])
+        self.assertEqual(
+            extract_common_terms(["   "], encode=_ConceptEncoder()), []
+        )
+
+
+class BuildClusterLabelTests(unittest.TestCase):
+    def test_orders_terms_by_representative_headline(self):
+        label = build_cluster_label(
+            ["attack", "Moscow", "drone"],
+            "Moscow drone attack disrupts the power grid",
         )
 
         self.assertEqual(label, "Moscow drone attack")
 
-    def test_labels_keep_the_main_action_and_its_topic(self):
-        examples = [
-            (
-                [
-                    "Russia launches invasion into Ukraine",
-                    "Russian invasion of Ukraine intensifies",
-                    "Ukraine under Russian invasion",
-                ],
-                "Russian invasion of Ukraine",
-            ),
-            (
-                [
-                    "US bombers leave UK base as Iranian drones threaten region",
-                    "US bomber withdrawal from UK base over Iranian drone threat",
-                    "Bombers depart UK base after Iran drone threats",
-                ],
-                "US bombers leave UK base",
-            ),
-            (
-                [
-                    "Earthquake kills dozens in Turkey",
-                    "Deadly earthquake strikes Turkey",
-                    "Turkey earthquake death toll rises",
-                ],
-                "Turkey earthquake",
-            ),
-            (
-                [
-                    "Parliament votes to ban social media for children",
-                    "Country approves social media ban for minors",
-                    "New law bans social media for under-16s",
-                ],
-                "Social media ban",
-            ),
-        ]
+    def test_prefers_the_longer_shared_span(self):
+        label = build_cluster_label(
+            ["drone", "drone attack"], "Drone attack targets Moscow"
+        )
 
-        for headlines, expected in examples:
-            with self.subTest(headlines=headlines):
-                label = generate_topic_label(headlines)
-                self.assertEqual(label, expected)
-                self.assertLessEqual(len(label.split()), 7)
-                self.assertNotIn("?", label)
-                self.assertNotIn("vs.", label.casefold())
+        self.assertEqual(label, "drone attack")
 
-    def test_actual_grid_examples_get_english_event_labels(self):
-        examples = [
-            (
-                [
-                    "Le prix Nobel de physique 2026 est décerné au Belge Francis Halzen pour ses travaux sur les neutrinos",
-                    "Nobelpreis für Physik geht an Neutrinoforscher Francis Halzen",
-                    "Nobel per la Fisica a Francis Halzen per la scoperta dei neutrini cosmici",
-                    "Premio Nobel de Física para Francis Halzen por sus descubrimientos sobre los neutrinos",
-                ],
-                "Physics Nobel for Francis Halzen",
-            ),
-            (
-                [
-                    "Premio Nobel de Medicina para Karl Deisseroth, Peter Hegemann y Georg Nagel por la técnica que permite controlar el cerebro con luz",
-                    "Optogenetik: Medizin-Nobelpreis für den Lichtschalter im Gehirn",
-                    "Nobelprijs voor de Geneeskunde voor optogenetica, een manier om hersencellen te besturen",
-                ],
-                "Medicine Nobel for Optogenetics",
-            ),
-            (
-                [
-                    "États-Unis : les étudiants de Cornell accusent leur université d'avoir couvert un viol",
-                    "Cornell-Universität: Neue Details zu Vergewaltigungsvorwürfen erhöhen Druck auf US-Eliteuni",
-                    "Melding van groepsverkrachting opent een breed debat over onbestraft seksueel geweld op Amerikaanse campussen",
-                    "Studentin wirft Cornell-Uni lasches Vorgehen nach Gruppenvergewaltigung vor",
-                ],
-                "Cornell sexual assault allegations",
-            ),
-            (
-                [
-                    "Mobilisation lycéenne : des premiers cortèges en cours en France",
-                    "Schülerdemos in Frankreich: Wütender Protest, Angst vor Eskalation",
-                    "Demonstrationen: Was die Schüler in Frankreich fordern, betrifft auch Deutschland",
-                    "Schulproteste in Frankreich: Warum sind die Oberschüler so unzufrieden?",
-                    "Il terzo atto delle proteste studentesche in Francia",
-                ],
-                "French student protests",
-            ),
-            (
-                [
-                    "Tote nach Schiffsunglück im Schwarzen Meer - Drohnenangriff?",
-                    "Schiff im Schwarzen Meer vor Bulgarien nach Drohnenangriffen gesunken",
-                    "Vor Bulgarien: Drohnenangriff auf zwei Schiffe im Schwarzen Meer",
-                    "Deux navires frappés par des drones en mer Noire au large de la Bulgarie",
-                    "Atak dronów u wybrzeży Bułgarii. Jeden statek zatonął",
-                ],
-                "Drone attacks on ships in Black Sea",
-            ),
-            (
-                [
-                    "In pictures: Jeffrey Archer, prolific author, parliamentarian and prisoner dies aged 86",
-                    "Bestsellerautor Jeffrey Archer mit 86 Jahren gestorben",
-                    "L'auteur de best sellers Jeffrey Archer est décédé lundi",
-                ],
-                "Jeffrey Archer dies",
-            ),
-            (
-                [
-                    "La última función de Messi con la albiceleste: Argentina despide a su jugador récord",
-                    "Messi se despide de Argentina: cuándo es y cómo ver el partido",
-                    "Afscheid van Lionel Messi bij Argentinië in tien unieke momenten",
-                    "Messi vor emotionalem Teamabschied: Wird unvergesslich",
-                    "Messis letzter Auftritt: Argentinien verabschiedet seinen Magier",
-                ],
-                "Messi's Argentina farewell",
-            ),
-            (
-                [
-                    "Separatist party projected to win Quebec election, adding new test to Canada's unity",
-                    "Quebec poised to elect separatists to power for first time in more than a decade",
-                ],
-                "Quebec separatists win election",
-            ),
-        ]
+    def test_matches_terms_ignoring_case_and_accents(self):
+        label = build_cluster_label(
+            ["Schüler", "Frankreich"], "Schüler protestieren in Frankreich"
+        )
 
-        for headlines, expected in examples:
-            with self.subTest(headlines=headlines):
-                label = generate_topic_label(headlines)
-                self.assertEqual(label, expected)
-                self.assertTrue(label.isascii())
-                self.assertLessEqual(len(label.split()), 7)
+        self.assertEqual(label, "Schüler Frankreich")
+
+    def test_falls_back_to_joined_terms_when_absent(self):
+        label = build_cluster_label(["Moscow", "drone"], "Typhoon hits Taiwan")
+
+        self.assertEqual(label, "Moscow · drone")
+
+    def test_falls_back_when_spans_partially_overlap(self):
+        label = build_cluster_label(
+            ["drone attack", "attack targets"], "drone attack targets Moscow"
+        )
+
+        self.assertEqual(label, "drone attack · attack targets")
+
+    def test_uses_representative_when_no_terms(self):
+        self.assertEqual(
+            build_cluster_label([], "Some headline"), "Some headline"
+        )
 
 
 if __name__ == "__main__":

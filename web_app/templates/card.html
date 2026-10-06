@@ -12,6 +12,9 @@
 <body>
     <main id="thumbnail-content" class="card-content">
         <h1 class="card-label">{{ label }}</h1>
+        {% if terms and terms|join(' · ') != label %}
+        <p class="card-terms">{{ terms|join(' · ') }}</p>
+        {% endif %}
         <p class="card-sources" aria-label="Source metadata">
             {{ outlet_count }} outlet{% if outlet_count != 1 %}s{% endif %}
             in {{ country_count }} countr{% if country_count == 1 %}y{% else %}ies{% endif %}

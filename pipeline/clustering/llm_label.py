@@ -1,0 +1,150 @@
+"""Optional LLM formulation of a cluster label from its shared terms.
+
+The extractive terms stay the source of truth. This module only rewrites them
+into one short, neutral English headline for display, using the cluster's
+context headlines to disambiguate. Any failure returns None so callers fall
+back to the deterministic term assembly.
+"""
+
+LLM_MODEL_NAME = "Qwen/Qwen2.5-1.5B-Instruct"
+LLM_MAX_WORDS = 7
+LLM_MAX_NEW_TOKENS = 32
+LLM_CONTEXT_HEADLINES = 5
+
+_SYSTEM_PROMPT = (
+    "You write one short, factual English news headline. "
+    "Always write in English, even when the shared terms or headlines are in "
+    "another language: translate the topic into English. "
+    "Use only the given shared terms and headline context; do not invent "
+    "names, places, or numbers. "
+    "Output a single headline of at most {max_words} words, with no quotes, "
+    "no list, and no colon."
+)
+
+_FEW_SHOT = (
+    (["gear", "factory", "fire"], "Fire breaks out at gear factory"),
+    (
+        ["election", "president", "protests"],
+        "Protests follow presidential election",
+    ),
+)
+
+
+def _user_prompt(terms: list[str], headlines) -> str:
+    lines = ["Shared terms: " + ", ".join(terms)]
+    context = [title for title in headlines if title and title.strip()]
+    if context:
+        lines.append("Headline context:")
+        for headline in context[:LLM_CONTEXT_HEADLINES]:
+            lines.append(f"- {headline}")
+    lines.append("Write the English headline.")
+    return "\n".join(lines)
+
+
+def _messages(terms: list[str], headlines, max_words: int):
+    messages = [
+        {
+            "role": "system",
+            "content": _SYSTEM_PROMPT.format(max_words=max_words),
+        }
+    ]
+    for example_terms, example_headline in _FEW_SHOT:
+        messages.append(
+            {"role": "user", "content": _user_prompt(example_terms, [])}
+        )
+        messages.append({"role": "assistant", "content": example_headline})
+    messages.append({"role": "user", "content": _user_prompt(terms, headlines)})
+    return messages
+
+
+_DANGLING_WORDS = frozenset(
+    """
+    a an the and or of to in on with for from at by as is are was were be been
+    has have had will would that this these those one two three four five six
+    seven eight nine ten
+    """.split()
+)
+
+
+def _is_dangling(token: str) -> bool:
+    bare = token.strip(".,;:!?…\"'").casefold()
+    return (
+        not bare
+        or len(bare) <= 1
+        or bare in _DANGLING_WORDS
+        or bare.isdigit()
+        or token.endswith(("'s", "’s"))
+    )
+
+
+def _drop_dangling_tail(words: list[str]) -> list[str]:
+    while len(words) > 1 and _is_dangling(words[-1]):
+        words.pop()
+    return words
+
+
+def _clean(text: str, max_words: int) -> str | None:
+    first_line = next(
+        (line for line in text.strip().splitlines() if line.strip()), ""
+    )
+    cleaned = first_line.strip().strip("\"'").strip()
+    cleaned = cleaned.rstrip(".,;:!?…").strip()
+    words = cleaned.split()
+    if not words:
+        return None
+    if len(words) > max_words:
+        words = _drop_dangling_tail(words[:max_words])
+    result = " ".join(words).rstrip(".,;:!?…").strip()
+    return result or None
+
+
+_generator = None
+
+
+def _load_generator():
+    global _generator
+    if _generator is None:
+        from transformers import pipeline
+
+        _generator = pipeline("text-generation", model=LLM_MODEL_NAME, device=-1)
+        _generator.tokenizer.clean_up_tokenization_spaces = False
+    return _generator
+
+
+def _generation_config(model):
+    from transformers import GenerationConfig
+
+    return GenerationConfig(
+        max_new_tokens=LLM_MAX_NEW_TOKENS,
+        do_sample=False,
+        num_return_sequences=1,
+        pad_token_id=model.tokenizer.eos_token_id,
+        clean_up_tokenization_spaces=False,
+    )
+
+
+def generate_llm_label(
+    terms: list[str],
+    headlines=(),
+    *,
+    max_words: int = LLM_MAX_WORDS,
+    generator=None,
+) -> str | None:
+    """Return one English LLM headline for the terms, or None on any failure."""
+    if not terms:
+        return None
+    try:
+        model = generator if generator is not None else _load_generator()
+        prompt = model.tokenizer.apply_chat_template(
+            _messages(terms, headlines, max_words),
+            tokenize=False,
+            add_generation_prompt=True,
+        )
+        kwargs = {"return_full_text": False}
+        if generator is None:
+            kwargs["generation_config"] = _generation_config(model)
+        output = model(prompt, **kwargs)
+        generated = output[0]["generated_text"]
+    except Exception:
+        return None
+    return _clean(generated, max_words)

@@ -93,6 +93,14 @@ a:focus-visible {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
+.subhead-terms {
+    font-size: clamp(14px, 1.7vw, 19px);
+    color: var(--muted);
+    margin: 0 0 8px;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+}
+
 #map {
     flex: 0 0 auto;
     width: 100%;

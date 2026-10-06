@@ -13,6 +13,9 @@
         <a href="{{ url_for('index', date=snapshot_date) }}" class="back-link">← All maps</a>
         <div id="thumbnail-content">
             <h1 class="headline">{{ label }}</h1>
+            {% if terms and terms|join(' · ') != label %}
+            <p class="subhead-terms">{{ terms|join(' · ') }}</p>
+            {% endif %}
             <p class="subhead">
                 {{ coverage_copy }}
             </p>
