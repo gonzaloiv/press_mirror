@@ -1,0 +1,3408 @@
+[
+  {
+    "label": "",
+    "terms": [],
+    "size": 17,
+    "avg_similarity": 0.706,
+    "articles": [
+      {
+        "title": "Un ancien chef du renseignement extérieur allemand arrêté pour « espionnage constitutif de trahison »",
+        "source": "Le Monde",
+        "country": "FR",
+        "link": "https://www.lemonde.fr/international/article/2026/10/06/un-ancien-chef-du-renseignement-exterieur-allemand-august-hanning-arrete-pour-espionnage_6788973_3210.html",
+        "fetched_at": "2026-10-06T10:31:22.058723+00:00"
+      },
+      {
+        "title": "El ex jefe del espionaje alemán, detenido por negociar con secretos de Estado",
+        "source": "El Mundo",
+        "country": "ES",
+        "link": "https://www.elmundo.es/internacional/2026/10/06/6ac4c6ebe85eceef238b4588.html",
+        "fetched_at": "2026-10-06T10:31:27.795558+00:00"
+      },
+      {
+        "title": "Germany arrests former domestic intelligence chief over alleged spying",
+        "source": "The Guardian",
+        "country": "UK",
+        "link": "https://www.theguardian.com/world/2026/oct/06/germany-august-hanning-bnd-arrest-former-domestic-intelligence-chief",
+        "fetched_at": "2026-10-06T10:31:30.725002+00:00"
+      },
+      {
+        "title": "Former German intelligence chief arrested over allegations of 'spying out state secrets'",
+        "source": "Sky News",
+        "country": "UK",
+        "link": "https://news.sky.com/story/former-german-spy-chief-arrested-on-espionage-allegations-13595660",
+        "fetched_at": "2026-10-06T10:31:32.402237+00:00"
+      },
+      {
+        "title": "Ermittler nehmen Ex-BND-Chef Hanning fest",
+        "source": "Tagesschau",
+        "country": "DE",
+        "link": "https://www.tagesschau.de/investigativ/ndr-wdr/bnd-hanning-100.html",
+        "fetched_at": "2026-10-06T10:31:34.613858+00:00"
+      },
+      {
+        "title": "Affäre beim BND: Spionageverdacht: Ex-Geheimdienstchef August Hanning verhaftet",
+        "source": "Süddeutsche Zeitung",
+        "country": "DE",
+        "link": "https://www.sueddeutsche.de/politik/hanning-festnahme-spionage-bnd-geheimnisverrat-verdacht-gba-li.3558640",
+        "fetched_at": "2026-10-06T10:31:35.323529+00:00"
+      },
+      {
+        "title": "Wegen Spionageverdachts: Ehemaliger BND-Präsident August Hanning festgenommen",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/aktuell/politik/inland/spionageverdacht-ehemaliger-bnd-chef-august-hanning-festgenommen-accg-201292036.html",
+        "fetched_at": "2026-10-06T10:31:36.124187+00:00"
+      },
+      {
+        "title": "Spionageverdacht: Ehemaliger BND-Chef August Hanning festgenommen",
+        "source": "Die Zeit",
+        "country": "DE",
+        "link": "https://www.zeit.de/politik/deutschland/2026-10/august-hanning-bnd-festnahme-spionage-mitarbeiter",
+        "fetched_at": "2026-10-06T10:31:36.807557+00:00"
+      },
+      {
+        "title": "Voormalige Duitse inlichtingenchef Hanning aangehouden voor landverraad en spionage",
+        "source": "De Telegraaf",
+        "country": "NL",
+        "link": "https://www.telegraaf.nl/buitenland/voormalige-duitse-inlichtingenchef-hanning-aangehouden-voor-landverraad-en-spionage/162639678.html",
+        "fetched_at": "2026-10-06T10:31:40.577610+00:00"
+      },
+      {
+        "title": "Ex-chef Duitse geheime dienst gearresteerd op verdenking van verraad",
+        "source": "de Volkskrant",
+        "country": "NL",
+        "link": "https://www.volkskrant.nl/buitenland/ex-chef-duitse-geheime-dienst-gearresteerd-op-verdenking-van-verraad~be05e589/",
+        "fetched_at": "2026-10-06T10:31:41.345804+00:00"
+      },
+      {
+        "title": "Voormalig hoofd Duitse inlichtingendienst BND opgepakt op verdenking van spionage en poging tot landverraad",
+        "source": "NRC",
+        "country": "NL",
+        "link": "https://www.nrc.nl/nieuws/2026/10/06/voormalig-hoofd-duitse-inlichtingendienst-bnd-opgepakt-op-verdenking-van-spionage-en-poging-tot-landverraad-a4938307",
+        "fetched_at": "2026-10-06T10:31:43.123551+00:00"
+      },
+      {
+        "title": "<![CDATA[ Ex-chefe do serviço de inteligência da Alemanha detido por suspeitas de espionagem ]]>",
+        "source": "Correio da Manhã",
+        "country": "PT",
+        "link": "https://www.cmjornal.pt/mundo/detalhe/ex-chefe-do-servico-de-inteligencia-da-alemanha-detido-por-suspeitas-de-espionagem",
+        "fetched_at": "2026-10-06T10:31:43.831441+00:00"
+      },
+      {
+        "title": "Były szef niemieckiego wywiadu zatrzymany za szpiegostwo",
+        "source": "Rzeczpospolita",
+        "country": "PL",
+        "link": "https://www.rp.pl/przestepczosc/art45257751-byly-szef-niemieckiego-wywiadu-zatrzymany-za-szpiegostwo",
+        "fetched_at": "2026-10-06T10:31:44.516568+00:00"
+      },
+      {
+        "title": "Afera szpiegowska w Niemczech. Były szef wywiadu zatrzymany",
+        "source": "Onet Wiadomości",
+        "country": "PL",
+        "link": "https://wiadomosci.onet.pl/swiat/afera-szpiegowska-w-niemczech-byly-szef-wywiadu-august-hanning-zatrzymany/t9z5by3",
+        "fetched_at": "2026-10-06T10:31:45.194593+00:00"
+      },
+      {
+        "title": "Deutscher Ex-Geheimdienstchef Hanning wegen Spionageverdachts festgenommen",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000342866/deutscher-ex-bnd-chef-hanning-unter-spionageverdacht-festgenommen?ref=rss",
+        "fetched_at": "2026-10-06T10:31:47.406188+00:00"
+      },
+      {
+        "title": "Spionageverdacht: Deutscher Ex-BND-Chef Hanning festgenommen",
+        "source": "Kurier",
+        "country": "AT",
+        "link": "https://kurier.at/politik/ausland/august-hanning-deutscher-ex-bnd-chef-spionageverdacht/403196208",
+        "fetched_at": "2026-10-06T10:31:48.066821+00:00"
+      },
+      {
+        "title": "Rikosepäilyt | Saksan tiedustelu­palvelun ex-johtajaa epäillään maan­petoksesta ja vakoilusta",
+        "source": "Helsingin Sanomat",
+        "country": "FI",
+        "link": "https://www.hs.fi/maailma/art-2000012323941.html",
+        "fetched_at": "2026-10-06T10:31:49.673866+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 11,
+    "avg_similarity": 0.726,
+    "articles": [
+      {
+        "title": "EN DIRECT, guerre en Ukraine : les attaques russes dans la région de Kharkiv ont fait 7 morts et 80 blessés depuis lundi",
+        "source": "Le Monde",
+        "country": "FR",
+        "link": "https://www.lemonde.fr/international/live/2026/10/06/en-direct-guerre-en-ukraine-les-attaques-russes-dans-la-region-de-kharkiv-ont-fait-7-morts-et-80-blesses-depuis-lundi_6787996_3210.html",
+        "fetched_at": "2026-10-06T10:31:22.058723+00:00"
+      },
+      {
+        "title": "En Russie, Moscou visée par une des attaques les plus massives",
+        "source": "France 24",
+        "country": "FR",
+        "link": "https://www.france24.com/fr/europe/20261006-en-russie-une-attaque-massive-de-drones-cible-moscou-et-sa-p%C3%A9riph%C3%A9rie",
+        "fetched_at": "2026-10-06T10:31:23.525552+00:00"
+      },
+      {
+        "title": "Ucrania ataca la región de Moscú con 650 drones y mata a dos personas",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/internacional/2026-10-06/ucrania-ataca-la-region-de-moscu-con-650-drones-y-mata-a-dos-personas.html",
+        "fetched_at": "2026-10-06T10:31:27.062028+00:00"
+      },
+      {
+        "title": "Putin's War of Aggression: A Journey Along the Dnipro in Wartime Ukraine",
+        "source": "Der Spiegel",
+        "country": "DE",
+        "link": "https://www.spiegel.de/international/world/putins-war-of-aggression-a-journey-along-the-dnipro-in-wartime-ukraine-a-b943efc8-a374-4f78-a8e9-0d55e750a8dc#ref=rss",
+        "fetched_at": "2026-10-06T10:31:33.853034+00:00"
+      },
+      {
+        "title": "Abwehrkampf der Ukraine: Massiver Drohnenangriff auf Moskau",
+        "source": "Tagesschau",
+        "country": "DE",
+        "link": "https://www.tagesschau.de/ausland/europa/drohnenangriff-moskau-104.html",
+        "fetched_at": "2026-10-06T10:31:34.613858+00:00"
+      },
+      {
+        "title": "Liveblog Ukrainekrieg: Wadephul: Russland hat über Ukraine hinausgehende Pläne",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/aktuell/politik/ukraine/ukraine-liveticker-wadephul-russland-hat-ueber-ukraine-hinausgehende-plaene-faz-110683325.html",
+        "fetched_at": "2026-10-06T10:31:36.124187+00:00"
+      },
+      {
+        "title": "“Putin potrebbe attaccare Narva, Estonia,per testare la Nato”: l’allarme dell’esperto tedesco Masala",
+        "source": "La Repubblica",
+        "country": "IT",
+        "link": "https://www.repubblica.it/esteri/2026/10/06/news/carlo_masala_intervista_putin_potrebbe_attaccare_narva_estonia_test_nato-425628862/",
+        "fetched_at": "2026-10-06T10:31:38.292379+00:00"
+      },
+      {
+        "title": "Ontsnapt aan Poetins gehaktmolen: deze mannen deserteerden uit het Russische leger",
+        "source": "NRC",
+        "country": "NL",
+        "link": "https://www.nrc.nl/nieuws/2026/10/02/ontsnapt-aan-poetins-gehaktmolen-deze-mannen-deserteerden-uit-het-russische-leger-a4934760",
+        "fetched_at": "2026-10-06T10:31:43.123551+00:00"
+      },
+      {
+        "title": "Guerre en Ukraine : Moscou visée par plus de 650 drones en une nuit, deuxième plus grosse attaque sur la capitale russe",
+        "source": "La Libre Belgique",
+        "country": "BE",
+        "link": "https://www.lalibre.be/international/europe/guerre-ukraine-russie/2026/10/06/guerre-en-ukraine-moscou-visee-par-plus-de-650-drones-en-une-nuit-deuxieme-plus-grosse-attaque-sur-la-capitale-russe-OVC5TCIHVRA4ZCAXOMG7RPT4BY/",
+        "fetched_at": "2026-10-06T10:31:46.183265+00:00"
+      },
+      {
+        "title": "Wie Putins Schattenarmee Europa angreift",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000342710/wie-putins-schattenarmee-europa-angreift?ref=rss",
+        "fetched_at": "2026-10-06T10:31:47.406188+00:00"
+      },
+      {
+        "title": "Putins hybridkrig – kommer Ryssland anfalla Europa?",
+        "source": "Dagens Nyheter",
+        "country": "SE",
+        "link": "https://www.dn.se/podd/spotlight/putins-hybridkrig-kommer-ryssland-anfalla-europa/",
+        "fetched_at": "2026-10-06T10:31:48.865018+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "Dagens Nyheter": 4,
+      "Frankfurter Allgemeine": 3,
+      "NRC": 1,
+      "Der Standard": 1
+    }
+  },
+  {
+    "label": "Francis Halzen wins Nobel for neutrino research",
+    "terms": [
+      "Física",
+      "Nobel",
+      "Halzen",
+      "Francis",
+      "neutrinos",
+      "prix",
+      "scoperta"
+    ],
+    "size": 14,
+    "avg_similarity": 0.76,
+    "articles": [
+      {
+        "title": "Le prix Nobel de physique 2026 est décerné au Belge Francis Halzen pour ses travaux sur les neutrinos",
+        "source": "Le Monde",
+        "country": "FR",
+        "link": "https://www.lemonde.fr/sciences/article/2026/10/06/le-prix-nobel-de-physique-2026-est-decerne-au-belge-francis-halzen-pour-ses-travaux-sur-les-neutrinos_6788974_1650684.html",
+        "fetched_at": "2026-10-06T10:31:22.058723+00:00"
+      },
+      {
+        "title": "Prix Nobel de physique : le Belgo-Américain Francis Halzen récompensé pour ses travaux sur un détecteur géant de particules au Pôle sud",
+        "source": "Le Figaro",
+        "country": "FR",
+        "link": "https://www.lefigaro.fr/sciences/prix-nobel-de-physique-le-belgo-americain-francis-halzen-recompense-pour-ses-travaux-sur-un-detecteur-geant-de-particules-au-pole-sud-20261006",
+        "fetched_at": "2026-10-06T10:31:22.879117+00:00"
+      },
+      {
+        "title": "🔴 Le prix Nobel de physique décerné à Francis Halzen",
+        "source": "France 24",
+        "country": "FR",
+        "link": "https://www.france24.com/fr/france/20261006-le-prix-nobel-de-physique-est-d%C3%A9cern%C3%A9-%C3%A0-francis-halzen",
+        "fetched_at": "2026-10-06T10:31:23.525552+00:00"
+      },
+      {
+        "title": "Premio Nobel de Física para Francis Halzen por sus descubrimientos sobre los neutrinos",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/ciencia/2026-10-06/premio-nobel-de-fisica.html",
+        "fetched_at": "2026-10-06T10:31:27.062028+00:00"
+      },
+      {
+        "title": "Francis Halzen gana el Nobel de Física por descubrir el origen de los neutrinos de alta energía, \"las partículas fantasma\" que llegan del espacio exterior",
+        "source": "El Mundo",
+        "country": "ES",
+        "link": "https://www.elmundo.es/ciencia/2026/10/06/6ac4bb03e85ecec70e8b45b9.html",
+        "fetched_at": "2026-10-06T10:31:27.795558+00:00"
+      },
+      {
+        "title": "Nobelpreis für Physik geht an Neutrinoforscher Francis Halzen",
+        "source": "Tagesschau",
+        "country": "DE",
+        "link": "https://www.tagesschau.de/wissen/nobelpreis-physik-francis-halzen-100.html",
+        "fetched_at": "2026-10-06T10:31:34.613858+00:00"
+      },
+      {
+        "title": "Bekanntgabe in Stockholm: Physik-Nobelpreis geht an Neutrinoforscher Francis Halzen",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/aktuell/wissen/physik-mehr/physik-nobelpreis-an-neutrinoforscher-francis-halzen-accg-201292227.html",
+        "fetched_at": "2026-10-06T10:31:36.124187+00:00"
+      },
+      {
+        "title": "Astrophysik: Nobelpreis für Physik geht an Astrophysiker Francis Halzen",
+        "source": "Die Zeit",
+        "country": "DE",
+        "link": "https://www.zeit.de/wissenschaft/2026-10/nobelpreis-fuer-physik-geht-an-astrophysiker-francis-halzen",
+        "fetched_at": "2026-10-06T10:31:36.807557+00:00"
+      },
+      {
+        "title": "Nobel per la Fisica a Francis Halzen per la scoperta dei neutrini cosmici",
+        "source": "ANSA",
+        "country": "IT",
+        "link": "https://www.ansa.it/canale_scienza/notizie/fisica_matematica/2026/10/06/nobel-per-la-fisica-a-francis-halzen-per-la-scoperta-dei-neutrini-cosmici_916de5dd-f7de-4099-90b2-3e195273bf07.html",
+        "fetched_at": "2026-10-06T10:31:37.626975+00:00"
+      },
+      {
+        "title": "Francis Halzen vince il Nobel per la Fisica 2026 per gli studi sui neutrini",
+        "source": "La Repubblica",
+        "country": "IT",
+        "link": "https://www.repubblica.it/cronaca/2026/10/06/news/premio_nobel_fisica_2026_francis_halzen-425628988/",
+        "fetched_at": "2026-10-06T10:31:38.292379+00:00"
+      },
+      {
+        "title": "<![CDATA[ Prémio Nobel da Física atribuído a Francis Halzen ]]>",
+        "source": "Correio da Manhã",
+        "country": "PT",
+        "link": "https://www.cmjornal.pt/sociedade/detalhe/premio-nobel-da-fisica-atribuido-a-francis-halzen",
+        "fetched_at": "2026-10-06T10:31:43.831441+00:00"
+      },
+      {
+        "title": "Le prix ​​Nobel de physique 2026 va un Belge, Francis Halzen, le chasseur \"de particules insaisissables au pôle Sud\"",
+        "source": "La Libre Belgique",
+        "country": "BE",
+        "link": "https://www.lalibre.be/planete/sciences-espace/2026/10/06/le-prix-nobel-de-physique-2026-est-attribue-au-belge-francis-halzen-YLNKXEMK3BBNTJ4PPBSEQ3AK2E/",
+        "fetched_at": "2026-10-06T10:31:46.183265+00:00"
+      },
+      {
+        "title": "Physiknobelpreis 2026 für die Jagd auf kosmische Neutrinos",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000342770/heute-mittag-wird-verkuendet-wer-den-nobelpreis-fuer-physik-erhaelt?ref=rss",
+        "fetched_at": "2026-10-06T10:31:47.406188+00:00"
+      },
+      {
+        "title": "Physik-Nobelpreis 2026 für Entdeckung von Hochenergie-Neutrinos",
+        "source": "Kurier",
+        "country": "AT",
+        "link": "https://kurier.at/wissen/physik-nobelpreis-2026-hochenergie-neutrinos-francis-halzen/403196232",
+        "fetched_at": "2026-10-06T10:31:48.066821+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "La Repubblica": 1
+    },
+    "label_source": "llm"
+  },
+  {
+    "label": "French students protest against education reform",
+    "terms": [
+      "Frankreich",
+      "Pais",
+      "Schüler",
+      "Protest",
+      "Mobilisation",
+      "lycées",
+      "cortèges"
+    ],
+    "size": 13,
+    "avg_similarity": 0.758,
+    "articles": [
+      {
+        "title": "EN DIRECT - Mobilisation lycéenne : 1800 lycées à l’arrêt, des cortèges imposants à  Marseille, Lyon et Nantes",
+        "source": "Le Figaro",
+        "country": "FR",
+        "link": "https://www.lefigaro.fr/actualite-france/en-direct-blocage-des-lycees-des-dizaines-de-milliers-de-lyceens-dans-la-rue-pour-un-acte-iii-sous-haute-surveillance-20261006",
+        "fetched_at": "2026-10-06T10:31:22.879117+00:00"
+      },
+      {
+        "title": "Mobilisation lycéenne : des premiers cortèges en cours en France",
+        "source": "France 24",
+        "country": "FR",
+        "link": "https://www.france24.com/fr/vid%C3%A9o/20261006-mobilisation-lyc%C3%A9enne-des-premiers-cort%C3%A8ges-en-cours-en-france",
+        "fetched_at": "2026-10-06T10:31:23.525552+00:00"
+      },
+      {
+        "title": "Pas de «relégation» scolaire en Seine-Saint-Denis? Pourquoi le ministre de l’éducation se trompe",
+        "source": "Mediapart",
+        "country": "FR",
+        "link": "https://www.mediapart.fr/journal/france/061026/pas-de-relegation-scolaire-en-seine-saint-denis-pourquoi-le-ministre-de-l-education-se-trompe",
+        "fetched_at": "2026-10-06T10:31:24.156830+00:00"
+      },
+      {
+        "title": "Blocage des lycées : le ministre de l’Education fait des propositions sans calmer la colère, des heurts partout en France",
+        "source": "L'Obs",
+        "country": "FR",
+        "link": "https://www.nouvelobs.com/politique/20261003.OBS118854/blocage-des-lycees-le-ministre-de-l-education-fait-des-propositions-sans-calmer-la-colere-des-heurts-partout-en-france.html",
+        "fetched_at": "2026-10-06T10:31:25.040677+00:00"
+      },
+      {
+        "title": "Canicules à Paris : le plan de 400 millions d’euros pour adapter d’urgence les écoles débattu au conseil",
+        "source": "Ouest-France",
+        "country": "FR",
+        "link": "https://www.ouest-france.fr/ile-de-france/paris-75000/canicules-a-paris-le-plan-de-400-millions-deuros-pour-adapter-durgence-les-ecoles-debattu-au-conseil-84b5be52-c155-11f1-97ef-829bf84bf59f?utm_source=fluxpublicactu&utm_medium=fluxrss&utm_campaign=banquedecontenu",
+        "fetched_at": "2026-10-06T10:31:26.184211+00:00"
+      },
+      {
+        "title": "Schülerdemos in Frankreich: Wütender Protest, Angst vor Eskalation",
+        "source": "Tagesschau",
+        "country": "DE",
+        "link": "https://www.tagesschau.de/ausland/europa/frankreich-schuelerdemos-100.html",
+        "fetched_at": "2026-10-06T10:31:34.613858+00:00"
+      },
+      {
+        "title": "Demonstrationen: Was die Schüler in Frankreich fordern, betrifft auch Deutschland",
+        "source": "Süddeutsche Zeitung",
+        "country": "DE",
+        "link": "https://www.sueddeutsche.de/politik/frankreich-schueler-proteste-soziale-frage-deutschland-kinderarmut-li.3558518",
+        "fetched_at": "2026-10-06T10:31:35.323529+00:00"
+      },
+      {
+        "title": "Schulproteste in Frankreich: Warum sind die Oberschüler so unzufrieden?",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/aktuell/politik/ausland/frankreich-gibt-viel-geld-fuer-bildung-aus-trotzdem-protestieren-die-schueler-accg-201288845.html",
+        "fetched_at": "2026-10-06T10:31:36.124187+00:00"
+      },
+      {
+        "title": "Il terzo atto delle proteste studentesche in Francia - FOTODIRETTA",
+        "source": "ANSA",
+        "country": "IT",
+        "link": "https://www.ansa.it/sito/photogallery/primopiano/2026/10/06/il-terzo-atto-delle-proteste-studentesche-in-francia-fotodiretta_102fb5ae-44d2-4cce-b6e6-3ab7e374a727.html",
+        "fetched_at": "2026-10-06T10:31:37.626975+00:00"
+      },
+      {
+        "title": "<![CDATA[ Pais juntam-se aos protestos dos estudantes em França ]]>",
+        "source": "Correio da Manhã",
+        "country": "PT",
+        "link": "https://www.cmjornal.pt/cmtv/videos/detalhe/pais-juntam-se-aos-protestos-dos-estudantes-em-franca",
+        "fetched_at": "2026-10-06T10:31:43.831441+00:00"
+      },
+      {
+        "title": "Liège, Bruxelles, Mons… La mobilisation des élèves se répand progressivement dans les écoles francophones: \"Jusqu’à ce que le gouvernement comprenne\"",
+        "source": "La Libre Belgique",
+        "country": "BE",
+        "link": "https://www.lalibre.be/belgique/enseignement/2026/10/05/liege-bruxelles-mons-la-mobilisation-des-eleves-se-repand-progressivement-dans-les-ecoles-francophones-jusqua-ce-que-le-gouvernement-comprenne-F33HFFMAJFCM5ASZSNI3QOY2MM/",
+        "fetched_at": "2026-10-06T10:31:46.183265+00:00"
+      },
+      {
+        "title": "Landesweiter Protesttag: Schüler in Frankreich blockieren Gymnasien",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000342876/landesweiter-protesttag-sch252ler-in-frankreich-blockieren-gymnasien?ref=rss",
+        "fetched_at": "2026-10-06T10:31:47.406188+00:00"
+      },
+      {
+        "title": "Ranskan lukioprotestit | Opiskelijoiden protestit kiihtyvät Ranskassa, tuhansia odotetaan kaduille",
+        "source": "Helsingin Sanomat",
+        "country": "FI",
+        "link": "https://www.hs.fi/maailma/art-2000012322894.html",
+        "fetched_at": "2026-10-06T10:31:49.673866+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "L'Obs": 2,
+      "France 24": 2,
+      "Frankfurter Allgemeine": 1,
+      "La Libre Belgique": 1
+    },
+    "label_source": "llm"
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 11,
+    "avg_similarity": 0.729,
+    "articles": [
+      {
+        "title": "Soupçons de peste en Russie : les autorités nient la mise en place de mesures sanitaires, après la mort d’une laborantine",
+        "source": "Le Monde",
+        "country": "FR",
+        "link": "https://www.lemonde.fr/international/article/2026/10/06/soupcons-de-peste-en-siberie-les-autorites-russes-nient-la-mise-en-place-de-mesures-sanitaires_6788966_3210.html",
+        "fetched_at": "2026-10-06T10:31:22.058723+00:00"
+      },
+      {
+        "title": "Suspicion de peste en Russie : un risque « faible » pour le pays et « très faible » pour l’Europe, selon l’OMS",
+        "source": "Le Figaro",
+        "country": "FR",
+        "link": "https://www.lefigaro.fr/international/suspicion-de-peste-en-russie-un-risque-faible-pour-le-pays-et-tres-faible-pour-l-europe-selon-l-oms-20261006",
+        "fetched_at": "2026-10-06T10:31:22.879117+00:00"
+      },
+      {
+        "title": "Cas supposé de peste en Russie : faut-il s’inquiéter, sachant que la maladie est hautement contagieuse ?",
+        "source": "Ouest-France",
+        "country": "FR",
+        "link": "https://sante.ouest-france.fr/maladies/cas-suppose-de-peste-en-russie-faut-il-sinquieter-sachant-que-la-maladie-est-hautement-contagieuse-03231d6c-c169-11f1-ae29-63305582bdfe?utm_source=fluxpublicactu&utm_medium=fluxrss&utm_campaign=banquedecontenu",
+        "fetched_at": "2026-10-06T10:31:26.184211+00:00"
+      },
+      {
+        "title": "Qué se sabe de la alerta sanitaria por peste tras la muerte de una trabajadora de un laboratorio en Rusia",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/sociedad/2026-10-05/que-se-sabe-de-la-alerta-sanitaria-por-peste-tras-la-muerte-de-una-trabajadora-de-un-laboratorio-en-rusia.html",
+        "fetched_at": "2026-10-06T10:31:27.062028+00:00"
+      },
+      {
+        "title": "How worried should we be about the Russian plague lab leak?",
+        "source": "The Telegraph",
+        "country": "UK",
+        "link": "https://www.telegraph.co.uk/global-health/science-and-disease/how-worried-should-we-be-about-the-russian-plague-lab-leak/",
+        "fetched_at": "2026-10-06T10:31:31.546054+00:00"
+      },
+      {
+        "title": "Suspected pneumonic plague in Siberia: What we know about the disease",
+        "source": "Deutsche Welle",
+        "country": "DE",
+        "link": "https://www.dw.com/en/suspected-pneumonic-plague-in-siberia-what-we-know-about-the-disease/a-79547919?maca=en-rss-en-world-4025-rdf",
+        "fetched_at": "2026-10-06T10:31:33.093779+00:00"
+      },
+      {
+        "title": "Russland dementiert Pestfall nach Tod in Forschungslabor",
+        "source": "Tagesschau",
+        "country": "DE",
+        "link": "https://www.tagesschau.de/ausland/asien/sibirien-infektion-100.html",
+        "fetched_at": "2026-10-06T10:31:34.613858+00:00"
+      },
+      {
+        "title": "Tote Labormitarbeiterin: Russische Behörden dementieren Pest-Verdacht in Sibirien",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/aktuell/wissen/russland-dementiert-lungenpest-verdacht-nach-tod-von-laborantin-201291155.html",
+        "fetched_at": "2026-10-06T10:31:36.124187+00:00"
+      },
+      {
+        "title": "Russia, ricercatrice di un istituto anti-peste muore per una polmonite: il timore di un incidente in laboratorio",
+        "source": "La Repubblica",
+        "country": "IT",
+        "link": "https://www.repubblica.it/esteri/2026/10/04/news/russia_ricercatrice_di_un_istituto_anti-peste_muore_per_una_polmonite_il_timore_di_un_incidente_in_laboratorio-425625840/",
+        "fetched_at": "2026-10-06T10:31:38.292379+00:00"
+      },
+      {
+        "title": "Was über den Pestverdacht in Russland bekannt ist – und was nicht",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000342657/was-ueber-den-pestverdacht-in-russland-bekannt-ist-und-was-nicht?ref=rss",
+        "fetched_at": "2026-10-06T10:31:47.406188+00:00"
+      },
+      {
+        "title": "How worried should we be about the Russian plague lab leak?",
+        "source": "Irish Independent",
+        "country": "IE",
+        "link": "https://www.independent.ie/world-news/how-worried-should-we-be-about-the-russian-plague-lab-leak/a/162636997.html",
+        "fetched_at": "2026-10-06T10:31:50.329828+00:00"
+      }
+    ]
+  },
+  {
+    "label": "Bulgaria Drone Attacks: Two Ships Hit",
+    "terms": [
+      "statek",
+      "Mar",
+      "Schwarzen",
+      "Bulgaria",
+      "Meer",
+      "drones",
+      "Drohnenangriff"
+    ],
+    "size": 8,
+    "avg_similarity": 0.798,
+    "articles": [
+      {
+        "title": "Dos barcos comerciales son atacados por drones en el mar Negro",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/internacional/2026-10-06/dos-barcos-comerciales-son-atacados-por-drones-en-el-mar-negro.html",
+        "fetched_at": "2026-10-06T10:31:27.062028+00:00"
+      },
+      {
+        "title": "Tote nach Schiffsunglück im Schwarzen Meer - Drohnenangriff?",
+        "source": "Tagesschau",
+        "country": "DE",
+        "link": "https://www.tagesschau.de/ausland/europa/schwarzes-meer-schiff-verunglueckt-100.html",
+        "fetched_at": "2026-10-06T10:31:34.613858+00:00"
+      },
+      {
+        "title": "La Bulgaria: 'Due navi colpite da droni sulle coste del Mar Nero'. Una è affondata, l'equipaggio disperso",
+        "source": "ANSA",
+        "country": "IT",
+        "link": "https://www.ansa.it/sito/notizie/mondo/2026/10/06/la-bulgaria-due-navi-colpite-da-droni-sulle-coste-del-mar-nero._0231200e-b392-4867-969d-b60d3337c436.html",
+        "fetched_at": "2026-10-06T10:31:37.626975+00:00"
+      },
+      {
+        "title": "<![CDATA[ Primeiro-ministro da Bulgária diz que dois navios comerciais foram atingidos por drones ]]>",
+        "source": "Correio da Manhã",
+        "country": "PT",
+        "link": "https://www.cmjornal.pt/mundo/detalhe/primeiro-ministro-da-bulgaria-diz-que-dois-navios-comerciais-foram-atingidos-por-drones",
+        "fetched_at": "2026-10-06T10:31:43.831441+00:00"
+      },
+      {
+        "title": "Atak dronów u wybrzeży Bułgarii. Jeden statek zatonął, los załogi nieznany",
+        "source": "Rzeczpospolita",
+        "country": "PL",
+        "link": "https://www.rp.pl/swiat/art45257321-atak-dronow-u-wybrzezy-bulgarii-jeden-statek-zatonal-los-zalogi-nieznany",
+        "fetched_at": "2026-10-06T10:31:44.516568+00:00"
+      },
+      {
+        "title": "Deux navires frappés par des drones en mer Noire au large de la Bulgarie",
+        "source": "La Libre Belgique",
+        "country": "BE",
+        "link": "https://www.lalibre.be/international/europe/guerre-ukraine-russie/2026/10/06/deux-navires-frappes-par-des-drones-en-mer-noire-au-large-de-la-bulgarie-BZ2H6IZEBNGMPFDXL2PVXCGK5M/",
+        "fetched_at": "2026-10-06T10:31:46.183265+00:00"
+      },
+      {
+        "title": "Schiff im Schwarzen Meer vor Bulgarien nach Drohnenangriffen gesunken",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/jetzt/livebericht/3000000342808/ukraine-griff-moskau-laut-russischen-angaben-mit-650-drohnen-an?ref=rss",
+        "fetched_at": "2026-10-06T10:31:47.406188+00:00"
+      },
+      {
+        "title": "Vor Bulgarien: Drohnenangriff auf zwei Schiffe im Schwarzen Meer",
+        "source": "Kurier",
+        "country": "AT",
+        "link": "https://kurier.at/politik/ausland/drohnenangriff-schiffe-schwarzes-meer-bulgarien/403196231",
+        "fetched_at": "2026-10-06T10:31:48.066821+00:00"
+      }
+    ],
+    "label_source": "llm"
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 8,
+    "avg_similarity": 0.643,
+    "articles": [
+      {
+        "title": "Estados Unidos retiró sus bombarderos de la base británica de Fairford por un posible ataque con drones de Irán",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/internacional/2026-10-06/estados-unidos-retiro-sus-bombarderos-de-la-base-britanica-de-fairford-por-un-posible-ataque-con-drones-de-iran.html",
+        "fetched_at": "2026-10-06T10:31:27.062028+00:00"
+      },
+      {
+        "title": "Trump says 'threat' led US to pull bombers from RAF Fairford",
+        "source": "BBC World",
+        "country": "UK",
+        "link": "https://www.bbc.co.uk/news/articles/cwj3413e5m1lo?at_medium=RSS&at_campaign=rss",
+        "fetched_at": "2026-10-06T10:31:29.996603+00:00"
+      },
+      {
+        "title": "Why did the US rush to withdraw bombers from RAF Fairford? - The Latest",
+        "source": "The Guardian",
+        "country": "UK",
+        "link": "https://www.theguardian.com/news/audio/2026/oct/05/why-did-us-withdraw-bombers-from-raf-fairford-the-latest",
+        "fetched_at": "2026-10-06T10:31:30.725002+00:00"
+      },
+      {
+        "title": "USA-Newsblog: US-Bomberabzug aus Großbritannien wohl wegen Gefahr iranischen Drohnenangriffs",
+        "source": "Süddeutsche Zeitung",
+        "country": "DE",
+        "link": "https://www.sueddeutsche.de/politik/usa-news-liveblog-trump-abzug-iran-bomber-li.3558046",
+        "fetched_at": "2026-10-06T10:31:35.323529+00:00"
+      },
+      {
+        "title": "'Ritiro degli Usa dalla base di Fairford per la minaccia di un attacco con droni iraniani'",
+        "source": "ANSA",
+        "country": "IT",
+        "link": "https://www.ansa.it/sito/notizie/mondo/2026/10/06/ritiro-degli-usa-dalla-base-di-fairford-per-la-minaccia-di-un-attacco-con_431497b8-d072-4872-a3ab-667ecd79875b.html",
+        "fetched_at": "2026-10-06T10:31:37.626975+00:00"
+      },
+      {
+        "title": "VS trekken bommenwerpers met spoed terug van Britse basis die werd gebruikt voor Iran-oorlog",
+        "source": "de Volkskrant",
+        "country": "NL",
+        "link": "https://www.volkskrant.nl/buitenland/vs-trekken-bommenwerpers-met-spoed-terug-van-britse-basis-die-werd-gebruikt-voor-iran-oorlog~bf18ae5c/",
+        "fetched_at": "2026-10-06T10:31:41.345804+00:00"
+      },
+      {
+        "title": "Washington rapatrie ses bombardiers déployés dans une base anglaise, Trump évoque des \"menaces\"",
+        "source": "La Libre Belgique",
+        "country": "BE",
+        "link": "https://www.lalibre.be/international/europe/2026/10/05/washington-rapatrie-ses-bombardiers-deployes-dans-une-base-anglaise-trump-evoque-des-menaces-33MUUMZMFJDKNGYWJWF4X7FRTY/",
+        "fetched_at": "2026-10-06T10:31:46.183265+00:00"
+      },
+      {
+        "title": "USA har flyttat bombflygplan från RAF-basen i England",
+        "source": "Dagens Nyheter",
+        "country": "SE",
+        "link": "https://www.dn.se/varlden/usa-har-flyttat-bombflygplan-fran-raf-basen-i-england/",
+        "fetched_at": "2026-10-06T10:31:48.865018+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 8,
+    "avg_similarity": 0.667,
+    "articles": [
+      {
+        "title": "La protesta por la crisis de la vivienda acaba con incidentes y cargas policiales en el centro de Barcelona",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/espana/catalunya/2026-10-05/miles-de-personas-se-manifiestan-por-la-crisis-de-la-vivienda-en-barcelona.html",
+        "fetched_at": "2026-10-06T10:31:27.062028+00:00"
+      },
+      {
+        "title": "El Govern critica a los violentos tras la manifestación por la vivienda en Barcelona",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/local/barcelona/20261006/11652117/parlon-critica-violentos-manifestacion-vivienda-buscar-noticia.html",
+        "fetched_at": "2026-10-06T10:31:28.612383+00:00"
+      },
+      {
+        "title": "Watch: How Spain's housing crisis has resulted in an early general election",
+        "source": "BBC World",
+        "country": "UK",
+        "link": "https://www.bbc.co.uk/news/videos/c83vqk2k2k20o?at_medium=RSS&at_campaign=rss",
+        "fetched_at": "2026-10-06T10:31:29.996603+00:00"
+      },
+      {
+        "title": "Chaos in Barcelona na massaprotest woningcrisis: branden, vuurwerk en geweld",
+        "source": "De Telegraaf",
+        "country": "NL",
+        "link": "https://www.telegraaf.nl/video/chaos-in-barcelona-na-massaprotest-woningcrisis-branden-vuurwerk-en-geweld/162636455.html",
+        "fetched_at": "2026-10-06T10:31:40.577610+00:00"
+      },
+      {
+        "title": "Spaanse volkswoede over wooncrisis laat zien dat weinig belangrijker is dan een dak boven je hoofd",
+        "source": "NRC",
+        "country": "NL",
+        "link": "https://www.nrc.nl/nieuws/2026/10/05/spaanse-volkswoede-over-wooncrisis-laat-zien-dat-weinig-belangrijker-is-dan-een-dak-boven-je-hoofd-a4938256",
+        "fetched_at": "2026-10-06T10:31:43.123551+00:00"
+      },
+      {
+        "title": "<![CDATA[ Confrontos nas ruas de Barcelona durante protestos contra crise da habitação em Espanha ]]>",
+        "source": "Correio da Manhã",
+        "country": "PT",
+        "link": "https://www.cmjornal.pt/cmtv/videos/detalhe/confrontos-nas-ruas-de-barcelona-durante-protestos-contra-crise-da-habitacao-em-espanha",
+        "fetched_at": "2026-10-06T10:31:43.831441+00:00"
+      },
+      {
+        "title": "Espagne: en difficulté, Pedro Sánchez tente un nouveau pari électoral en misant sur la crise du logement",
+        "source": "La Libre Belgique",
+        "country": "BE",
+        "link": "https://www.lalibre.be/international/2026/10/05/espagne-en-difficulte-pedro-sanchez-tente-un-nouveau-pari-electoral-en-misant-sur-la-crise-du-logement-6DPHWDD6RNEWDHOY3HXI44NV6U/",
+        "fetched_at": "2026-10-06T10:31:46.183265+00:00"
+      },
+      {
+        "title": "Spain's housing crisis bursts into the spotlight in snap election",
+        "source": "Irish Independent",
+        "country": "IE",
+        "link": "https://www.independent.ie/world-news/spains-housing-crisis-bursts-into-the-spotlight-in-snap-election/a/162636273.html",
+        "fetched_at": "2026-10-06T10:31:50.329828+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "Correio da Manhã": 1
+    }
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 7,
+    "avg_similarity": 0.717,
+    "articles": [
+      {
+        "title": "Au Brésil, les scandales n’ont pas contrarié l’ascension politique de Flavio Bolsonaro",
+        "source": "Le Monde",
+        "country": "FR",
+        "link": "https://www.lemonde.fr/international/article/2026/10/06/au-bresil-les-scandales-n-ont-pas-contrarie-l-ascension-politique-de-flavio-bolsonaro_6788965_3210.html",
+        "fetched_at": "2026-10-06T10:31:22.058723+00:00"
+      },
+      {
+        "title": "¿Qué decidirá Brasil en la segunda vuelta? La victoria de Flávio Bolsonaro y la caída de Lula, en gráficos",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/america/2026-10-05/que-decidira-brasil-en-la-segunda-vuelta-la-victoria-de-flavio-bolsonaro-y-la-caida-de-lula-en-graficos.html",
+        "fetched_at": "2026-10-06T10:31:27.062028+00:00"
+      },
+      {
+        "title": "Watch: How Brazil's dramatic election unfolded",
+        "source": "BBC World",
+        "country": "UK",
+        "link": "https://www.bbc.co.uk/news/videos/cwp9g54v9xjlo?at_medium=RSS&at_campaign=rss",
+        "fetched_at": "2026-10-06T10:31:29.996603+00:00"
+      },
+      {
+        "title": "Far right on the march and Lula’s failures: key drivers of Flávio Bolsonaro’s Brazil surge",
+        "source": "The Guardian",
+        "country": "UK",
+        "link": "https://www.theguardian.com/world/2026/oct/05/brazil-election-bolsonaro-lula",
+        "fetched_at": "2026-10-06T10:31:30.725002+00:00"
+      },
+      {
+        "title": "Krise der Seleção: Der Verlust der brasilianischen Fußball-Seele",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/aktuell/sport/fussball/brasiliens-fussball-warum-die-selecao-ihre-talente-verliert-201272716.html",
+        "fetched_at": "2026-10-06T10:31:36.124187+00:00"
+      },
+      {
+        "title": "Au Brésil, Flávio Bolsonaro devance Lula et crée la surprise",
+        "source": "La Libre Belgique",
+        "country": "BE",
+        "link": "https://www.lalibre.be/international/amerique/2026/10/05/au-bresil-flavio-bolsonaro-devance-lula-et-cree-la-surprise-42BM3T7TMRBW3BFOMVRM3KHR6A/",
+        "fetched_at": "2026-10-06T10:31:46.183265+00:00"
+      },
+      {
+        "title": "Brasilien går till val: ”Demokrati eller barbari",
+        "source": "Dagens Nyheter",
+        "country": "SE",
+        "link": "https://www.dn.se/varlden/brasilien-gar-till-val-demokrati-eller-barbari/",
+        "fetched_at": "2026-10-06T10:31:48.865018+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "La Libre Belgique": 2,
+      "El País": 1
+    }
+  },
+  {
+    "label": "Cornell under fire after sexual assault scandal",
+    "terms": [
+      "ett",
+      "Cornell",
+      "violadores",
+      "campussen",
+      "Studentin",
+      "castigos"
+    ],
+    "size": 6,
+    "avg_similarity": 0.751,
+    "articles": [
+      {
+        "title": "États-Unis : les étudiants de Cornell accusent leur université d'avoir couvert un viol",
+        "source": "France 24",
+        "country": "FR",
+        "link": "https://www.france24.com/fr/vid%C3%A9o/20261006-%C3%A9tats-unis-les-%C3%A9tudiants-de-cornell-accusent-leur-universit%C3%A9-d-avoir-couvert-un-viol",
+        "fetched_at": "2026-10-06T10:31:23.525552+00:00"
+      },
+      {
+        "title": "“Cornell protege a los violadores”: rabia en la universidad tras conocerse la levedad de los castigos a los denunciados",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/us/2026-10-05/cornell-protege-a-los-violadores-rabia-en-la-universidad-tras-conocerse-la-levedad-de-los-castigos-a-los-supuestos-agresores.html",
+        "fetched_at": "2026-10-06T10:31:27.062028+00:00"
+      },
+      {
+        "title": "Cornell-Universität: Neue Details zu Vergewaltigungsvorwürfen erhöhen Druck auf US-Eliteuni",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/aktuell/gesellschaft/kriminalitaet/neue-details-zu-vergewaltigungsvorwuerfen-erhoehen-druck-auf-us-uni-accg-201291362.html",
+        "fetched_at": "2026-10-06T10:31:36.124187+00:00"
+      },
+      {
+        "title": "Melding van groepsverkrachting opent een breed debat over onbestraft seksueel geweld op Amerikaanse campussen",
+        "source": "NRC",
+        "country": "NL",
+        "link": "https://www.nrc.nl/nieuws/2026/10/03/melding-van-groepsverkrachting-opent-een-breed-debat-over-onbestraft-seksueel-geweld-op-amerikaanse-campussen-a4938129",
+        "fetched_at": "2026-10-06T10:31:43.123551+00:00"
+      },
+      {
+        "title": "Studentin wirft Cornell-Uni lasches Vorgehen nach Gruppenvergewaltigung vor",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000341945/studentin-wirft-cornell-uni-lasches-vorgehen-nach-gruppenvergewaltigung-vor?ref=rss",
+        "fetched_at": "2026-10-06T10:31:47.406188+00:00"
+      },
+      {
+        "title": "Isobel Hadley-Kamptz: Våldtäktskulturen lever och frodas – fallet på Cornell är bara ett exempel",
+        "source": "Dagens Nyheter",
+        "country": "SE",
+        "link": "https://www.dn.se/ledare/isobel-hadley-kamptz-valdtaktskulturen-lever-och-frodas-fallet-pa-cornell-ar-bara-ett-exempel/",
+        "fetched_at": "2026-10-06T10:31:48.865018+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "Der Standard": 1
+    },
+    "label_source": "llm"
+  },
+  {
+    "label": "British bestseller Jeffrey Archer dies at 86",
+    "terms": [
+      "Archer",
+      "Bestsellerautor",
+      "Jeffrey",
+      "gestorben",
+      "död",
+      "poliitikko",
+      "britti"
+    ],
+    "size": 6,
+    "avg_similarity": 0.856,
+    "articles": [
+      {
+        "title": "Bestsellerautor Jeffrey Archer mit 86 Jahren gestorben",
+        "source": "Tagesschau",
+        "country": "DE",
+        "link": "https://www.tagesschau.de/kultur/literatur-tod-jeffreyarcher-100.html",
+        "fetched_at": "2026-10-06T10:31:34.613858+00:00"
+      },
+      {
+        "title": "L'auteur de best sellers Jeffrey Archer est décédé lundi \"subitement\"",
+        "source": "La Libre Belgique",
+        "country": "BE",
+        "link": "https://www.lalibre.be/culture/livres-bd/2026/10/05/lauteur-de-best-sellers-jeffrey-archer-est-decede-lundi-subitement-UVPFVPKL5ZBRRHPJ53KMF6P5CA/",
+        "fetched_at": "2026-10-06T10:31:46.183265+00:00"
+      },
+      {
+        "title": "Britischer Bestsellerautor Jeffrey Archer gestorben",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000342826/britischer-bestsellerautor-jeffrey-archer-gestorben?ref=rss",
+        "fetched_at": "2026-10-06T10:31:47.406188+00:00"
+      },
+      {
+        "title": "Författaren Jeffrey Archer är död",
+        "source": "Dagens Nyheter",
+        "country": "SE",
+        "link": "https://www.dn.se/kultur/forfattaren-jeffrey-archer-ar-dod/",
+        "fetched_at": "2026-10-06T10:31:48.865018+00:00"
+      },
+      {
+        "title": "Kuolleet | Kirjailija ja entinen britti­poliitikko Jeffrey Archer on kuollut",
+        "source": "Helsingin Sanomat",
+        "country": "FI",
+        "link": "https://www.hs.fi/maailma/art-2000012322807.html",
+        "fetched_at": "2026-10-06T10:31:49.673866+00:00"
+      },
+      {
+        "title": "In pictures: Jeffrey Archer, prolific author, parliamentarian and prisoner dies aged 86",
+        "source": "Irish Independent",
+        "country": "IE",
+        "link": "https://www.independent.ie/world-news/in-pictures-jeffrey-archer-prolific-author-parliamentarian-and-prisoner-dies-aged-86/a/162635595.html",
+        "fetched_at": "2026-10-06T10:31:50.329828+00:00"
+      }
+    ],
+    "label_source": "llm"
+  },
+  {
+    "label": "Messi departs Argentina: farewell party",
+    "terms": [
+      "Messi",
+      "despide",
+      "Argentina",
+      "han",
+      "Lionel"
+    ],
+    "size": 7,
+    "avg_similarity": 0.756,
+    "articles": [
+      {
+        "title": "La última función de Messi con la albiceleste: Argentina despide a su jugador récord de todos los tiempos",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/argentina/2026-10-06/la-ultima-funcion-de-messi-con-la-albiceleste-argentina-despide-a-su-jugador-record-de-todos-los-tiempos.html",
+        "fetched_at": "2026-10-06T10:31:27.062028+00:00"
+      },
+      {
+        "title": "Messi se despide de Argentina: cuándo es y cómo ver el partido",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/comprar/cultura-ocio/20261006/11651040/leo-messi-despide-seleccion-argentina-cuando-como-ver-mkt-movi.html",
+        "fetched_at": "2026-10-06T10:31:28.612383+00:00"
+      },
+      {
+        "title": "Afscheid van Lionel Messi bij Argentinië in tien unieke momenten: van rode kaart tot wereldtitel",
+        "source": "De Telegraaf",
+        "country": "NL",
+        "link": "https://www.telegraaf.nl/sport/voetbal/afscheid-van-lionel-messi-bij-argentinie-in-tien-unieke-momenten-van-rode-kaart-tot-wereldtitel/160785929.html",
+        "fetched_at": "2026-10-06T10:31:40.577610+00:00"
+      },
+      {
+        "title": "Le jour de “la despedida” est arrivé pour Lionel Messi",
+        "source": "La Libre Belgique",
+        "country": "BE",
+        "link": "https://www.lalibre.be/sports/football/2026/10/06/le-jour-de-la-despedida-est-arrive-pour-lionel-messi-6CXYZ6JQJJAQ7PBPMHMZ7KG2II/",
+        "fetched_at": "2026-10-06T10:31:46.183265+00:00"
+      },
+      {
+        "title": "Messi vor emotionalem Teamabschied: \"Wird unvergesslich\"",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000342803/messi-vor-emotionalem-teamabschied-wird-unvergesslich?ref=rss",
+        "fetched_at": "2026-10-06T10:31:47.406188+00:00"
+      },
+      {
+        "title": "Messis letzter Auftritt: Argentinien verabschiedet seinen Magier",
+        "source": "Kurier",
+        "country": "AT",
+        "link": "https://kurier.at/sport/fussball/fussball-messi-abschied-argentinien-benin-buenos-aires/403196039",
+        "fetched_at": "2026-10-06T10:31:48.066821+00:00"
+      },
+      {
+        "title": "Johanna Frändén: Messi vann argentinarnas kärlek först när han övergav dem",
+        "source": "Dagens Nyheter",
+        "country": "SE",
+        "link": "https://www.dn.se/sport/johanna-franden-messi-vann-argentinarnas-karlek-forst-nar-han-overgav-dem/",
+        "fetched_at": "2026-10-06T10:31:48.865018+00:00"
+      }
+    ],
+    "label_source": "llm"
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 7,
+    "avg_similarity": 0.72,
+    "articles": [
+      {
+        "title": "Premio Nobel de Medicina para Karl Deisseroth, Peter Hegemann y Georg Nagel por la técnica que permite controlar el cerebro con luz",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/ciencia/2026-10-05/premio-nobel-de-medicina.html",
+        "fetched_at": "2026-10-06T10:31:27.062028+00:00"
+      },
+      {
+        "title": "El control de las neuronas con luz, que abre una nueva era, gana el Nobel de Medicina",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/ciencia/20261005/11648626/control-celulas-luz-gana-nobel-medicina.html",
+        "fetched_at": "2026-10-06T10:31:28.612383+00:00"
+      },
+      {
+        "title": "Optogenetik: Medizin-Nobelpreis für den Lichtschalter im Gehirn",
+        "source": "Tagesschau",
+        "country": "DE",
+        "link": "https://www.tagesschau.de/wissen/gesundheit/optogenetik-nobelpreis-100.html",
+        "fetched_at": "2026-10-06T10:31:34.613858+00:00"
+      },
+      {
+        "title": "Nobelprijs voor de Geneeskunde voor ‘optogenetica’, futuristische manier om hersencellen van buitenaf te besturen",
+        "source": "de Volkskrant",
+        "country": "NL",
+        "link": "https://www.volkskrant.nl/wetenschap/nobelprijs-voor-de-geneeskunde-voor-optogenetica-futuristische-manier-om-hersencellen-van-buitenaf-te-besturen~b366a4ed/",
+        "fetched_at": "2026-10-06T10:31:41.345804+00:00"
+      },
+      {
+        "title": "Nobelprijs voor geneeskunde naar optogenetica: een lichtknopje in de hersenen",
+        "source": "NRC",
+        "country": "NL",
+        "link": "https://www.nrc.nl/nieuws/2026/10/05/alles-wat-je-moet-weten-over-de-nobelprijs-a4938261",
+        "fetched_at": "2026-10-06T10:31:43.123551+00:00"
+      },
+      {
+        "title": "Nobelpreisträger Karl Deisseroth bringt Licht ins Gehirn",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000342732/nobelpreistraeger-karl-deisseroth-bringt-licht-ins-gehirn?ref=rss",
+        "fetched_at": "2026-10-06T10:31:47.406188+00:00"
+      },
+      {
+        "title": "Trio får Nobelpris för upptäckter som gör att hjärnan kan styras med ljus",
+        "source": "Dagens Nyheter",
+        "country": "SE",
+        "link": "https://www.dn.se/sverige/trio-tilldelas-nobelpris-for-upptacker-inom-optogenetik/",
+        "fetched_at": "2026-10-06T10:31:48.865018+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "NRC": 2,
+      "Der Standard": 1
+    }
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 6,
+    "avg_similarity": 0.686,
+    "articles": [
+      {
+        "title": "« Le ciel attendra » : Noémie Merlant prise dans l’engrenage de la radicalisation",
+        "source": "L'Obs",
+        "country": "FR",
+        "link": "https://www.nouvelobs.com/teleobs/20261003.OBS118864/le-ciel-attendra-noemie-merlant-prise-dans-l-engrenage-de-la-radicalisation.html",
+        "fetched_at": "2026-10-06T10:31:25.040677+00:00"
+      },
+      {
+        "title": "Vía libre al regreso de Puigdemont: el Constitucional ordena al Supremo que amnistíe la malversación del ‘procés’",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/espana/2026-10-06/via-libre-al-regreso-de-puigdemont-el-constitucional-ordena-al-supremo-que-amnistie-la-malversacion-del-proces.html",
+        "fetched_at": "2026-10-06T10:31:27.062028+00:00"
+      },
+      {
+        "title": "Büchners Mitstreiter Weidig: Wofür die Revolutionäre des Vormärz kämpften",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/aktuell/feuilleton/kunstmarkt/revolutionaer-des-vormaerz-verteidigungsschrift-von-friedrich-ludwig-weidig-kommt-bei-bassenge-zur-auktion-accg-201248467.html",
+        "fetched_at": "2026-10-06T10:31:36.124187+00:00"
+      },
+      {
+        "title": "Autunno con Rocco Schiavone: Repubblica regala sei storie del vicequestore",
+        "source": "La Repubblica",
+        "country": "IT",
+        "link": "https://www.repubblica.it/cultura/2026/09/23/news/autunno_con_rocco_schiavone_repubblica_regala_sei_storie_del_vicequestore-425602062/",
+        "fetched_at": "2026-10-06T10:31:38.292379+00:00"
+      },
+      {
+        "title": "Il viaggio rivoluzionario di Baricco: «Castelli di rabbia» in edicola con il «Corriere della Sera»",
+        "source": "Corriere della Sera",
+        "country": "IT",
+        "link": "https://www.corriere.it/gli-allegati-di-corriere/24_marzo_21/viaggio-rivoluzionario-baricco-castelli-rabbia-edicola-il-corriere-sera-bf47c966-e79b-11ee-a95a-09971739e78f.shtml",
+        "fetched_at": "2026-10-06T10:31:39.021434+00:00"
+      },
+      {
+        "title": "\"Es war ein wildes Gezerre\": Wie sich Babler wehrte – und trotzdem abtrat",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000342724/es-war-ein-wildes-gezerre-wie-sich-babler-wehrte-und-trotzdem-abtrat?ref=rss",
+        "fetched_at": "2026-10-06T10:31:47.406188+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "L'Obs": 1,
+      "Frankfurter Allgemeine": 1
+    }
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 5,
+    "avg_similarity": 0.786,
+    "articles": [
+      {
+        "title": "Trump aprueba el fusilamiento del autor del tiroteo más mortífero en una instalación militar de EE.UU.",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/internacional/20261006/11652071/trump-aprueba-fusilamiento-autor-tiroteo-mas-mortifero-instalacion-militar-ee-uu.html",
+        "fetched_at": "2026-10-06T10:31:28.612383+00:00"
+      },
+      {
+        "title": "USA unter Trump: Trump stimmt Hinrichtung von Amokläufer durch Erschießungskommando zu",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/aktuell/politik/usa-unter-trump/liveticker-usa-unter-trump-praesident-stimmt-hinrichtung-von-amoklaeufer-durch-us-militaer-zu-faz-19444916.html",
+        "fetched_at": "2026-10-06T10:31:36.124187+00:00"
+      },
+      {
+        "title": "Une première en 60 ans : Trump approuve la mise à mort par peloton d'exécution d'un tueur de masse",
+        "source": "La Libre Belgique",
+        "country": "BE",
+        "link": "https://www.lalibre.be/international/amerique/2026/10/06/une-premiere-en-60-ans-trump-approuve-la-mise-a-mort-par-peloton-dexecution-dun-tueur-de-masse-UPWMWJ6DKNET5LQAOVIEG7TLB4/",
+        "fetched_at": "2026-10-06T10:31:46.183265+00:00"
+      },
+      {
+        "title": "Trump stimmt Hinrichtung eines Amokläufers durch US-Militär zu",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000342819/trump-stimmt-hinrichtung-eines-amokl228ufer-durch-us-milit228r-zu?ref=rss",
+        "fetched_at": "2026-10-06T10:31:47.406188+00:00"
+      },
+      {
+        "title": "Yhdysvallat | Trump hyväksyi kuolemaan­tuomitun teloittamisen ampumalla",
+        "source": "Helsingin Sanomat",
+        "country": "FI",
+        "link": "https://www.hs.fi/maailma/art-2000012322822.html",
+        "fetched_at": "2026-10-06T10:31:49.673866+00:00"
+      }
+    ]
+  },
+  {
+    "label": "Quebec election adds new test",
+    "terms": [
+      "Quebec",
+      "elect",
+      "Separatisten",
+      "naar",
+      "l’indépendance",
+      "win",
+      "Quebec election adding"
+    ],
+    "size": 7,
+    "avg_similarity": 0.766,
+    "articles": [
+      {
+        "title": "Au Québec, la victoire du Parti québécois ramène la question de l’indépendance dans les débats",
+        "source": "Le Monde",
+        "country": "FR",
+        "link": "https://www.lemonde.fr/international/article/2026/10/06/au-quebec-le-parti-quebecois-independantiste-l-emporte-aux-elections-provinciales_6788977_3210.html",
+        "fetched_at": "2026-10-06T10:31:22.058723+00:00"
+      },
+      {
+        "title": "Le Québec élit les indépendantistes aux élections régionales canadiennes",
+        "source": "France 24",
+        "country": "FR",
+        "link": "https://www.france24.com/fr/vid%C3%A9o/20261006-le-qu%C3%A9bec-%C3%A9lit-les-ind%C3%A9pendantistes-aux-%C3%A9lections-r%C3%A9gionales-canadiennes",
+        "fetched_at": "2026-10-06T10:31:23.525552+00:00"
+      },
+      {
+        "title": "El separatista Partido Quebequés gana las elecciones de Quebec",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/internacional/20261006/11652062/separatista-partido-quebeques-gana-elecciones-quebec.html",
+        "fetched_at": "2026-10-06T10:31:28.612383+00:00"
+      },
+      {
+        "title": "Separatist party projected to win Quebec election, adding new test to Canada's unity",
+        "source": "BBC World",
+        "country": "UK",
+        "link": "https://www.bbc.co.uk/news/articles/crly09gz7ew4o?at_medium=RSS&at_campaign=rss",
+        "fetched_at": "2026-10-06T10:31:29.996603+00:00"
+      },
+      {
+        "title": "Quebec poised to elect separatists to power for first time in more than a decade",
+        "source": "The Guardian",
+        "country": "UK",
+        "link": "https://www.theguardian.com/world/2026/oct/05/quebec-election-separatist-government-parti-quebecois-referendum",
+        "fetched_at": "2026-10-06T10:31:30.725002+00:00"
+      },
+      {
+        "title": "Separatisten in Quebec die streven naar onafhankelijkheid winnen verkiezing, maar behalen geen meerderheid",
+        "source": "de Volkskrant",
+        "country": "NL",
+        "link": "https://www.volkskrant.nl/buitenland/separatisten-in-quebec-die-streven-naar-onafhankelijkheid-winnen-verkiezing-maar-behalen-geen-meerderheid~b7598597/",
+        "fetched_at": "2026-10-06T10:31:41.345804+00:00"
+      },
+      {
+        "title": "Verkiezingszege van separatisten in Quebec bemoeilijkt missie van Carney tegen Trump",
+        "source": "NRC",
+        "country": "NL",
+        "link": "https://www.nrc.nl/nieuws/2026/10/06/verkiezingszege-van-separatisten-in-quebec-bemoeilijkt-missie-van-carney-tegen-trump-a4938160",
+        "fetched_at": "2026-10-06T10:31:43.123551+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "France 24": 1
+    },
+    "label_source": "llm"
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 5,
+    "avg_similarity": 0.679,
+    "articles": [
+      {
+        "title": "Espagne: le pari électoral d’un des derniers chefs de gouvernement de gauche en Europe",
+        "source": "Mediapart",
+        "country": "FR",
+        "link": "https://www.mediapart.fr/journal/international/051026/espagne-le-pari-electoral-d-un-des-derniers-chefs-de-gouvernement-de-gauche-en-europe",
+        "fetched_at": "2026-10-06T10:31:24.156830+00:00"
+      },
+      {
+        "title": "¿Por qué Cataluña volverá a decidir las elecciones en España?",
+        "source": "El Mundo",
+        "country": "ES",
+        "link": "https://www.elmundo.es/cataluna/2026/10/05/6ac3e3cc21efa0b0648b4593.html",
+        "fetched_at": "2026-10-06T10:31:27.795558+00:00"
+      },
+      {
+        "title": "Una España con Lamine Yamal no se fía de la crisis de Croacia",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/deportes/futbol/20261006/11651784/croacia-espana-lamine-yamal-nations-league.html",
+        "fetched_at": "2026-10-06T10:31:28.612383+00:00"
+      },
+      {
+        "title": "Sánchez: “Elezioni anticipate il 29 novembre. Spagna scelga tra avanzare o cedere all’ultradestra”",
+        "source": "La Repubblica",
+        "country": "IT",
+        "link": "https://www.repubblica.it/esteri/2026/10/05/news/sanchez_dimissioni_elezioni_spagna_novembre_2026-425626262/",
+        "fetched_at": "2026-10-06T10:31:38.292379+00:00"
+      },
+      {
+        "title": "Felipe VI Suomessa | Espanja tarjoaa Suomelle parastaan",
+        "source": "Helsingin Sanomat",
+        "country": "FI",
+        "link": "https://www.hs.fi/maailma/art-2000012312537.html",
+        "fetched_at": "2026-10-06T10:31:49.673866+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 5,
+    "avg_similarity": 0.715,
+    "articles": [
+      {
+        "title": "Sánchez ejecuta una última pirueta para sobrevivir aferrándose al 30% del voto: \"¡Somos más! ¡Sí se puede!\"",
+        "source": "El Mundo",
+        "country": "ES",
+        "link": "https://www.elmundo.es/espana/2026/10/05/6ac3d070e4d4d810628b4575.html",
+        "fetched_at": "2026-10-06T10:31:27.795558+00:00"
+      },
+      {
+        "title": "Encuesta: ¿Pedro Sánchez hace bien en adelantar las elecciones?",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/participacion/debates/20261006/11651004/encuesta-pedro-sanchez-debe-adelantar-elecciones.html",
+        "fetched_at": "2026-10-06T10:31:28.612383+00:00"
+      },
+      {
+        "title": "Vorgezogene Wahl: Sánchez hofft auf den Volkszorn",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/aktuell/politik/ausland/neuwahlen-in-spanien-sanchez-hofft-auf-den-volkszorn-201289800.html",
+        "fetched_at": "2026-10-06T10:31:36.124187+00:00"
+      },
+      {
+        "title": "Pedro Sanchez to kluczowy element domina. Jego przegrana w wyborach w Hiszpanii zmieni układ sił w całej UE",
+        "source": "Onet Wiadomości",
+        "country": "PL",
+        "link": "https://wiadomosci.onet.pl/politico/wybory-w-hiszpanii-przegrana-pedro-sancheza-zmieni-uklad-sil-w-calej-ue/tml53n8",
+        "fetched_at": "2026-10-06T10:31:45.194593+00:00"
+      },
+      {
+        "title": "Nathan Shachar: Valet avgör mer än Sánchez politiska framtid",
+        "source": "Dagens Nyheter",
+        "country": "SE",
+        "link": "https://www.dn.se/varlden/nathan-shachar-valet-avgor-mer-an-sanchez-politiska-framtid/",
+        "fetched_at": "2026-10-06T10:31:48.865018+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "La Vanguardia": 1
+    }
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 5,
+    "avg_similarity": 0.684,
+    "articles": [
+      {
+        "title": "Amodei vs. Altman: How the Race for AI Dominance Is Increasing the Risks",
+        "source": "Der Spiegel",
+        "country": "DE",
+        "link": "https://www.spiegel.de/international/business/amodei-vs-altman-how-the-race-for-ai-dominance-is-increasing-the-risks-a-0aa34d2c-c3a2-466f-9925-831a0e5a2213#ref=rss",
+        "fetched_at": "2026-10-06T10:31:33.853034+00:00"
+      },
+      {
+        "title": "Artificial intelligence: AI Is Squeezing Out the Rest of the Stock Market",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/aktuell/wall-street-journal/ai-is-squeezing-out-the-rest-of-the-stock-market-201290063.html",
+        "fetched_at": "2026-10-06T10:31:36.124187+00:00"
+      },
+      {
+        "title": "Worden de waardes van AI-bedrijven kunstmatig opgeblazen?",
+        "source": "NRC",
+        "country": "NL",
+        "link": "https://www.nrc.nl/nieuws/2026/10/01/worden-de-waardes-van-ai-bedrijven-kunstmatig-opgeblazen-a4937957",
+        "fetched_at": "2026-10-06T10:31:43.123551+00:00"
+      },
+      {
+        "title": "Sam Altman: Es werden \"unangenehme Dinge passieren\", der KI-Fortschritt sei das aber wert",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000342861/sam-altman-es-werden-unangenehme-dinge-passieren-der-ki-fortschritt-sei-das-aber-wert?ref=rss",
+        "fetched_at": "2026-10-06T10:31:47.406188+00:00"
+      },
+      {
+        "title": "Varningarna om AI och människans undergång: Detta har hänt",
+        "source": "Dagens Nyheter",
+        "country": "SE",
+        "link": "https://www.dn.se/ekonomi/varningarna-om-ai-och-manniskans-undergang-detta-har-hant/",
+        "fetched_at": "2026-10-06T10:31:48.865018+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "Dagens Nyheter": 2
+    }
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 4,
+    "avg_similarity": 0.822,
+    "articles": [
+      {
+        "title": "Trump permet désormais à tous les Américains d’acheter du diesel détaxé",
+        "source": "France 24",
+        "country": "FR",
+        "link": "https://www.france24.com/fr/am%C3%A9riques/20261006-etats-unis-petrole-donald-trump-signe-decret-tous-les-americains-acheter-diesel-rouge-detaxe",
+        "fetched_at": "2026-10-06T10:31:23.525552+00:00"
+      },
+      {
+        "title": "Trump erlaubt angesichts hoher Spritpreise Nutzung von steuerfreiem Diesel",
+        "source": "Tagesschau",
+        "country": "DE",
+        "link": "https://www.tagesschau.de/ausland/amerika/usa-trump-diesel-100.html",
+        "fetched_at": "2026-10-06T10:31:34.613858+00:00"
+      },
+      {
+        "title": "Trump maakt belastingvrije diesel beschikbaar voor alle Amerikanen, nu populariteit dieptepunt bereikt",
+        "source": "de Volkskrant",
+        "country": "NL",
+        "link": "https://www.volkskrant.nl/buitenland/liveblog-politiek-vs-trump-hegseth-pentagon~bcd4a5c7/",
+        "fetched_at": "2026-10-06T10:31:41.345804+00:00"
+      },
+      {
+        "title": "Trump autorise les Américains à acheter un diesel détaxé... qu'il ne connait pas : \"Je ne sais pas ce que c'est, mais c'est censé être très bon\"",
+        "source": "La Libre Belgique",
+        "country": "BE",
+        "link": "https://www.lalibre.be/economie/conjoncture/2026/10/06/trump-autorise-les-americains-a-acheter-un-diesel-detaxe-quil-ne-connait-pas-je-ne-sais-pas-ce-que-cest-mais-cest-cense-etre-tres-bon-KIGYTTYXKNEMDLQ7TPSBI3VECI/",
+        "fetched_at": "2026-10-06T10:31:46.183265+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 4,
+    "avg_similarity": 0.725,
+    "articles": [
+      {
+        "title": "Immobilier : adapter son logement à la canicule",
+        "source": "L'Obs",
+        "country": "FR",
+        "link": "https://www.nouvelobs.com/immobilier/20261005.OBS118922/immobilier-adapter-son-logement-a-la-canicule.html",
+        "fetched_at": "2026-10-06T10:31:25.040677+00:00"
+      },
+      {
+        "title": "La aldea gala de la crisis de la vivienda: Marinaleda, con alquileres entre cero y 24 euros mensuales",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/espana/2026-10-06/la-aldea-gala-de-la-crisis-de-la-vivienda-marinaleda-con-alquileres-entre-cero-y-24-euros-mensuales.html",
+        "fetched_at": "2026-10-06T10:31:27.062028+00:00"
+      },
+      {
+        "title": "Wohnungsnot: „Null Neubau“",
+        "source": "Süddeutsche Zeitung",
+        "country": "DE",
+        "link": "https://www.sueddeutsche.de/kultur/wohnungsnot-bauwirtschaft-architektur-neue-loesungen-li.3557557",
+        "fetched_at": "2026-10-06T10:31:35.323529+00:00"
+      },
+      {
+        "title": "Honderdduizenden woningen verduurzaamd met subsidie: isolatie blijft populair, thuisbatterij in opkomst",
+        "source": "de Volkskrant",
+        "country": "NL",
+        "link": "https://www.volkskrant.nl/economie/honderdduizenden-woningen-verduurzaamd-met-subsidie-isolatie-blijft-populair-thuisbatterij-in-opkomst~b9346ecb/",
+        "fetched_at": "2026-10-06T10:31:41.345804+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "L'Obs": 4
+    }
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 4,
+    "avg_similarity": 0.68,
+    "articles": [
+      {
+        "title": "Los partidos árabes, claves en los comicios israelíes y rechazados por la derecha judía",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/internacional/20261006/11651626/partidos-arabes-claves-comicios-israelies-rechazados-derecha-judia.html",
+        "fetched_at": "2026-10-06T10:31:28.612383+00:00"
+      },
+      {
+        "title": "Strafe für Israel-Leugnung?: Schuster begrüßt Hessens Gesetzesvorstoß",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/video/schuster-begruesst-hessens-gesetzesvorstoss-201290533.html",
+        "fetched_at": "2026-10-06T10:31:36.124187+00:00"
+      },
+      {
+        "title": "“Pensavamo che a Sinwar bastassero soldi e potere”: così Israele ignorò gli allarmi del 7 Ottobre",
+        "source": "La Repubblica",
+        "country": "IT",
+        "link": "https://www.repubblica.it/esteri/2026/10/06/news/allarmi_ignorati_hamas_7_ottobre_ecco_perche-425628276/",
+        "fetched_at": "2026-10-06T10:31:38.292379+00:00"
+      },
+      {
+        "title": "Israëliërs mogen naar de stembus, terwijl hun regering bewust de democratie verzwakt",
+        "source": "NRC",
+        "country": "NL",
+        "link": "https://www.nrc.nl/nieuws/2026/10/02/israeliers-mogen-naar-de-stembus-maar-hun-regering-verzwakt-bewust-de-democratie-a4938065",
+        "fetched_at": "2026-10-06T10:31:43.123551+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 5,
+    "avg_similarity": 0.756,
+    "articles": [
+      {
+        "title": "Yémen : les houthistes démentent tout recul dans les zones qu’ils contrôlent et revendiquent de nouvelles attaques en Arabie saoudite",
+        "source": "Le Monde",
+        "country": "FR",
+        "link": "https://www.lemonde.fr/international/article/2026/10/06/les-houthistes-dementent-tout-recul-et-revendiquent-de-nouvelles-frappes-en-arabie-saoudite_6788960_3210.html",
+        "fetched_at": "2026-10-06T10:31:22.058723+00:00"
+      },
+      {
+        "title": "Arabie saoudite : les Houthis frappent l'aéroport de Riyad et une raffinerie",
+        "source": "France 24",
+        "country": "FR",
+        "link": "https://www.france24.com/fr/vid%C3%A9o/20261006-arabie-saoudite-les-houthis-frappent-l-a%C3%A9roport-de-riyad-et-une-raffinerie",
+        "fetched_at": "2026-10-06T10:31:23.525552+00:00"
+      },
+      {
+        "title": "Newsblog zum Nahost-Krieg: Huthi melden Angriffe auf Ziele in Saudi-Arabien",
+        "source": "Süddeutsche Zeitung",
+        "country": "DE",
+        "link": "https://www.sueddeutsche.de/politik/news-iran-nahost-krieg-iran-usa-grossbritannien-gefahr-drohnenangriff-huthi-jemen-saudi-arabien-li.3530668",
+        "fetched_at": "2026-10-06T10:31:35.323529+00:00"
+      },
+      {
+        "title": "Liveblog Irankrieg: Explosionen erschüttern Saudi-Arabiens Hauptstadt Riad",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/aktuell/politik/ausland/liveblog-irankrieg-mekka-allianz-beschliesst-nach-angriff-auf-medina-rasche-truppenverlegung-faz-200583539.html",
+        "fetched_at": "2026-10-06T10:31:36.124187+00:00"
+      },
+      {
+        "title": "De fortes explosions entendues dans la capitale saoudienne: \"L'aéroport international de Ryad a été visé\"",
+        "source": "La Libre Belgique",
+        "country": "BE",
+        "link": "https://www.lalibre.be/international/moyen-orient/2026/10/05/de-fortes-explosions-entendues-dans-la-capitale-saoudienne-laeroport-international-de-ryad-vise-P3QB2R3AEZCT5OJOLPLMXT44SI/",
+        "fetched_at": "2026-10-06T10:31:46.183265+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 4,
+    "avg_similarity": 0.751,
+    "articles": [
+      {
+        "title": "TotalEnergies et le raffinage, grands gagnants de la flambée des prix des carburants",
+        "source": "L'Obs",
+        "country": "FR",
+        "link": "https://www.nouvelobs.com/economie/20260929.OBS118738/totalenergies-et-le-raffinage-grands-gagnants-de-la-flambee-des-prix-des-carburants.html",
+        "fetched_at": "2026-10-06T10:31:25.040677+00:00"
+      },
+      {
+        "title": "Energiepreise: Preise für Benzin und Diesel steigen wieder leicht",
+        "source": "Tagesschau",
+        "country": "DE",
+        "link": "https://www.tagesschau.de/wirtschaft/verbraucher/spritpreise-tankrabatt-120.html",
+        "fetched_at": "2026-10-06T10:31:34.613858+00:00"
+      },
+      {
+        "title": "Kraftstoffversorgung: Auch nach der Diesel-Freigabe bleibt das Tanken teuer",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/aktuell/wirtschaft/klima-nachhaltigkeit/auch-nach-diesel-freigabe-bleibt-tanken-teuer-accg-201273730.html",
+        "fetched_at": "2026-10-06T10:31:36.124187+00:00"
+      },
+      {
+        "title": "Da oggi accise sul gasolio più alte. Eni: il tetto resta, ma così aumenta il prezzo alla pompa",
+        "source": "ANSA",
+        "country": "IT",
+        "link": "https://www.ansa.it/canale_motori/notizie/istituzioni/2026/10/06/da-oggi-accise-sul-gasolio-piu-alte.-eni-il-tetto-resta-ma-cosi_5d0b1426-cd66-4a50-9d69-8e04bbe77190.html",
+        "fetched_at": "2026-10-06T10:31:37.626975+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "Frankfurter Allgemeine": 1
+    }
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 4,
+    "avg_similarity": 0.891,
+    "articles": [
+      {
+        "title": "Kenya confirms its first Ebola death as outbreak spreads",
+        "source": "BBC World",
+        "country": "UK",
+        "link": "https://www.bbc.co.uk/news/articles/cqzrd7v1j163o?at_medium=RSS&at_campaign=rss",
+        "fetched_at": "2026-10-06T10:31:29.996603+00:00"
+      },
+      {
+        "title": "Kenya confirms first Ebola case and says patient has died",
+        "source": "The Guardian",
+        "country": "UK",
+        "link": "https://www.theguardian.com/world/2026/oct/06/kenya-first-ebola-case-death-drc",
+        "fetched_at": "2026-10-06T10:31:30.725002+00:00"
+      },
+      {
+        "title": "Krankheit: Kenia bestätigt ersten Ebola-Fall",
+        "source": "Die Zeit",
+        "country": "DE",
+        "link": "https://www.zeit.de/news/2026-10/06/kenia-bestaetigt-ersten-ebola-fall",
+        "fetched_at": "2026-10-06T10:31:36.807557+00:00"
+      },
+      {
+        "title": "Kenya bekräftar första fallet av ebola – man flög hem svårt sjuk",
+        "source": "Dagens Nyheter",
+        "country": "SE",
+        "link": "https://www.dn.se/varlden/kenya-bekraftar-forsta-fallet-av-ebola-man-flog-hem-svart-sjuk/",
+        "fetched_at": "2026-10-06T10:31:48.865018+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 4,
+    "avg_similarity": 0.79,
+    "articles": [
+      {
+        "title": "Staat New York roept noodtoestand uit vanwege snelle stijging aantal mazelengevallen",
+        "source": "de Volkskrant",
+        "country": "NL",
+        "link": "https://www.volkskrant.nl/buitenland/staat-new-york-roept-noodtoestand-uit-vanwege-snelle-stijging-aantal-mazelengevallen~bb77c66f/",
+        "fetched_at": "2026-10-06T10:31:41.345804+00:00"
+      },
+      {
+        "title": "Notstand in US-Staat New York wegen Masernfällen",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000342895/notstand-in-us-staat-new-york-wegen-masernfaellen?ref=rss",
+        "fetched_at": "2026-10-06T10:31:47.406188+00:00"
+      },
+      {
+        "title": "Masern-Ausbruch: New York ruft den Notstand aus",
+        "source": "Kurier",
+        "country": "AT",
+        "link": "https://kurier.at/chronik/welt/new-york-masern-notstand-infektionen-masernfaelle/403196229",
+        "fetched_at": "2026-10-06T10:31:48.066821+00:00"
+      },
+      {
+        "title": "Yhdysvallat | New Yorkin osa­valtioon julistettu hätätila tuhka­rokon takia",
+        "source": "Helsingin Sanomat",
+        "country": "FI",
+        "link": "https://www.hs.fi/maailma/art-2000012322789.html",
+        "fetched_at": "2026-10-06T10:31:49.673866+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 3,
+    "avg_similarity": 0.716,
+    "articles": [
+      {
+        "title": "Ante el vacío dejado por EE UU, ¿quién dictará las reglas en Oriente Próximo?",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/ideas/2026-10-06/ante-el-vacio-dejado-por-ee-uu-quien-dictara-las-reglas-en-oriente-proximo.html",
+        "fetched_at": "2026-10-06T10:31:27.062028+00:00"
+      },
+      {
+        "title": "US-Militärbasen: Endet die amerikanische Hegemonie im Nahen Osten?",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/aktuell/politik/ausland/zerstoerte-us-basen-am-golf-endet-die-amerikanische-hegemonie-accg-201270549.html",
+        "fetched_at": "2026-10-06T10:31:36.124187+00:00"
+      },
+      {
+        "title": "Guerre au Moyen-Orient: négocier avec les États-Unis n'a \"aucun sens\", affirme le président iranien",
+        "source": "La Libre Belgique",
+        "country": "BE",
+        "link": "https://www.lalibre.be/international/moyen-orient/2026/10/05/guerre-au-moyen-orient-negocier-avec-les-etats-unis-na-aucun-sens-affirme-le-president-iranien-3X44SV7ZIVGVDBZ4P2EQIWKITE/",
+        "fetched_at": "2026-10-06T10:31:46.183265+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 3,
+    "avg_similarity": 0.736,
+    "articles": [
+      {
+        "title": "El Gobierno de Yemen asegura haber arrebatado el control del estrecho de Bab el Mandeb a los hutíes",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/internacional/2026-10-05/el-gobierno-yemeni-asegura-haber-arrebatado-el-control-del-estrecho-de-bab-el-manded-a-los-huties.html",
+        "fetched_at": "2026-10-06T10:31:27.062028+00:00"
+      },
+      {
+        "title": "Regierungstruppen im Jemen melden Kontrolle über wichtige Meerenge",
+        "source": "Tagesschau",
+        "country": "DE",
+        "link": "https://www.tagesschau.de/ausland/asien/jemen-regierungstruppen-100.html",
+        "fetched_at": "2026-10-06T10:31:34.613858+00:00"
+      },
+      {
+        "title": "Lähi-itä | Jemenin hallitus kertoo ajaneensa huthi­kapinalliset öljy­kaupalle tärkeältä salmelta",
+        "source": "Helsingin Sanomat",
+        "country": "FI",
+        "link": "https://www.hs.fi/maailma/art-2000012322813.html",
+        "fetched_at": "2026-10-06T10:31:49.673866+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 3,
+    "avg_similarity": 0.735,
+    "articles": [
+      {
+        "title": "Air campaign against Houthis under way in Yemen, says Saudi-led coalition",
+        "source": "The Guardian",
+        "country": "UK",
+        "link": "https://www.theguardian.com/world/2026/oct/05/yemen-air-campaign-houthis-saudi-led-coalition",
+        "fetched_at": "2026-10-06T10:31:30.725002+00:00"
+      },
+      {
+        "title": "Jemen kondigt ‘tegenoffensief’ aan tegen Houthi’s; beide partijen claimen meteen successen",
+        "source": "de Volkskrant",
+        "country": "NL",
+        "link": "https://www.volkskrant.nl/buitenland/jemen-kondigt-tegenoffensief-aan-tegen-houthi-s-beide-partijen-claimen-meteen-successen~bfea3de4/",
+        "fetched_at": "2026-10-06T10:31:41.345804+00:00"
+      },
+      {
+        "title": "Les forces armées yéménites ont lancé une vaste opération contre les Houthis",
+        "source": "La Libre Belgique",
+        "country": "BE",
+        "link": "https://www.lalibre.be/international/moyen-orient/2026/10/05/les-forces-armees-yemenites-ont-lance-une-vaste-operation-contre-les-houthis-FGT4TRFNMVDFRNU3MW3B6O3CH4/",
+        "fetched_at": "2026-10-06T10:31:46.183265+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 3,
+    "avg_similarity": 0.739,
+    "articles": [
+      {
+        "title": "Bosnia election: New steps to prevent electoral fraud, but nationalist parties remain on top",
+        "source": "Deutsche Welle",
+        "country": "DE",
+        "link": "https://www.dw.com/en/bosnia-election-new-steps-to-prevent-electoral-fraud-but-nationalist-parties-remain-on-top/a-79544717?maca=en-rss-en-world-4025-rdf",
+        "fetched_at": "2026-10-06T10:31:33.093779+00:00"
+      },
+      {
+        "title": "Uitslag verkiezingen Bosnië-Herzegovina belooft weinig goeds voor lidmaatschap van de EU",
+        "source": "de Volkskrant",
+        "country": "NL",
+        "link": "https://www.volkskrant.nl/buitenland/uitslag-verkiezingen-bosnie-herzegovina-belooft-weinig-goeds-voor-lidmaatschap-van-de-eu~b9fdb730/",
+        "fetched_at": "2026-10-06T10:31:41.345804+00:00"
+      },
+      {
+        "title": "Lågt valdeltagande i Bosnien-Hercegovina ses som signal om frustration",
+        "source": "Dagens Nyheter",
+        "country": "SE",
+        "link": "https://www.dn.se/varlden/lagt-valdeltagande-i-bosnien-hercegovina-ses-som-signal-om-frustration/",
+        "fetched_at": "2026-10-06T10:31:48.865018+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "Deutsche Welle": 1
+    }
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 3,
+    "avg_similarity": 0.892,
+    "articles": [
+      {
+        "title": "Türkei und Pakistan entsenden Truppen nach Saudi-Arabien",
+        "source": "Tagesschau",
+        "country": "DE",
+        "link": "https://www.tagesschau.de/ausland/asien/tuerkei-pakistan-saudi-arabien-102.html",
+        "fetched_at": "2026-10-06T10:31:34.613858+00:00"
+      },
+      {
+        "title": "Turkije en Pakistan schieten Saoedi-Arabië te hulp in conflict met Houthi’s",
+        "source": "de Volkskrant",
+        "country": "NL",
+        "link": "https://www.volkskrant.nl/buitenland/turkije-en-pakistan-schieten-saoedi-arabie-te-hulp-in-conflict-met-houthi-s~b7de60de/",
+        "fetched_at": "2026-10-06T10:31:41.345804+00:00"
+      },
+      {
+        "title": "Türkei und Pakistan entsenden Truppen nach Saudi-Arabien",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000342825/t252rkei-und-pakistan-entsenden-truppen-nach-saudi-arabien?ref=rss",
+        "fetched_at": "2026-10-06T10:31:47.406188+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 3,
+    "avg_similarity": 0.755,
+    "articles": [
+      {
+        "title": "Entscheidungshilfe: Wie Menschen ChatGPT wirklich nutzen",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/premium/digitalwirtschaft/kuenstliche-intelligenz/ueberraschende-ergebnisse-wie-menschen-chatgpt-wirklich-nutzen-110687940.html",
+        "fetched_at": "2026-10-06T10:31:36.124187+00:00"
+      },
+      {
+        "title": "ChatGPT kan je vanaf nu verraden: AI-teksten krijgen watermerk",
+        "source": "De Telegraaf",
+        "country": "NL",
+        "link": "https://www.telegraaf.nl/lifestyle/tech/chatgpt-kan-je-vanaf-nu-verraden-ai-teksten-krijgen-watermerk/162641835.html",
+        "fetched_at": "2026-10-06T10:31:40.577610+00:00"
+      },
+      {
+        "title": "\"Aber ChatGPT hat gesagt\": Der nervtötende Glaube an die Allwissenheit von KI",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000342738/aber-chatgpt-hat-gesagt-der-nervtoetende-glaube-an-die-allwissenheit-von-ki?ref=rss",
+        "fetched_at": "2026-10-06T10:31:47.406188+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 3,
+    "avg_similarity": 0.692,
+    "articles": [
+      {
+        "title": "Dänemark: Für eine Handvoll Austern",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/aktuell/reise/austern-fuer-alle-gegenueber-von-sylt-auf-austernsafari-accg-201155786.html",
+        "fetched_at": "2026-10-06T10:31:36.124187+00:00"
+      },
+      {
+        "title": "Wie man skandinavische Gemütlichkeit in die eigene Wohnung bringt",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000342680/wie-man-skandinavische-gemuetlichkeit-in-die-eigene-wohnung-bringt?ref=rss",
+        "fetched_at": "2026-10-06T10:31:47.406188+00:00"
+      },
+      {
+        "title": "Gyökeres frälste Sverige – bröt mörka sviten",
+        "source": "Dagens Nyheter",
+        "country": "SE",
+        "link": "https://www.dn.se/sport/gyokeres-fralste-sverige-brot-morka-sviten/",
+        "fetched_at": "2026-10-06T10:31:48.865018+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 3,
+    "avg_similarity": 0.726,
+    "articles": [
+      {
+        "title": "Beim Nachhaltigkeitsrat: Merz will Klimawandel mit Marktwirtschaft lösen",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/aktuell/wirtschaft/klima-nachhaltigkeit/nachhaltigkeit-merz-will-klimawandel-mit-marktwirtschaft-loesen-201273154.html",
+        "fetched_at": "2026-10-06T10:31:36.124187+00:00"
+      },
+      {
+        "title": "Nepal, El Niño: wie gaat de klimaatrekening betalen?",
+        "source": "NRC",
+        "country": "NL",
+        "link": "https://www.nrc.nl/nieuws/2026/10/05/nepal-el-nino-wie-gaat-de-klimaatrekening-betalen-a4938197",
+        "fetched_at": "2026-10-06T10:31:43.123551+00:00"
+      },
+      {
+        "title": "Klima-Forum+: Klimazukünfte",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/jetzt/livebericht/3000000341623/klima-forum?ref=rss",
+        "fetched_at": "2026-10-06T10:31:47.406188+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "Der Standard": 1
+    }
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 3,
+    "avg_similarity": 0.744,
+    "articles": [
+      {
+        "title": "Jan Latten: EU vergrijst en krimpt, Europa krijgt op het wereldtoneel een bijrol",
+        "source": "De Telegraaf",
+        "country": "NL",
+        "link": "https://www.telegraaf.nl/opinie/jan-latten-eu-vergrijst-en-krimpt-europa-krijgt-op-het-wereldtoneel-een-bijrol/162492411.html",
+        "fetched_at": "2026-10-06T10:31:40.577610+00:00"
+      },
+      {
+        "title": "Europas Schicksal entscheidet sich in den nächsten Monaten",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000342700/europas-schicksal-entscheidet-sich-in-den-naechsten-monaten?ref=rss",
+        "fetched_at": "2026-10-06T10:31:47.406188+00:00"
+      },
+      {
+        "title": "DN Debatt. ”Om USA:s demokrati kollapsar – vad gör Europa då?”",
+        "source": "Dagens Nyheter",
+        "country": "SE",
+        "link": "https://www.dn.se/debatt/om-usas-demokrati-kollapsar-vad-gor-europa-da/",
+        "fetched_at": "2026-10-06T10:31:48.865018+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 3,
+    "avg_similarity": 0.763,
+    "articles": [
+      {
+        "title": "Wereldnummer 1 Jannik Sinner komt dit tennisseizoen door aanhoudende knieproblemen niet meer in actie",
+        "source": "De Telegraaf",
+        "country": "NL",
+        "link": "https://www.telegraaf.nl/sport/tennis/wereldnummer-1-jannik-sinner-komt-dit-tennisseizoen-door-aanhoudende-knieproblemen-niet-meer-in-actie/162643661.html",
+        "fetched_at": "2026-10-06T10:31:40.577610+00:00"
+      },
+      {
+        "title": "Blessé depuis Wimbledon, Jannik Sinner met un terme à sa saison",
+        "source": "La Libre Belgique",
+        "country": "BE",
+        "link": "https://www.lalibre.be/sports/tennis/2026/10/06/blesse-depuis-wimbledon-jannik-sinner-met-un-terme-a-sa-saison-KEFMMXURMFA3BE3IK7ERIITLJM/",
+        "fetched_at": "2026-10-06T10:31:46.183265+00:00"
+      },
+      {
+        "title": "Verletzter Jannik Sinner beendet Tennis-Saison und spielt nicht in Wien",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000342883/verletzter-jannik-sinner-beendet-tennis-saison-und-spielt-nicht-in-wien?ref=rss",
+        "fetched_at": "2026-10-06T10:31:47.406188+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 5,
+    "avg_similarity": 0.761,
+    "articles": [
+      {
+        "title": "Livestream: Die Wahl des Landtagspräsidenten in Sachsen-Anhalt",
+        "source": "Tagesschau",
+        "country": "DE",
+        "link": "https://www.tagesschau.de/multimedia/livestreams/livestream-ts24-104.html",
+        "fetched_at": "2026-10-06T10:31:34.613858+00:00"
+      },
+      {
+        "title": "Sachsen-Anhalt: Neue Sitzordnung im Parlament und erster Chefsessel für die AfD",
+        "source": "Süddeutsche Zeitung",
+        "country": "DE",
+        "link": "https://www.sueddeutsche.de/politik/sachsen-anhalt-landtag-afd-wahlsieg-konstituierende-sitzung-folgen-li.3557695",
+        "fetched_at": "2026-10-06T10:31:35.323529+00:00"
+      },
+      {
+        "title": "Einspruch Exklusiv: Die Wahl des Landtagspräsidenten in Sachsen-Anhalt ist mehr als eine Formalie",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/premium/einspruch/exklusiv/sachsen-anhalt-wahl-des-landtagspraesidenten-ist-mehr-als-eine-formalie-accg-201292154.html",
+        "fetched_at": "2026-10-06T10:31:36.124187+00:00"
+      },
+      {
+        "title": "Landtag von Sachsen-Anhalt: Wahl des Parlamentspräsidenten hat begonnen",
+        "source": "Die Zeit",
+        "country": "DE",
+        "link": "https://www.zeit.de/politik/deutschland/2026-10/landtag-sachsen-anhalt-konstituierung-afd-bsw-live",
+        "fetched_at": "2026-10-06T10:31:36.807557+00:00"
+      },
+      {
+        "title": "Sachsen-Anhalt: Wagenknecht-Bündnis will AfD‑Landtagspräsident ins Amt helfen",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000342722/sachsen-anhalt-wagenknecht-buendnis-will-afdlandtagspraesident-ins-amt-helfen?ref=rss",
+        "fetched_at": "2026-10-06T10:31:47.406188+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "Tagesschau": 1,
+      "Süddeutsche Zeitung": 1
+    }
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 5,
+    "avg_similarity": 0.743,
+    "articles": [
+      {
+        "title": "Schweden: Physik-Nobelpreis geht an Geisterteilchen-Forscher",
+        "source": "Süddeutsche Zeitung",
+        "country": "DE",
+        "link": "https://www.sueddeutsche.de/wissen/nobelpreis-physik-halzen-geisterteilchen-neutrinos-li.3552247",
+        "fetched_at": "2026-10-06T10:31:35.323529+00:00"
+      },
+      {
+        "title": "Medizin-Nobelpreis 2026: Zwei deutsche Forscher erhalten Nobelpreis",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/video/zwei-deutsche-forscher-erhalten-medizin-nobelpreis-201289792.html",
+        "fetched_at": "2026-10-06T10:31:36.124187+00:00"
+      },
+      {
+        "title": "Nobelpreis: So verlief die Bekanntgabe des Physiknobelpreises",
+        "source": "Die Zeit",
+        "country": "DE",
+        "link": "https://www.zeit.de/wissenschaft/2026-10/bekanntgabe-nobelpreis-physik-2026-live",
+        "fetched_at": "2026-10-06T10:31:36.807557+00:00"
+      },
+      {
+        "title": "Nagroda Nobla z fizyki 2026. Królewska Szwedzka Akademia Nauk ogłosiła laureatów",
+        "source": "Rzeczpospolita",
+        "country": "PL",
+        "link": "https://www.rp.pl/nauka/art45258011-nagroda-nobla-z-fizyki-2026-krolewska-szwedzka-akademia-nauk-oglosila-laureatow",
+        "fetched_at": "2026-10-06T10:31:44.516568+00:00"
+      },
+      {
+        "title": "Ogłoszenie laureata Nagrody Nobla w dziedzinie fizyki",
+        "source": "Onet Wiadomości",
+        "country": "PL",
+        "link": "https://wiadomosci.onet.pl/ogloszenie-laureata-nagrody-nobla-w-dziedzinie-fizyki/shjlx4b",
+        "fetched_at": "2026-10-06T10:31:45.194593+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "Frankfurter Allgemeine": 3,
+      "Onet Wiadomości": 1
+    }
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 4,
+    "avg_similarity": 0.841,
+    "articles": [
+      {
+        "title": "Frankfurter Buchmesse: Shida Bazyar erhält Deutschen Buchpreis 2026",
+        "source": "Tagesschau",
+        "country": "DE",
+        "link": "https://www.tagesschau.de/inland/regional/hessen/hr-shida-bazyar-buchpreis-2026-100.html",
+        "fetched_at": "2026-10-06T10:31:34.613858+00:00"
+      },
+      {
+        "title": "Literatur: Shida Bazyar gewinnt den Deutschen Buchpreis",
+        "source": "Süddeutsche Zeitung",
+        "country": "DE",
+        "link": "https://www.sueddeutsche.de/kultur/buchpreis-2026-frankfurt-shida-bazyar-die-luecken-li.3557501",
+        "fetched_at": "2026-10-06T10:31:35.323529+00:00"
+      },
+      {
+        "title": "Deutscher Buchpreis: Heimat als sinnloser Begriff",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/aktuell/feuilleton/buecher/literatur/deutscher-buchpreis-geht-an-shida-bazyar-201290714.html",
+        "fetched_at": "2026-10-06T10:31:36.124187+00:00"
+      },
+      {
+        "title": "Deutscher Buchpreis geht heuer an Shida Bazyar",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000342810/deutscher-buchpreis-geht-heuer-an-shida-bazyar?ref=rss",
+        "fetched_at": "2026-10-06T10:31:47.406188+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "Tagesschau": 1
+    }
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 3,
+    "avg_similarity": 0.749,
+    "articles": [
+      {
+        "title": "¿Qué puede hacer un colegio para enseñar a comer? Cuatro iniciativas que ayudan a los niños a conocer mejor los alimentos",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/gastronomia/2026-10-06/que-puede-hacer-un-colegio-para-ensenar-a-comer-cuatro-iniciativas-que-ayudan-a-los-ninos-a-conocer-mejor-los-alimentos.html",
+        "fetched_at": "2026-10-06T10:31:27.062028+00:00"
+      },
+      {
+        "title": "Praat mee: Moeten gemeenten kunnen ingrijpen als er te veel ongezond eten rond scholen wordt verkocht?",
+        "source": "De Telegraaf",
+        "country": "NL",
+        "link": "https://www.telegraaf.nl/vrouw/praat-mee-moeten-gemeenten-kunnen-ingrijpen-als-er-te-veel-ongezond-eten-rond-scholen-wordt-verkocht/162645775.html",
+        "fetched_at": "2026-10-06T10:31:40.577610+00:00"
+      },
+      {
+        "title": "Beschikbaarheid van ongezond voedsel neemt toe: bijna geen school staat in een gezonde omgeving",
+        "source": "NRC",
+        "country": "NL",
+        "link": "https://www.nrc.nl/nieuws/2026/10/06/beschikbaarheid-van-ongezond-voedsel-neemt-toe-bijna-geen-school-staat-in-een-gezonde-omgeving-a4938298",
+        "fetched_at": "2026-10-06T10:31:43.123551+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 3,
+    "avg_similarity": 0.741,
+    "articles": [
+      {
+        "title": "Sylvester Stallone: “No sé qué son las nuevas masculinidades. La naturaleza del hombre es conquistar”",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/us/entretenimiento/2026-10-04/sylvester-stallone-no-se-que-son-las-nuevas-masculinidades-la-naturaleza-del-hombre-es-conquistar.html",
+        "fetched_at": "2026-10-06T10:31:27.062028+00:00"
+      },
+      {
+        "title": "Crisis de las masculinidades contemporáneas",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/participacion/red-lectores/20261006/11651263/crisis-masculinidades-contemporaneas.html",
+        "fetched_at": "2026-10-06T10:31:28.612383+00:00"
+      },
+      {
+        "title": "De zinloosheid van zo’n mannenbestaan",
+        "source": "NRC",
+        "country": "NL",
+        "link": "https://www.nrc.nl/nieuws/2026/10/02/de-zinloosheid-van-zon-mannenbestaan-a4937460",
+        "fetched_at": "2026-10-06T10:31:43.123551+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 3,
+    "avg_similarity": 0.822,
+    "articles": [
+      {
+        "title": "Blue Planet and Gandhi composer George Fenton dies aged 76",
+        "source": "BBC World",
+        "country": "UK",
+        "link": "https://www.bbc.co.uk/news/articles/cwz0v40r98n9o?at_medium=RSS&at_campaign=rss",
+        "fetched_at": "2026-10-06T10:31:29.996603+00:00"
+      },
+      {
+        "title": "George Fenton, Oscar-nominated British composer for more than 100 films, dies aged 76",
+        "source": "The Guardian",
+        "country": "UK",
+        "link": "https://www.theguardian.com/music/2026/oct/06/george-fenton-oscar-nominated-british-composer-dies-aged-76-gandhi-groundhog-day-ken-loach",
+        "fetched_at": "2026-10-06T10:31:30.725002+00:00"
+      },
+      {
+        "title": "Filmcomponist George Fenton op 76-jarige leeftijd onverwachts overleden",
+        "source": "De Telegraaf",
+        "country": "NL",
+        "link": "https://www.telegraaf.nl/entertainment/sterren/filmcomponist-george-fenton-op-76-jarige-leeftijd-onverwachts-overleden/162636010.html",
+        "fetched_at": "2026-10-06T10:31:40.577610+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 3,
+    "avg_similarity": 0.718,
+    "articles": [
+      {
+        "title": "Drang nach Flensburg: Gollas Heimweh",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/aktuell/sport/mehr-sport/johannes-golla-hat-der-dhb-kapitaen-heimweh-oder-ein-geheimnis-201289809.html",
+        "fetched_at": "2026-10-06T10:31:36.124187+00:00"
+      },
+      {
+        "title": "Mit dem Langschwert gegen Klischees: Historisches Fechten in Wien",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000341893/historisches-fechten-in-wien?ref=rss",
+        "fetched_at": "2026-10-06T10:31:47.406188+00:00"
+      },
+      {
+        "title": "Wiener Stadthalle: Rockballett mit Ausflug ins Reich der Lüste",
+        "source": "Kurier",
+        "country": "AT",
+        "link": "https://kurier.at/kultur/wiener-stadthalle-ballett-gastspiel-astana-ballet-theatre/403196228",
+        "fetched_at": "2026-10-06T10:31:48.066821+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "Der Standard": 3
+    }
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.755,
+    "articles": [
+      {
+        "title": "Grand Paris : les propositions d’Emmanuel Grégoire pour une métropole « plus visible, plus lisible et plus concrète »",
+        "source": "Le Monde",
+        "country": "FR",
+        "link": "https://www.lemonde.fr/politique/article/2026/10/06/grand-paris-les-propositions-d-emmanuel-gregoire-pour-une-metropole-plus-visible-plus-lisible-et-plus-concrete_6788956_823448.html",
+        "fetched_at": "2026-10-06T10:31:22.058723+00:00"
+      },
+      {
+        "title": "Prêt-à-porter in Paris: Diese Kollektionen feiern das Gestern",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/aktuell/besser-leben/stil/pret-a-porter-was-zeigen-die-designer-in-paris-fuer-das-naechste-fruehjahr-accg-201284482.html",
+        "fetched_at": "2026-10-06T10:31:36.124187+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.784,
+    "articles": [
+      {
+        "title": "La main d'un lycéen de 15 ans arrachée par une grenade policière à Lens",
+        "source": "France 24",
+        "country": "FR",
+        "link": "https://www.france24.com/fr/vid%C3%A9o/20261006-la-main-d-un-lyc%C3%A9en-de-15-ans-arrach%C3%A9e-par-une-grenade-polici%C3%A8re-%C3%A0-lens",
+        "fetched_at": "2026-10-06T10:31:23.525552+00:00"
+      },
+      {
+        "title": "Émeutes étudiantes : un lycéen a eu la main arrachée en ramassant une grenade policière",
+        "source": "La Libre Belgique",
+        "country": "BE",
+        "link": "https://www.lalibre.be/international/europe/2026/10/05/emeutes-etudiantes-un-lyceen-a-eu-la-main-arrachee-en-ramassant-une-grenade-policiere-O6SF246VUNG63CO23U6NCGZ7OQ/",
+        "fetched_at": "2026-10-06T10:31:46.183265+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.732,
+    "articles": [
+      {
+        "title": "Le bloc-notes de Jérôme Garcin : Amina Damerdji dans la tanière du loup Renaud Camus",
+        "source": "L'Obs",
+        "country": "FR",
+        "link": "https://www.nouvelobs.com/culture/20261005.OBS118917/le-bloc-notes-de-jerome-garcin-amina-damerdji-dans-la-taniere-du-loup-renaud-camus.html",
+        "fetched_at": "2026-10-06T10:31:25.040677+00:00"
+      },
+      {
+        "title": "Ralli | Jari-Matti Latvala: Rovanperän kipinä heräillyt",
+        "source": "Helsingin Sanomat",
+        "country": "FI",
+        "link": "https://www.hs.fi/urheilu/art-2000012322409.html",
+        "fetched_at": "2026-10-06T10:31:49.673866+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.74,
+    "articles": [
+      {
+        "title": "Col relevé, double sac et culotte qui dépasse : au marché de la fashion week de Paris 2026",
+        "source": "L'Obs",
+        "country": "FR",
+        "link": "https://www.nouvelobs.com/mode/20261002.OBS118833/col-releve-double-sac-et-culotte-qui-depasse-au-marche-de-la-fashion-week-de-paris-2026.html",
+        "fetched_at": "2026-10-06T10:31:25.040677+00:00"
+      },
+      {
+        "title": "Muoti | Mallit kantoivat Pariisin muoti­viikoilla miljardöörejä esittäviä ruumisnukkeja",
+        "source": "Helsingin Sanomat",
+        "country": "FI",
+        "link": "https://www.hs.fi/popkulttuuri/art-2000012322543.html",
+        "fetched_at": "2026-10-06T10:31:49.673866+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "L'Obs": 2
+    }
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.781,
+    "articles": [
+      {
+        "title": "Francia y Alemania reclaman un nuevo instrumento comercial que permita a la UE excluir a China “inmediatamente” del mercado único",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/economia/2026-10-05/francia-y-alemania-reclaman-un-nuevo-instrumento-comercial-que-permita-a-la-ue-excluir-a-china-inmediatamente-del-mercado-unico.html",
+        "fetched_at": "2026-10-06T10:31:27.062028+00:00"
+      },
+      {
+        "title": "Duitsland en Frankrijk willen dat EU nieuwe handelswapens smeedt in strijd tegen China",
+        "source": "de Volkskrant",
+        "country": "NL",
+        "link": "https://www.volkskrant.nl/politiek/duitsland-en-frankrijk-willen-dat-eu-nieuwe-handelswapens-smeedt-in-strijd-tegen-china~be4349a1/",
+        "fetched_at": "2026-10-06T10:31:41.345804+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.768,
+    "articles": [
+      {
+        "title": "Sinner dice adiós a la temporada por su lesión de rodilla",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/deportes/tenis/20261006/11652184/sinner-dice-adios-temporada-lesion-rodilla.html",
+        "fetched_at": "2026-10-06T10:31:28.612383+00:00"
+      },
+      {
+        "title": "Stagione finita per Sinner, tornerà a giocare nel 2027: ”ho bisogno di fare un ciclo di cure per il ginocchio\"",
+        "source": "ANSA",
+        "country": "IT",
+        "link": "https://www.ansa.it/sito/videogallery/short_video/2026/10/06/stagione-finita-per-sinner-tornera-a-giocare-nel-2027-ho-bisogno-di-fare_e15b537e-6fc5-4768-bd6c-0ca3696a7f73.html",
+        "fetched_at": "2026-10-06T10:31:37.626975+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "ANSA": 1
+    }
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.835,
+    "articles": [
+      {
+        "title": "RRR",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/opinion/20261006/11651540/rrr.html",
+        "fetched_at": "2026-10-06T10:31:28.612383+00:00"
+      },
+      {
+        "title": "Specht",
+        "source": "NRC",
+        "country": "NL",
+        "link": "https://www.nrc.nl/nieuws/2026/10/01/specht-a4937493",
+        "fetched_at": "2026-10-06T10:31:43.123551+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "NRC": 5
+    }
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.738,
+    "articles": [
+      {
+        "title": "La enésima resurrección del dóberman",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/politica/20261006/11651702/enesima-resurreccion-doberman.html",
+        "fetched_at": "2026-10-06T10:31:28.612383+00:00"
+      },
+      {
+        "title": "De mens als bekentenisbeest",
+        "source": "NRC",
+        "country": "NL",
+        "link": "https://www.nrc.nl/nieuws/2026/10/05/bekentenisbeest-a4938165",
+        "fetched_at": "2026-10-06T10:31:43.123551+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.788,
+    "articles": [
+      {
+        "title": "Una amenaza climática oculta bajo el hielo de la Antártida oriental",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/launi/20261001/11648109/amenaza-climatica-oculta-hielo-antartida-oriental.html",
+        "fetched_at": "2026-10-06T10:31:28.612383+00:00"
+      },
+      {
+        "title": "Ilmastonmuutos | Tutkijat varoittavat: Jäätikkö Alpeilla voi tuhoutua päivissä",
+        "source": "Helsingin Sanomat",
+        "country": "FI",
+        "link": "https://www.hs.fi/maailma/art-2000012322153.html",
+        "fetched_at": "2026-10-06T10:31:49.673866+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.78,
+    "articles": [
+      {
+        "title": "Skull fractures suggest servants of Egypt’s ancient kings were sacrificed",
+        "source": "The Guardian",
+        "country": "UK",
+        "link": "https://www.theguardian.com/science/2026/oct/05/skull-fractures-suggest-servants-of-egypts-ancient-kings-were-sacrificed",
+        "fetched_at": "2026-10-06T10:31:30.725002+00:00"
+      },
+      {
+        "title": "5000 Jahre alte Schädel bezeugen Menschenopfer im frühen Ägypten",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000342747/5000-jahre-alte-schaedel-bezeugen-menschenopfer-im-fruehen-aegypten?ref=rss",
+        "fetched_at": "2026-10-06T10:31:47.406188+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.748,
+    "articles": [
+      {
+        "title": "Fuel from South Korea being shipped to Russia as Ukraine war grinds on",
+        "source": "The Guardian",
+        "country": "UK",
+        "link": "https://www.theguardian.com/world/2026/oct/06/oil-tankers-south-korea-russia-ukraine-war",
+        "fetched_at": "2026-10-06T10:31:30.725002+00:00"
+      },
+      {
+        "title": "Korea Południowa wspomaga Rosję paliwem. Dostarcza je flota cieni",
+        "source": "Rzeczpospolita",
+        "country": "PL",
+        "link": "https://energia.rp.pl/energianews/art45257851-korea-poludniowa-wspomaga-rosje-paliwem-dostarcza-je-flota-cieni",
+        "fetched_at": "2026-10-06T10:31:44.516568+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.779,
+    "articles": [
+      {
+        "title": "The Iran war is unpopular, but will it cost Trump the midterms? Our reporters answer your questions",
+        "source": "The Guardian",
+        "country": "UK",
+        "link": "https://www.theguardian.com/community/live/2026/oct/05/reader-q-a-iran-war-trump-midterms-reporter-answers",
+        "fetched_at": "2026-10-06T10:31:30.725002+00:00"
+      },
+      {
+        "title": "LIVE | Trump vindt kosten Iran-oorlog ’kleine prijs’ voor veiligheid: ’Laat ze Los Angeles en San Diego maar vernietigen’",
+        "source": "De Telegraaf",
+        "country": "NL",
+        "link": "https://www.telegraaf.nl/buitenland/live-trump-vindt-kosten-iran-oorlog-kleine-prijs-voor-veiligheid-laat-ze-los-angeles-en-san-diego-maar-vernietigen/162633702.html",
+        "fetched_at": "2026-10-06T10:31:40.577610+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.794,
+    "articles": [
+      {
+        "title": "Bolsonaro and Lula to compete in Brazilian presidential run-off",
+        "source": "Sky News",
+        "country": "UK",
+        "link": "https://news.sky.com/story/bolsonaro-and-lula-to-compete-in-brazilian-presidential-run-off-after-tight-vote-13595195",
+        "fetched_at": "2026-10-06T10:31:32.402237+00:00"
+      },
+      {
+        "title": "Brazil election: Bolsonaro and Lula head to runoff",
+        "source": "Deutsche Welle",
+        "country": "DE",
+        "link": "https://www.dw.com/en/brazil-election-bolsonaro-and-lula-head-to-runoff/a-79533857?maca=en-rss-en-world-4025-rdf",
+        "fetched_at": "2026-10-06T10:31:33.093779+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.767,
+    "articles": [
+      {
+        "title": "Nach tagelangen Regenfällen: Auf Kreta beginnen die Aufräumarbeiten",
+        "source": "Tagesschau",
+        "country": "DE",
+        "link": "https://www.tagesschau.de/ausland/europa/griechenland-ueberflutung-100.html",
+        "fetched_at": "2026-10-06T10:31:34.613858+00:00"
+      },
+      {
+        "title": "Schwere Unwetter in Südeuropa, Überschwemmungen auf Kreta",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000342584/heftige-unwetter-in-suedeuropa-ueberschwemmungen-auf-kreta?ref=rss",
+        "fetched_at": "2026-10-06T10:31:47.406188+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.882,
+    "articles": [
+      {
+        "title": "Nach Kontroverse: US-Tennisstar Gauff prangert Rassismus an",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/aktuell/sport/mehr-sport/coco-gauff-prangert-beim-tennis-turnier-in-peking-rassismus-an-accg-201291644.html",
+        "fetched_at": "2026-10-06T10:31:36.124187+00:00"
+      },
+      {
+        "title": "Tennisprofi Coco Gauff prangert nach Kontroverse Rassismus an",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000342839/tennisprofi-coco-gauff-prangert-nach-kontroverse-rassismus-an?ref=rss",
+        "fetched_at": "2026-10-06T10:31:47.406188+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.724,
+    "articles": [
+      {
+        "title": "Demographischer Wandel: Die Kinder verschwinden",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/aktuell/wirtschaft/mehr-wirtschaft/globaler-geburtensturz-warum-die-kinderzahlen-nahezu-ueberall-sinken-accg-201269969.html",
+        "fetched_at": "2026-10-06T10:31:36.124187+00:00"
+      },
+      {
+        "title": "Möjlig rödgrön spricka om tonårsutvisningar",
+        "source": "Dagens Nyheter",
+        "country": "SE",
+        "link": "https://www.dn.se/sverige/mojlig-rodgron-spricka-om-tonarsutvisningar/",
+        "fetched_at": "2026-10-06T10:31:48.865018+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.78,
+    "articles": [
+      {
+        "title": "Christoph Waltz: Durchbruch mit über fünfzig – und heute ein Weltstar",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/aktuell/feuilleton/medien-und-film/kino/christoph-waltz-weltstar-und-oscarpreistraeger-wird-70-accg-201277736.html",
+        "fetched_at": "2026-10-06T10:31:36.124187+00:00"
+      },
+      {
+        "title": "Christoph Waltz, der Wiener Gentleman in Hollywood: Filmreihe zum 70er",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000342674/christoph-waltz-der-wiener-gentleman-in-hollywood-filmreihe-zum-70er?ref=rss",
+        "fetched_at": "2026-10-06T10:31:47.406188+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.723,
+    "articles": [
+      {
+        "title": "Kolumne „Richtig essen“: Diese Menschen sollten Omega-3-Fettsäuren, Vitamin D und B12 ergänzen",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/aktuell/feuilleton/kolumnen/richtig-essen/andreas-michalsen-ueber-omega-3-fettsaeuren-vitamin-d-und-b12-accg-200261930.html",
+        "fetched_at": "2026-10-06T10:31:36.124187+00:00"
+      },
+      {
+        "title": "Welke vitamines en mineralen heb je écht nodig? ’Vegan, weinig brood en minder zuivel eten is best een risico’",
+        "source": "De Telegraaf",
+        "country": "NL",
+        "link": "https://www.telegraaf.nl/vrouw/welke-vitamines-en-mineralen-heb-je-echt-nodig-vegan-weinig-brood-en-minder-zuivel-eten-is-best-een-risico/162609325.html",
+        "fetched_at": "2026-10-06T10:31:40.577610+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.813,
+    "articles": [
+      {
+        "title": "Rekordtorjäger: Eishockeystar Owetschkin will NHL-Karriere beenden",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/aktuell/sport/mehr-sport/eishockey-star-alexander-owetschkin-will-nhl-karriere-beenden-201291005.html",
+        "fetched_at": "2026-10-06T10:31:36.124187+00:00"
+      },
+      {
+        "title": "Jääkiekko | Aleksandr Ovetškin lopettaa NHL-uransa kuluvaan kauteen",
+        "source": "Helsingin Sanomat",
+        "country": "FI",
+        "link": "https://www.hs.fi/urheilu/art-2000012322513.html",
+        "fetched_at": "2026-10-06T10:31:49.673866+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.812,
+    "articles": [
+      {
+        "title": "Während routineflugs: 32 Tote nach Absturz von Luftwaffenflugzeug in Nigeria",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/aktuell/gesellschaft/ungluecke/nigeria-32-tote-bei-absturz-von-flugzeug-der-luftwaffe-201291068.html",
+        "fetched_at": "2026-10-06T10:31:36.124187+00:00"
+      },
+      {
+        "title": "Crash d'un avion avec 32 personnes à bord au Nigeria",
+        "source": "La Libre Belgique",
+        "country": "BE",
+        "link": "https://www.lalibre.be/international/afrique/2026/10/05/crash-dun-avion-avec-32-personnes-a-bord-au-nigeria-YOAELCFIBBANNFZZYGGMIAJGXY/",
+        "fetched_at": "2026-10-06T10:31:46.183265+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.812,
+    "articles": [
+      {
+        "title": "Frühkindliche Bildung: Große Mehrheit für Pflicht bei Vorschuljahr und Sprachtests",
+        "source": "Die Zeit",
+        "country": "DE",
+        "link": "https://www.zeit.de/news/2026-10/06/grosse-mehrheit-fuer-pflicht-bei-vorschuljahr-und-sprachtests",
+        "fetched_at": "2026-10-06T10:31:36.807557+00:00"
+      },
+      {
+        "title": "Kielitaito | Kauaskatseinen kieltenopetus parantaisi lasten oppimista",
+        "source": "Helsingin Sanomat",
+        "country": "FI",
+        "link": "https://www.hs.fi/mielipide/art-2000012309728.html",
+        "fetched_at": "2026-10-06T10:31:49.673866+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.763,
+    "articles": [
+      {
+        "title": "Scoperto un pianeta-fenice, è rinato dalle ceneri della sua stella",
+        "source": "ANSA",
+        "country": "IT",
+        "link": "https://www.ansa.it/canale_scienza/notizie/spazio_astronomia/2026/10/06/scoperto-un-pianeta-fenice-e-rinato-dalle-ceneri-della-sua-stella_7906cecf-34a9-4a4f-a9bb-721f75907ac7.html",
+        "fetched_at": "2026-10-06T10:31:37.626975+00:00"
+      },
+      {
+        "title": "Planeet van ‘tweede generatie’ ontdekt, ontstaan uit de resten van een dode ster",
+        "source": "de Volkskrant",
+        "country": "NL",
+        "link": "https://www.volkskrant.nl/wetenschap/planeet-van-tweede-generatie-ontdekt-ontstaan-uit-de-resten-van-een-dode-ster~b28eeb70/",
+        "fetched_at": "2026-10-06T10:31:41.345804+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.723,
+    "articles": [
+      {
+        "title": "Menopausa in salute. Perché controllare la Vitamina D e quali esami fare?",
+        "source": "Corriere della Sera",
+        "country": "IT",
+        "link": "https://www.iodonna.it/benessere/salute-e-psicologia/2024/05/06/menopausa-in-salute-perche-controllare-la-vitamina-d-e-quali-esami-fare/?intcmp=iod_hpcor_articolo",
+        "fetched_at": "2026-10-06T10:31:39.021434+00:00"
+      },
+      {
+        "title": "Vitamin D bei Demenzrisiko: Hilft eine hohe Dosis gegen geistigen Abbau?",
+        "source": "Kurier",
+        "country": "AT",
+        "link": "https://kurier.at/wissen/gesundheit/vitamin-d-demenzrisiko-kognitive-leistung-studie/403195301",
+        "fetched_at": "2026-10-06T10:31:48.066821+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.775,
+    "articles": [
+      {
+        "title": "Legge elettorale, fiducia su tre articoli. Verso l’election day a maggio",
+        "source": "Il Sole 24 Ore",
+        "country": "IT",
+        "link": "https://www.ilsole24ore.com/art/legge-elettorale-fiducia-tre-articoli-l-election-day-maggio-AJvZqYaB",
+        "fetched_at": "2026-10-06T10:31:39.749947+00:00"
+      },
+      {
+        "title": "Insändare. Minska antalet statsministeromröstningar till högst tre",
+        "source": "Dagens Nyheter",
+        "country": "SE",
+        "link": "https://www.dn.se/insandare/minska-antalet-statsministeromrostningar-till-hogst-tre/",
+        "fetched_at": "2026-10-06T10:31:48.865018+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.852,
+    "articles": [
+      {
+        "title": "Veel kritiek en lege zalen, maar verouderde Tom Cruise lijkt toch op weg naar een Oscar: ’Die éne scène is een geweldige prestatie’",
+        "source": "De Telegraaf",
+        "country": "NL",
+        "link": "https://www.telegraaf.nl/entertainment/sterren/veel-kritiek-en-lege-zalen-maar-verouderde-tom-cruise-lijkt-toch-op-weg-naar-een-oscar-die-ene-scene-is-een-geweldige-prestatie/162607957.html",
+        "fetched_at": "2026-10-06T10:31:40.577610+00:00"
+      },
+      {
+        "title": "Elokuvat | Tom Cruisen Oscar-haaveesta tuli floppi",
+        "source": "Helsingin Sanomat",
+        "country": "FI",
+        "link": "https://www.hs.fi/popkulttuuri/art-2000012321377.html",
+        "fetched_at": "2026-10-06T10:31:49.673866+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.746,
+    "articles": [
+      {
+        "title": "Deens bevolkingsregister gehackt: gegevens van 8,8 miljoen mensen ingezien",
+        "source": "de Volkskrant",
+        "country": "NL",
+        "link": "https://www.volkskrant.nl/tech/deens-bevolkingsregister-gehackt-gegevens-van-8-8-miljoen-mensen-ingezien-waaronder-burgerservicenummers~b26643e8/",
+        "fetched_at": "2026-10-06T10:31:41.345804+00:00"
+      },
+      {
+        "title": "Melderegister in Dänemark mit Millionen Nutzerdaten gehackt",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000342682/melderegister-in-daenemark-mit-millionen-nutzerdaten-gehackt?ref=rss",
+        "fetched_at": "2026-10-06T10:31:47.406188+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.746,
+    "articles": [
+      {
+        "title": "‘Op een warmere aarde kunnen de effecten van El Niño groter zijn. Maar het echte probleem is klimaatverandering’",
+        "source": "NRC",
+        "country": "NL",
+        "link": "https://www.nrc.nl/nieuws/2026/10/04/op-een-warmere-aarde-kunnen-de-effecten-van-el-nino-groter-zijn-maar-het-echte-probleem-is-klimaatverandering-a4937962",
+        "fetched_at": "2026-10-06T10:31:43.123551+00:00"
+      },
+      {
+        "title": "Inflaatio | El Niño -sääilmiö voi yltyä hirviöksi",
+        "source": "Helsingin Sanomat",
+        "country": "FI",
+        "link": "https://www.hs.fi/talous/art-2000012315528.html",
+        "fetched_at": "2026-10-06T10:31:49.673866+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.725,
+    "articles": [
+      {
+        "title": "La tuile pour Alexis Saelemaekers : le joueur de Milan ne rejouera plus en 2026",
+        "source": "La Libre Belgique",
+        "country": "BE",
+        "link": "https://www.lalibre.be/sports/football/2026/10/05/la-tuile-pour-alexis-saelemaekers-le-joueur-de-milan-ne-rejouera-plus-en-2026-RCRI26AJZ5EDTAQ7NVYXVLBUSQ/",
+        "fetched_at": "2026-10-06T10:31:46.183265+00:00"
+      },
+      {
+        "title": "Sulkapallo | Petra Saarnivaara ”huijaa” itseään, jotta voittaisi",
+        "source": "Helsingin Sanomat",
+        "country": "FI",
+        "link": "https://www.hs.fi/urheilu/art-2000012295151.html",
+        "fetched_at": "2026-10-06T10:31:49.673866+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.743,
+    "articles": [
+      {
+        "title": "Die Macht der \"Krone\" ...",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000342703/die-macht-der-krone?ref=rss",
+        "fetched_at": "2026-10-06T10:31:47.406188+00:00"
+      },
+      {
+        "title": "Centerns väg till makten: ”Taggtråd och valium”",
+        "source": "Dagens Nyheter",
+        "country": "SE",
+        "link": "https://www.dn.se/sverige/centerns-vag-till-makten-taggtrad-och-valium/",
+        "fetched_at": "2026-10-06T10:31:48.865018+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.813,
+    "articles": [
+      {
+        "title": "Valtteri Bottas radelt von Malaysia zum nächsten Grand Prix nach Singapur",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000342878/valtteri-bottas-radelt-von-malaysia-zum-naechsten-grand-prix-nach-singapur?ref=rss",
+        "fetched_at": "2026-10-06T10:31:47.406188+00:00"
+      },
+      {
+        "title": "Formula 1 | Valtteri Bottas pyöräilee Malesiasta Singaporeen seuraavaan F1-kisaan",
+        "source": "Helsingin Sanomat",
+        "country": "FI",
+        "link": "https://www.hs.fi/urheilu/art-2000012322212.html",
+        "fetched_at": "2026-10-06T10:31:49.673866+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.728,
+    "articles": [
+      {
+        "title": "Die STANDARD Wortsuche vom 6. Oktober",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000342389/die-standard-wortsuche-vom-6-oktober?ref=rss",
+        "fetched_at": "2026-10-06T10:31:47.406188+00:00"
+      },
+      {
+        "title": "Insändare. Noterat av DN:s läsare den 5 oktober",
+        "source": "Dagens Nyheter",
+        "country": "SE",
+        "link": "https://www.dn.se/insandare/noterat-av-dns-lasare-den-5-oktober-2/",
+        "fetched_at": "2026-10-06T10:31:48.865018+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "Der Standard": 1
+    }
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 5,
+    "avg_similarity": 0.818,
+    "articles": [
+      {
+        "title": "EN DIRECT, blocage des lycées | Des parents et des enseignants solidaires : « Je suis venue pour soutenir le mouvement, mais aussi pour veiller sur eux. Je les sais fragiles »",
+        "source": "Le Monde",
+        "country": "FR",
+        "link": "https://www.lemonde.fr/societe/live/2026/10/06/en-direct-blocage-des-lycees-actions-et-manifestations-partout-en-france-suivez-la-journee-de-mobilisation-avec-nos-envoyes-speciaux_6788487_3224.html",
+        "fetched_at": "2026-10-06T10:31:22.058723+00:00"
+      },
+      {
+        "title": "Mobilisation lycéenne : découvrez les établissements concernés en carte",
+        "source": "Le Figaro",
+        "country": "FR",
+        "link": "https://www.lefigaro.fr/actualite-france/blocage-des-lycees-la-carte-des-etablissements-concernes-20260929",
+        "fetched_at": "2026-10-06T10:31:22.879117+00:00"
+      },
+      {
+        "title": "Mobilisation lycéenne : journée inédite de manifestations et de blocages",
+        "source": "France 24",
+        "country": "FR",
+        "link": "https://www.france24.com/fr/vid%C3%A9o/20261006-mobilisation-lyc%C3%A9enne-journ%C3%A9e-in%C3%A9dite-de-manifestations-et-de-blocages",
+        "fetched_at": "2026-10-06T10:31:23.525552+00:00"
+      },
+      {
+        "title": "Mobilisation lycéenne, le mouvement change d’échelle: suivez la journée en direct",
+        "source": "Mediapart",
+        "country": "FR",
+        "link": "https://www.mediapart.fr/journal/france/061026/mobilisation-lyceenne-le-mouvement-change-d-echelle-suivez-la-journee-en-direct",
+        "fetched_at": "2026-10-06T10:31:24.156830+00:00"
+      },
+      {
+        "title": "Blocage des lycées : le point sur un mouvement qui ne faiblit pas",
+        "source": "L'Obs",
+        "country": "FR",
+        "link": "https://www.nouvelobs.com/social/20261002.OBS118823/564-etablissements-perturbes-les-heurts-se-multiplient-le-mouvement-de-la-jeunesse-se-poursuit-ce-vendredi-sous-haute-tension.html",
+        "fetched_at": "2026-10-06T10:31:25.040677+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "Le Figaro": 2,
+      "France 24": 2,
+      "L'Obs": 4,
+      "Mediapart": 1
+    }
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 3,
+    "avg_similarity": 0.72,
+    "articles": [
+      {
+        "title": "Prezzi folli e alloggi vuoti:anche l’Italia scopre i centomila sotto sfratto",
+        "source": "La Repubblica",
+        "country": "IT",
+        "link": "https://www.repubblica.it/cronaca/2026/10/06/news/casa_emergenza_numeri_alloggi_vuoti_famiglie_sfratto-425628235/",
+        "fetched_at": "2026-10-06T10:31:38.292379+00:00"
+      },
+      {
+        "title": "MELONI AL VINITALY La premier: saremo  implacabili contro  chi danneggia  i prodotti italiani",
+        "source": "Corriere della Sera",
+        "country": "IT",
+        "link": "https://www.corriere.it/economia/aziende/24_aprile_15/meloni-implacabili-contro-chi-danneggia-i-prodotti-italiani-e12a1ab8-2368-46c6-ad83-64174ea8exlk.shtml",
+        "fetched_at": "2026-10-06T10:31:39.021434+00:00"
+      },
+      {
+        "title": "Al via “Paesaggio che vai. Cammini d’Italia per fare comunità”, iniziativa di Acri e 12 Fondazioni Bancarie",
+        "source": "Il Sole 24 Ore",
+        "country": "IT",
+        "link": "https://www.ilsole24ore.com/art/al-via-paesaggio-che-vai-cammini-d-italia-fare-comunita-iniziativa-acri-e-12-fondazioni-bancarie-AJ0MWhaB",
+        "fetched_at": "2026-10-06T10:31:39.749947+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "La Repubblica": 1
+    }
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.897,
+    "articles": [
+      {
+        "title": "Présidentielle 2027 : Marine Le Pen et le RN présentent leur contre-budget, avec « 140 milliards d’euros nets d’économies » en cinq ans",
+        "source": "Le Monde",
+        "country": "FR",
+        "link": "https://www.lemonde.fr/politique/article/2026/10/06/presidentielle-2027-marine-le-pen-promet-140-milliards-d-euros-nets-d-economies-d-ici-2032_6788959_823448.html",
+        "fetched_at": "2026-10-06T10:31:22.058723+00:00"
+      },
+      {
+        "title": "Présidentielle 2027 : Marine Le Pen promet \"140 milliards d'euros nets d'économies\" d'ici 5 ans",
+        "source": "France 24",
+        "country": "FR",
+        "link": "https://www.france24.com/fr/france/20261006-pr%C3%A9sidentielle-2027-marine-le-pen-promet-140-milliards-d-euros-nets-d-%C3%A9conomies-d-ici-5-ans",
+        "fetched_at": "2026-10-06T10:31:23.525552+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.981,
+    "articles": [
+      {
+        "title": "7-Octobre : Israël menace de faire « payer le prix fort » à la population de Gaza en cas d’attaque du Hamas lors des commémorations",
+        "source": "Le Monde",
+        "country": "FR",
+        "link": "https://www.lemonde.fr/international/article/2026/10/06/a-la-veille-des-commemorations-du-7-octobre-israel-menace-de-faire-payer-le-prix-fort-a-la-population-de-gaza-en-cas-d-attaque-du-hamas_6788955_3210.html",
+        "fetched_at": "2026-10-06T10:31:22.058723+00:00"
+      },
+      {
+        "title": "7-Octobre : Israël menace de faire payer \"le prix fort\" à Gaza en cas d'attaque du Hamas",
+        "source": "France 24",
+        "country": "FR",
+        "link": "https://www.france24.com/fr/moyen-orient/20261006-7-octobre-isra%C3%ABl-menace-de-faire-payer-le-prix-fort-%C3%A0-gaza-en-cas-d-attaque-du-hamas",
+        "fetched_at": "2026-10-06T10:31:23.525552+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.796,
+    "articles": [
+      {
+        "title": "Emmanuel Macron a assisté à un tir d'exercice d'un missile nucléaire M51 depuis un sous-marin",
+        "source": "Le Figaro",
+        "country": "FR",
+        "link": "https://www.lefigaro.fr/international/emmanuel-macron-a-assiste-a-un-tir-d-exercice-d-un-missile-nucleaire-m51-depuis-un-sous-marin-20261006",
+        "fetched_at": "2026-10-06T10:31:22.879117+00:00"
+      },
+      {
+        "title": "🔴 Emmanuel Macron a assisté au test d'un nouveau missile nucléaire sans charge",
+        "source": "France 24",
+        "country": "FR",
+        "link": "https://www.france24.com/fr/france/20261006-la-france-a-test%C3%A9-un-nouveau-missile-nucl%C3%A9aire-sans-charge-depuis-un-sous-marin",
+        "fetched_at": "2026-10-06T10:31:23.525552+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.858,
+    "articles": [
+      {
+        "title": "«Accuser des “proxys” d’être à l’origine du mouvement des lycéens est caractéristique du déni d’expression qui leur est fait»",
+        "source": "Mediapart",
+        "country": "FR",
+        "link": "https://www.mediapart.fr/journal/politique/061026/accuser-des-proxys-d-etre-l-origine-du-mouvement-des-lyceens-est-caracteristique-du-deni-d-expression-q",
+        "fetched_at": "2026-10-06T10:31:24.156830+00:00"
+      },
+      {
+        "title": "« La réponse apportée au mouvement lycéen est une forme de mépris de classe »",
+        "source": "L'Obs",
+        "country": "FR",
+        "link": "https://www.nouvelobs.com/idees/20261002.OBS118826/pour-le-sociologue-fabien-truong-la-reponse-apportee-au-mouvement-lyceen-est-revelatrice-d-une-forme-de-mepris-de-classe.html",
+        "fetched_at": "2026-10-06T10:31:25.040677+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "L'Obs": 1
+    }
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.834,
+    "articles": [
+      {
+        "title": "El PP inicia la precampaña con un vídeo en el que se burla de una lesión de Óscar Puente: “Miedo le tenías tú a un esguince”",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/espana/elecciones-generales/2026-10-06/el-pp-inicia-la-precampana-con-un-video-en-el-que-se-burla-de-una-grave-lesion-de-oscar-puente-miedo-tu-esguince.html",
+        "fetched_at": "2026-10-06T10:31:27.062028+00:00"
+      },
+      {
+        "title": "El PP se burla de Óscar Puente con un vídeo del momento en que se rompió el cuádriceps: “Miedo le tenías tú a un esguince”",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/politica/20261006/11652092/pp-ataca-oscar-puente-video-momento-rompio-cuadriceps-miedo-le-tenias-esguince.html",
+        "fetched_at": "2026-10-06T10:31:28.612383+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.755,
+    "articles": [
+      {
+        "title": "Las mujeres afectadas por los problemas de suministro de hormonas: “Esto no es un capricho, es una necesidad vital”",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/salud-y-bienestar/2026-10-06/las-afectadas-por-los-problemas-de-suministro-de-hormonas-para-la-menopausia-esto-no-es-un-capricho-es-una-necesidad-vital.html",
+        "fetched_at": "2026-10-06T10:31:27.062028+00:00"
+      },
+      {
+        "title": "Nuevas evidencias sobre cómo las hormonas alteran el estado de ánimo de las mujeres",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/launi/20260925/11643637/nuevas-evidencias-sobre-como-hormonas-alteran-animo-mujeres.html",
+        "fetched_at": "2026-10-06T10:31:28.612383+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.754,
+    "articles": [
+      {
+        "title": "Sexto día de temporal: los chubascos y tormentas se generalizan, con los más intensos en la zona centro y el tercio norte",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/el-tiempo/2026-10-06/sexto-dia-de-temporal-los-chubascos-y-tormentas-se-generalizan-con-los-mas-intensos-en-el-centro-y-el-tercio-norte.html",
+        "fetched_at": "2026-10-06T10:31:27.062028+00:00"
+      },
+      {
+        "title": "Asimilar las tempestades",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/politica/20261006/11651756/asimilar-tempestades.html",
+        "fetched_at": "2026-10-06T10:31:28.612383+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.809,
+    "articles": [
+      {
+        "title": "La fiscalía abre una investigación contra un ‘youtuber’ por comentarios homófobos sobre el futbolista Héctor Bellerín",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/deportes/futbol/2026-10-06/la-fiscalia-abre-una-investigacion-contra-un-youtuber-por-comentarios-homofobos-sobre-el-futbolista-hector-bellerin.html",
+        "fetched_at": "2026-10-06T10:31:27.062028+00:00"
+      },
+      {
+        "title": "La Fiscalía investiga al youtuber Mikel Angulo por insultos homófobos a Héctor Bellerín",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/deportes/futbol/20261006/11652143/fiscalia-investiga-youtuber-mikel-agulo-insultos-homofobos-hector-bellerin.html",
+        "fetched_at": "2026-10-06T10:31:28.612383+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.863,
+    "articles": [
+      {
+        "title": "Carlos Alcaraz - Jiri Lehecka en directo, la final del ATP de Tokio en vivo|El español se lleva el primer set",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/deportes/tenis/2026-10-06/carlos-alcaraz-jiri-lehecka-en-directo-la-final-del-atp-de-tokio-en-vivo.html",
+        "fetched_at": "2026-10-06T10:31:27.062028+00:00"
+      },
+      {
+        "title": "Dónde ver el Carlos Alcaraz - Jiri Lehecka: día y hora de la final del ATP 500 de Tokio",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/comprar/cultura-ocio/20261005/11651587/donde-ver-carlos-alcaraz-jiri-lehecka-dia-hora-final-atp-500-tokio-mkt-movi.html",
+        "fetched_at": "2026-10-06T10:31:28.612383+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.721,
+    "articles": [
+      {
+        "title": "El arte de la locura, pioneras del feminismo, La Casera y mujeres tras el teatro: las exposiciones para abrir el otoño",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/espana/madrid/2026-10-06/el-arte-de-la-locura-pioneras-del-feminismo-la-casera-y-mujeres-tras-el-teatro-las-exposiciones-para-abrir-el-otono.html",
+        "fetched_at": "2026-10-06T10:31:27.062028+00:00"
+      },
+      {
+        "title": "Renace el teatro perdido de Margarida Xirgu",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/cultura/20261005/11651700/buenos-aires-teatro-odeon-xirgu-gambier.html",
+        "fetched_at": "2026-10-06T10:31:28.612383+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.711,
+    "articles": [
+      {
+        "title": "Las 45 mejores ofertas de la Fiesta de Ofertas Prime de Amazon",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/escaparate/ofertas-y-descuentos/fiesta-de-ofertas-prime-2026-mejores-descuentos.html",
+        "fetched_at": "2026-10-06T10:31:27.062028+00:00"
+      },
+      {
+        "title": "Amazon rebaja hasta un 48% las Skechers por el Prime Day: estos son los modelos que merece la pena fichar",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/comprar/prime-day/20261006/11652109/amazon-rebaja-48-skechers-prime-day-son-modelos-merece-pena-fichar-mkt-skec.html",
+        "fetched_at": "2026-10-06T10:31:28.612383+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "El País": 4,
+      "La Vanguardia": 1
+    }
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.824,
+    "articles": [
+      {
+        "title": "La CEOE advierte de que la huelga por la vivienda es \"inadmisible\" al no ser \"de naturaleza laboral\" y estudia ya acciones legales",
+        "source": "El Mundo",
+        "country": "ES",
+        "link": "https://www.elmundo.es/economia/2026/10/06/6ac4950de4d4d8121d8b459d.html",
+        "fetched_at": "2026-10-06T10:31:27.795558+00:00"
+      },
+      {
+        "title": "La CEOE considera “inadmisible” la huelga general y duda de su encaje legal",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/economia/20261006/11652066/ceoe-considera-inadmisible-huelga-general-duda-encaje-legal.html",
+        "fetched_at": "2026-10-06T10:31:28.612383+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "La Vanguardia": 1
+    }
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.986,
+    "articles": [
+      {
+        "title": "US marine arrested in Japan on suspicion of killing woman, police say",
+        "source": "The Guardian",
+        "country": "UK",
+        "link": "https://www.theguardian.com/us-news/2026/oct/04/marine-arrested-japan-suspicion-murder",
+        "fetched_at": "2026-10-06T10:31:30.725002+00:00"
+      },
+      {
+        "title": "US marine arrested on suspicion of killing woman in Japan",
+        "source": "Sky News",
+        "country": "UK",
+        "link": "https://news.sky.com/story/us-marine-arrested-on-suspicion-of-killing-woman-in-japan-13595309",
+        "fetched_at": "2026-10-06T10:31:32.402237+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.773,
+    "articles": [
+      {
+        "title": "Talfahrt geht weiter: Euro fällt unter 1,12 Dollar",
+        "source": "Tagesschau",
+        "country": "DE",
+        "link": "https://www.tagesschau.de/wirtschaft/finanzen/marktbericht-euro-frankreich-spanien-100.html",
+        "fetched_at": "2026-10-06T10:31:34.613858+00:00"
+      },
+      {
+        "title": "Dollar gewinnt: Europäische Haushaltssorgen belasten den Euro",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/aktuell/finanzen/finanzmarkt/europaeische-haushaltssorgen-belasten-den-euro-201288425.html",
+        "fetched_at": "2026-10-06T10:31:36.124187+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.778,
+    "articles": [
+      {
+        "title": "Trump approva la fucilazione per l'autore della strage nella base di Fort Hood",
+        "source": "ANSA",
+        "country": "IT",
+        "link": "https://www.ansa.it/sito/notizie/mondo/2026/10/06/trump-approva-la-fucilazione-per-lautore-della-strage-nella-base-di-fort_7ee2f639-c35c-40c0-b66c-5e43c79301d7.html",
+        "fetched_at": "2026-10-06T10:31:37.626975+00:00"
+      },
+      {
+        "title": "Ok di Trump alla fucilazione per l’autore della strage di Fort Hood. E sugli spot “patriottici” dice: “Li pago io”",
+        "source": "La Repubblica",
+        "country": "IT",
+        "link": "https://www.repubblica.it/esteri/2026/10/06/news/trump_fucilazione_strage_fort_hood_spot-425628419/",
+        "fetched_at": "2026-10-06T10:31:38.292379+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.778,
+    "articles": [
+      {
+        "title": "Waterpeil van de Rijn op nieuw dieptepunt, na uitzonderlijk droge zomer in Europa",
+        "source": "de Volkskrant",
+        "country": "NL",
+        "link": "https://www.volkskrant.nl/binnenland/waterpeil-van-de-rijn-op-nieuw-dieptepunt-na-uitzonderlijk-droge-zomer-in-europa~b498ad48/",
+        "fetched_at": "2026-10-06T10:31:41.345804+00:00"
+      },
+      {
+        "title": "Hittestress, een warme zee en laagwater in rivieren: dit was de warmste West-Europese zomer ooit",
+        "source": "NRC",
+        "country": "NL",
+        "link": "https://www.nrc.nl/nieuws/2026/10/02/hittestress-een-warme-zee-en-laagwater-in-rivieren-dit-was-de-warmste-west-europese-zomer-ooit-a4937988",
+        "fetched_at": "2026-10-06T10:31:43.123551+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.724,
+    "articles": [
+      {
+        "title": "Trumps druk sorteert effect: Internationaal Strafhof lijkt leden te verliezen",
+        "source": "de Volkskrant",
+        "country": "NL",
+        "link": "https://www.volkskrant.nl/buitenland/trumps-druk-sorteert-effect-internationaal-strafhof-lijkt-leden-te-verliezen~b03e8bbf/",
+        "fetched_at": "2026-10-06T10:31:41.345804+00:00"
+      },
+      {
+        "title": "Waarom haat Trump het Internationaal Strafhof?",
+        "source": "NRC",
+        "country": "NL",
+        "link": "https://www.nrc.nl/nieuws/2026/09/30/waarom-haat-trump-het-internationaal-strafhof-a4937854",
+        "fetched_at": "2026-10-06T10:31:43.123551+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.755,
+    "articles": [
+      {
+        "title": "Negen nieuwe sterrenrestaurants in Nederland, De Librije blijft enige met drie sterren",
+        "source": "de Volkskrant",
+        "country": "NL",
+        "link": "https://www.volkskrant.nl/nieuws-achtergrond/negen-nieuwe-sterrenrestaurants-in-nederland-de-librije-blijft-enige-met-drie-sterren~b9f0b6f25/",
+        "fetched_at": "2026-10-06T10:31:41.345804+00:00"
+      },
+      {
+        "title": "De Librije in Zwolle blijft het enige driesterrenrestaurant van Nederland",
+        "source": "NRC",
+        "country": "NL",
+        "link": "https://www.nrc.nl/nieuws/2026/10/05/de-librije-in-zwolle-blijft-het-enige-driesterrenrestaurant-van-nederland-a4938206",
+        "fetched_at": "2026-10-06T10:31:43.123551+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.765,
+    "articles": [
+      {
+        "title": "Totale studieschuld daalt voor het eerst na herinvoering basisbeurs",
+        "source": "de Volkskrant",
+        "country": "NL",
+        "link": "https://www.volkskrant.nl/nieuws-achtergrond/totale-studieschuld-daalt-voor-het-eerst-na-herinvoering-basisbeurs~b51751f5/",
+        "fetched_at": "2026-10-06T10:31:41.345804+00:00"
+      },
+      {
+        "title": "Totale berg studieschulden voor het eerst gekrompen, gemiddelde studieschuld blijft toenemen (nu 18.000 euro per student)",
+        "source": "NRC",
+        "country": "NL",
+        "link": "https://www.nrc.nl/nieuws/2026/10/05/totale-berg-studieschulden-voor-het-eerst-gekrompen-gemiddelde-studieschuld-blijft-toenemen-nu-18-000-euro-per-student-a4938150",
+        "fetched_at": "2026-10-06T10:31:43.123551+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.79,
+    "articles": [
+      {
+        "title": "O czym Trump rozmawiał z Kosiniakiem-Kamyszem? Jedna z wersji: szef PSL miał być namawiany do zdrady koalicjanta",
+        "source": "Rzeczpospolita",
+        "country": "PL",
+        "link": "https://www.rp.pl/polityka/art45256851-o-czym-trump-rozmawial-z-kosiniakiem-kamyszem-jedna-z-wersji-szef-psl-mial-byc-namawiany-do-zdrady-koalicjanta",
+        "fetched_at": "2026-10-06T10:31:44.516568+00:00"
+      },
+      {
+        "title": "Jak zachowano w tajemnicy spotkanie Kosiniaka-Kamysza z Trumpem",
+        "source": "Onet Wiadomości",
+        "country": "PL",
+        "link": "https://wiadomosci.onet.pl/jak-zachowano-w-tajemnicy-spotkanie-kosiniaka-kamysza-z-trumpem/412yywt",
+        "fetched_at": "2026-10-06T10:31:45.194593+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.904,
+    "articles": [
+      {
+        "title": "Tragiczny wypadek podczas ćwiczeń wojskowych w Australii. Nie żyje żołnierz",
+        "source": "Rzeczpospolita",
+        "country": "PL",
+        "link": "https://www.rp.pl/wypadki/art45257281-tragiczny-wypadek-podczas-cwiczen-wojskowych-w-australii-nie-zyje-zolnierz",
+        "fetched_at": "2026-10-06T10:31:44.516568+00:00"
+      },
+      {
+        "title": "Tragiczny finał ćwiczeń wojskowych w Australii. Zginął żołnierz, pięciu jest rannych",
+        "source": "Onet Wiadomości",
+        "country": "PL",
+        "link": "https://wiadomosci.onet.pl/swiat/tragiczny-final-cwiczen-w-australii-zginal-zolnierz-pieciu-jest-rannych/n5kcwzh",
+        "fetched_at": "2026-10-06T10:31:45.194593+00:00"
+      }
+    ]
+  }
+]

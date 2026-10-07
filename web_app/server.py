@@ -1,4 +1,5 @@
 import json
+import os
 import sys
 from datetime import date, datetime, timezone
 from pathlib import Path
@@ -21,7 +22,7 @@ HISTORY_DIR = PROJECT_DIR / "history"
 STATIC_DIR = PROJECT_DIR / "static"
 STATIC_DIR.mkdir(parents=True, exist_ok=True)
 
-APP_NAME = "Press\Mirror"
+APP_NAME = r"Press\Mirror"
 
 app = Flask(__name__, static_folder=str(STATIC_DIR), static_url_path="/static")
 app.jinja_env.globals["app_name"] = APP_NAME
@@ -245,4 +246,9 @@ def map_view(cluster_id):
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+    port = int(os.environ.get("PORT", "5000"))
+    app.run(
+        host="0.0.0.0",
+        port=port,
+        debug=os.environ.get("FLASK_DEBUG") == "1",
+    )
