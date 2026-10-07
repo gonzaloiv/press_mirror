@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --highlight: #ffcc00;
+}
+
 .page-footer {
     margin-top: 4rem;
     padding-top: 1rem;
@@ -5,6 +11,10 @@
     color: #667382;
     font-size: 0.875rem;
     line-height: 1.6;
+}
+
+.page-footer-tagline {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 .page-footer-line {
@@ -31,6 +41,6 @@
 }
 
 .page-footer a:focus-visible {
-    outline: 3px solid #1d4ed8;
+    outline: 3px solid #003399;
     outline-offset: 3px;
 }

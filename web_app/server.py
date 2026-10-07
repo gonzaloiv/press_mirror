@@ -21,7 +21,7 @@ HISTORY_DIR = PROJECT_DIR / "history"
 STATIC_DIR = PROJECT_DIR / "static"
 STATIC_DIR.mkdir(parents=True, exist_ok=True)
 
-APP_NAME = "Press | Mirror"
+APP_NAME = "Press\Mirror"
 
 app = Flask(__name__, static_folder=str(STATIC_DIR), static_url_path="/static")
 app.jinja_env.globals["app_name"] = APP_NAME

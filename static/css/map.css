@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:wght@500;600;700&display=swap');
 
 :root {
-    --covered: #2563eb;
+    --covered: #003399;
+    --highlight: #ffcc00;
     --silent: #e5e7eb;
     --ink: #111827;
     --muted: #6b7280;
@@ -51,7 +52,7 @@ body {
 }
 
 a:focus-visible {
-    outline: 3px solid #1d4ed8;
+    outline: 3px solid #003399;
     outline-offset: 3px;
 }
 
