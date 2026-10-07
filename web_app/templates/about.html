@@ -56,6 +56,7 @@
             margin: 0 0 1rem;
         }
     </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
 </head>
 
 <body>
@@ -89,6 +90,9 @@
             <p>We don't claim to be complete. If a country doesn't appear on a map, we may not have sources there; that doesn't mean the event wasn't covered. Every headline links to the original article at its original outlet. To know what an outlet said, read its article.</p>
             <p>We show, side by side, what the press said about one event. The comparison is yours to make.</p>
         </section>
+
+        {% set hide_footer_about_link = true %}
+        {% include "_footer.html" %}
     </main>
 </body>
 

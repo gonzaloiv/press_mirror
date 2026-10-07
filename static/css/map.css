@@ -202,62 +202,9 @@ a:focus-visible {
     font-size: 0.95rem;
 }
 
-.coverage-note {
-    margin: 0;
-    color: var(--muted);
-    font-size: 13px;
-    line-height: 1.4;
-}
-
-.page-meta {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    flex: 0 0 auto;
-    gap: 16px;
-    margin-top: auto;
-    color: var(--muted);
-    font-size: 17px;
-}
-
-.page-meta::before {
-    content: "";
-    width: 100%;
-    margin-top: 24px;
-    border-top: 1px solid var(--border);
-}
-
-.page-meta-links {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-}
-
-.page-meta-links > * {
-    min-height: 44px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    white-space: nowrap;
-}
-
-.page-meta-links a {
-    color: inherit;
-    text-decoration: none;
-}
-
-.page-meta-links a:hover,
-.page-meta-links a:focus-visible {
-    text-decoration: underline;
-}
-
-.page-meta-links a,
-.back-link {
-    min-height: 44px;
-}
-
 .back-link {
     align-self: flex-start;
+    min-height: 44px;
     margin-bottom: 8px;
     color: var(--muted);
     font-size: 15px;
@@ -308,18 +255,5 @@ a:focus-visible {
     .swatch {
         width: 13px;
         height: 13px;
-    }
-
-    .coverage-note {
-        font-size: 13px;
-        line-height: 1.4;
-    }
-
-    .page-meta {
-        font-size: 14px;
-    }
-
-    .page-meta-links {
-        gap: 4px;
     }
 }

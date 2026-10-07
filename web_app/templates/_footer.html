@@ -1,0 +1,9 @@
+<footer class="page-footer">
+    <p class="page-footer-line">Press Mirror — what happened today, and who covered it.</p>
+    <p class="page-footer-line">
+        {% if not hide_footer_about_link %}<a href="{{ url_for('about') }}">How it works</a>
+        <span class="page-footer-separator" aria-hidden="true">·</span>{% endif %}
+        <span>pressmirror.eu</span>
+    </p>
+    <p class="page-footer-line">Every headline links to the original article at its original outlet. Press Mirror does not produce news.</p>
+</footer>

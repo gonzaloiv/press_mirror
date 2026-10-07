@@ -1,0 +1,36 @@
+.page-footer {
+    margin-top: 4rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e5e7eb;
+    color: #667382;
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+
+.page-footer-line {
+    margin: 0;
+}
+
+.page-footer-line + .page-footer-line {
+    margin-top: 0.35rem;
+}
+
+.page-footer-separator {
+    margin: 0 0.4rem;
+}
+
+.page-footer a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.page-footer a:hover,
+.page-footer a:focus-visible {
+    color: #17212b;
+    text-decoration: underline;
+}
+
+.page-footer a:focus-visible {
+    outline: 3px solid #1d4ed8;
+    outline-offset: 3px;
+}

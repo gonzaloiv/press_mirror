@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Press Mirror</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/grid.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
 </head>
 
 <body>
@@ -45,6 +46,8 @@
             </a>
             {% endfor %}
         </section>
+
+        {% include "_footer.html" %}
     </main>
     <script src="{{ url_for('static', filename='js/grid.js') }}" defer></script>
 </body>
