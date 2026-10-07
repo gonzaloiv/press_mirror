@@ -113,6 +113,16 @@ class GenerateLlmLabelTests(unittest.TestCase):
         self.assertIn("Moscow, drone", user_message)
         self.assertIn("Moscow drone attack", user_message)
 
+    def test_prompt_includes_eight_context_headlines(self):
+        generator = _FakeGenerator("Moscow drone attack")
+        headlines = [f"Headline {index}" for index in range(10)]
+
+        generate_llm_label(["Moscow", "drone"], headlines, generator=generator)
+
+        user_message = generator.tokenizer.messages[-1]["content"]
+        self.assertIn("- Headline 7", user_message)
+        self.assertNotIn("- Headline 8", user_message)
+
 
 if __name__ == "__main__":
     unittest.main()

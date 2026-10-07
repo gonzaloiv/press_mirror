@@ -268,10 +268,9 @@ def build_clusters(
             sub,
             centroid.reshape(1, -1),
         ).ravel()
-        representative_position = int(np.argmax(similarities))
-        representative_index = indices[representative_position]
-        cluster_titles = [titles[representative_index]] + [
-            titles[i] for i in indices if i != representative_index
+        ranked_positions = np.argsort(-similarities, kind="stable")
+        cluster_titles = [
+            titles[indices[position]] for position in ranked_positions
         ]
 
         cluster_result = {

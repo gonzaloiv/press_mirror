@@ -9,7 +9,7 @@ back to the deterministic term assembly.
 LLM_MODEL_NAME = "Qwen/Qwen2.5-1.5B-Instruct"
 LLM_MAX_WORDS = 9
 LLM_MAX_NEW_TOKENS = 32
-LLM_CONTEXT_HEADLINES = 5
+LLM_CONTEXT_HEADLINES = 8
 
 _SYSTEM_PROMPT = (
     "You write one short, factual English news headline. "

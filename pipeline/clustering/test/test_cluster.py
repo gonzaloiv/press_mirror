@@ -31,8 +31,10 @@ class BuildClustersLabelSelectionTests(unittest.TestCase):
         sources = [article["source"] for article in articles]
         countries = [article["country"] for article in articles]
         links = [article["link"] for article in articles]
-        embeddings = np.array(
-            [[1.0, 0.0, 0.0]] * 6 + [[0.0, 1.0, 0.0]] * 2
+        angles = np.deg2rad([-20, -12, -5, 4, 12, 20])
+        cluster_embeddings = np.column_stack((np.cos(angles), np.sin(angles)))
+        embeddings = np.vstack(
+            (cluster_embeddings, np.array([[0.0, 1.0], [0.0, 1.0]]))
         )
         labels = [0, 0, 0, 0, 0, 0, 1, 1]
 
@@ -59,6 +61,17 @@ class BuildClustersLabelSelectionTests(unittest.TestCase):
             )
 
         self.assertEqual(len(labeled_titles), 1)
+        self.assertEqual(
+            labeled_titles[0],
+            [
+                "Headline 3 shared term",
+                "Headline 2 shared term",
+                "Headline 1 shared term",
+                "Headline 4 shared term",
+                "Headline 0 shared term",
+                "Headline 5 shared term",
+            ],
+        )
         self.assertEqual(result[0]["terms"], ["term"])
         self.assertEqual(result[0]["label_source"], "terms")
         self.assertEqual(result[1]["terms"], [])
