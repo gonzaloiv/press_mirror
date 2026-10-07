@@ -43,16 +43,31 @@ class GenerateLlmLabelTests(unittest.TestCase):
             "alpha beta gamma delta epsilon zeta eta theta iota"
         )
 
-        label = generate_llm_label(["alpha", "beta"], generator=generator)
+        label = generate_llm_label(
+            ["alpha", "beta"], max_words=7, generator=generator
+        )
 
         self.assertEqual(label, "alpha beta gamma delta epsilon zeta eta")
+
+    def test_default_cap_keeps_a_complete_phrase(self):
+        generator = _FakeGenerator(
+            "Trump to talk to Putin about Russian plague"
+        )
+
+        label = generate_llm_label(["Trump", "Putin"], generator=generator)
+
+        self.assertEqual(
+            label, "Trump to talk to Putin about Russian plague"
+        )
 
     def test_truncation_drops_a_dangling_tail(self):
         generator = _FakeGenerator(
             "Bulgaria Drone Attacks: Two Ships Hit, One Sunk"
         )
 
-        label = generate_llm_label(["Bulgaria", "drones"], generator=generator)
+        label = generate_llm_label(
+            ["Bulgaria", "drones"], max_words=7, generator=generator
+        )
 
         self.assertEqual(label, "Bulgaria Drone Attacks: Two Ships Hit")
 
@@ -61,7 +76,9 @@ class GenerateLlmLabelTests(unittest.TestCase):
             "Quebec election adds new test to Canada's unity"
         )
 
-        label = generate_llm_label(["Quebec", "election"], generator=generator)
+        label = generate_llm_label(
+            ["Quebec", "election"], max_words=7, generator=generator
+        )
 
         self.assertEqual(label, "Quebec election adds new test")
 

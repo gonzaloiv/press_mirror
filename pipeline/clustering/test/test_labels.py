@@ -76,8 +76,8 @@ class ExtractCommonTermsTests(unittest.TestCase):
         normalized = [term.casefold() for term in terms]
 
         self.assertIn("moscow", normalized)
-        self.assertIn("drone", normalized)
         self.assertIn("drone attack", normalized)
+        self.assertNotIn("drone", normalized)
         self.assertLessEqual(len(terms), 7)
         for term in terms:
             self.assertNotIn("?", term)
@@ -133,6 +133,22 @@ class ExtractCommonTermsTests(unittest.TestCase):
         self.assertLessEqual({"student", "protest"}, encoded)
         self.assertNotIn("student", identity)
         self.assertNotIn("protest", identity)
+
+    def test_nested_terms_collapse_into_the_longer_phrase(self):
+        titles = [
+            "Ex chef arrested in Berlin",
+            "Ex chef spied for Moscow",
+            "Chef arrested in Berlin",
+        ]
+
+        terms = extract_common_terms(
+            titles, encode=_ConceptEncoder(titles=titles)
+        )
+        normalized = [term.casefold() for term in terms]
+
+        self.assertIn("ex chef", normalized)
+        self.assertNotIn("chef", normalized)
+        self.assertNotIn("ex", normalized)
 
     def test_no_titles_returns_no_terms(self):
         self.assertEqual(extract_common_terms([], encode=_ConceptEncoder()), [])

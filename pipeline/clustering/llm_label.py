@@ -7,7 +7,7 @@ back to the deterministic term assembly.
 """
 
 LLM_MODEL_NAME = "Qwen/Qwen2.5-1.5B-Instruct"
-LLM_MAX_WORDS = 7
+LLM_MAX_WORDS = 9
 LLM_MAX_NEW_TOKENS = 32
 LLM_CONTEXT_HEADLINES = 5
 
@@ -17,8 +17,10 @@ _SYSTEM_PROMPT = (
     "another language: translate the topic into English. "
     "Use only the given shared terms and headline context; do not invent "
     "names, places, or numbers. "
-    "Output a single headline of at most {max_words} words, with no quotes, "
-    "no list, and no colon."
+    "Output a single complete headline of at most {max_words} words, with no "
+    "quotes, no list, and no colon. "
+    "Always finish the thought: never end on a preposition, article, or an "
+    "adjective that is missing its noun."
 )
 
 _FEW_SHOT = (

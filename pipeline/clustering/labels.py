@@ -231,19 +231,21 @@ def _ranked(concepts: list[_Concept]) -> list[_Concept]:
     )
 
 
-def _covered_by_stronger(concept: _Concept, kept: list[_Concept]) -> bool:
-    tokens = set(concept.tokens)
-    for stronger in kept:
-        if tokens < set(stronger.tokens) and concept.headlines <= stronger.headlines:
-            return True
-    return False
-
-
 def _suppress_overlapping(concepts: list[_Concept]) -> list[_Concept]:
+    """Collapse nested concepts into their most specific member.
+
+    When every word of one term reappears inside a longer term ("chef" inside
+    "Ex chef"), showing both repeats the same words on screen. The longer
+    phrase contains all of the shorter one's words, so the longer phrase is
+    the member worth keeping, even when the bare word is the more frequent.
+    """
     kept: list[_Concept] = []
     for concept in concepts:
-        if not _covered_by_stronger(concept, kept):
-            kept.append(concept)
+        tokens = set(concept.tokens)
+        if any(tokens <= set(other.tokens) for other in kept):
+            continue
+        kept = [other for other in kept if not set(other.tokens) < tokens]
+        kept.append(concept)
     return kept
 
 
