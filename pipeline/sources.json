@@ -1,7 +1,7 @@
 {
     "version": 2,
     "generated": "2026-10-05",
-    "notes": "Curated RSS feeds for Press Mirror. Country codes use ISO 3166-1 alpha-2 except UK (which is GB in ISO but UK in common usage — normalize to GB before matching against GeoJSON).",
+    "notes": "Curated RSS feeds for Press | Mirror. Country codes use ISO 3166-1 alpha-2 except UK (which is GB in ISO but UK in common usage — normalize to GB before matching against GeoJSON).",
     "feeds": [
         {
             "source": "Le Monde",

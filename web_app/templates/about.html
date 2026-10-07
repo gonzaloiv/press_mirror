@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>How it works — Press Mirror</title>
+    <title>How it works — {{ app_name }}</title>
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:wght@500;600;700&display=swap');
@@ -63,16 +63,16 @@
 <body>
     <a class="home-link" href="{{ url_for('index') }}">← Home</a>
     <main>
-        <h1>How Press Mirror works</h1>
+        <h1>How {{ app_name }} works</h1>
 
         <section>
-            <h2>What Press Mirror is</h2>
-            <p>Press Mirror groups news articles from different outlets that cover the same event. Each card on the homepage is one event, as told by every outlet that published a story about it. The map shows which countries covered that event — and which ones didn't.</p>
+            <h2>What {{ app_name }} is</h2>
+            <p>{{ app_name }} groups news articles from different outlets that cover the same event. Each card on the homepage is one event, as told by every outlet that published a story about it. The map shows which countries covered that event — and which ones didn't.</p>
         </section>
 
         <section>
             <h2>How the grouping works</h2>
-            <p>Every day, Press Mirror collects headlines from a fixed set of European and international news outlets. It compares each headline with headlines from other outlets that day to see whether they are about the same event. Headlines about the same event are grouped together. A cluster is the smallest unit of the product: one event, many voices.</p>
+            <p>Every day, {{ app_name }} collects headlines from a fixed set of European and international news outlets. It compares each headline with headlines from other outlets that day to see whether they are about the same event. Headlines about the same event are grouped together. A cluster is the smallest unit of the product: one event, many voices.</p>
             <p>The grouping compares the meaning of headlines across languages, not just their words. A French headline and an English headline about the same event can be grouped together even when they share no vocabulary.</p>
         </section>
 
