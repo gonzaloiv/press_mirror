@@ -45,9 +45,9 @@ class BuildClustersLabelSelectionTests(unittest.TestCase):
             return ["term"]
 
         with patch(
-            "pipeline.clustering.cluster.generate_llm_label",
-            return_value=None,
-        ):
+            "pipeline.clustering.cluster.generate_llm_label_reviewed",
+            return_value=(None, "incomplete_ending"),
+        ), patch("builtins.print") as output:
             result = build_clusters(
                 labels,
                 titles,
@@ -74,6 +74,14 @@ class BuildClustersLabelSelectionTests(unittest.TestCase):
         )
         self.assertEqual(result[0]["terms"], ["term"])
         self.assertEqual(result[0]["label_source"], "terms")
+        self.assertEqual(
+            result[0]["label_review"],
+            {"status": "fallback", "reason": "incomplete_ending"},
+        )
+        output.assert_any_call(
+            "Label review 1/1: incomplete_ending; using term fallback.",
+            flush=True,
+        )
         self.assertEqual(result[1]["terms"], [])
         self.assertNotIn("label_source", result[1])
 

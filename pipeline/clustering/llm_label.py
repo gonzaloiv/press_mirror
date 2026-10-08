@@ -6,6 +6,8 @@ context headlines to disambiguate. Any failure returns None so callers fall
 back to the deterministic term assembly.
 """
 
+import re
+
 LLM_MODEL_NAME = "Qwen/Qwen2.5-1.5B-Instruct"
 LLM_MAX_WORDS = 9
 LLM_MAX_NEW_TOKENS = 32
@@ -67,6 +69,46 @@ _DANGLING_WORDS = frozenset(
     """.split()
 )
 
+_INCOMPLETE_TAIL_WORDS = _DANGLING_WORDS.difference(
+    "one two three four five six seven eight nine ten".split()
+) | frozenset("its their my your our".split())
+
+
+def _has_incomplete_tail(words: list[str]) -> bool:
+    token = words[-1].strip(".,;:!?…\"'").casefold()
+    return token in _INCOMPLETE_TAIL_WORDS or token.endswith(("'s", "’s"))
+
+
+def _has_cropped_ending(text: str) -> bool:
+    words = text.split()
+    return bool(words) and _has_incomplete_tail(words)
+
+
+_REVIEW_STOPWORDS = _INCOMPLETE_TAIL_WORDS | frozenset(
+    """
+    but if then than so without over under after before during while about
+    against between through being do does did it his her he she they them we
+    you who why what when where how not no now new more most all any only
+    """.split()
+)
+
+_WORD_RE = re.compile(r"[^\W_]+(?:['’][^\W_]+)?", re.UNICODE)
+
+
+def _content_words(text: str) -> set[str]:
+    return {
+        match.group().replace("’", "'").casefold()
+        for match in _WORD_RE.finditer(text)
+        if len(match.group()) > 2
+        and match.group().casefold() not in _REVIEW_STOPWORDS
+    }
+
+
+def _has_context_support(label: str, terms: list[str], headlines) -> bool:
+    label_words = _content_words(label)
+    source_words = _content_words(" ".join([*terms, *headlines]))
+    return bool(label_words.intersection(source_words))
+
 
 def _is_dangling(token: str) -> bool:
     bare = token.strip(".,;:!?…\"'").casefold()
@@ -85,7 +127,12 @@ def _drop_dangling_tail(words: list[str]) -> list[str]:
     return words
 
 
-def _clean(text: str, max_words: int) -> str | None:
+def _clean_with_review(
+    text: str,
+    max_words: int,
+    terms: list[str],
+    headlines,
+) -> tuple[str | None, str]:
     first_line = next(
         (line for line in text.strip().splitlines() if line.strip()), ""
     )
@@ -93,11 +140,18 @@ def _clean(text: str, max_words: int) -> str | None:
     cleaned = cleaned.rstrip(".,;:!?…").strip()
     words = cleaned.split()
     if not words:
-        return None
-    if len(words) > max_words:
+        return None, "empty_output"
+    was_truncated = len(words) > max_words
+    if was_truncated:
         words = _drop_dangling_tail(words[:max_words])
     result = " ".join(words).rstrip(".,;:!?…").strip()
-    return result or None
+    if not result:
+        return None, "empty_output"
+    if _has_cropped_ending(result):
+        return None, "incomplete_ending"
+    if not _has_context_support(result, terms, headlines):
+        return result, "accepted_weak_context_support"
+    return result, "accepted_after_truncation" if was_truncated else "accepted"
 
 
 _generator = None
@@ -125,16 +179,15 @@ def _generation_config(model):
     )
 
 
-def generate_llm_label(
+def generate_llm_label_reviewed(
     terms: list[str],
     headlines=(),
     *,
     max_words: int = LLM_MAX_WORDS,
     generator=None,
-) -> str | None:
-    """Return one English LLM headline for the terms, or None on any failure."""
+) -> tuple[str | None, str]:
     if not terms:
-        return None
+        return None, "no_terms"
     try:
         model = generator if generator is not None else _load_generator()
         prompt = model.tokenizer.apply_chat_template(
@@ -148,5 +201,18 @@ def generate_llm_label(
         output = model(prompt, **kwargs)
         generated = output[0]["generated_text"]
     except Exception:
-        return None
-    return _clean(generated, max_words)
+        return None, "generation_failed"
+    return _clean_with_review(generated, max_words, terms, headlines)
+
+
+def generate_llm_label(
+    terms: list[str],
+    headlines=(),
+    *,
+    max_words: int = LLM_MAX_WORDS,
+    generator=None,
+) -> str | None:
+    label, _ = generate_llm_label_reviewed(
+        terms, headlines, max_words=max_words, generator=generator
+    )
+    return label

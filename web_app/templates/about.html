@@ -42,7 +42,7 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
         }
 
-        section + section {
+        section+section {
             margin-top: 2rem;
         }
 
@@ -56,6 +56,15 @@
         p {
             margin: 0 0 1rem;
         }
+
+        ul {
+            margin: 0 0 1rem;
+            padding-left: 1.5rem;
+        }
+
+        li+li {
+            margin-top: 0.35rem;
+        }
     </style>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
 </head>
@@ -67,29 +76,70 @@
 
         <section>
             <h2>What {{ app_name }} is</h2>
-            <p>{{ app_name }} groups news articles from different outlets that cover the same event. Each card on the homepage is one event, as told by every outlet that published a story about it. The map shows which countries covered that event — and which ones didn't.</p>
+            <p>{{ app_name }} groups news articles from different outlets that cover the same event. Each card on the
+                homepage is one event, as told by every outlet that published a story about it. The map shows which
+                countries covered that event — and which ones didn't.</p>
         </section>
 
         <section>
             <h2>How the grouping works</h2>
-            <p>Every day, {{ app_name }} collects headlines from a fixed set of European and international news outlets. It compares each headline with headlines from other outlets that day to see whether they are about the same event. Headlines about the same event are grouped together. A cluster is the smallest unit of the product: one event, many voices.</p>
-            <p>The grouping compares the meaning of headlines across languages, not just their words. A French headline and an English headline about the same event can be grouped together even when they share no vocabulary.</p>
+            <p>Every day, {{ app_name }} collects headlines from a fixed set of European news outlets. It compares each
+                headline with headlines from other outlets published that day, to see whether they are about the same
+                event. Headlines about the same event are grouped into a cluster.</p>
+            <p>A cluster is the smallest unit of the product: one event, many voices. Everything else in the app — the
+                map, the labels, the source list, the daily selection — is built on top of clusters.</p>
+            <p>The grouping compares the meaning of headlines across languages, not just their words. A French headline
+                and an English headline about the same event can end up in the same cluster even when they share no
+                vocabulary.</p>
         </section>
 
         <section>
-            <h2>What the map shows, and what it doesn't</h2>
+            <h2>What the map shows</h2>
             <p>The map colors every country in one of three states:</p>
-            <p><strong>Blue — Covered</strong> — we have sources from this country, and at least one published a story about this event.</p>
-            <p><strong>Gray — Not covered by tracked sources</strong> — we have sources from this country, and none published a story about this event.</p>
-            <p><strong>Outlined — Not tracked</strong> — we don't have sources from this country. We make no claim about whether it covered the event.</p>
-            <p>The distinction between “not covered” and “not tracked” matters. When a country is gray, our sources there didn't cover the story. When it's outlined, we don't know because we don't read its press. We don't claim a global view; we show a European view and where it ends.</p>
+            <p><strong>Covered</strong> — we have sources from this country, and at least one published a story about
+                this event.</p>
+            <p><strong>Not covered by tracked sources</strong> — we have sources from this country, and none of them
+                published a story about this event.</p>
+            <p><strong>Not tracked</strong> — we don't have sources from this country. We make no claim about whether it
+                covered the event.</p>
+            <p>The distinction between “not covered” and “not tracked” matters. When a country is gray, we know our
+                sources there didn't cover the story. When it's outlined, we don't know — because we don't read its
+                press. We don't claim a global view. We show a European view and where that view ends.</p>
+        </section>
+
+        <section>
+            <h2>What each card shows</h2>
+            <p>Each card on the homepage represents one event. The card shows:</p>
+            <ul>
+                <li>A short label naming the event.</li>
+                <li>A map of the countries that covered it.</li>
+                <li>The number of outlets and countries involved.</li>
+                <li>The names of a few of those outlets.</li>
+            </ul>
+            <p>On the detail page — reached by clicking any card — every headline from every outlet in the cluster is
+                listed, linked to the original article at its original outlet.</p>
+        </section>
+
+        <section>
+            <h2>How the daily view is built</h2>
+            <p>Each day, the pipeline produces a fixed set of stories — one per event. The homepage displays the events
+                that were covered by the most outlets, across the most countries. The selection is designed to answer
+                one question: what is Europe talking about today?</p>
+            <p>Some events appear on multiple days as they develop. Others appear once and fall away. The date
+                navigation at the top of the homepage lets you browse back through previous days.</p>
         </section>
 
         <section>
             <h2>What we don't do</h2>
-            <p>We don't rate bias or label outlets as left or right in the interface. We don't tell you what to think about the coverage we show.</p>
-            <p>We don't claim to be complete. If a country doesn't appear on a map, we may not have sources there; that doesn't mean the event wasn't covered. Every headline links to the original article at its original outlet. To know what an outlet said, read its article.</p>
-            <p>We show, side by side, what the press said about one event. The comparison is yours to make.</p>
+            <p>We don't rate bias or label outlets as left or right in the interface. We don't tell you what to think
+                about the coverage we show.</p>
+            <p>We don't claim to be complete. If a country doesn't appear on a map, it may be because we don't have
+                sources there — not because the event wasn't covered. Every headline links to the original article at
+                its original outlet. To know what an outlet said, read its article.</p>
+            <p>We also don't generate the news. {{ app_name }} does not produce or edit journalism. It reflects what the
+                press has already published.</p>
+            <p>What we do is show you, side by side, how different outlets told the same story. The comparison is yours
+                to make.</p>
         </section>
 
         {% set hide_footer_about_link = true %}

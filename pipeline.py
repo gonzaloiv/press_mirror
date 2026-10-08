@@ -8,12 +8,12 @@ PIPELINE_DIR = PROJECT_DIR / "pipeline"
 PIPELINE_STAGES = (
     # PIPELINE_DIR / "ingest.py",
     # PIPELINE_DIR / "embed.py",
-    PIPELINE_DIR / "clustering" / "cluster.py",
+    # PIPELINE_DIR / "clustering" / "cluster.py",
     PIPELINE_DIR / "render.py",
 )
 
 
-def main() -> None:
+def main() -> None: 
     for script in PIPELINE_STAGES:
         print(f"\n=== Running {script.name} ===", flush=True)
         command = [sys.executable, str(script)]

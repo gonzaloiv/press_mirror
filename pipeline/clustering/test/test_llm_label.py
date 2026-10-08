@@ -1,6 +1,9 @@
 import unittest
 
-from pipeline.clustering.llm_label import generate_llm_label
+from pipeline.clustering.llm_label import (
+    generate_llm_label,
+    generate_llm_label_reviewed,
+)
 
 
 class _FakeTokenizer:
@@ -81,6 +84,64 @@ class GenerateLlmLabelTests(unittest.TestCase):
         )
 
         self.assertEqual(label, "Quebec election adds new test")
+
+    def test_rejects_a_cropped_possessive_ending(self):
+        generator = _FakeGenerator(
+            "Russia's plague fears don't scare us - just its"
+        )
+
+        self.assertIsNone(
+            generate_llm_label(["Russia", "plague"], generator=generator)
+        )
+
+    def test_review_reports_an_incomplete_ending(self):
+        generator = _FakeGenerator("Russia's plague fears don't scare us - just its")
+
+        label, reason = generate_llm_label_reviewed(
+            ["Russia", "plague"], generator=generator
+        )
+
+        self.assertIsNone(label)
+        self.assertEqual(reason, "incomplete_ending")
+
+    def test_review_accepts_a_complete_label(self):
+        generator = _FakeGenerator("Moscow drone attack")
+
+        label, reason = generate_llm_label_reviewed(
+            ["Moscow", "drone"], generator=generator
+        )
+
+        self.assertEqual(label, "Moscow drone attack")
+        self.assertEqual(reason, "accepted")
+
+    def test_review_keeps_labels_without_context_support(self):
+        generator = _FakeGenerator("Parliament votes on budget")
+
+        label, reason = generate_llm_label_reviewed(
+            ["Moscow", "plague"],
+            ["Moscow plague concerns continue"],
+            generator=generator,
+        )
+
+        self.assertEqual(label, "Parliament votes on budget")
+        self.assertEqual(reason, "accepted_weak_context_support")
+
+    def test_review_reports_generation_failure(self):
+        generator = _FakeGenerator(error=RuntimeError("no model"))
+
+        label, reason = generate_llm_label_reviewed(
+            ["Moscow"], generator=generator
+        )
+
+        self.assertIsNone(label)
+        self.assertEqual(reason, "generation_failed")
+
+    def test_rejects_a_cropped_possessive_name(self):
+        generator = _FakeGenerator("Russia's")
+
+        self.assertIsNone(
+            generate_llm_label(["Russia"], generator=generator)
+        )
 
     def test_strips_trailing_punctuation(self):
         generator = _FakeGenerator("Turkey earthquake.")

@@ -15,7 +15,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 from shared.country_codes import to_iso
 from shared.cluster_selection import selected_cluster_indices
 from pipeline.clustering.labels import build_cluster_label, extract_common_terms
-from pipeline.clustering.llm_label import generate_llm_label
+from pipeline.clustering.llm_label import generate_llm_label_reviewed
 
 INPUT_FILE = PROJECT_DIR / "data" / "embeddings.npz"
 HISTORY_DIR = PROJECT_DIR / "history"
@@ -304,12 +304,26 @@ def build_clusters(
         cluster_result, cluster_titles = entries[index]
         print(f"Generating label {label_number}/{len(shown)}...", flush=True)
         cluster_terms = labeler(cluster_titles)
-        llm_label = generate_llm_label(cluster_terms, cluster_titles)
+        llm_label, review_reason = generate_llm_label_reviewed(
+            cluster_terms, cluster_titles
+        )
+        review_action = (
+            "kept generated label" if llm_label else "using term fallback"
+        )
+        print(
+            f"Label review {label_number}/{len(shown)}: "
+            f"{review_reason}; {review_action}.",
+            flush=True,
+        )
         cluster_result["terms"] = cluster_terms
         cluster_result["label"] = llm_label or build_cluster_label(
             cluster_terms, cluster_titles[0]
         )
         cluster_result["label_source"] = "llm" if llm_label else "terms"
+        cluster_result["label_review"] = {
+            "status": "accepted" if llm_label else "fallback",
+            "reason": review_reason,
+        }
 
     return result
 
