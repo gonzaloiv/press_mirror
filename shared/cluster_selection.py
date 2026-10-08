@@ -2,7 +2,7 @@
 
 from shared.country_codes import to_iso
 
-MIN_CLUSTER_SIMILARITY = 0.75
+MIN_CLUSTER_SIMILARITY = 0.74
 MIN_CLUSTER_SOURCES = 6
 MIN_CLUSTER_COUNTRIES = 4
 
