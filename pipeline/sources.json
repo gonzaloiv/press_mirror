@@ -1,6 +1,6 @@
 {
-    "version": 2,
-    "generated": "2026-10-05",
+    "version": 5,
+    "generated": "2026-10-08",
     "notes": "Curated RSS feeds for Press | Mirror. Country codes use ISO 3166-1 alpha-2 except UK (which is GB in ISO but UK in common usage — normalize to GB before matching against GeoJSON).",
     "feeds": [
         {
@@ -254,6 +254,48 @@
             "url": "https://www.independent.ie/rss/",
             "lang": "en",
             "lean": "centre-right"
+        },
+        {
+            "source": "iDNES.cz",
+            "country": "CZ",
+            "url": "http://servis.idnes.cz/rss.aspx?c=zpravodaj",
+            "lang": "cs",
+            "lean": "centre-right"
+        },
+        {
+            "source": "Telex.hu",
+            "country": "HU",
+            "url": "https://telex.hu/rss",
+            "lang": "hu",
+            "lean": "centre"
+        },
+        {
+            "source": "Postimees",
+            "country": "EE",
+            "url": "https://www.postimees.ee/rss",
+            "lang": "et",
+            "lean": "centre"
+        },
+        {
+            "source": "Aftenposten",
+            "country": "NO",
+            "url": "https://www.aftenposten.no/rss",
+            "lang": "no",
+            "lean": "centre"
+        },
+        {
+            "source": "Neue Zürcher Zeitung",
+            "country": "CH",
+            "url": "https://www.nzz.ch/recent.rss",
+            "lang": "de",
+            "lean": "centre-right"
+        },
+        {
+            "source": "The Kyiv Independent",
+            "country": "UA",
+            "url": "https://kyivindependent.com/feed.xml",
+            "lang": "en",
+            "lean": "centre"
         }
     ]
 }
