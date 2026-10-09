@@ -29,16 +29,6 @@ body {
     overflow-y: auto;
 }
 
-.masthead-shell {
-    padding: 3rem 1.5rem 0;
-}
-
-.masthead-container {
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
 .canvas {
     width: 100%;
     max-width: 900px;
@@ -215,15 +205,30 @@ a:focus-visible {
 
 .back-link {
     align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
     min-height: 44px;
-    margin-bottom: 8px;
-    color: var(--muted);
+    margin-bottom: 16px;
+    padding: 0.5rem 0.9rem;
+    border: 1px solid #b7c4d3;
+    border-radius: 999px;
+    background: #f3f6fa;
+    color: #003399;
     font-size: 15px;
+    font-weight: 600;
     text-decoration: none;
+    transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
 }
 
 .back-link:hover {
-    text-decoration: underline;
+    border-color: #003399;
+    background: #003399;
+    color: #ffffff;
+}
+
+.back-link:focus-visible {
+    outline: 3px solid #003399;
+    outline-offset: 3px;
 }
 
 @media (min-width: 701px) {
@@ -236,10 +241,6 @@ a:focus-visible {
 @media (max-width: 700px) {
     .canvas {
         padding: 8px 20px;
-    }
-
-    .back-link {
-        margin-bottom: 8px;
     }
 
     .headline {
@@ -269,8 +270,9 @@ a:focus-visible {
     }
 }
 
-@media (max-width: 599px) {
-    .masthead-shell {
-        padding: 2rem 1rem 0;
+@media (prefers-reduced-motion: reduce) {
+    .back-link {
+        transition: none;
     }
 }
+

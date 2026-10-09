@@ -12,6 +12,7 @@ if str(PROJECT_DIR) not in sys.path:
 
 from shared.country_codes import (
     COUNTRY_NAMES,
+    EUROPEAN_COUNTRIES,
     ISO_FIX,
     to_iso,
 )
@@ -21,6 +22,7 @@ from web_app.map_presentation import european_coverage, map_viewport
 HISTORY_DIR = PROJECT_DIR / "history"
 STATIC_DIR = PROJECT_DIR / "static"
 STATIC_DIR.mkdir(parents=True, exist_ok=True)
+SOURCES_FILE = PROJECT_DIR / "pipeline" / "sources.json"
 
 APP_NAME = r"Press\Mirror"
 
@@ -66,6 +68,29 @@ def active_countries(snapshot_date: str) -> list[str]:
     with headlines_file.open(encoding="utf-8") as f:
         headlines = json.load(f)
     return sorted({to_iso(headline["country"]) for headline in headlines})
+
+
+def source_groups() -> list[dict]:
+    """Group the configured feeds by country for the about page."""
+    with SOURCES_FILE.open(encoding="utf-8") as f:
+        sources = json.load(f)
+    outlets_by_country: dict[str, list[dict]] = {}
+    for feed in sources["feeds"]:
+        country = to_iso(feed["country"])
+        outlets_by_country.setdefault(country, []).append(
+            {"name": feed["source"], "url": feed["site"]}
+        )
+    groups = [
+        {
+            "name": COUNTRY_NAMES.get(country, country).removeprefix("the "),
+            "outlets": sorted(
+                outlets, key=lambda outlet: outlet["name"].casefold()
+            ),
+        }
+        for country, outlets in outlets_by_country.items()
+    ]
+    groups.sort(key=lambda group: group["name"].casefold())
+    return groups
 
 
 @app.route("/")
@@ -138,7 +163,13 @@ def index():
 
 @app.route("/about")
 def about():
-    return render_template("about.html")
+    groups = source_groups()
+    return render_template(
+        "about.html",
+        source_groups=groups,
+        outlet_count=sum(len(group["outlets"]) for group in groups),
+        country_count=len(groups),
+    )
 
 
 @app.route("/map/<int:cluster_id>")
@@ -240,6 +271,7 @@ def detail_view(cluster_id):
         snapshot_date=snapshot_date.isoformat(),
         date_label=f"{snapshot_date.day} {snapshot_date:%b %Y}",
         countries=available_countries,
+        european_countries=sorted(EUROPEAN_COUNTRIES),
         source_groups=source_groups,
         iso_fix=ISO_FIX,
     )

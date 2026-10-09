@@ -21,25 +21,7 @@
 <body>
     <main class="container">
         {% include "_header.html" %}
-
-        <nav class="date-pagination" aria-label="Browse snapshot dates">
-            {% if older_url %}
-            <a class="older-day" href="{{ older_url }}" rel="next">← Older day</a>
-            {% else %}
-            <span></span>
-            {% endif %}
-            <div class="date-info">
-                <time datetime="{{ selected_date }}">{{ date_label }}</time>
-                {% if ingestion_time %}
-                <time class="ingestion-time" datetime="{{ ingestion_time }}">Collected {{ ingestion_time_label }}</time>
-                {% endif %}
-            </div>
-            {% if newer_url %}
-            <a class="newer-day" href="{{ newer_url }}" rel="prev">Newer day →</a>
-            {% else %}
-            <span></span>
-            {% endif %}
-        </nav>
+        {% include "_snapshot_navigation.html" %}
 
         <section class="story-grid" aria-label="Top stories for {{ date_label }}">
             {% for card in cards %}

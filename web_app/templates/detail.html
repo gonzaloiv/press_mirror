@@ -6,7 +6,6 @@
     <title>{{ label }}</title>
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/detail.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4XGNNPMW2C"></script>
@@ -19,11 +18,6 @@
 </head>
 
 <body>
-    <div class="masthead-shell">
-        <div class="masthead-container">
-            {% include "_header.html" %}
-        </div>
-    </div>
     <div class="canvas">
         <a href="{{ url_for('index', date=snapshot_date) }}" class="back-link">← All maps</a>
         <div id="thumbnail-content">

@@ -6,19 +6,24 @@ COUNTRY_NAMES = {
     "BE": "Belgium",
     "BR": "Brazil",
     "CA": "Canada",
+    "CH": "Switzerland",
     "CN": "China",
+    "CZ": "Czechia",
     "DE": "Germany",
     "DK": "Denmark",
+    "EE": "Estonia",
     "ES": "Spain",
     "FI": "Finland",
     "FR": "France",
     "GB": "the UK",
+    "HU": "Hungary",
     "IE": "Ireland",
     "IN": "India",
     "IT": "Italy",
     "JP": "Japan",
     "MX": "Mexico",
     "NL": "the Netherlands",
+    "NO": "Norway",
     "PL": "Poland",
     "PT": "Portugal",
     "QA": "Qatar",
@@ -29,6 +34,14 @@ COUNTRY_NAMES = {
 }
 
 NON_EUROPEAN_COUNTRIES = {"AU", "BR", "CA", "CN", "IN", "JP", "MX", "QA", "US"}
+
+EUROPEAN_COUNTRIES = {
+    "AD", "AL", "AT", "BA", "BE", "BG", "BY", "CH", "CY", "CZ",
+    "DE", "DK", "EE", "ES", "FI", "FR", "GB", "GR", "HR", "HU",
+    "IE", "IS", "IT", "LI", "LT", "LU", "LV", "MC", "MD", "ME",
+    "MK", "MT", "NL", "NO", "PL", "PT", "RO", "RS", "RU", "SE",
+    "SI", "SK", "SM", "TR", "UA", "VA", "XK",
+}
 
 COUNTRY_CENTERS = {
     "AU": (-25.3, 133.8),

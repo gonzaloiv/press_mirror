@@ -4,6 +4,7 @@
     const tracked = {{ countries|tojson }};
     const mapBounds = {{ map_bounds|tojson }};
     const ISO_FIX = {{ iso_fix|tojson }};
+    const european = {{ european_countries|tojson }};
 
     function getIso(feature) {
         const p = feature.properties || {};
@@ -15,6 +16,7 @@
 
     const coveredNorm = covered.map(c => ISO_FIX[c] || c);
     const trackedNorm = tracked.map(c => ISO_FIX[c] || c);
+    const europeanNorm = european.map(c => ISO_FIX[c] || c);
     const map = L.map('map', {
         zoomControl: false,
         attributionControl: false,
@@ -24,13 +26,25 @@
         boxZoom: false,
         keyboard: false,
         tap: false,
+        zoomSnap: 0,
     }).setView([54, 10], 3);
 
     const COVERED = '#003399';
     const HIGHLIGHT = '#ffcc00';
     const SILENT = '#e5e7eb';
     const UNTRACKED_OUTLINE = '#9ca3af';
+    const EUROPE_BOUNDS = L.latLngBounds([34, -25], [72, 45]);
     const GEOJSON_URL = 'https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson';
+
+    function extendWithin(bounds, latlngs) {
+        if (Array.isArray(latlngs)) {
+            latlngs.forEach(part => extendWithin(bounds, part));
+        } else if (latlngs && typeof latlngs.lat === 'number') {
+            if (EUROPE_BOUNDS.contains(latlngs)) {
+                bounds.extend(latlngs);
+            }
+        }
+    }
 
     fetch(GEOJSON_URL)
         .then(r => r.json())
@@ -64,7 +78,22 @@
                 },
             }).addTo(map);
 
-            if (mapBounds) {
+            const coveredBounds = L.latLngBounds([]);
+            countryLayer.eachLayer(country => {
+                const iso = getIso(country.feature);
+                if (!coveredNorm.includes(iso)) {
+                    return;
+                }
+                if (europeanNorm.includes(iso)) {
+                    extendWithin(coveredBounds, country.getLatLngs());
+                } else {
+                    coveredBounds.extend(country.getBounds());
+                }
+            });
+
+            if (coveredBounds.isValid()) {
+                map.fitBounds(coveredBounds, { padding: [24, 24] });
+            } else if (mapBounds) {
                 map.fitBounds(mapBounds, { padding: [24, 24] });
             }
 
