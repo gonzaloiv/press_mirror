@@ -6,9 +6,9 @@ from pathlib import Path
 PROJECT_DIR = Path(__file__).resolve().parent
 PIPELINE_DIR = PROJECT_DIR / "pipeline"
 PIPELINE_STAGES = (
-    # PIPELINE_DIR / "ingest.py",
-    # PIPELINE_DIR / "embed.py",
-    # PIPELINE_DIR / "clustering" / "cluster.py",
+    PIPELINE_DIR / "ingest.py",
+    PIPELINE_DIR / "embed.py",
+    PIPELINE_DIR / "clustering" / "cluster.py",
     PIPELINE_DIR / "render.py",
 )
 

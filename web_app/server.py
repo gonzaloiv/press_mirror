@@ -108,7 +108,7 @@ def index():
                     f"/static/maps/{selected_date}/{index}_small.png"
                 ),
                 "map_url": url_for(
-                    "map_view", cluster_id=index, date=selected_date
+                    "detail_view", cluster_id=index, date=selected_date
                 ),
                 "label": cluster["label"],
                 "source_names": source_names,
@@ -120,7 +120,7 @@ def index():
     newer_date = dates[date_index - 1] if date_index > 0 else None
     older_date = dates[date_index + 1] if date_index + 1 < len(dates) else None
     return render_template(
-        "grid.html",
+        "home.html",
         cards=cards,
         date_label=f"{date.fromisoformat(selected_date).day} "
         f"{date.fromisoformat(selected_date):%b %Y}",
@@ -142,7 +142,7 @@ def about():
 
 
 @app.route("/map/<int:cluster_id>")
-def map_view(cluster_id):
+def detail_view(cluster_id):
     clusters_file = snapshot_file(request.args.get("date"))
     with clusters_file.open(encoding="utf-8") as f:
         clusters = json.load(f)
@@ -208,7 +208,7 @@ def map_view(cluster_id):
     )
 
     return render_template(
-        "card.html" if thumbnail else "map.html",
+        "card.html" if thumbnail else "detail.html",
         label=cluster["label"],
         terms=cluster.get("terms", []),
         thumbnail=thumbnail,

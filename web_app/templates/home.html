@@ -6,20 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ app_name }}</title>
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/grid.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4XGNNPMW2C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-4XGNNPMW2C');
+    </script>
 </head>
 
 <body>
     <main class="container">
-        <header>
-            <div class="header-copy">
-                <h1><a class="site-title-link" href="{{ url_for('index') }}">{{ app_name }}</a></h1>
-                <p class="tagline">What happened today, and who covered it.</p>
-                <p class="definition">Each card is one event. The map shows which countries covered it.</p>
-            </div>
-            <a class="about-link" href="{{ url_for('about') }}">How it works</a>
-        </header>
+        {% include "_header.html" %}
 
         <nav class="date-pagination" aria-label="Browse snapshot dates">
             {% if older_url %}
@@ -50,7 +51,7 @@
 
         {% include "_footer.html" %}
     </main>
-    <script src="{{ url_for('static', filename='js/grid.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/home.js') }}" defer></script>
 </body>
 
 </html>

@@ -29,6 +29,16 @@ body {
     overflow-y: auto;
 }
 
+.masthead-shell {
+    padding: 3rem 1.5rem 0;
+}
+
+.masthead-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
 .canvas {
     width: 100%;
     max-width: 900px;
@@ -256,5 +266,11 @@ a:focus-visible {
     .swatch {
         width: 13px;
         height: 13px;
+    }
+}
+
+@media (max-width: 599px) {
+    .masthead-shell {
+        padding: 2rem 1rem 0;
     }
 }
