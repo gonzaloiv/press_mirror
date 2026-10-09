@@ -12,6 +12,7 @@ if str(PROJECT_DIR) not in sys.path:
 
 from shared.country_codes import (
     COUNTRY_NAMES,
+    EUROPEAN_COUNTRIES,
     ISO_FIX,
     to_iso,
 )
@@ -21,6 +22,7 @@ from web_app.map_presentation import european_coverage, map_viewport
 HISTORY_DIR = PROJECT_DIR / "history"
 STATIC_DIR = PROJECT_DIR / "static"
 STATIC_DIR.mkdir(parents=True, exist_ok=True)
+SOURCES_FILE = PROJECT_DIR / "pipeline" / "sources.json"
 
 APP_NAME = r"Press\Mirror"
 
@@ -68,6 +70,29 @@ def active_countries(snapshot_date: str) -> list[str]:
     return sorted({to_iso(headline["country"]) for headline in headlines})
 
 
+def source_groups() -> list[dict]:
+    """Group the configured feeds by country for the about page."""
+    with SOURCES_FILE.open(encoding="utf-8") as f:
+        sources = json.load(f)
+    outlets_by_country: dict[str, list[dict]] = {}
+    for feed in sources["feeds"]:
+        country = to_iso(feed["country"])
+        outlets_by_country.setdefault(country, []).append(
+            {"name": feed["source"], "url": feed["site"]}
+        )
+    groups = [
+        {
+            "name": COUNTRY_NAMES.get(country, country).removeprefix("the "),
+            "outlets": sorted(
+                outlets, key=lambda outlet: outlet["name"].casefold()
+            ),
+        }
+        for country, outlets in outlets_by_country.items()
+    ]
+    groups.sort(key=lambda group: group["name"].casefold())
+    return groups
+
+
 @app.route("/")
 def index():
     files = cluster_files()
@@ -108,7 +133,7 @@ def index():
                     f"/static/maps/{selected_date}/{index}_small.png"
                 ),
                 "map_url": url_for(
-                    "map_view", cluster_id=index, date=selected_date
+                    "detail_view", cluster_id=index, date=selected_date
                 ),
                 "label": cluster["label"],
                 "source_names": source_names,
@@ -120,7 +145,7 @@ def index():
     newer_date = dates[date_index - 1] if date_index > 0 else None
     older_date = dates[date_index + 1] if date_index + 1 < len(dates) else None
     return render_template(
-        "grid.html",
+        "home.html",
         cards=cards,
         date_label=f"{date.fromisoformat(selected_date).day} "
         f"{date.fromisoformat(selected_date):%b %Y}",
@@ -138,11 +163,17 @@ def index():
 
 @app.route("/about")
 def about():
-    return render_template("about.html")
+    groups = source_groups()
+    return render_template(
+        "about.html",
+        source_groups=groups,
+        outlet_count=sum(len(group["outlets"]) for group in groups),
+        country_count=len(groups),
+    )
 
 
 @app.route("/map/<int:cluster_id>")
-def map_view(cluster_id):
+def detail_view(cluster_id):
     clusters_file = snapshot_file(request.args.get("date"))
     with clusters_file.open(encoding="utf-8") as f:
         clusters = json.load(f)
@@ -208,7 +239,7 @@ def map_view(cluster_id):
     )
 
     return render_template(
-        "card.html" if thumbnail else "map.html",
+        "card.html" if thumbnail else "detail.html",
         label=cluster["label"],
         terms=cluster.get("terms", []),
         thumbnail=thumbnail,
@@ -240,6 +271,7 @@ def map_view(cluster_id):
         snapshot_date=snapshot_date.isoformat(),
         date_label=f"{snapshot_date.day} {snapshot_date:%b %Y}",
         countries=available_countries,
+        european_countries=sorted(EUROPEAN_COUNTRIES),
         source_groups=source_groups,
         iso_fix=ISO_FIX,
     )

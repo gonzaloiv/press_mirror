@@ -1,9 +1,9 @@
 <footer class="page-footer">
-    <p class="page-footer-line page-footer-tagline">{{ app_name }} — What happened today, and who covered it.</p>
-    <p class="page-footer-line">
-        {% if not hide_footer_about_link %}<a href="{{ url_for('about') }}">How it works</a>
-        <span class="page-footer-separator" aria-hidden="true">·</span>{% endif %}
-        <span>pressmirror.eu</span>
-    </p>
-    <p class="page-footer-line">Every headline links to the original article at its original outlet. {{ app_name }} does not produce news.</p>
+    <div class="page-footer-topline">
+        <p class="page-footer-line page-footer-tagline"><span class="page-footer-brand">{{ app_name }} — </span><span class="page-footer-copy">What happened today, and who covered it.</span></p>
+        {% if not hide_footer_about_link %}
+        <a class="page-footer-about" href="{{ url_for('about') }}">How it works</a>
+        {% endif %}
+    </div>
+    <p class="page-footer-line page-footer-disclaimer">Every headline links to the original article at its original outlet. {{ app_name }} does not produce news.</p>
 </footer>

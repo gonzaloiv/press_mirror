@@ -49,7 +49,7 @@ if ($PSCmdlet.ShouldProcess(($runtimePaths -join ", "), "Stage Render app files"
 }
 
 if ($PSCmdlet.ShouldProcess(($dataPaths -join ", "), "Stage snapshot data and map images")) {
-    & git -C $repoRoot add -A -f -- $dataPaths
+    & git -C $repoRoot add -A -- $dataPaths
     if ($LASTEXITCODE -ne 0) {
         throw "Could not stage snapshot data and map images."
     }

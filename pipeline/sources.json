@@ -1,12 +1,13 @@
 {
-    "version": 5,
-    "generated": "2026-10-08",
+    "version": 6,
+    "generated": "2026-10-09",
     "notes": "Curated RSS feeds for Press | Mirror. Country codes use ISO 3166-1 alpha-2 except UK (which is GB in ISO but UK in common usage — normalize to GB before matching against GeoJSON).",
     "feeds": [
         {
             "source": "Le Monde",
             "country": "FR",
             "url": "https://www.lemonde.fr/rss/une.xml",
+            "site": "https://www.lemonde.fr",
             "lang": "fr",
             "lean": "centre-left"
         },
@@ -14,6 +15,7 @@
             "source": "Le Figaro",
             "country": "FR",
             "url": "https://www.lefigaro.fr/rss/figaro_actualites.xml",
+            "site": "https://www.lefigaro.fr",
             "lang": "fr",
             "lean": "centre-right"
         },
@@ -21,6 +23,7 @@
             "source": "France 24",
             "country": "FR",
             "url": "https://www.france24.com/fr/rss",
+            "site": "https://www.france24.com",
             "lang": "fr",
             "lean": "public"
         },
@@ -28,6 +31,7 @@
             "source": "Mediapart",
             "country": "FR",
             "url": "https://www.mediapart.fr/articles/feed",
+            "site": "https://www.mediapart.fr",
             "lang": "fr",
             "lean": "left"
         },
@@ -35,6 +39,7 @@
             "source": "L'Obs",
             "country": "FR",
             "url": "https://www.nouvelobs.com/a-la-une/rss.xml",
+            "site": "https://www.nouvelobs.com",
             "lang": "fr",
             "lean": "centre-left"
         },
@@ -42,6 +47,7 @@
             "source": "Ouest-France",
             "country": "FR",
             "url": "https://www.ouest-france.fr/rss-en-continu.xml",
+            "site": "https://www.ouest-france.fr",
             "lang": "fr",
             "lean": "centre"
         },
@@ -49,6 +55,7 @@
             "source": "El País",
             "country": "ES",
             "url": "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/portada",
+            "site": "https://elpais.com",
             "lang": "es",
             "lean": "centre-left"
         },
@@ -56,6 +63,7 @@
             "source": "El Mundo",
             "country": "ES",
             "url": "https://www.elmundo.es/rss/portada.xml",
+            "site": "https://www.elmundo.es",
             "lang": "es",
             "lean": "centre-right"
         },
@@ -63,6 +71,7 @@
             "source": "La Vanguardia",
             "country": "ES",
             "url": "https://www.lavanguardia.com/rss/home.xml",
+            "site": "https://www.lavanguardia.com",
             "lang": "es",
             "lean": "centre"
         },
@@ -70,6 +79,7 @@
             "source": "El Confidencial",
             "country": "ES",
             "url": "https://rss.elconfidencial.com/espana/",
+            "site": "https://www.elconfidencial.com",
             "lang": "es",
             "lean": "centre"
         },
@@ -77,6 +87,7 @@
             "source": "BBC World",
             "country": "UK",
             "url": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "site": "https://www.bbc.com/news",
             "lang": "en",
             "lean": "public"
         },
@@ -84,6 +95,7 @@
             "source": "The Guardian",
             "country": "UK",
             "url": "https://www.theguardian.com/world/rss",
+            "site": "https://www.theguardian.com",
             "lang": "en",
             "lean": "centre-left"
         },
@@ -91,6 +103,7 @@
             "source": "The Telegraph",
             "country": "UK",
             "url": "https://www.telegraph.co.uk/rss.xml",
+            "site": "https://www.telegraph.co.uk",
             "lang": "en",
             "lean": "centre-right"
         },
@@ -98,6 +111,7 @@
             "source": "Sky News",
             "country": "UK",
             "url": "https://feeds.skynews.com/feeds/rss/world.xml",
+            "site": "https://news.sky.com",
             "lang": "en",
             "lean": "centre"
         },
@@ -105,6 +119,7 @@
             "source": "Deutsche Welle",
             "country": "DE",
             "url": "https://rss.dw.com/rdf/rss-en-world",
+            "site": "https://www.dw.com",
             "lang": "en",
             "lean": "public"
         },
@@ -112,6 +127,7 @@
             "source": "Der Spiegel",
             "country": "DE",
             "url": "https://www.spiegel.de/international/index.rss",
+            "site": "https://www.spiegel.de",
             "lang": "en",
             "lean": "centre-left"
         },
@@ -119,6 +135,7 @@
             "source": "Tagesschau",
             "country": "DE",
             "url": "https://www.tagesschau.de/infoservices/alle-meldungen-100~rss2.xml",
+            "site": "https://www.tagesschau.de",
             "lang": "de",
             "lean": "public"
         },
@@ -126,6 +143,7 @@
             "source": "Süddeutsche Zeitung",
             "country": "DE",
             "url": "https://rss.sueddeutsche.de/rss/Topthemen",
+            "site": "https://www.sueddeutsche.de",
             "lang": "de",
             "lean": "centre-left"
         },
@@ -133,6 +151,7 @@
             "source": "Frankfurter Allgemeine",
             "country": "DE",
             "url": "https://www.faz.net/rss/aktuell/",
+            "site": "https://www.faz.net",
             "lang": "de",
             "lean": "centre-right"
         },
@@ -140,6 +159,7 @@
             "source": "Die Zeit",
             "country": "DE",
             "url": "https://newsfeed.zeit.de/index",
+            "site": "https://www.zeit.de",
             "lang": "de",
             "lean": "centre"
         },
@@ -147,6 +167,7 @@
             "source": "ANSA",
             "country": "IT",
             "url": "https://www.ansa.it/sito/ansait_rss.xml",
+            "site": "https://www.ansa.it",
             "lang": "it",
             "lean": "centre"
         },
@@ -154,6 +175,7 @@
             "source": "La Repubblica",
             "country": "IT",
             "url": "https://www.repubblica.it/rss/homepage/rss2.0.xml",
+            "site": "https://www.repubblica.it",
             "lang": "it",
             "lean": "centre-left"
         },
@@ -161,6 +183,7 @@
             "source": "Corriere della Sera",
             "country": "IT",
             "url": "https://www.corriere.it/rss/homepage.xml",
+            "site": "https://www.corriere.it",
             "lang": "it",
             "lean": "centre"
         },
@@ -168,6 +191,7 @@
             "source": "Il Sole 24 Ore",
             "country": "IT",
             "url": "https://www.ilsole24ore.com/rss/italia.xml",
+            "site": "https://www.ilsole24ore.com",
             "lang": "it",
             "lean": "centre"
         },
@@ -175,6 +199,7 @@
             "source": "De Telegraaf",
             "country": "NL",
             "url": "https://www.telegraaf.nl/rss",
+            "site": "https://www.telegraaf.nl",
             "lang": "nl",
             "lean": "right"
         },
@@ -182,6 +207,7 @@
             "source": "de Volkskrant",
             "country": "NL",
             "url": "https://www.volkskrant.nl/nieuws/rss.xml",
+            "site": "https://www.volkskrant.nl",
             "lang": "nl",
             "lean": "centre-left"
         },
@@ -189,6 +215,7 @@
             "source": "NRC",
             "country": "NL",
             "url": "https://www.nrc.nl/rss/",
+            "site": "https://www.nrc.nl",
             "lang": "nl",
             "lean": "centre-right"
         },
@@ -196,6 +223,7 @@
             "source": "Correio da Manhã",
             "country": "PT",
             "url": "https://www.cmjornal.pt/rss",
+            "site": "https://www.cmjornal.pt",
             "lang": "pt",
             "lean": "right"
         },
@@ -203,6 +231,7 @@
             "source": "Rzeczpospolita",
             "country": "PL",
             "url": "https://www.rp.pl/rss_main",
+            "site": "https://www.rp.pl",
             "lang": "pl",
             "lean": "centre-right"
         },
@@ -210,6 +239,7 @@
             "source": "Onet Wiadomości",
             "country": "PL",
             "url": "https://wiadomosci.onet.pl/.feed",
+            "site": "https://www.onet.pl",
             "lang": "pl",
             "lean": "centre"
         },
@@ -217,6 +247,7 @@
             "source": "La Libre Belgique",
             "country": "BE",
             "url": "https://www.lalibre.be/rss/",
+            "site": "https://www.lalibre.be",
             "lang": "fr",
             "lean": "centre"
         },
@@ -224,6 +255,7 @@
             "source": "Der Standard",
             "country": "AT",
             "url": "https://www.derstandard.at/rss",
+            "site": "https://www.derstandard.at",
             "lang": "de",
             "lean": "centre-left"
         },
@@ -231,6 +263,7 @@
             "source": "Kurier",
             "country": "AT",
             "url": "https://kurier.at/xml/rss",
+            "site": "https://kurier.at",
             "lang": "de",
             "lean": "centre"
         },
@@ -238,6 +271,7 @@
             "source": "Dagens Nyheter",
             "country": "SE",
             "url": "https://www.dn.se/rss/",
+            "site": "https://www.dn.se",
             "lang": "sv",
             "lean": "centre"
         },
@@ -245,6 +279,7 @@
             "source": "Helsingin Sanomat",
             "country": "FI",
             "url": "https://www.hs.fi/rss/tuoreimmat.xml",
+            "site": "https://www.hs.fi",
             "lang": "fi",
             "lean": "centre"
         },
@@ -252,6 +287,7 @@
             "source": "Irish Independent",
             "country": "IE",
             "url": "https://www.independent.ie/rss/",
+            "site": "https://www.independent.ie",
             "lang": "en",
             "lean": "centre-right"
         },
@@ -259,6 +295,7 @@
             "source": "iDNES.cz",
             "country": "CZ",
             "url": "http://servis.idnes.cz/rss.aspx?c=zpravodaj",
+            "site": "https://www.idnes.cz",
             "lang": "cs",
             "lean": "centre-right"
         },
@@ -266,6 +303,7 @@
             "source": "Telex.hu",
             "country": "HU",
             "url": "https://telex.hu/rss",
+            "site": "https://telex.hu",
             "lang": "hu",
             "lean": "centre"
         },
@@ -273,6 +311,7 @@
             "source": "Postimees",
             "country": "EE",
             "url": "https://www.postimees.ee/rss",
+            "site": "https://www.postimees.ee",
             "lang": "et",
             "lean": "centre"
         },
@@ -280,6 +319,7 @@
             "source": "Aftenposten",
             "country": "NO",
             "url": "https://www.aftenposten.no/rss",
+            "site": "https://www.aftenposten.no",
             "lang": "no",
             "lean": "centre"
         },
@@ -287,6 +327,7 @@
             "source": "Neue Zürcher Zeitung",
             "country": "CH",
             "url": "https://www.nzz.ch/recent.rss",
+            "site": "https://www.nzz.ch",
             "lang": "de",
             "lean": "centre-right"
         },
@@ -294,6 +335,7 @@
             "source": "The Kyiv Independent",
             "country": "UA",
             "url": "https://kyivindependent.com/feed.xml",
+            "site": "https://kyivindependent.com",
             "lang": "en",
             "lean": "centre"
         }
