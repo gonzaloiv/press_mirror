@@ -4,6 +4,7 @@ from unittest.mock import patch
 import numpy as np
 
 from pipeline.clustering.cluster import build_clusters
+from shared.cluster_selection import selected_cluster_indices
 
 
 def _article(index, source, country):
@@ -84,6 +85,69 @@ class BuildClustersLabelSelectionTests(unittest.TestCase):
         )
         self.assertEqual(result[1]["terms"], [])
         self.assertNotIn("label_source", result[1])
+
+    def test_low_similarity_to_representative_suppresses_label(self):
+        articles = [
+            _article(index, f"source{index}", country)
+            for index, country in enumerate(
+                ["AT", "BE", "DE", "IT", "ES", "CH"]
+            )
+        ]
+        titles = [article["title"] for article in articles]
+        sources = [article["source"] for article in articles]
+        countries = [article["country"] for article in articles]
+        links = [article["link"] for article in articles]
+        outlier_angle = np.rad2deg(np.arccos(0.65))
+        angles = np.deg2rad([0, 0, 0, 0, 0, outlier_angle])
+        embeddings = np.column_stack((np.cos(angles), np.sin(angles)))
+        labeled_titles = []
+
+        def fake_labeler(cluster_titles):
+            labeled_titles.append(list(cluster_titles))
+            return ["term"]
+
+        result = build_clusters(
+            [0] * 6,
+            titles,
+            sources,
+            countries,
+            links,
+            embeddings,
+            fake_labeler,
+            deduplicate=False,
+            merge=False,
+        )
+
+        self.assertGreaterEqual(result[0]["avg_similarity"], 0.74)
+        self.assertAlmostEqual(
+            result[0]["min_representative_similarity"], 0.65, places=3
+        )
+        self.assertEqual(labeled_titles, [])
+        self.assertEqual(result[0]["label"], "")
+
+    def test_cutoffs_keep_coherent_stories_and_reject_loose_clusters(self):
+        articles = [
+            _article(index, f"source{index}", country)
+            for index, country in enumerate(
+                ["AT", "BE", "DE", "IT", "ES", "CH"]
+            )
+        ]
+        scores = [
+            (0.748, 0.716),
+            (0.758, 0.694),
+            (0.765, 0.682),
+            (0.740, 0.699),
+        ]
+        clusters = [
+            {
+                "avg_similarity": avg_similarity,
+                "min_representative_similarity": representative_similarity,
+                "articles": articles,
+            }
+            for avg_similarity, representative_similarity in scores
+        ]
+
+        self.assertEqual(selected_cluster_indices(clusters), [1, 2])
 
 
 if __name__ == "__main__":
