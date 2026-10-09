@@ -85,6 +85,44 @@ class BuildClustersLabelSelectionTests(unittest.TestCase):
         self.assertEqual(result[1]["terms"], [])
         self.assertNotIn("label_source", result[1])
 
+    def test_low_similarity_to_representative_suppresses_label(self):
+        articles = [
+            _article(index, f"source{index}", country)
+            for index, country in enumerate(
+                ["AT", "BE", "DE", "IT", "ES", "CH"]
+            )
+        ]
+        titles = [article["title"] for article in articles]
+        sources = [article["source"] for article in articles]
+        countries = [article["country"] for article in articles]
+        links = [article["link"] for article in articles]
+        outlier_angle = np.rad2deg(np.arccos(0.716))
+        angles = np.deg2rad([0, 0, 0, 0, 0, outlier_angle])
+        embeddings = np.column_stack((np.cos(angles), np.sin(angles)))
+        labeled_titles = []
+
+        def fake_labeler(cluster_titles):
+            labeled_titles.append(list(cluster_titles))
+            return ["term"]
+
+        result = build_clusters(
+            [0] * 6,
+            titles,
+            sources,
+            countries,
+            links,
+            embeddings,
+            fake_labeler,
+            deduplicate=False,
+            merge=False,
+        )
+
+        self.assertGreaterEqual(result[0]["avg_similarity"], 0.74)
+        self.assertAlmostEqual(
+            result[0]["min_representative_similarity"], 0.716, places=3
+        )
+        self.assertEqual(labeled_titles, [])
+        self.assertEqual(result[0]["label"], "")
 
 if __name__ == "__main__":
     unittest.main()

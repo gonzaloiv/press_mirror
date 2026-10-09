@@ -268,6 +268,10 @@ def build_clusters(
             sub,
             centroid.reshape(1, -1),
         ).ravel()
+        representative_position = int(np.argmax(similarities))
+        min_representative_similarity = sim_matrix[
+            representative_position
+        ].min()
         ranked_positions = np.argsort(-similarities, kind="stable")
         cluster_titles = [
             titles[indices[position]] for position in ranked_positions
@@ -278,6 +282,9 @@ def build_clusters(
             "terms": [],
             "size": len(indices),
             "avg_similarity": round(float(avg_sim), 3),
+            "min_representative_similarity": round(
+                float(min_representative_similarity), 3
+            ),
             "articles": articles,
         }
         if cluster.dropped_sources:
