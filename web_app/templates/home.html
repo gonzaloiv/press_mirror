@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ language }}">
 
 <head>
     <meta charset="utf-8">
@@ -23,7 +23,7 @@
         {% include "_header.html" %}
         {% include "_snapshot_navigation.html" %}
 
-        <section class="story-grid" aria-label="Top stories for {{ date_label }}">
+        <section class="story-grid" aria-label="{{ strings.top_stories_aria|replace('{date}', date_label) }}">
             {% for card in cards %}
             <a class="card" href="{{ card.map_url }}">
                 <img src="{{ card.image_path }}" alt="">

@@ -1,0 +1,453 @@
+[
+  {
+    "label": "PSOE considera listas conjuntas con izquierdas para Senado",
+    "terms": [
+      "PSOE",
+      "listas",
+      "Senado",
+      "concurrir",
+      "estudian",
+      "izquierda",
+      "mayoría"
+    ],
+    "size": 3,
+    "avg_similarity": 0.874,
+    "min_representative_similarity": 0.88,
+    "articles": [
+      {
+        "title": "El PSOE estudia concurrir en el Senado en listas conjuntas con otras formaciones de izquierda",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/espana/elecciones-generales/2026-10-09/el-psoe-estudia-concurrir-en-el-senado-en-listas-conjuntas-con-otras-formaciones-de-izquierda.html",
+        "fetched_at": "2026-10-09T12:23:20.767014+00:00"
+      },
+      {
+        "title": "PSOE y Frente Amplio estudian concurrir al Senado en una lista conjunta para evitar que el PP reedite su mayoría absoluta",
+        "source": "El Mundo",
+        "country": "ES",
+        "link": "https://www.elmundo.es/elecciones/elecciones-generales/2026/10/09/6ac8d482fc6c8373388b45b4.html",
+        "fetched_at": "2026-10-09T12:23:21.437329+00:00"
+      },
+      {
+        "title": "El PSOE explora listas conjuntas de izquierdas frente a la mayoría del PP en el Senado",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/politica/20261009/11655079/psoe-explora-listas-conjuntas-izquierdas-frente-mayoria-absoluta-pp-senado.html",
+        "fetched_at": "2026-10-09T12:23:22.452855+00:00"
+      }
+    ],
+    "label_source": "llm",
+    "label_review": {
+      "status": "accepted",
+      "reason": "accepted"
+    }
+  },
+  {
+    "label": "Juez rechaza imputar a PSOE \"en este momento\" sobre",
+    "terms": [
+      "momento",
+      "juez Pedraz rechaza",
+      "PSOE",
+      "caso Leire"
+    ],
+    "size": 3,
+    "avg_similarity": 0.925,
+    "min_representative_similarity": 0.925,
+    "articles": [
+      {
+        "title": "El juez Pedraz rechaza imputar “en este momento” al PSOE en el ‘caso Leire Díez’, como pedía el PP",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/espana/2026-10-09/el-juez-pedraz-rechaza-imputar-por-ahora-al-psoe-en-el-caso-leire-diez-como-pedia-el-pp.html",
+        "fetched_at": "2026-10-09T12:23:20.767014+00:00"
+      },
+      {
+        "title": "El juez Pedraz rechaza imputar al PSOE \"en este momento\" en el 'caso Cloacas'",
+        "source": "El Mundo",
+        "country": "ES",
+        "link": "https://www.elmundo.es/espana/2026/10/09/6ac8af6efdddffc46e8b45c2.html",
+        "fetched_at": "2026-10-09T12:23:21.437329+00:00"
+      },
+      {
+        "title": "El juez Pedraz descarta “de momento” imputar al PSOE en el caso Leire",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/politica/20261009/11655051/juez-pedraz-descarta-momento-imputar-psoe-caso-cloacas.html",
+        "fetched_at": "2026-10-09T12:23:22.452855+00:00"
+      }
+    ],
+    "label_source": "llm",
+    "label_review": {
+      "status": "accepted",
+      "reason": "accepted_after_truncation"
+    }
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.804,
+    "min_representative_similarity": 0.804,
+    "articles": [
+      {
+        "title": "Feijóo acepta un debate cara a cara con Sánchez y otro a cuatro con el resto de candidatos",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/espana/elecciones-generales/2026-10-09/feijoo-acepta-un-debate-cara-a-cara-con-sanchez-y-otro-a-cuatro-con-el-resto-de-candidatos.html",
+        "fetched_at": "2026-10-09T12:23:20.767014+00:00"
+      },
+      {
+        "title": "Feijóo acepta dos debates electorales con Sánchez, incluido un cara a cara, y a TVE le concede sólo una entrevista",
+        "source": "El Mundo",
+        "country": "ES",
+        "link": "https://www.elmundo.es/elecciones/elecciones-generales/2026/10/09/6ac8a01c21efa09f4a8b4582.html",
+        "fetched_at": "2026-10-09T12:23:21.437329+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.916,
+    "min_representative_similarity": 0.916,
+    "articles": [
+      {
+        "title": "La jurista sudafricana Navi Pillay, Premio Nobel de la Paz 2026",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/internacional/2026-10-09/premio-nobel-de-la-paz.html",
+        "fetched_at": "2026-10-09T12:23:20.767014+00:00"
+      },
+      {
+        "title": "La jurista sudafricana Navanethem Pillay gana el Nobel de Paz del 2026",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/internacional/20261009/11655046/jurista-sudafricana-navanethem-pillay-gana-premio-nobel-paz-2026.html",
+        "fetched_at": "2026-10-09T12:23:22.452855+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.778,
+    "min_representative_similarity": 0.778,
+    "articles": [
+      {
+        "title": "Aliança Catalana revienta el tablero en España",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/opinion/2026-10-09/alianca-catalana-revienta-el-tablero-en-espana.html",
+        "fetched_at": "2026-10-09T12:23:20.767014+00:00"
+      },
+      {
+        "title": "Quién es Sílvia Orriols: de administrativa en una empresa privada a alcaldesa de Ripoll y líder de Aliança Catalana",
+        "source": "El Confidencial",
+        "country": "ES",
+        "link": "https://www.elconfidencial.com/espana/2026-10-09/quien-es-silvia-orriols_4441669/",
+        "fetched_at": "2026-10-09T12:23:23.181310+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.726,
+    "min_representative_similarity": 0.726,
+    "articles": [
+      {
+        "title": "El Banco de España mejora la previsión de crecimiento hasta el 2,6% para 2026, pero alerta de un duro repunte de la inflación",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/economia/2026-10-09/el-banco-de-espana-mejora-la-prevision-de-crecimiento-hasta-el-26-para-2026-pero-alerta-de-un-duro-repunte-de-la-inflacion.html",
+        "fetched_at": "2026-10-09T12:23:20.767014+00:00"
+      },
+      {
+        "title": "El Banco de España prevé \"inflación elevada\" hasta 2028 y avisa de \"persistencia de restricciones\" en la construcción de viviendas",
+        "source": "El Mundo",
+        "country": "ES",
+        "link": "https://www.elmundo.es/economia/2026/10/09/6ac7e688e85ecee15e8b45a2.html",
+        "fetched_at": "2026-10-09T12:23:21.437329+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.957,
+    "min_representative_similarity": 0.957,
+    "articles": [
+      {
+        "title": "Un agente del ICE dispara y hiere en Nueva York a un hombre acompañado por un niño de cinco años",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/us/migracion/2026-10-08/un-agente-del-ice-dispara-y-hiere-a-una-persona-en-la-ciudad-de-nueva-york.html",
+        "fetched_at": "2026-10-09T12:23:20.767014+00:00"
+      },
+      {
+        "title": "Un agente del ICE dispara contra un hombre que circulaba junto a su hijo de cinco años en Nueva York",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/internacional/20261009/11654860/agente-ice-dispara-hombre-nueva-york-dominicano.html",
+        "fetched_at": "2026-10-09T12:23:22.452855+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.864,
+    "min_representative_similarity": 0.864,
+    "articles": [
+      {
+        "title": "El juez investiga a tres maestras de un colegio concertado de Madrid por maltratar a bebés: “Les tapaba la nariz para tragar”",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/educacion/2026-10-09/el-juez-investiga-a-tres-maestras-de-un-colegio-concertado-de-madrid-por-maltratar-a-bebes-les-tapaba-la-nariz-para-tragar.html",
+        "fetched_at": "2026-10-09T12:23:20.767014+00:00"
+      },
+      {
+        "title": "Un juez investiga a tres educadoras de un colegio concertado de Alcalá por maltrato a bebés",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/local/madrid/20261009/11654907/juez-investiga-tres-educadoras-colegio-concertado-alcala-maltrato-bebes.html",
+        "fetched_at": "2026-10-09T12:23:22.452855+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.753,
+    "min_representative_similarity": 0.753,
+    "articles": [
+      {
+        "title": "Una remota huelga general",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/opinion/2026-10-09/una-remota-huelga-general.html",
+        "fetched_at": "2026-10-09T12:23:20.767014+00:00"
+      },
+      {
+        "title": "Encuesta: ¿Apruebas la convocatoria de una huelga general?",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/participacion/debates/20261009/11652023/encuesta-apruebas-convocatoria-huelga-general.html",
+        "fetched_at": "2026-10-09T12:23:22.452855+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.763,
+    "min_representative_similarity": 0.763,
+    "articles": [
+      {
+        "title": "El Gobierno de Aragón anuncia que prevé recibir parte de las pinturas de Sijena el 5 de noviembre",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/espana/catalunya/2026-10-09/el-gobierno-de-aragon-anuncia-que-preve-recibir-parte-de-las-pinturas-de-sijena-el-5-de-noviembre.html",
+        "fetched_at": "2026-10-09T12:23:20.767014+00:00"
+      },
+      {
+        "title": "El traslado de las pinturas profanas de Sijena del MNAC a Aragón comenzará el 19 de octubre",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/cultura/20261009/11655157/traslado-pinturas-profanas-sijena-mnac-aragon-comenzara-19-octubre.html",
+        "fetched_at": "2026-10-09T12:23:22.452855+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.725,
+    "min_representative_similarity": 0.725,
+    "articles": [
+      {
+        "title": "Obesidad: el peso de los prejuicios en una enfermedad crónica y compleja",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/sociedad/2026-10-09/obesidad-el-peso-de-los-prejuicios-en-una-enfermedad-cronica-y-compleja.html",
+        "fetched_at": "2026-10-09T12:23:20.767014+00:00"
+      },
+      {
+        "title": "La UB y Novo impulsan una nueva forma de abordar la obesidad centrada en la persona",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/launi/20261009/11655076/ub-novo-impulsan-nueva-forma-abordar-obesidad-centrada-persona.html",
+        "fetched_at": "2026-10-09T12:23:22.452855+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.812,
+    "min_representative_similarity": 0.812,
+    "articles": [
+      {
+        "title": "Bruselas añade dos proyectos más en España para impulsar las materias primas estratégicas en la UE",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/economia/2026-10-09/bruselas-anade-dos-proyectos-mas-en-espana-para-impulsar-las-materias-primas-estrategicas-en-la-ue.html",
+        "fetched_at": "2026-10-09T12:23:20.767014+00:00"
+      },
+      {
+        "title": "La UE elige otros dos proyectos españoles en su estrategia para extraer materias primas críticas",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/economia/20261009/11654999/ue-elige-otros-dos-proyectos-espanoles-estrategia-extraer-materias-primas-criticas.html",
+        "fetched_at": "2026-10-09T12:23:22.452855+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.906,
+    "min_representative_similarity": 0.906,
+    "articles": [
+      {
+        "title": "Los Reyes dormirán en Ceuta: primera vez desde Alfonso XIII que un jefe de Estado pernocta en la ciudad autónoma",
+        "source": "El Mundo",
+        "country": "ES",
+        "link": "https://www.elmundo.es/espana/2026/10/09/6ac87a9fe4d4d8862e8b45b6.html",
+        "fetched_at": "2026-10-09T12:23:21.437329+00:00"
+      },
+      {
+        "title": "Los Reyes pasarán la noche en Ceuta: Felipe VI será el primer jefe del Estado que duerma allí",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/politica/20261009/11655096/reyes-pasaran-noche-ceuta-felipe-vi-sera-primer-jefe-duerma-ciudad.html",
+        "fetched_at": "2026-10-09T12:23:22.452855+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.901,
+    "min_representative_similarity": 0.901,
+    "articles": [
+      {
+        "title": "Christa Pike desarrolla neumonía y un grave trauma psicológico tras sobrevivir a dos inyecciones letales en Tennessee",
+        "source": "El Mundo",
+        "country": "ES",
+        "link": "https://www.elmundo.es/internacional/2026/10/09/6ac8d5c421efa04f078b45c5.html",
+        "fetched_at": "2026-10-09T12:23:21.437329+00:00"
+      },
+      {
+        "title": "Christa Pike padece neumonía tras sobrevivir a las dos inyecciones letales en Tennessee",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/internacional/20261009/11654915/christa-pike-padece-neumonia-sobrevivir-dos-inyecciones-letales-tennessee.html",
+        "fetched_at": "2026-10-09T12:23:22.452855+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.741,
+    "min_representative_similarity": 0.741,
+    "articles": [
+      {
+        "title": "Lo conmovedor y lo monstruoso",
+        "source": "El Mundo",
+        "country": "ES",
+        "link": "https://www.elmundo.es/espana/2026/10/09/6ac7c959e4d4d801548b4598.html",
+        "fetched_at": "2026-10-09T12:23:21.437329+00:00"
+      },
+      {
+        "title": "Las púas del arado",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/opinion/20261009/11654322/puas-arado.html",
+        "fetched_at": "2026-10-09T12:23:22.452855+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.72,
+    "min_representative_similarity": 0.72,
+    "articles": [
+      {
+        "title": "Gustavo Oliva, referente del pádel español con un cáncer terminal de colon, se despide de amigos y familiares en una emotiva carta:  \"Irte con 58 años  es pronto\"",
+        "source": "El Mundo",
+        "country": "ES",
+        "link": "https://www.elmundo.es/deportes/padel/2026/10/09/6ac895c4fdddffa4378b459d.html",
+        "fetched_at": "2026-10-09T12:23:21.437329+00:00"
+      },
+      {
+        "title": "Gustavo Oliva, referente del pádel catalán, se despide tras padecer cáncer con metástasis a los 58 años: “Mi vida en la Tierra llega a su fin”",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/deportes/20261009/11654982/gustavo-oliva-leyenda-padel-despide-padecer-cancer-metastasis-58-anos.html",
+        "fetched_at": "2026-10-09T12:23:22.452855+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.935,
+    "min_representative_similarity": 0.935,
+    "articles": [
+      {
+        "title": "Sánchez no descarta indultar al ex fiscal general del Estado en las próximas semanas",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/politica/20261009/11655029/gobierno-descarta-indultar-ex-fiscal-general-proximas-semanas.html",
+        "fetched_at": "2026-10-09T12:23:22.452855+00:00"
+      },
+      {
+        "title": "Sánchez no descarta conceder el indulto al exfiscal general del Estado antes del 29N",
+        "source": "El Confidencial",
+        "country": "ES",
+        "link": "https://www.elconfidencial.com/espana/2026-10-09/sanchez-indulto-al-exfiscal-general-del-estado-antes-del-29n_4441703/",
+        "fetched_at": "2026-10-09T12:23:23.181310+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.734,
+    "min_representative_similarity": 0.734,
+    "articles": [
+      {
+        "title": "Madrid despide a Maricarmen con una marcha multitudinaria",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/politica/20261008/11654566/marcha-pacifica-multitudinaria-despide-maricarmen-madrid.html",
+        "fetched_at": "2026-10-09T12:23:22.452855+00:00"
+      },
+      {
+        "title": "Manifestaciones por Maricarmen hoy en Barcelona y homenaje en Málaga: los horarios y lugares de las concentraciones",
+        "source": "El Confidencial",
+        "country": "ES",
+        "link": "https://www.elconfidencial.com/espana/2026-10-09/manifesttaciones-maricarmen-barcelona-homenaje-malaga-1qrt_4441772/",
+        "fetched_at": "2026-10-09T12:23:23.181310+00:00"
+      }
+    ]
+  }
+]

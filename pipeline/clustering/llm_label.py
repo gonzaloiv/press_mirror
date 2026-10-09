@@ -25,6 +25,19 @@ _SYSTEM_PROMPT = (
     "adjective that is missing its noun."
 )
 
+_SYSTEM_PROMPT_ES = (
+    "Escribes un titular de prensa breve y factual en español. "
+    "Escribe siempre en español. "
+    "Usa solo los términos compartidos y el contexto de titulares dados; no "
+    "inventes nombres, lugares ni cifras. "
+    "Escribe un único titular completo de como máximo {max_words} palabras, "
+    "sin comillas, sin listas y sin dos puntos. "
+    "Termina siempre la idea: nunca acabes en una preposición, un artículo o "
+    "un adjetivo al que le falte el sustantivo."
+)
+
+_SYSTEM_PROMPTS = {"en": _SYSTEM_PROMPT, "es": _SYSTEM_PROMPT_ES}
+
 _FEW_SHOT = (
     (["gear", "factory", "fire"], "Fire breaks out at gear factory"),
     (
@@ -33,31 +46,58 @@ _FEW_SHOT = (
     ),
 )
 
+_FEW_SHOT_ES = (
+    (
+        ["fábrica", "engranajes", "incendio"],
+        "Se incendia una fábrica de engranajes",
+    ),
+    (
+        ["elecciones", "presidente", "protestas"],
+        "Protestas tras las elecciones presidenciales",
+    ),
+)
 
-def _user_prompt(terms: list[str], headlines) -> str:
+_FEW_SHOTS = {"en": _FEW_SHOT, "es": _FEW_SHOT_ES}
+
+_WRITE_INSTRUCTION = {
+    "en": "Write the English headline.",
+    "es": "Escribe el titular en español.",
+}
+
+
+def _user_prompt(terms: list[str], headlines, language: str) -> str:
     lines = ["Shared terms: " + ", ".join(terms)]
     context = [title for title in headlines if title and title.strip()]
     if context:
         lines.append("Headline context:")
         for headline in context[:LLM_CONTEXT_HEADLINES]:
             lines.append(f"- {headline}")
-    lines.append("Write the English headline.")
+    lines.append(_WRITE_INSTRUCTION.get(language, _WRITE_INSTRUCTION["en"]))
     return "\n".join(lines)
 
 
-def _messages(terms: list[str], headlines, max_words: int):
+def _messages(terms: list[str], headlines, max_words: int, language: str):
     messages = [
         {
             "role": "system",
-            "content": _SYSTEM_PROMPT.format(max_words=max_words),
+            "content": _SYSTEM_PROMPTS.get(language, _SYSTEM_PROMPT).format(
+                max_words=max_words
+            ),
         }
     ]
-    for example_terms, example_headline in _FEW_SHOT:
+    for example_terms, example_headline in _FEW_SHOTS.get(
+        language, _FEW_SHOT
+    ):
         messages.append(
-            {"role": "user", "content": _user_prompt(example_terms, [])}
+            {
+                "role": "user",
+                "content": _user_prompt(example_terms, [], language),
+            }
         )
         messages.append({"role": "assistant", "content": example_headline})
-    messages.append({"role": "user", "content": _user_prompt(terms, headlines)})
+    messages.append(
+        {"role": "user", "content": _user_prompt(terms, headlines, language)}
+    )
     return messages
 
 
@@ -66,6 +106,7 @@ _DANGLING_WORDS = frozenset(
     a an the and or of to in on with for from at by as is are was were be been
     has have had will would that this these those one two three four five six
     seven eight nine ten
+    el la los las un una unos unas del al de en a por para con y o que
     """.split()
 )
 
@@ -184,6 +225,7 @@ def generate_llm_label_reviewed(
     headlines=(),
     *,
     max_words: int = LLM_MAX_WORDS,
+    language: str = "en",
     generator=None,
 ) -> tuple[str | None, str]:
     if not terms:
@@ -191,7 +233,7 @@ def generate_llm_label_reviewed(
     try:
         model = generator if generator is not None else _load_generator()
         prompt = model.tokenizer.apply_chat_template(
-            _messages(terms, headlines, max_words),
+            _messages(terms, headlines, max_words, language),
             tokenize=False,
             add_generation_prompt=True,
         )
@@ -210,9 +252,14 @@ def generate_llm_label(
     headlines=(),
     *,
     max_words: int = LLM_MAX_WORDS,
+    language: str = "en",
     generator=None,
 ) -> str | None:
     label, _ = generate_llm_label_reviewed(
-        terms, headlines, max_words=max_words, generator=generator
+        terms,
+        headlines,
+        max_words=max_words,
+        language=language,
+        generator=generator,
     )
     return label

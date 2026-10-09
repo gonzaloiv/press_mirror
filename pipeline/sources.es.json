@@ -1,0 +1,39 @@
+{
+    "version": 1,
+    "generated": "2026-10-09",
+    "notes": "Spanish edition feeds. Curate this list with the Spanish-language outlets you want tracked. Country codes are ISO 3166-1 alpha-2. The starter feeds below are all Spanish outlets (ES) so the edition renders immediately; add outlets from other countries if the edition should track them on the map.",
+    "feeds": [
+        {
+            "source": "El País",
+            "country": "ES",
+            "url": "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/portada",
+            "site": "https://elpais.com",
+            "lang": "es",
+            "lean": "centre-left"
+        },
+        {
+            "source": "El Mundo",
+            "country": "ES",
+            "url": "https://www.elmundo.es/rss/portada.xml",
+            "site": "https://www.elmundo.es",
+            "lang": "es",
+            "lean": "centre-right"
+        },
+        {
+            "source": "La Vanguardia",
+            "country": "ES",
+            "url": "https://www.lavanguardia.com/rss/home.xml",
+            "site": "https://www.lavanguardia.com",
+            "lang": "es",
+            "lean": "centre"
+        },
+        {
+            "source": "El Confidencial",
+            "country": "ES",
+            "url": "https://rss.elconfidencial.com/espana/",
+            "site": "https://www.elconfidencial.com",
+            "lang": "es",
+            "lean": "centre"
+        }
+    ]
+}

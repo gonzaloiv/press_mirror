@@ -1,3 +1,4 @@
+import argparse
 import json
 import re
 import socket
@@ -11,8 +12,11 @@ from urllib.request import Request, urlopen
 import feedparser
 
 PROJECT_DIR = Path(__file__).resolve().parent.parent
-SOURCES_FILE = Path(__file__).resolve().parent / "sources.json"
-HISTORY_DIR = PROJECT_DIR / "history"
+if str(PROJECT_DIR) not in sys.path:
+    sys.path.insert(0, str(PROJECT_DIR))
+
+from shared.editions import DEFAULT_EDITION_KEY, EDITIONS, get_edition
+
 USER_AGENT = "Mozilla/5.0 (compatible; PressMirrorBot/0.1; +https://pressmirror.eu)"
 FETCH_TIMEOUT_SECONDS = 10
 RETRY_DELAY_SECONDS = 2
@@ -27,9 +31,9 @@ UNESCAPED_AMPERSAND = re.compile(
 ILLEGAL_XML_CONTROLS = re.compile(rb"[\x00-\x08\x0B\x0C\x0E-\x1F]")
 
 
-def load_feeds() -> list[dict]:
-    """Load configured RSS feeds from sources.json."""
-    with SOURCES_FILE.open(encoding="utf-8") as f:
+def load_feeds(sources_file: Path) -> list[dict]:
+    """Load configured RSS feeds from an edition's sources file."""
+    with sources_file.open(encoding="utf-8") as f:
         config = json.load(f)
     return config["feeds"]
 
@@ -156,14 +160,32 @@ def fetch_feed(feed: dict, parsed) -> list[dict]:
     return articles
 
 
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Fetch each edition's configured RSS feeds into dated headline files."
+    )
+    parser.add_argument(
+        "--edition",
+        default=DEFAULT_EDITION_KEY,
+        choices=sorted(EDITIONS),
+        help="Edition to ingest (default: %(default)s).",
+    )
+    return parser.parse_args()
+
+
 def main():
+    args = parse_args()
+    edition = get_edition(args.edition)
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(errors="backslashreplace")
 
     all_articles = []
     failures = []
-    feeds = load_feeds()
-    print(f"Loaded {len(feeds)} feeds from {SOURCES_FILE}.")
+    feeds = load_feeds(edition.sources_file)
+    print(
+        f"Loaded {len(feeds)} feeds for edition '{edition.key}' "
+        f"from {edition.sources_file}."
+    )
 
     print("\nValidating feeds and fetching headlines...")
     for feed in feeds:
@@ -238,8 +260,8 @@ def main():
             seen.add(a["link"])
             unique.append(a)
 
-    HISTORY_DIR.mkdir(parents=True, exist_ok=True)
-    output_file = HISTORY_DIR / f"headlines_{date.today().isoformat()}.json"
+    edition.history_dir.mkdir(parents=True, exist_ok=True)
+    output_file = edition.history_dir / f"headlines_{date.today().isoformat()}.json"
     with output_file.open("w", encoding="utf-8") as f:
         json.dump(unique, f, ensure_ascii=False, indent=2)
 

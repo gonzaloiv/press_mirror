@@ -1,0 +1,9 @@
+<ul class="about-sources">
+    {% for group in source_groups %}
+    <li>
+        <span class="about-source-country">{{ group.name }}</span>
+        <span class="about-source-outlets">{% for outlet in group.outlets %}<a href="{{ outlet.url }}"
+                target="_blank" rel="noopener noreferrer">{{ outlet.name }}</a>{% if not loop.last %}, {% endif %}{% endfor %}</span>
+    </li>
+    {% endfor %}
+</ul>

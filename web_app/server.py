@@ -4,30 +4,59 @@ import sys
 from datetime import date, datetime, timezone
 from pathlib import Path
 
-from flask import Flask, abort, render_template, request, url_for
+from flask import Flask, abort, g, render_template, request, url_for
 
 PROJECT_DIR = Path(__file__).resolve().parent.parent
 if str(PROJECT_DIR) not in sys.path:
     sys.path.insert(0, str(PROJECT_DIR))
 
 from shared.country_codes import (
-    COUNTRY_NAMES,
     EUROPEAN_COUNTRIES,
     ISO_FIX,
+    country_name,
     to_iso,
 )
 from shared.cluster_selection import selected_cluster_indices
+from shared.editions import EDITIONS, DEFAULT_EDITION_KEY, edition_from_path
+from web_app.i18n import ABOUT_TITLE, about_sections, coverage_line, ui_strings
 from web_app.map_presentation import european_coverage, map_viewport
 
-HISTORY_DIR = PROJECT_DIR / "history"
 STATIC_DIR = PROJECT_DIR / "static"
 STATIC_DIR.mkdir(parents=True, exist_ok=True)
-SOURCES_FILE = PROJECT_DIR / "pipeline" / "sources.json"
 
 APP_NAME = r"Press\Mirror"
 
 app = Flask(__name__, static_folder=str(STATIC_DIR), static_url_path="/static")
 app.jinja_env.globals["app_name"] = APP_NAME
+
+
+def eurl(endpoint: str, **values) -> str:
+    """Build a URL for the edition currently being rendered."""
+    edition = getattr(g, "edition", EDITIONS[DEFAULT_EDITION_KEY])
+    return url_for(f"{endpoint}_{edition.key}", **values)
+
+
+app.jinja_env.globals["eurl"] = eurl
+
+
+@app.before_request
+def resolve_edition() -> None:
+    g.edition = edition_from_path(request.path)
+
+
+@app.context_processor
+def inject_i18n() -> dict:
+    edition = getattr(g, "edition", EDITIONS[DEFAULT_EDITION_KEY])
+    other_key = "es" if edition.key == "en" else "en"
+    strings = ui_strings(edition.language, APP_NAME)
+    return {
+        "strings": strings,
+        "edition": edition,
+        "language": edition.language,
+        "other_edition_url": url_for(f"index_{other_key}"),
+        "language_switch_label": strings["language_switch"],
+        "language_switch_aria": strings["language_switch_aria"],
+    }
 
 
 def latest_fetched_at(articles: list[dict]) -> datetime | None:
@@ -43,17 +72,21 @@ def latest_fetched_at(articles: list[dict]) -> datetime | None:
     return max(timestamps, default=None)
 
 
-def cluster_files() -> list[Path]:
+def cluster_files(edition) -> list[Path]:
     """Return available dated cluster snapshots, newest first."""
-    files = sorted(HISTORY_DIR.glob("clusters_????-??-??.json"), reverse=True)
+    files = sorted(
+        edition.history_dir.glob("clusters_????-??-??.json"), reverse=True
+    )
     if not files:
-        raise FileNotFoundError(f"No dated cluster files found in {HISTORY_DIR}")
+        raise FileNotFoundError(
+            f"No dated cluster files found in {edition.history_dir}"
+        )
     return files
 
 
-def snapshot_file(snapshot_date: str | None = None) -> Path:
+def snapshot_file(edition, snapshot_date: str | None = None) -> Path:
     """Find a requested snapshot or default to the most recent one."""
-    files = cluster_files()
+    files = cluster_files(edition)
     if snapshot_date is None:
         return files[0]
     for path in files:
@@ -62,17 +95,17 @@ def snapshot_file(snapshot_date: str | None = None) -> Path:
     abort(404)
 
 
-def active_countries(snapshot_date: str) -> list[str]:
+def active_countries(edition, snapshot_date: str) -> list[str]:
     """Return countries whose feeds produced headlines in this snapshot."""
-    headlines_file = HISTORY_DIR / f"headlines_{snapshot_date}.json"
+    headlines_file = edition.history_dir / f"headlines_{snapshot_date}.json"
     with headlines_file.open(encoding="utf-8") as f:
         headlines = json.load(f)
     return sorted({to_iso(headline["country"]) for headline in headlines})
 
 
-def source_groups() -> list[dict]:
+def source_groups(edition) -> list[dict]:
     """Group the configured feeds by country for the about page."""
-    with SOURCES_FILE.open(encoding="utf-8") as f:
+    with edition.sources_file.open(encoding="utf-8") as f:
         sources = json.load(f)
     outlets_by_country: dict[str, list[dict]] = {}
     for feed in sources["feeds"]:
@@ -82,7 +115,7 @@ def source_groups() -> list[dict]:
         )
     groups = [
         {
-            "name": COUNTRY_NAMES.get(country, country).removeprefix("the "),
+            "name": country_name(country, edition.language).removeprefix("the "),
             "outlets": sorted(
                 outlets, key=lambda outlet: outlet["name"].casefold()
             ),
@@ -93,19 +126,18 @@ def source_groups() -> list[dict]:
     return groups
 
 
-@app.route("/")
-def index():
-    files = cluster_files()
+def render_index(edition):
+    files = cluster_files(edition)
     dates = [path.stem.removeprefix("clusters_") for path in files]
     selected_date = request.args.get("date", dates[0])
     if selected_date not in dates:
         abort(404)
 
-    clusters_file = snapshot_file(selected_date)
+    clusters_file = snapshot_file(edition, selected_date)
     with clusters_file.open(encoding="utf-8") as f:
         clusters = json.load(f)
 
-    headlines_file = HISTORY_DIR / f"headlines_{selected_date}.json"
+    headlines_file = edition.history_dir / f"headlines_{selected_date}.json"
     headlines = []
     if headlines_file.exists():
         with headlines_file.open(encoding="utf-8") as f:
@@ -113,7 +145,13 @@ def index():
     ingestion_time = latest_fetched_at(headlines)
 
     cards = []
-    for index in selected_cluster_indices(clusters):
+    selected = selected_cluster_indices(
+        clusters,
+        min_similarity=edition.min_similarity,
+        min_sources=edition.min_sources,
+        min_countries=edition.min_countries,
+    )
+    for index in selected:
         cluster = clusters[index]
         source_names = sorted(
             {
@@ -130,9 +168,9 @@ def index():
             {
                 "index": index,
                 "image_path": (
-                    f"/static/maps/{selected_date}/{index}_small.png"
+                    f"{edition.maps_url}/{selected_date}/{index}_small.png"
                 ),
-                "map_url": url_for(
+                "map_url": eurl(
                     "detail_view", cluster_id=index, date=selected_date
                 ),
                 "label": cluster["label"],
@@ -156,25 +194,38 @@ def index():
         ingestion_time_label=(
             ingestion_time.strftime("%H:%M UTC") if ingestion_time else None
         ),
-        newer_url=url_for("index", date=newer_date) if newer_date else None,
-        older_url=url_for("index", date=older_date) if older_date else None,
+        newer_url=eurl("index", date=newer_date) if newer_date else None,
+        older_url=eurl("index", date=older_date) if older_date else None,
     )
 
 
-@app.route("/about")
-def about():
-    groups = source_groups()
+def render_about(edition):
+    groups = source_groups(edition)
+    outlet_count = sum(len(group["outlets"]) for group in groups)
+    country_count = len(groups)
+    sources_html = render_template(
+        "_about_sources.html", source_groups=groups
+    )
     return render_template(
         "about.html",
         source_groups=groups,
-        outlet_count=sum(len(group["outlets"]) for group in groups),
-        country_count=len(groups),
+        outlet_count=outlet_count,
+        country_count=country_count,
+        about_title=ABOUT_TITLE.get(edition.language, ABOUT_TITLE["en"]).replace(
+            "{app}", APP_NAME
+        ),
+        about_sections=about_sections(
+            edition.language,
+            APP_NAME,
+            outlet_count,
+            country_count,
+            sources_html,
+        ),
     )
 
 
-@app.route("/map/<int:cluster_id>")
-def detail_view(cluster_id):
-    clusters_file = snapshot_file(request.args.get("date"))
+def render_detail(edition, cluster_id):
+    clusters_file = snapshot_file(edition, request.args.get("date"))
     with clusters_file.open(encoding="utf-8") as f:
         clusters = json.load(f)
 
@@ -184,7 +235,7 @@ def detail_view(cluster_id):
     snapshot_date = date.fromisoformat(
         clusters_file.stem.removeprefix("clusters_")
     )
-    available_countries = active_countries(snapshot_date.isoformat())
+    available_countries = active_countries(edition, snapshot_date.isoformat())
     thumbnail = request.args.get("thumbnail") == "1"
 
     # Normalize once, here. Footer still shows the original "UK" for readability.
@@ -192,14 +243,14 @@ def detail_view(cluster_id):
     tracked = sorted({to_iso(country) for country in available_countries})
     covered_country_names = sorted(
         (
-            COUNTRY_NAMES.get(country, country).removeprefix("the ")
+            country_name(country, edition.language).removeprefix("the ")
             for country in covered
         ),
         key=str.casefold,
     )
     not_covered_country_names = sorted(
         (
-            COUNTRY_NAMES.get(country, country).removeprefix("the ")
+            country_name(country, edition.language).removeprefix("the ")
             for country in set(tracked) - set(covered)
         ),
         key=str.casefold,
@@ -222,9 +273,9 @@ def detail_view(cluster_id):
             },
         )
 
-    source_groups = [
+    grouped_sources = [
         {
-            "name": COUNTRY_NAMES.get(country_code, country_code),
+            "name": country_name(country_code, edition.language),
             "outlets": [
                 {"name": source, **article}
                 for source, article in sorted(
@@ -234,8 +285,19 @@ def detail_view(cluster_id):
         }
         for country_code, country_sources in sources_by_country.items()
     ]
-    source_groups.sort(
+    grouped_sources.sort(
         key=lambda group: (-len(group["outlets"]), group["name"].casefold())
+    )
+
+    outlet_count = len(
+        {
+            article["source"]
+            for article in cluster["articles"]
+            if article.get("source")
+        }
+    )
+    country_count = len(
+        {to_iso(article["country"]) for article in cluster["articles"]}
     )
 
     return render_template(
@@ -248,7 +310,9 @@ def detail_view(cluster_id):
         not_covered_country_names=not_covered_country_names,
         map_bounds=map_viewport(covered),
         coverage_copy=european_coverage(
-            covered, max_countries=5 if thumbnail else None
+            covered,
+            max_countries=5 if thumbnail else None,
+            language=edition.language,
         ),
         source_names=sorted(
             {
@@ -258,23 +322,45 @@ def detail_view(cluster_id):
             },
             key=str.casefold,
         ),
-        outlet_count=len(
-            {
-                article["source"]
-                for article in cluster["articles"]
-                if article.get("source")
-            }
-        ),
-        country_count=len(
-            {to_iso(article["country"]) for article in cluster["articles"]}
+        outlet_count=outlet_count,
+        country_count=country_count,
+        source_meta_label=coverage_line(
+            outlet_count, country_count, edition.language
         ),
         snapshot_date=snapshot_date.isoformat(),
         date_label=f"{snapshot_date.day} {snapshot_date:%b %Y}",
         countries=available_countries,
         european_countries=sorted(EUROPEAN_COUNTRIES),
-        source_groups=source_groups,
+        source_groups=grouped_sources,
         iso_fix=ISO_FIX,
     )
+
+
+def register_edition_routes(edition) -> None:
+    prefix = edition.url_prefix
+
+    def index():
+        return render_index(edition)
+
+    def about():
+        return render_about(edition)
+
+    def detail_view(cluster_id):
+        return render_detail(edition, cluster_id)
+
+    app.add_url_rule(f"{prefix}/", endpoint=f"index_{edition.key}", view_func=index)
+    app.add_url_rule(
+        f"{prefix}/about", endpoint=f"about_{edition.key}", view_func=about
+    )
+    app.add_url_rule(
+        f"{prefix}/map/<int:cluster_id>",
+        endpoint=f"detail_view_{edition.key}",
+        view_func=detail_view,
+    )
+
+
+for edition in EDITIONS.values():
+    register_edition_routes(edition)
 
 
 if __name__ == "__main__":

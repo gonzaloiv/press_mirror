@@ -185,5 +185,29 @@ class GenerateLlmLabelTests(unittest.TestCase):
         self.assertNotIn("- Headline 8", user_message)
 
 
+class SpanishLabelTests(unittest.TestCase):
+    def test_spanish_prompt_requests_spanish(self):
+        generator = _FakeGenerator("Incendio en una fábrica")
+
+        generate_llm_label(
+            ["fábrica", "incendio"],
+            language="es",
+            generator=generator,
+        )
+
+        messages = generator.tokenizer.messages
+        self.assertIn("español", messages[0]["content"].lower())
+        self.assertIn("Escribe el titular en español", messages[-1]["content"])
+
+    def test_default_language_stays_english(self):
+        generator = _FakeGenerator("Moscow drone attack")
+
+        generate_llm_label(["Moscow", "drone"], generator=generator)
+
+        messages = generator.tokenizer.messages
+        self.assertIn("English", messages[0]["content"])
+        self.assertIn("Write the English headline", messages[-1]["content"])
+
+
 if __name__ == "__main__":
     unittest.main()

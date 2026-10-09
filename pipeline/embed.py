@@ -1,3 +1,4 @@
+import argparse
 import json
 import sys
 import numpy as np
@@ -10,31 +11,47 @@ if str(PROJECT_DIR) not in sys.path:
     sys.path.insert(0, str(PROJECT_DIR))
 
 from config import HF_TOKEN
+from shared.editions import DEFAULT_EDITION_KEY, EDITIONS, get_edition
 
-HISTORY_DIR = PROJECT_DIR / "history"
-OUTPUT_FILE = PROJECT_DIR / "data" / "embeddings.npz"
 MODEL_NAME = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
 
 
-def latest_headlines_file() -> Path:
-    files = sorted(HISTORY_DIR.glob("headlines_????-??-??.json"), reverse=True)
+def latest_headlines_file(history_dir: Path) -> Path:
+    files = sorted(history_dir.glob("headlines_????-??-??.json"), reverse=True)
     if not files:
-        raise FileNotFoundError(f"No dated headline files found in {HISTORY_DIR}")
+        raise FileNotFoundError(f"No dated headline files found in {history_dir}")
     return files[0]
 
 
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Embed each edition's headlines into a shared artifact."
+    )
+    parser.add_argument(
+        "--edition",
+        default=DEFAULT_EDITION_KEY,
+        choices=sorted(EDITIONS),
+        help="Edition to embed (default: %(default)s).",
+    )
+    return parser.parse_args()
+
+
 def main():
-    # 1. Load the headlines we collected in Task 2.
-    input_file = latest_headlines_file()
+    args = parse_args()
+    edition = get_edition(args.edition)
+
+    # 1. Load the headlines we collected for this edition.
+    input_file = latest_headlines_file(edition.history_dir)
     with input_file.open(encoding="utf-8") as f:
         articles = json.load(f)
 
     if not articles:
         raise ValueError(f"No headlines found in {input_file}. Run ingest.py first.")
 
-    OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
+    output_file = edition.embeddings_file
+    output_file.parent.mkdir(parents=True, exist_ok=True)
     headlines = [a["title"] for a in articles]
-    print(f"Loaded {len(headlines)} headlines.")
+    print(f"Loaded {len(headlines)} headlines for edition '{edition.key}'.")
 
     # 2. Load the model. First run downloads ~470 MB from Hugging Face.
     print(f"Loading model {MODEL_NAME}...")
@@ -53,7 +70,7 @@ def main():
 
     # 4. Save embeddings + metadata together so we can always line them up.
     np.savez_compressed(
-        OUTPUT_FILE,
+        output_file,
         embeddings=embeddings,
         titles=np.array(headlines, dtype=object),
         sources=np.array([a["source"] for a in articles], dtype=object),
@@ -61,7 +78,7 @@ def main():
         links=np.array([a["link"] for a in articles], dtype=object),
         fetched_at=np.array([a.get("fetched_at") for a in articles], dtype=object),
     )
-    print(f"Saved to {OUTPUT_FILE}")
+    print(f"Saved to {output_file}")
 
     def most_similar(query, top_k=5):
         q = model.encode([query], normalize_embeddings=True)[0]

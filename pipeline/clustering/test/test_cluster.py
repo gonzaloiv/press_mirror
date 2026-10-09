@@ -124,5 +124,6 @@ class BuildClustersLabelSelectionTests(unittest.TestCase):
         self.assertEqual(labeled_titles, [])
         self.assertEqual(result[0]["label"], "")
 
+
 if __name__ == "__main__":
     unittest.main()

@@ -33,6 +33,39 @@ COUNTRY_NAMES = {
     "US": "the United States",
 }
 
+COUNTRY_NAMES_ES = {
+    "AT": "Austria",
+    "AU": "Australia",
+    "BE": "Bélgica",
+    "BR": "Brasil",
+    "CA": "Canadá",
+    "CH": "Suiza",
+    "CN": "China",
+    "CZ": "Chequia",
+    "DE": "Alemania",
+    "DK": "Dinamarca",
+    "EE": "Estonia",
+    "ES": "España",
+    "FI": "Finlandia",
+    "FR": "Francia",
+    "GB": "Reino Unido",
+    "HU": "Hungría",
+    "IE": "Irlanda",
+    "IN": "India",
+    "IT": "Italia",
+    "JP": "Japón",
+    "MX": "México",
+    "NL": "Países Bajos",
+    "NO": "Noruega",
+    "PL": "Polonia",
+    "PT": "Portugal",
+    "QA": "Catar",
+    "RU": "Rusia",
+    "SE": "Suecia",
+    "UA": "Ucrania",
+    "US": "Estados Unidos",
+}
+
 NON_EUROPEAN_COUNTRIES = {"AU", "BR", "CA", "CN", "IN", "JP", "MX", "QA", "US"}
 
 EUROPEAN_COUNTRIES = {
@@ -69,3 +102,16 @@ COUNTRY_CENTERS = {
 def to_iso(country_code: str) -> str:
     """Normalize common country-code aliases to ISO 3166-1 alpha-2."""
     return ISO_FIX.get(country_code, country_code)
+
+
+_LOCALIZED_NAMES = {
+    "en": COUNTRY_NAMES,
+    "es": COUNTRY_NAMES_ES,
+}
+
+
+def country_name(country_code: str, language: str = "en") -> str:
+    """Return a country's display name, keeping the English "the " prefix."""
+    code = to_iso(country_code)
+    names = _LOCALIZED_NAMES.get(language, COUNTRY_NAMES)
+    return names.get(code, COUNTRY_NAMES.get(code, code))

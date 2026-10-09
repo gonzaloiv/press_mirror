@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ language }}">
 
 <head>
     <meta charset="utf-8">
@@ -16,26 +16,25 @@
         {% if terms and terms|join(' · ') != label %}
         <p class="card-terms">{{ terms|join(' · ') }}</p>
         {% endif %}
-        <p class="card-sources" aria-label="Source metadata">
-            {{ outlet_count }} outlet{% if outlet_count != 1 %}s{% endif %}
-            in {{ country_count }} countr{% if country_count == 1 %}y{% else %}ies{% endif %}
+        <p class="card-sources" aria-label="{{ strings.source_metadata_aria }}">
+            {{ source_meta_label }}
             —
             {% for outlet in source_names[:3] %}
             <span class="source-wide">{{ outlet }}</span>{% if not loop.last %}<span class="source-wide" aria-hidden="true"> · </span>{% endif %}
             {% endfor %}
-            {% if outlet_count > 3 %}<span class="source-wide"> +{{ outlet_count - 3 }} more</span>{% endif %}
+            {% if outlet_count > 3 %}<span class="source-wide"> {{ strings.more|replace('{count}', (outlet_count - 3)|string) }}</span>{% endif %}
             {% for outlet in source_names[:2] %}
             <span class="source-narrow">{{ outlet }}</span>{% if not loop.last %}<span class="source-narrow" aria-hidden="true"> · </span>{% endif %}
             {% endfor %}
-            {% if outlet_count > 2 %}<span class="source-narrow"> +{{ outlet_count - 2 }} more</span>{% endif %}
+            {% if outlet_count > 2 %}<span class="source-narrow"> {{ strings.more|replace('{count}', (outlet_count - 2)|string) }}</span>{% endif %}
         </p>
         <div class="card-layout">
             <div id="map"></div>
             <div class="card-details">
-                <div class="card-legend" aria-label="Map legend">
-                    <span><span class="swatch covered"></span>Covered</span>
-                    <span><span class="swatch silent"></span>Not covered</span>
-                    <span><span class="swatch untracked"></span>Not tracked</span>
+                <div class="card-legend" aria-label="{{ strings.map_legend_aria }}">
+                    <span><span class="swatch covered"></span>{{ strings.legend_covered }}</span>
+                    <span><span class="swatch silent"></span>{{ strings.legend_silent }}</span>
+                    <span><span class="swatch untracked"></span>{{ strings.legend_untracked }}</span>
                 </div>
             </div>
         </div>

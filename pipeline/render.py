@@ -9,10 +9,8 @@ if str(PROJECT_DIR) not in sys.path:
     sys.path.insert(0, str(PROJECT_DIR))
 
 from shared.cluster_selection import selected_cluster_indices
+from shared.editions import DEFAULT_EDITION_KEY, EDITIONS, get_edition
 
-HISTORY_DIR = PROJECT_DIR / "history"
-STATIC_DIR = PROJECT_DIR / "static"
-MAPS_DIR = STATIC_DIR / "maps"
 BASE_URL = "http://localhost:5000"
 IMAGE_WIDTHS = {
     "large": 1080,
@@ -20,14 +18,14 @@ IMAGE_WIDTHS = {
 }
 
 
-def cluster_files() -> list[Path]:
-    files = sorted(HISTORY_DIR.glob("clusters_????-??-??.json"), reverse=True)
+def cluster_files(history_dir: Path) -> list[Path]:
+    files = sorted(history_dir.glob("clusters_????-??-??.json"), reverse=True)
     if not files:
-        raise FileNotFoundError(f"No dated cluster files found in {HISTORY_DIR}")
+        raise FileNotFoundError(f"No dated cluster files found in {history_dir}")
     return files
 
 
-def render_images(clean: bool = False) -> None:
+def render_images(edition, clean: bool = False) -> None:
     try:
         playwright_api = importlib.import_module("playwright.sync_api")
     except ImportError as error:
@@ -37,8 +35,9 @@ def render_images(clean: bool = False) -> None:
         ) from error
     playwright_error = playwright_api.Error
 
-    STATIC_DIR.mkdir(parents=True, exist_ok=True)
-    snapshots = cluster_files()
+    maps_dir = edition.maps_dir
+    maps_dir.mkdir(parents=True, exist_ok=True)
+    snapshots = cluster_files(edition.history_dir)
 
     with playwright_api.sync_playwright() as playwright:
         browser = playwright.chromium.launch()
@@ -47,7 +46,7 @@ def render_images(clean: bool = False) -> None:
             viewport_height = page.viewport_size["height"]
             for snapshot_index, clusters_file in enumerate(snapshots):
                 snapshot_date = clusters_file.stem.removeprefix("clusters_")
-                dated_maps_dir = MAPS_DIR / snapshot_date
+                dated_maps_dir = maps_dir / snapshot_date
                 dated_maps_dir.mkdir(parents=True, exist_ok=True)
                 if clean and snapshot_index == 0:
                     for path in dated_maps_dir.iterdir():
@@ -60,7 +59,12 @@ def render_images(clean: bool = False) -> None:
 
                 with clusters_file.open(encoding="utf-8") as f:
                     clusters = json.load(f)
-                selected_indices = selected_cluster_indices(clusters)
+                selected_indices = selected_cluster_indices(
+                    clusters,
+                    min_similarity=edition.min_similarity,
+                    min_sources=edition.min_sources,
+                    min_countries=edition.min_countries,
+                )
                 if not selected_indices:
                     print(f"No clusters to render for {snapshot_date}.")
                     continue
@@ -76,7 +80,7 @@ def render_images(clean: bool = False) -> None:
                             "height": viewport_height,
                         })
                         url = (
-                            f"{BASE_URL}/map/{cluster_index}"
+                            f"{BASE_URL}{edition.url_prefix}/map/{cluster_index}"
                             f"?date={snapshot_date}&thumbnail=1"
                         )
                         try:
@@ -115,12 +119,18 @@ def main() -> None:
         )
     )
     parser.add_argument(
+        "--edition",
+        default=DEFAULT_EDITION_KEY,
+        choices=sorted(EDITIONS),
+        help="Edition to render (default: %(default)s).",
+    )
+    parser.add_argument(
         "--clean",
         action="store_true",
-        help="Delete existing files in static/maps before rendering.",
+        help="Delete existing files in the edition's maps directory before rendering.",
     )
     args = parser.parse_args()
-    render_images(clean=args.clean)
+    render_images(get_edition(args.edition), clean=args.clean)
 
 
 if __name__ == "__main__":

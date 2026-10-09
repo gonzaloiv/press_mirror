@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ language }}">
 
 <head>
     <meta charset="utf-8">
@@ -19,7 +19,7 @@
 
 <body>
     <div class="canvas">
-        <a href="{{ url_for('index', date=snapshot_date) }}" class="back-link">← All maps</a>
+        <a href="{{ eurl('index', date=snapshot_date) }}" class="back-link">{{ strings.back_all_maps }}</a>
         <div id="thumbnail-content">
             <h1 class="headline">{{ label }}</h1>
             {% if terms and terms|join(' · ') != label %}
@@ -32,9 +32,9 @@
             <div id="map"></div>
 
             <div class="legend">
-                <span><span class="swatch covered"></span>Covered</span>
-                <span><span class="swatch silent"></span>Not covered by tracked sources</span>
-                <span><span class="swatch untracked"></span>Not tracked</span>
+                <span><span class="swatch covered"></span>{{ strings.legend_covered }}</span>
+                <span><span class="swatch silent"></span>{{ strings.legend_silent_detail }}</span>
+                <span><span class="swatch untracked"></span>{{ strings.legend_untracked }}</span>
             </div>
         </div>
 

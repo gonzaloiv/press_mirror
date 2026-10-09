@@ -1,6 +1,7 @@
 <header>
     <div class="header-copy">
-        <h1><a class="site-title-link" href="{{ url_for('index') }}">{{ app_name }}</a></h1>
-        <p class="tagline">What happened today, and who covered it.</p>
+        <h1><a class="site-title-link" href="{{ eurl('index') }}">{{ app_name }}</a></h1>
+        <p class="tagline">{{ strings.tagline }}</p>
     </div>
+    <a class="language-switch" href="{{ other_edition_url }}" aria-label="{{ language_switch_aria }}">{{ language_switch_label }}</a>
 </header>

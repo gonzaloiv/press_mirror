@@ -1,3 +1,4 @@
+import argparse
 import json
 import sys
 from dataclasses import dataclass, field
@@ -14,11 +15,9 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 from shared.country_codes import to_iso
 from shared.cluster_selection import selected_cluster_indices
+from shared.editions import DEFAULT_EDITION_KEY, EDITIONS, get_edition
 from pipeline.clustering.labels import build_cluster_label, extract_common_terms
 from pipeline.clustering.llm_label import generate_llm_label_reviewed
-
-INPUT_FILE = PROJECT_DIR / "data" / "embeddings.npz"
-HISTORY_DIR = PROJECT_DIR / "history"
 
 SIMILARITY_THRESHOLD = 0.75    # tune this — see notes below
 MERGE_SIMILARITY_THRESHOLD = 0.72
@@ -34,8 +33,8 @@ class ClusterMembers:
     merged: bool = False
 
 
-def load_data():
-    data = np.load(INPUT_FILE, allow_pickle=True)
+def load_data(input_file: Path):
+    data = np.load(input_file, allow_pickle=True)
     titles = list(data["titles"])
     return (
         data["embeddings"],
@@ -210,6 +209,8 @@ def build_clusters(
     deduplicate: bool = DEDUPLICATE_WITHIN_CLUSTERS,
     merge: bool = MERGE_RELATED_CLUSTERS,
     fetched_at=None,
+    language: str = "en",
+    selection: dict | None = None,
 ):
     """Post-process primary clusters, then build output with similarity stats."""
     raw_clusters = {}
@@ -302,7 +303,7 @@ def build_clusters(
     result = [entry[0] for entry in entries]
 
     # Labels are only needed for clusters that pass the display filters.
-    shown = selected_cluster_indices(result)
+    shown = selected_cluster_indices(result, **(selection or {}))
     print(
         f"Generating labels for {len(shown)} displayed clusters.",
         flush=True,
@@ -312,7 +313,7 @@ def build_clusters(
         print(f"Generating label {label_number}/{len(shown)}...", flush=True)
         cluster_terms = labeler(cluster_titles)
         llm_label, review_reason = generate_llm_label_reviewed(
-            cluster_terms, cluster_titles
+            cluster_terms, cluster_titles, language=language
         )
         review_action = (
             "kept generated label" if llm_label else "using term fallback"
@@ -335,9 +336,26 @@ def build_clusters(
     return result
 
 
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Cluster each edition's embeddings into story clusters."
+    )
+    parser.add_argument(
+        "--edition",
+        default=DEFAULT_EDITION_KEY,
+        choices=sorted(EDITIONS),
+        help="Edition to cluster (default: %(default)s).",
+    )
+    return parser.parse_args()
+
+
 def main():
-    embeddings, titles, sources, countries, links, fetched_at = load_data()
-    print(f"Loaded {len(titles)} headlines.")
+    args = parse_args()
+    edition = get_edition(args.edition)
+    embeddings, titles, sources, countries, links, fetched_at = load_data(
+        edition.embeddings_file
+    )
+    print(f"Loaded {len(titles)} headlines for edition '{edition.key}'.")
 
     labels = cluster(embeddings)
     print(f"Found {len(set(labels))} raw clusters.")
@@ -351,11 +369,17 @@ def main():
         embeddings,
         extract_common_terms,
         fetched_at=fetched_at,
+        language=edition.language,
+        selection={
+            "min_similarity": edition.min_similarity,
+            "min_sources": edition.min_sources,
+            "min_countries": edition.min_countries,
+        },
     )
     print(f"Kept {len(clusters)} clusters with 2+ articles.")
 
-    HISTORY_DIR.mkdir(parents=True, exist_ok=True)
-    output_file = HISTORY_DIR / f"clusters_{date.today().isoformat()}.json"
+    edition.history_dir.mkdir(parents=True, exist_ok=True)
+    output_file = edition.history_dir / f"clusters_{date.today().isoformat()}.json"
     with output_file.open("w", encoding="utf-8") as f:
         json.dump(clusters, f, ensure_ascii=False, indent=2)
     print(f"Written to {output_file}")

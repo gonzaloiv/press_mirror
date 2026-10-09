@@ -7,13 +7,17 @@ $runtimePaths = @(
     "server.py",
     "web_app",
     "shared",
+    "pipeline/sources.json",
+    "pipeline/sources.es.json",
     "static/css",
     "static/js",
     "static/favicon.png"
 )
 $dataPaths = @(
     "history",
-    "static/maps"
+    "history/es",
+    "static/maps",
+    "static/maps/es"
 )
 
 foreach ($path in $runtimePaths) {

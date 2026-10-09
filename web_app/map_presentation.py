@@ -2,46 +2,58 @@
 
 from shared.country_codes import (
     COUNTRY_CENTERS,
-    COUNTRY_NAMES,
     NON_EUROPEAN_COUNTRIES,
+    country_name,
     to_iso,
 )
 
 WORLD_BOUNDS = [[-80, -180], [80, 180]]
 
+_COVERAGE_PREFIX = {
+    "en": {"coverage": "Coverage from", "european": "European coverage from"},
+    "es": {"coverage": "Cobertura de", "european": "Cobertura europea de"},
+}
+
+_NO_COVERAGE = {
+    "en": "No coverage found.",
+    "es": "No se encontró cobertura.",
+}
+
+
+def _join_names(names: list[str], language: str) -> str:
+    conjunction = "and" if language == "en" else "y"
+    if len(names) == 1:
+        return names[0]
+    if len(names) == 2:
+        return f"{names[0]} {conjunction} {names[1]}"
+    return f"{', '.join(names[:-1])} {conjunction} {names[-1]}"
+
 
 def european_coverage(
-    countries: list[str], max_countries: int | None = 5
+    countries: list[str],
+    max_countries: int | None = 5,
+    language: str = "en",
 ) -> str:
     """Format country codes as a concise, naturally sorted coverage subtitle."""
     normalized_countries = {to_iso(code) for code in countries}
     names = sorted(
-        (COUNTRY_NAMES.get(code, code) for code in normalized_countries),
+        (country_name(code, language) for code in normalized_countries),
         key=lambda name: name.removeprefix("the ").casefold(),
     )
     if not names:
-        return "No coverage found."
+        return _NO_COVERAGE.get(language, _NO_COVERAGE["en"])
 
     country_count = len(names)
     display_names = names
     if max_countries is not None and country_count > max_countries:
-        display_names = names[:max_countries - 1] + [
-            f"{country_count - max_countries + 1} others"
-        ]
+        remainder = country_count - max_countries + 1
+        more = f"{remainder} more" if language == "en" else f"{remainder} más"
+        display_names = names[:max_countries - 1] + [more]
 
-    if len(display_names) == 1:
-        country_list = display_names[0]
-    elif len(display_names) == 2:
-        country_list = " and ".join(display_names)
-    else:
-        country_list = f"{', '.join(display_names[:-1])}, and {display_names[-1]}"
-
+    country_list = _join_names(display_names, language)
     is_international = bool(normalized_countries & NON_EUROPEAN_COUNTRIES)
-    prefix = (
-        "Coverage from"
-        if is_international or country_count == 1
-        else "European coverage from"
-    )
+    prefixes = _COVERAGE_PREFIX.get(language, _COVERAGE_PREFIX["en"])
+    prefix = prefixes["coverage"] if is_international or country_count == 1 else prefixes["european"]
     return f"{prefix} {country_list}."
 
 

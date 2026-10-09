@@ -1,9 +1,9 @@
 <footer class="page-footer">
     <div class="page-footer-topline">
-        <p class="page-footer-line page-footer-tagline"><span class="page-footer-brand">{{ app_name }} — </span><span class="page-footer-copy">What happened today, and who covered it.</span></p>
+        <p class="page-footer-line page-footer-tagline"><span class="page-footer-brand">{{ app_name }} — </span><span class="page-footer-copy">{{ strings.tagline }}</span></p>
         {% if not hide_footer_about_link %}
-        <a class="page-footer-about" href="{{ url_for('about') }}">How it works</a>
+        <a class="page-footer-about" href="{{ eurl('about') }}">{{ strings.how_it_works }}</a>
         {% endif %}
     </div>
-    <p class="page-footer-line page-footer-disclaimer">Every headline links to the original article at its original outlet. {{ app_name }} does not produce news.</p>
+    <p class="page-footer-line page-footer-disclaimer">{{ strings.footer_disclaimer }}</p>
 </footer>

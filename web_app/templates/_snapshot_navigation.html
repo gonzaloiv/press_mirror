@@ -1,21 +1,21 @@
-<section class="snapshot-bar" aria-label="Snapshot navigation">
-    <nav class="date-pagination" aria-label="Browse snapshot dates">
+<section class="snapshot-bar" aria-label="{{ strings.snapshot_nav_aria }}">
+    <nav class="date-pagination" aria-label="{{ strings.browse_dates_aria }}">
         {% if older_url %}
-        <a class="older-day" href="{{ older_url }}" rel="next">← Older day</a>
+        <a class="older-day" href="{{ older_url }}" rel="next">{{ strings.older_day }}</a>
         {% else %}
         <span aria-hidden="true"></span>
         {% endif %}
         <div class="date-info">
             <time datetime="{{ selected_date }}">{{ date_label }}</time>
             {% if ingestion_time %}
-            <time class="ingestion-time" datetime="{{ ingestion_time }}">Collected {{ ingestion_time_label }}</time>
+            <time class="ingestion-time" datetime="{{ ingestion_time }}">{{ strings.collected|replace('{time}', ingestion_time_label) }}</time>
             {% endif %}
         </div>
         {% if newer_url %}
-        <a class="newer-day" href="{{ newer_url }}" rel="prev">Newer day →</a>
+        <a class="newer-day" href="{{ newer_url }}" rel="prev">{{ strings.newer_day }}</a>
         {% else %}
         <span aria-hidden="true"></span>
         {% endif %}
     </nav>
-    <p class="snapshot-description">Each card is one event. The map shows which countries covered it.</p>
+    <p class="snapshot-description">{{ strings.snapshot_description }}</p>
 </section>
