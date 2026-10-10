@@ -4,7 +4,12 @@ from unittest.mock import patch
 import numpy as np
 
 from pipeline.clustering.cluster import build_clusters
-from shared.cluster_selection import MIN_CLUSTER_SIMILARITY, selected_cluster_indices
+from shared.cluster_selection import (
+    MAX_CLUSTER_COUNT,
+    MIN_CLUSTER_REPRESENTATIVE_SIMILARITY,
+    MIN_CLUSTER_SIMILARITY,
+    selected_cluster_indices,
+)
 
 
 def _article(index, source, country):
@@ -112,7 +117,8 @@ class BuildClustersLabelSelectionTests(unittest.TestCase):
         sources = [article["source"] for article in articles]
         countries = [article["country"] for article in articles]
         links = [article["link"] for article in articles]
-        outlier_angle = np.rad2deg(np.arccos(0.65))
+        outlier_similarity = MIN_CLUSTER_REPRESENTATIVE_SIMILARITY - 0.03
+        outlier_angle = np.rad2deg(np.arccos(outlier_similarity))
         angles = np.deg2rad([0, 0, 0, 0, 0, outlier_angle])
         embeddings = np.column_stack((np.cos(angles), np.sin(angles)))
         labeled_titles = []
@@ -135,7 +141,9 @@ class BuildClustersLabelSelectionTests(unittest.TestCase):
 
         self.assertGreaterEqual(result[0]["avg_similarity"], 0.74)
         self.assertAlmostEqual(
-            result[0]["min_representative_similarity"], 0.65, places=3
+            result[0]["min_representative_similarity"],
+            outlier_similarity,
+            places=3,
         )
         self.assertEqual(labeled_titles, [])
         self.assertEqual(result[0]["label"], "")
@@ -191,6 +199,17 @@ class BuildClustersLabelSelectionTests(unittest.TestCase):
         ]
 
         self.assertEqual(selected_cluster_indices(clusters), [0, 1, 2])
+
+    def test_selection_is_capped_at_max(self):
+        floor = MIN_CLUSTER_SIMILARITY
+        clusters = [
+            _cluster(floor + 0.20 - 0.01 * index) for index in range(12)
+        ]
+
+        self.assertEqual(
+            selected_cluster_indices(clusters),
+            list(range(MAX_CLUSTER_COUNT)),
+        )
 
 
 if __name__ == "__main__":

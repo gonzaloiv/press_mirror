@@ -2,11 +2,12 @@
 
 from shared.country_codes import to_iso
 
-MIN_CLUSTER_SIMILARITY = 0.7125
-MIN_CLUSTER_REPRESENTATIVE_SIMILARITY = 0.68
+MIN_CLUSTER_SIMILARITY = 0.725
+MIN_CLUSTER_REPRESENTATIVE_SIMILARITY = 0.65
 MIN_CLUSTER_SOURCES = 6
 MIN_CLUSTER_COUNTRIES = 4
 TOP_CLUSTER_COUNT = 5
+MAX_CLUSTER_COUNT = 9
 
 
 def _meets_coverage_gates(cluster: dict) -> bool:
@@ -30,7 +31,8 @@ def selected_cluster_indices(clusters: list[dict]) -> list[int]:
 
     A cluster qualifies once it passes the coverage gates. Among those we
     keep the TOP_CLUSTER_COUNT most similar, plus any remaining cluster at
-    or above MIN_CLUSTER_SIMILARITY, so strong stories always surface.
+    or above MIN_CLUSTER_SIMILARITY, so strong stories always surface. The
+    result is capped at MAX_CLUSTER_COUNT, keeping the most similar.
     """
     candidates = [
         index
@@ -51,4 +53,4 @@ def selected_cluster_indices(clusters: list[dict]) -> list[int]:
     return sorted(
         selected,
         key=lambda index: (-clusters[index]["avg_similarity"], index),
-    )
+    )[:MAX_CLUSTER_COUNT]

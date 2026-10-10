@@ -1161,8 +1161,15 @@
     }
   },
   {
-    "label": "",
-    "terms": [],
+    "label": "Trump criticizes Norway over Nobel Peace Prize",
+    "terms": [
+      "Trump",
+      "Nobel",
+      "USA",
+      "Peace",
+      "criticizes Norway",
+      "Prize"
+    ],
     "size": 8,
     "avg_similarity": 0.713,
     "min_representative_similarity": 0.679,
@@ -1223,11 +1230,24 @@
         "link": "https://www.idnes.cz/zpravy/zahranicni/usa-podle-trumpa-norsku-nezapomenou-ze-nedostaly-nobelovu-cenu-za-mir.A261010_071517_zahranicni_iluj#utm_source=rss&utm_medium=feed&utm_campaign=zpravodaj&utm_content=main",
         "fetched_at": "2026-10-10T08:21:59.474298+00:00"
       }
-    ]
+    ],
+    "label_source": "llm",
+    "label_review": {
+      "status": "accepted",
+      "reason": "accepted"
+    }
   },
   {
-    "label": "",
-    "terms": [],
+    "label": "Italy wine theft valued at €5 million",
+    "terms": [
+      "wine",
+      "steal",
+      "Italy",
+      "ter",
+      "bottles",
+      "miljoen",
+      "euro"
+    ],
     "size": 7,
     "avg_similarity": 0.784,
     "min_representative_similarity": 0.679,
@@ -1281,7 +1301,12 @@
         "link": "https://www.aftenposten.no/okonomi/i/WggnPj/tyver-stjal-vin-for-50-millioner-kroner-i-italia?utm_medium=rss",
         "fetched_at": "2026-10-10T08:22:01.810366+00:00"
       }
-    ]
+    ],
+    "label_source": "llm",
+    "label_review": {
+      "status": "accepted",
+      "reason": "accepted"
+    }
   },
   {
     "label": "",
@@ -1352,8 +1377,16 @@
     }
   },
   {
-    "label": "",
-    "terms": [],
+    "label": "India protests against electoral commission before Delhi rally",
+    "terms": [
+      "Chef",
+      "protest",
+      "India",
+      "Kakerlaken",
+      "Election",
+      "Commission",
+      "fest"
+    ],
     "size": 6,
     "avg_similarity": 0.697,
     "min_representative_similarity": 0.703,
@@ -1400,7 +1433,12 @@
         "link": "https://pmo.ee/8561977",
         "fetched_at": "2026-10-10T08:22:01.040910+00:00"
       }
-    ]
+    ],
+    "label_source": "llm",
+    "label_review": {
+      "status": "accepted",
+      "reason": "accepted"
+    }
   },
   {
     "label": "",
