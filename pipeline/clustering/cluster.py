@@ -14,11 +14,11 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 from shared.country_codes import to_iso
 from shared.cluster_selection import selected_cluster_indices
+from shared.snapshots import snapshot_dir
 from pipeline.clustering.labels import build_cluster_label, extract_common_terms
 from pipeline.clustering.llm_label import generate_llm_label_reviewed
 
 INPUT_FILE = PROJECT_DIR / "data" / "embeddings.npz"
-HISTORY_DIR = PROJECT_DIR / "history"
 
 SIMILARITY_THRESHOLD = 0.75    # tune this — see notes below
 MERGE_SIMILARITY_THRESHOLD = 0.72
@@ -354,8 +354,9 @@ def main():
     )
     print(f"Kept {len(clusters)} clusters with 2+ articles.")
 
-    HISTORY_DIR.mkdir(parents=True, exist_ok=True)
-    output_file = HISTORY_DIR / f"clusters_{date.today().isoformat()}.json"
+    snapshot_path = snapshot_dir(date.today().isoformat())
+    snapshot_path.mkdir(parents=True, exist_ok=True)
+    output_file = snapshot_path / "clusters.json"
     with output_file.open("w", encoding="utf-8") as f:
         json.dump(clusters, f, ensure_ascii=False, indent=2)
     print(f"Written to {output_file}")

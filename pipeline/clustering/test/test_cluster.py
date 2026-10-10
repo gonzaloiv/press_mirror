@@ -4,7 +4,7 @@ from unittest.mock import patch
 import numpy as np
 
 from pipeline.clustering.cluster import build_clusters
-from shared.cluster_selection import selected_cluster_indices
+from shared.cluster_selection import MIN_CLUSTER_SIMILARITY, selected_cluster_indices
 
 
 def _article(index, source, country):
@@ -13,6 +13,21 @@ def _article(index, source, country):
         "source": source,
         "country": country,
         "link": f"https://example.com/{index}",
+    }
+
+
+_COUNTRIES = ["AT", "BE", "DE", "IT", "ES", "CH"]
+
+
+def _cluster(avg_similarity, rep=0.7, sources=6, countries=6):
+    articles = [
+        _article(index, f"source{index}", _COUNTRIES[index % countries])
+        for index in range(sources)
+    ]
+    return {
+        "avg_similarity": avg_similarity,
+        "min_representative_similarity": rep,
+        "articles": articles,
     }
 
 
@@ -125,7 +140,7 @@ class BuildClustersLabelSelectionTests(unittest.TestCase):
         self.assertEqual(labeled_titles, [])
         self.assertEqual(result[0]["label"], "")
 
-    def test_cutoffs_keep_coherent_stories_and_reject_loose_clusters(self):
+    def test_selection_returns_most_similar_first(self):
         articles = [
             _article(index, f"source{index}", country)
             for index, country in enumerate(
@@ -147,7 +162,35 @@ class BuildClustersLabelSelectionTests(unittest.TestCase):
             for avg_similarity, representative_similarity in scores
         ]
 
-        self.assertEqual(selected_cluster_indices(clusters), [1, 2])
+        self.assertEqual(selected_cluster_indices(clusters), [2, 1, 0, 3])
+
+    def test_selection_keeps_top_five_and_strong_clusters(self):
+        floor = MIN_CLUSTER_SIMILARITY
+        clusters = [
+            _cluster(floor + 0.10),
+            _cluster(floor + 0.08),
+            _cluster(floor + 0.06),
+            _cluster(floor + 0.04),
+            _cluster(floor + 0.02),
+            _cluster(floor + 0.005),
+            _cluster(floor - 0.10),
+            _cluster(floor + 0.30, sources=2),
+            _cluster(floor + 0.28, countries=3),
+        ]
+
+        self.assertEqual(
+            selected_cluster_indices(clusters), [0, 1, 2, 3, 4, 5]
+        )
+
+    def test_selection_fills_to_five_even_below_floor(self):
+        floor = MIN_CLUSTER_SIMILARITY
+        clusters = [
+            _cluster(floor + 0.05),
+            _cluster(floor + 0.03),
+            _cluster(floor - 0.20),
+        ]
+
+        self.assertEqual(selected_cluster_indices(clusters), [0, 1, 2])
 
 
 if __name__ == "__main__":
