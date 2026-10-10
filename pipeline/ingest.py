@@ -11,8 +11,12 @@ from urllib.request import Request, urlopen
 import feedparser
 
 PROJECT_DIR = Path(__file__).resolve().parent.parent
+if str(PROJECT_DIR) not in sys.path:
+    sys.path.insert(0, str(PROJECT_DIR))
+
+from shared.snapshots import snapshot_dir
+
 SOURCES_FILE = Path(__file__).resolve().parent / "sources.json"
-HISTORY_DIR = PROJECT_DIR / "history"
 USER_AGENT = "Mozilla/5.0 (compatible; PressMirrorBot/0.1; +https://pressmirror.eu)"
 FETCH_TIMEOUT_SECONDS = 10
 RETRY_DELAY_SECONDS = 2
@@ -238,8 +242,9 @@ def main():
             seen.add(a["link"])
             unique.append(a)
 
-    HISTORY_DIR.mkdir(parents=True, exist_ok=True)
-    output_file = HISTORY_DIR / f"headlines_{date.today().isoformat()}.json"
+    snapshot_path = snapshot_dir(date.today().isoformat())
+    snapshot_path.mkdir(parents=True, exist_ok=True)
+    output_file = snapshot_path / "headlines.json"
     with output_file.open("w", encoding="utf-8") as f:
         json.dump(unique, f, ensure_ascii=False, indent=2)
 

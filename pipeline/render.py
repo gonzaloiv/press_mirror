@@ -9,22 +9,13 @@ if str(PROJECT_DIR) not in sys.path:
     sys.path.insert(0, str(PROJECT_DIR))
 
 from shared.cluster_selection import selected_cluster_indices
+from shared.snapshots import clusters_file, maps_dir, snapshot_dates
 
-HISTORY_DIR = PROJECT_DIR / "history"
-STATIC_DIR = PROJECT_DIR / "static"
-MAPS_DIR = STATIC_DIR / "maps"
 BASE_URL = "http://localhost:5000"
 IMAGE_WIDTHS = {
     "large": 1080,
     "small": 600,
 }
-
-
-def cluster_files() -> list[Path]:
-    files = sorted(HISTORY_DIR.glob("clusters_????-??-??.json"), reverse=True)
-    if not files:
-        raise FileNotFoundError(f"No dated cluster files found in {HISTORY_DIR}")
-    return files
 
 
 def render_images(clean: bool = False) -> None:
@@ -37,17 +28,15 @@ def render_images(clean: bool = False) -> None:
         ) from error
     playwright_error = playwright_api.Error
 
-    STATIC_DIR.mkdir(parents=True, exist_ok=True)
-    snapshots = cluster_files()
+    snapshots = snapshot_dates()
 
     with playwright_api.sync_playwright() as playwright:
         browser = playwright.chromium.launch()
         try:
             page = browser.new_page()
             viewport_height = page.viewport_size["height"]
-            for snapshot_index, clusters_file in enumerate(snapshots):
-                snapshot_date = clusters_file.stem.removeprefix("clusters_")
-                dated_maps_dir = MAPS_DIR / snapshot_date
+            for snapshot_index, snapshot_date in enumerate(snapshots):
+                dated_maps_dir = maps_dir(snapshot_date)
                 dated_maps_dir.mkdir(parents=True, exist_ok=True)
                 if clean and snapshot_index == 0:
                     for path in dated_maps_dir.iterdir():
@@ -58,7 +47,7 @@ def render_images(clean: bool = False) -> None:
                                 f"Refusing to remove unexpected directory: {path}"
                             )
 
-                with clusters_file.open(encoding="utf-8") as f:
+                with clusters_file(snapshot_date).open(encoding="utf-8") as f:
                     clusters = json.load(f)
                 selected_indices = selected_cluster_indices(clusters)
                 if not selected_indices:
@@ -117,7 +106,7 @@ def main() -> None:
     parser.add_argument(
         "--clean",
         action="store_true",
-        help="Delete existing files in static/maps before rendering.",
+        help="Delete existing map images for the latest snapshot before rendering.",
     )
     args = parser.parse_args()
     render_images(clean=args.clean)

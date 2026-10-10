@@ -10,17 +10,10 @@ if str(PROJECT_DIR) not in sys.path:
     sys.path.insert(0, str(PROJECT_DIR))
 
 from config import HF_TOKEN
+from shared.snapshots import latest_headlines_file
 
-HISTORY_DIR = PROJECT_DIR / "history"
 OUTPUT_FILE = PROJECT_DIR / "data" / "embeddings.npz"
 MODEL_NAME = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
-
-
-def latest_headlines_file() -> Path:
-    files = sorted(HISTORY_DIR.glob("headlines_????-??-??.json"), reverse=True)
-    if not files:
-        raise FileNotFoundError(f"No dated headline files found in {HISTORY_DIR}")
-    return files[0]
 
 
 def main():

@@ -12,8 +12,7 @@ $runtimePaths = @(
     "static/favicon.png"
 )
 $dataPaths = @(
-    "history",
-    "static/maps"
+    "history"
 )
 
 foreach ($path in $runtimePaths) {
@@ -29,16 +28,17 @@ foreach ($path in $dataPaths) {
 }
 
 $historyDirectory = Join-Path $repoRoot "history"
-$snapshot = Get-ChildItem -LiteralPath $historyDirectory -Filter "clusters_????-??-??.json" -File |
-    Sort-Object Name -Descending |
+$snapshot = Get-ChildItem -LiteralPath $historyDirectory -Directory |
     Where-Object {
-        $date = $_.BaseName.Substring("clusters_".Length)
-        Test-Path -LiteralPath (Join-Path $historyDirectory "headlines_$date.json")
+        $_.Name -match '^\d{4}-\d{2}-\d{2}$' -and
+        (Test-Path -LiteralPath (Join-Path $_.FullName "clusters.json")) -and
+        (Test-Path -LiteralPath (Join-Path $_.FullName "headlines.json"))
     } |
+    Sort-Object Name -Descending |
     Select-Object -First 1
 
 if ($null -eq $snapshot) {
-    throw "No dated cluster/headline snapshot pair found. The app needs one to serve its pages."
+    throw "No dated snapshot folder with clusters.json and headlines.json found. The app needs one to serve its pages."
 }
 
 if ($PSCmdlet.ShouldProcess(($runtimePaths -join ", "), "Stage Render app files")) {

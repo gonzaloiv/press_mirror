@@ -4,7 +4,7 @@ import sys
 from datetime import date, datetime, timezone
 from pathlib import Path
 
-from flask import Flask, abort, render_template, request, url_for
+from flask import Flask, abort, render_template, request, send_from_directory, url_for
 
 PROJECT_DIR = Path(__file__).resolve().parent.parent
 if str(PROJECT_DIR) not in sys.path:
@@ -16,10 +16,10 @@ from shared.country_codes import (
     ISO_FIX,
     to_iso,
 )
+from shared import snapshots
 from shared.cluster_selection import selected_cluster_indices
 from web_app.map_presentation import european_coverage, map_viewport
 
-HISTORY_DIR = PROJECT_DIR / "history"
 STATIC_DIR = PROJECT_DIR / "static"
 STATIC_DIR.mkdir(parents=True, exist_ok=True)
 SOURCES_FILE = PROJECT_DIR / "pipeline" / "sources.json"
@@ -43,29 +43,19 @@ def latest_fetched_at(articles: list[dict]) -> datetime | None:
     return max(timestamps, default=None)
 
 
-def cluster_files() -> list[Path]:
-    """Return available dated cluster snapshots, newest first."""
-    files = sorted(HISTORY_DIR.glob("clusters_????-??-??.json"), reverse=True)
-    if not files:
-        raise FileNotFoundError(f"No dated cluster files found in {HISTORY_DIR}")
-    return files
-
-
-def snapshot_file(snapshot_date: str | None = None) -> Path:
-    """Find a requested snapshot or default to the most recent one."""
-    files = cluster_files()
+def resolve_snapshot_date(snapshot_date: str | None) -> str:
+    """Validate a requested snapshot date or default to the most recent one."""
+    dates = snapshots.snapshot_dates()
     if snapshot_date is None:
-        return files[0]
-    for path in files:
-        if path.stem == f"clusters_{snapshot_date}":
-            return path
-    abort(404)
+        return dates[0]
+    if snapshot_date not in dates:
+        abort(404)
+    return snapshot_date
 
 
 def active_countries(snapshot_date: str) -> list[str]:
     """Return countries whose feeds produced headlines in this snapshot."""
-    headlines_file = HISTORY_DIR / f"headlines_{snapshot_date}.json"
-    with headlines_file.open(encoding="utf-8") as f:
+    with snapshots.headlines_file(snapshot_date).open(encoding="utf-8") as f:
         headlines = json.load(f)
     return sorted({to_iso(headline["country"]) for headline in headlines})
 
@@ -95,20 +85,18 @@ def source_groups() -> list[dict]:
 
 @app.route("/")
 def index():
-    files = cluster_files()
-    dates = [path.stem.removeprefix("clusters_") for path in files]
+    dates = snapshots.snapshot_dates()
     selected_date = request.args.get("date", dates[0])
     if selected_date not in dates:
         abort(404)
 
-    clusters_file = snapshot_file(selected_date)
-    with clusters_file.open(encoding="utf-8") as f:
+    with snapshots.clusters_file(selected_date).open(encoding="utf-8") as f:
         clusters = json.load(f)
 
-    headlines_file = HISTORY_DIR / f"headlines_{selected_date}.json"
+    headlines_path = snapshots.headlines_file(selected_date)
     headlines = []
-    if headlines_file.exists():
-        with headlines_file.open(encoding="utf-8") as f:
+    if headlines_path.exists():
+        with headlines_path.open(encoding="utf-8") as f:
             headlines = json.load(f)
     ingestion_time = latest_fetched_at(headlines)
 
@@ -129,8 +117,10 @@ def index():
         cards.append(
             {
                 "index": index,
-                "image_path": (
-                    f"/static/maps/{selected_date}/{index}_small.png"
+                "image_path": url_for(
+                    "snapshot_map",
+                    snapshot_date=selected_date,
+                    filename=f"{index}_small.png",
                 ),
                 "map_url": url_for(
                     "detail_view", cluster_id=index, date=selected_date
@@ -172,19 +162,23 @@ def about():
     )
 
 
+@app.route("/maps/<snapshot_date>/<path:filename>")
+def snapshot_map(snapshot_date, filename):
+    """Serve rendered map images from a snapshot's history folder."""
+    return send_from_directory(snapshots.maps_dir(snapshot_date), filename)
+
+
 @app.route("/map/<int:cluster_id>")
 def detail_view(cluster_id):
-    clusters_file = snapshot_file(request.args.get("date"))
-    with clusters_file.open(encoding="utf-8") as f:
+    snapshot_date = resolve_snapshot_date(request.args.get("date"))
+    with snapshots.clusters_file(snapshot_date).open(encoding="utf-8") as f:
         clusters = json.load(f)
 
     if cluster_id >= len(clusters):
         abort(404)
     cluster = clusters[cluster_id]
-    snapshot_date = date.fromisoformat(
-        clusters_file.stem.removeprefix("clusters_")
-    )
-    available_countries = active_countries(snapshot_date.isoformat())
+    snapshot_day = date.fromisoformat(snapshot_date)
+    available_countries = active_countries(snapshot_date)
     thumbnail = request.args.get("thumbnail") == "1"
 
     # Normalize once, here. Footer still shows the original "UK" for readability.
@@ -268,8 +262,8 @@ def detail_view(cluster_id):
         country_count=len(
             {to_iso(article["country"]) for article in cluster["articles"]}
         ),
-        snapshot_date=snapshot_date.isoformat(),
-        date_label=f"{snapshot_date.day} {snapshot_date:%b %Y}",
+        snapshot_date=snapshot_date,
+        date_label=f"{snapshot_day.day} {snapshot_day:%b %Y}",
         countries=available_countries,
         european_countries=sorted(EUROPEAN_COUNTRIES),
         source_groups=source_groups,
