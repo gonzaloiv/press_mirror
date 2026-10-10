@@ -69,3 +69,11 @@ COUNTRY_CENTERS = {
 def to_iso(country_code: str) -> str:
     """Normalize common country-code aliases to ISO 3166-1 alpha-2."""
     return ISO_FIX.get(country_code, country_code)
+
+
+def country_label(country_code: str) -> str:
+    """Country name for a standalone label, capitalizing a leading "the"."""
+    name = COUNTRY_NAMES.get(to_iso(country_code), country_code)
+    if name.startswith("the "):
+        return "The " + name[len("the "):]
+    return name
