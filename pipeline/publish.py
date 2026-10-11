@@ -93,27 +93,8 @@ def _gql_string(value: str) -> str:
     return json.dumps(value)
 
 
-def create_post(
-    channel_id: str,
-    text: str,
-    image: str,
-    due_at: str,
-    api_key: str,
-) -> dict:
-    """Schedule a Buffer post for one channel."""
-    query = f"""mutation {{
-  createPost(input: {{
-    text: {_gql_string(text)}
-    channelId: {_gql_string(channel_id)}
-    schedulingType: automatic
-    mode: customScheduled
-    dueAt: {_gql_string(due_at)}
-    assets: [{{ image: {{ url: {_gql_string(image)} }} }}]
-  }}) {{
-    ... on PostActionSuccess {{ post {{ id }} }}
-    ... on MutationError {{ message }}
-  }}
-}}"""
+def graphql(query: str, api_key: str) -> dict:
+    """Run one GraphQL request against the Buffer API."""
     request = Request(
         BUFFER_API_URL,
         data=json.dumps({"query": query}).encode("utf-8"),
@@ -125,6 +106,62 @@ def create_post(
     )
     with urlopen(request, timeout=REQUEST_TIMEOUT_SECONDS) as response:
         return json.loads(response.read().decode("utf-8"))
+
+
+def channel_service(channel_id: str, api_key: str) -> str | None:
+    """Return a channel's Buffer service (e.g. instagram, twitter)."""
+    query = (
+        f"query {{ channel(input: {{ id: {_gql_string(channel_id)} }}) "
+        "{ service } }"
+    )
+    result = graphql(query, api_key)
+    channel = (result.get("data") or {}).get("channel") or {}
+    return channel.get("service")
+
+
+def channel_metadata(service: str | None) -> str:
+    """Return the GraphQL metadata fragment a service requires, if any."""
+    if service == "instagram":
+        return "metadata: { instagram: { type: post, shouldShareToFeed: true } }"
+    return ""
+
+
+def create_post_query(
+    channel_id: str,
+    text: str,
+    image: str,
+    due_at: str,
+    service: str | None,
+) -> str:
+    """Build the createPost mutation, including any service metadata."""
+    metadata = channel_metadata(service)
+    return f"""mutation {{
+  createPost(input: {{
+    text: {_gql_string(text)}
+    channelId: {_gql_string(channel_id)}
+    schedulingType: automatic
+    mode: customScheduled
+    dueAt: {_gql_string(due_at)}
+    assets: [{{ image: {{ url: {_gql_string(image)} }} }}]
+    {metadata}
+  }}) {{
+    ... on PostActionSuccess {{ post {{ id }} }}
+    ... on MutationError {{ message }}
+  }}
+}}"""
+
+
+def create_post(
+    channel_id: str,
+    text: str,
+    image: str,
+    due_at: str,
+    api_key: str,
+    service: str | None = None,
+) -> dict:
+    """Schedule a Buffer post for one channel."""
+    query = create_post_query(channel_id, text, image, due_at, service)
+    return graphql(query, api_key)
 
 
 def publish_errors(result: dict) -> list[str]:
@@ -139,6 +176,20 @@ def publish_errors(result: dict) -> list[str]:
 def channel_ids() -> list[str]:
     raw = os.environ.get("BUFFER_CHANNEL_IDS", "")
     return [channel.strip() for channel in raw.split(",") if channel.strip()]
+
+
+def resolve_channels(api_key: str | None) -> list[tuple[str, str | None]]:
+    """Pair each configured channel id with its Buffer service."""
+    resolved = []
+    for channel_id in channel_ids():
+        service = None
+        if api_key:
+            try:
+                service = channel_service(channel_id, api_key)
+            except (HTTPError, URLError, OSError) as error:
+                print(f"    could not resolve channel {channel_id}: {error}")
+        resolved.append((channel_id, service))
+    return resolved
 
 
 def load_top_clusters(limit: int):
@@ -169,31 +220,41 @@ def build_post(
     }
 
 
-def publish_post(channels: list[str], post: dict, api_key: str) -> None:
-    """Schedule one post on every configured channel."""
-    for channel_id in channels:
+def publish_post(
+    channels: list[tuple[str, str | None]],
+    post: dict,
+    api_key: str,
+) -> list[str]:
+    """Schedule one post on every channel; return failure notes."""
+    failures = []
+    for channel_id, service in channels:
         result = create_post(
-            channel_id, post["text"], post["image"], post["due_at"], api_key
+            channel_id,
+            post["text"],
+            post["image"],
+            post["due_at"],
+            api_key,
+            service,
         )
         errors = publish_errors(result)
         if errors:
-            raise SystemExit(
-                f"Buffer post failed for {channel_id}: {'; '.join(errors)}"
-            )
+            failures.append(f"{channel_id}: {'; '.join(errors)}")
+            continue
         post_id = (result.get("data") or {}).get("createPost", {}).get("post", {})
         print(
             f"Scheduled cluster {post['index']} post {post_id.get('id')} on "
             f"channel {channel_id} for {post['due_at']}."
         )
+    return failures
 
 
 def main() -> None:
     api_key = os.environ.get("BUFFER_API_KEY")
-    channels = channel_ids()
     dry_run = os.environ.get("BUFFER_DRY_RUN") == "1"
     if not api_key and not dry_run:
         print("BUFFER_API_KEY not set; skipping Buffer publish.")
         return
+    channels = resolve_channels(api_key)
     if not channels:
         print("BUFFER_CHANNEL_IDS not set; skipping Buffer publish.")
         return
@@ -219,7 +280,13 @@ def main() -> None:
 
     if dry_run:
         print(json.dumps(
-            {"channels": channels, "posts": posts},
+            {
+                "channels": [
+                    {"id": channel_id, "service": service}
+                    for channel_id, service in channels
+                ],
+                "posts": posts,
+            },
             ensure_ascii=False,
             indent=2,
         ))
@@ -230,9 +297,12 @@ def main() -> None:
             f"Image not reachable at {posts[0]['image']}; not publishing."
         )
 
+    failures = []
     for post in posts:
-        publish_post(channels, post, api_key)
+        failures.extend(publish_post(channels, post, api_key))
 
+    if failures:
+        raise SystemExit("Buffer publish had failures:\n" + "\n".join(failures))
     print("Buffer publishing complete.")
 
 
