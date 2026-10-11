@@ -66,8 +66,11 @@ class BuildClustersLabelSelectionTests(unittest.TestCase):
             return ["term"]
 
         with patch(
+            "pipeline.clustering.cluster.translate_shared_terms",
+            return_value=["term"],
+        ), patch(
             "pipeline.clustering.cluster.generate_llm_label_reviewed",
-            return_value=(None, "incomplete_ending"),
+            return_value=("Shared term event", "accepted"),
         ), patch("builtins.print") as output:
             result = build_clusters(
                 labels,
@@ -93,18 +96,105 @@ class BuildClustersLabelSelectionTests(unittest.TestCase):
                 "Headline 5 shared term",
             ],
         )
+        self.assertEqual(result[0]["source_terms"], ["term"])
         self.assertEqual(result[0]["terms"], ["term"])
-        self.assertEqual(result[0]["label_source"], "terms")
+        self.assertEqual(result[0]["label"], "Shared term event")
+        self.assertEqual(result[0]["label_source"], "llm")
         self.assertEqual(
             result[0]["label_review"],
-            {"status": "fallback", "reason": "incomplete_ending"},
+            {"status": "accepted", "reason": "accepted"},
         )
         output.assert_any_call(
-            "Label review 1/1: incomplete_ending; using term fallback.",
+            "Label review 1/1: accepted; kept generated label.",
             flush=True,
         )
         self.assertEqual(result[1]["terms"], [])
         self.assertNotIn("label_source", result[1])
+
+    def test_drops_display_candidates_without_a_good_label(self):
+        shown_articles = [
+            _article(index, f"source{index}", country)
+            for index, country in enumerate(["FR", "DE", "ES", "IT", "FR", "DE"])
+        ]
+        hidden_articles = [
+            _article(6, "source6", "FR"),
+            _article(7, "source7", "DE"),
+        ]
+        articles = shown_articles + hidden_articles
+        titles = [article["title"] for article in articles]
+        sources = [article["source"] for article in articles]
+        countries = [article["country"] for article in articles]
+        links = [article["link"] for article in articles]
+        angles = np.deg2rad([-20, -12, -5, 4, 12, 20])
+        cluster_embeddings = np.column_stack((np.cos(angles), np.sin(angles)))
+        embeddings = np.vstack(
+            (cluster_embeddings, np.array([[0.0, 1.0], [0.0, 1.0]]))
+        )
+        labels = [0, 0, 0, 0, 0, 0, 1, 1]
+
+        with patch(
+            "pipeline.clustering.cluster.translate_shared_terms",
+            return_value=["term"],
+        ), patch(
+            "pipeline.clustering.cluster.generate_llm_label_reviewed",
+            return_value=(None, "insufficient_context_support"),
+        ), patch("builtins.print"):
+            result = build_clusters(
+                labels,
+                titles,
+                sources,
+                countries,
+                links,
+                embeddings,
+                lambda cluster_titles: ["term"],
+                deduplicate=False,
+                merge=False,
+            )
+
+        # The displayed candidate fell back to terms and was dropped; only the
+        # sub-threshold cluster (never displayed) remains.
+        self.assertEqual(len(result), 1)
+        self.assertEqual(result[0]["terms"], [])
+        self.assertNotIn("label_source", result[0])
+
+    def test_falls_back_to_english_headline_when_llm_rejected(self):
+        english = "Nine people dead after mass shooting in Pennsylvania"
+        articles = [
+            _article(index, f"source{index}", country)
+            for index, country in enumerate(["UK", "DE", "FR", "ES", "IT", "NL"])
+        ]
+        for index, article in enumerate(articles):
+            article["title"] = f"Pennsylvania earthquake report {index}"
+        articles[0]["title"] = english
+        titles = [article["title"] for article in articles]
+        sources = [article["source"] for article in articles]
+        countries = [article["country"] for article in articles]
+        links = [article["link"] for article in articles]
+        angles = np.deg2rad([-20, -12, -5, 4, 12, 20])
+        embeddings = np.column_stack((np.cos(angles), np.sin(angles)))
+        labels = [0, 0, 0, 0, 0, 0]
+
+        with patch(
+            "pipeline.clustering.cluster.translate_shared_terms",
+            return_value=["Pennsylvania", "shooting"],
+        ), patch(
+            "pipeline.clustering.cluster.generate_llm_label_reviewed",
+            return_value=(None, "non_english_output"),
+        ), patch("builtins.print"):
+            result = build_clusters(
+                labels,
+                titles,
+                sources,
+                countries,
+                links,
+                embeddings,
+                lambda cluster_titles: ["term"],
+                deduplicate=False,
+                merge=False,
+            )
+
+        self.assertEqual(result[0]["label"], english)
+        self.assertEqual(result[0]["label_source"], "headline")
 
     def test_low_similarity_to_representative_suppresses_label(self):
         articles = [

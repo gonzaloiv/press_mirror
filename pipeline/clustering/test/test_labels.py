@@ -150,6 +150,21 @@ class ExtractCommonTermsTests(unittest.TestCase):
         self.assertNotIn("chef", normalized)
         self.assertNotIn("ex", normalized)
 
+    def test_swedish_auxiliary_does_not_join_a_mixed_phrase(self):
+        titles = [
+            "Gaza har krympt under ett år av vapenvila",
+            "Gaza har krympt efter ett år av vapenvila",
+            "Gaza har krympt under året med vapenvila",
+        ]
+
+        terms = extract_common_terms(
+            titles, encode=_ConceptEncoder(titles=titles)
+        )
+        normalized = [_normalize(term) for term in terms]
+
+        self.assertNotIn("gaza har krympt", normalized)
+        self.assertNotIn("har", normalized)
+
     def test_no_titles_returns_no_terms(self):
         self.assertEqual(extract_common_terms([], encode=_ConceptEncoder()), [])
         self.assertEqual(
