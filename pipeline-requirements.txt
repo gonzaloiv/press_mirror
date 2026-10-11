@@ -1,0 +1,9 @@
+# Dependencies for the generation pipeline (pipeline.py and its stages).
+# Installed wherever the pipeline runs (locally and in the daily CI job).
+# The web app only needs requirements.txt to serve.
+numpy
+scikit-learn
+sentence-transformers
+transformers
+feedparser
+playwright
