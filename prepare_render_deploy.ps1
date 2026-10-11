@@ -4,7 +4,7 @@ param()
 $repoRoot = $PSScriptRoot
 $runtimePaths = @(
     "requirements.txt",
-    "server.py",
+    "main.py",
     "web_app",
     "shared",
     "static/css",
