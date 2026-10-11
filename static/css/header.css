@@ -2,14 +2,15 @@
 
 header {
     display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
     gap: 1rem;
     margin-bottom: 2rem;
 }
 
 .header-copy {
     min-width: 0;
+    text-align: center;
 }
 
 h1 {

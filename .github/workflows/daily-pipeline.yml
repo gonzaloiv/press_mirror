@@ -1,0 +1,51 @@
+name: Daily pipeline
+
+on:
+  schedule:
+    - cron: "0 5 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: daily-pipeline
+  cancel-in-progress: false
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: hf-models-v1
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt -r pipeline-requirements.txt
+          python -m playwright install --with-deps chromium
+
+      - name: Run pipeline
+        run: |
+          gunicorn -b 127.0.0.1:5000 main:app &
+          for i in $(seq 1 30); do
+            curl -sf http://127.0.0.1:5000/ >/dev/null && break
+            sleep 1
+          done
+          python pipeline.py
+          kill %1
+
+      - name: Commit snapshot
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add history
+          git diff --cached --quiet || git commit -m "Update snapshot $(date -u +%F)"
+          git push

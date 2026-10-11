@@ -1,6 +1,6 @@
 """Production WSGI entry point.
 
-Render start command: ``gunicorn server:app``.
+Render start command: ``gunicorn main:app``.
 """
 
 from web_app.server import app

@@ -14,6 +14,7 @@ from shared.country_codes import (
     COUNTRY_NAMES,
     EUROPEAN_COUNTRIES,
     ISO_FIX,
+    country_label,
     to_iso,
 )
 from shared import snapshots
@@ -218,7 +219,7 @@ def detail_view(cluster_id):
 
     source_groups = [
         {
-            "name": COUNTRY_NAMES.get(country_code, country_code),
+            "name": country_label(country_code),
             "outlets": [
                 {"name": source, **article}
                 for source, article in sorted(
