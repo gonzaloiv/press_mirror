@@ -43,9 +43,20 @@ jobs:
           kill %1
 
       - name: Commit snapshot
+        id: commit_snapshot
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add history
           git diff --cached --quiet || git commit -m "Update snapshot $(date -u +%F)"
           git push
+          echo "snapshot_commit=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Publish to Buffer
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          BUFFER_CHANNEL_IDS: ${{ secrets.BUFFER_CHANNEL_IDS }}
+          SITE_URL: https://pressmirror.eu
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          SNAPSHOT_COMMIT: ${{ steps.commit_snapshot.outputs.snapshot_commit }}
+        run: python pipeline/publish.py
