@@ -26,6 +26,11 @@ def _meets_coverage_gates(cluster: dict) -> bool:
     )
 
 
+def passes_coverage_gates(cluster: dict) -> bool:
+    """True when a cluster is strong enough to be a display candidate."""
+    return _meets_coverage_gates(cluster)
+
+
 def selected_cluster_indices(clusters: list[dict]) -> list[int]:
     """Return indices of the clusters to display, most similar first.
 

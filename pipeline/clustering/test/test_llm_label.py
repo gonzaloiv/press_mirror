@@ -1,8 +1,10 @@
 import unittest
 
 from pipeline.clustering.llm_label import (
+    english_headline,
     generate_llm_label,
     generate_llm_label_reviewed,
+    translate_shared_terms,
 )
 
 
@@ -29,6 +31,19 @@ class _FakeGenerator:
         return [{"generated_text": self.generated}]
 
 
+class _HintAwareGenerator(_FakeGenerator):
+    def __init__(self, first, second):
+        super().__init__(first)
+        self.second = second
+
+    def __call__(self, prompt, **kwargs):
+        hinted = any(
+            "IMPORTANT" in message["content"]
+            for message in self.tokenizer.messages
+        )
+        return [{"generated_text": self.second if hinted else self.generated}]
+
+
 class GenerateLlmLabelTests(unittest.TestCase):
     def test_returns_cleaned_headline(self):
         generator = _FakeGenerator('"Moscow drone attack"\ntrailing noise')
@@ -47,7 +62,9 @@ class GenerateLlmLabelTests(unittest.TestCase):
         )
 
         label = generate_llm_label(
-            ["alpha", "beta"], max_words=7, generator=generator
+            ["alpha", "beta", "gamma", "delta"],
+            max_words=7,
+            generator=generator,
         )
 
         self.assertEqual(label, "alpha beta gamma delta epsilon zeta eta")
@@ -69,7 +86,9 @@ class GenerateLlmLabelTests(unittest.TestCase):
         )
 
         label = generate_llm_label(
-            ["Bulgaria", "drones"], max_words=7, generator=generator
+            ["Bulgaria", "drones", "Ships", "Hit"],
+            max_words=7,
+            generator=generator,
         )
 
         self.assertEqual(label, "Bulgaria Drone Attacks: Two Ships Hit")
@@ -114,7 +133,7 @@ class GenerateLlmLabelTests(unittest.TestCase):
         self.assertEqual(label, "Moscow drone attack")
         self.assertEqual(reason, "accepted")
 
-    def test_review_keeps_labels_without_context_support(self):
+    def test_review_rejects_labels_without_context_support(self):
         generator = _FakeGenerator("Parliament votes on budget")
 
         label, reason = generate_llm_label_reviewed(
@@ -123,8 +142,37 @@ class GenerateLlmLabelTests(unittest.TestCase):
             generator=generator,
         )
 
-        self.assertEqual(label, "Parliament votes on budget")
-        self.assertEqual(reason, "accepted_weak_context_support")
+        self.assertIsNone(label)
+        self.assertEqual(reason, "insufficient_context_support")
+
+    def test_rejects_gibberish_from_multilingual_terms(self):
+        generator = _FakeGenerator("Gaza stills attack weapons for year")
+        headlines = [
+            'Ein Jahr brüchige Waffenruhe Gaza: "Der Krieg lässt uns nicht in Ruhe"',
+            "Expert: Gaza har krympt under ett år av vapenvila",
+            "Minst fem drept i nye israelske angrep på Gazastripen",
+        ]
+
+        label, reason = generate_llm_label_reviewed(
+            ["Israel", "Jahr", "Gaza har krympt", "Krieg"],
+            headlines,
+            generator=generator,
+        )
+
+        self.assertIsNone(label)
+        self.assertEqual(reason, "insufficient_context_support")
+
+    def test_rejects_non_english_headlines(self):
+        generator = _FakeGenerator(
+            "Mann erschießt in Pennsylvania acht Menschen und sich selbst"
+        )
+
+        label, reason = generate_llm_label_reviewed(
+            ["Pennsylvania", "people", "shooting"], generator=generator
+        )
+
+        self.assertIsNone(label)
+        self.assertEqual(reason, "non_english_output")
 
     def test_review_reports_generation_failure(self):
         generator = _FakeGenerator(error=RuntimeError("no model"))
@@ -173,6 +221,96 @@ class GenerateLlmLabelTests(unittest.TestCase):
         user_message = generator.tokenizer.messages[-1]["content"]
         self.assertIn("Moscow, drone", user_message)
         self.assertIn("Moscow drone attack", user_message)
+
+    def test_retries_in_english_when_first_output_is_foreign(self):
+        generator = _HintAwareGenerator(
+            "Mann erschießt in Pennsylvania acht Menschen und sich selbst",
+            "Pennsylvania shooting leaves nine dead",
+        )
+
+        label, reason = generate_llm_label_reviewed(
+            ["Pennsylvania", "shooting", "nine", "dead"],
+            generator=generator,
+        )
+
+        self.assertEqual(label, "Pennsylvania shooting leaves nine dead")
+        self.assertEqual(reason, "accepted")
+
+    def test_prefers_english_headlines_in_context(self):
+        english = "Nine people dead after mass shooting in Pennsylvania"
+        german = "Mann erschießt in Pennsylvania acht Menschen und sich selbst"
+        generator = _FakeGenerator("Pennsylvania mass shooting")
+
+        generate_llm_label(
+            ["Pennsylvania", "shooting"], [german, english], generator=generator
+        )
+
+        user_message = generator.tokenizer.messages[-1]["content"]
+        self.assertLess(user_message.index(english), user_message.index(german))
+        self.assertEqual(english_headline([german, english]), english)
+
+    def test_translates_shared_terms_in_order(self):
+        generator = _FakeGenerator(
+            "1. Israel\n2. year\n3. Gaza has shrunk\n4. war"
+        )
+
+        translated = translate_shared_terms(
+            ["Israel", "Jahr", "Gaza har krympt", "Krieg"],
+            ["Ein Jahr Waffenruhe in Gaza", "Expert: Gaza har krympt"],
+            generator=generator,
+        )
+
+        self.assertEqual(
+            translated, ["Israel", "year", "Gaza has shrunk", "war"]
+        )
+
+    def test_discards_terms_left_in_source_language(self):
+        generator = _FakeGenerator("1. Israel\n2. Jahr\n3. war")
+
+        translated = translate_shared_terms(
+            ["Israel", "Jahr", "Krieg"], generator=generator
+        )
+
+        self.assertEqual(translated, ["Israel", "war"])
+
+    def test_retries_malformed_translation_output(self):
+        generator = _FakeGenerator("year and war")
+
+        translated = translate_shared_terms(
+            ["Jahr", "Krieg"], generator=generator
+        )
+
+        self.assertEqual(translated, [])
+
+    def test_rejects_subjective_wording(self):
+        generator = _FakeGenerator("Trump and Putin's diesel deal is a bad idea")
+
+        label, reason = generate_llm_label_reviewed(
+            ["Trump", "Putin", "diesel", "deal"],
+            ["Trump und Putin schließen Diesel-Deal"],
+            generator=generator,
+        )
+
+        self.assertIsNone(label)
+        self.assertEqual(reason, "subjective_wording")
+
+    def test_dedupes_cross_language_name_variants(self):
+        generator = _FakeGenerator("1. Putin\n2. Poutine\n3. deal")
+
+        translated = translate_shared_terms(
+            ["Putin", "Poutine", "deal"], generator=generator
+        )
+
+        self.assertEqual(translated, ["Putin", "deal"])
+
+    def test_keeps_distinct_translated_terms(self):
+        generator = _FakeGenerator("1. deal\n2. diesel")
+
+        translated = translate_shared_terms(
+            ["deal", "diesel"], generator=generator
+        )
+
+        self.assertEqual(translated, ["deal", "diesel"])
 
     def test_prompt_includes_eight_context_headlines(self):
         generator = _FakeGenerator("Moscow drone attack")

@@ -47,8 +47,8 @@ def build_text(cluster: dict, link: str) -> str:
     }
     countries = {to_iso(article["country"]) for article in cluster["articles"]}
     return (
-        f"How Europe covered {cluster['label']}.\n"
-        f"{len(sources)} outlets in {len(countries)} countries. "
+        f"How Europe covered {cluster['label']}.\n\n"
+        f"{len(sources)} outlets in {len(countries)} countries.\n\n"
         f"See the map: {link}"
     )
 

@@ -13,12 +13,18 @@ from sklearn.cluster import AgglomerativeClustering
 from sklearn.metrics.pairwise import cosine_similarity
 
 from shared.country_codes import to_iso
-from shared.cluster_selection import selected_cluster_indices
+from shared.cluster_selection import passes_coverage_gates, selected_cluster_indices
 from shared.snapshots import snapshot_dir
 from pipeline.clustering.labels import build_cluster_label, extract_common_terms
-from pipeline.clustering.llm_label import generate_llm_label_reviewed
+from pipeline.clustering.llm_label import (
+    english_headline,
+    generate_llm_label_reviewed,
+    translate_shared_terms,
+)
 
 INPUT_FILE = PROJECT_DIR / "data" / "embeddings.npz"
+
+GOOD_LABEL_SOURCES = frozenset({"llm", "headline"})
 
 SIMILARITY_THRESHOLD = 0.75    # tune this — see notes below
 MERGE_SIMILARITY_THRESHOLD = 0.72
@@ -311,8 +317,10 @@ def build_clusters(
         cluster_result, cluster_titles = entries[index]
         print(f"Generating label {label_number}/{len(shown)}...", flush=True)
         cluster_terms = labeler(cluster_titles)
+        english_terms = translate_shared_terms(cluster_terms, cluster_titles)
+        label_terms = english_terms or cluster_terms
         llm_label, review_reason = generate_llm_label_reviewed(
-            cluster_terms, cluster_titles
+            label_terms, cluster_titles
         )
         review_action = (
             "kept generated label" if llm_label else "using term fallback"
@@ -322,17 +330,38 @@ def build_clusters(
             f"{review_reason}; {review_action}.",
             flush=True,
         )
-        cluster_result["terms"] = cluster_terms
-        cluster_result["label"] = llm_label or build_cluster_label(
-            cluster_terms, cluster_titles[0]
-        )
-        cluster_result["label_source"] = "llm" if llm_label else "terms"
+        cluster_result["source_terms"] = cluster_terms
+        cluster_result["terms"] = english_terms
+        if llm_label:
+            cluster_result["label"] = llm_label
+            cluster_result["label_source"] = "llm"
+        else:
+            fallback = english_headline(cluster_titles)
+            if fallback:
+                cluster_result["label"] = fallback
+                cluster_result["label_source"] = "headline"
+            else:
+                cluster_result["label"] = build_cluster_label(
+                    english_terms or cluster_terms, cluster_titles[0]
+                )
+                cluster_result["label_source"] = "terms"
         cluster_result["label_review"] = {
             "status": "accepted" if llm_label else "fallback",
             "reason": review_reason,
         }
 
-    return result
+    # A display candidate without a good English name is dropped, so the site
+    # only shows stories it can name cleanly.
+    kept = [
+        cluster
+        for cluster in result
+        if cluster.get("label_source") in GOOD_LABEL_SOURCES
+        or not passes_coverage_gates(cluster)
+    ]
+    dropped = len(result) - len(kept)
+    if dropped:
+        print(f"Dropped {dropped} clusters without a usable label.", flush=True)
+    return kept
 
 
 def main():

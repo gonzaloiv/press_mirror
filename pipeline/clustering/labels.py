@@ -46,7 +46,7 @@ _FUNCTION_WORDS = frozenset(
     os as dos das uma para com na no sao nao do da em ao aos um mais
     het een van bij voor met zijn wordt niet ook de den te op om als dat die
     deze
-    och ar det den som att for med av pa inte i till utan over under vid
+    och ar det den som att for med av pa inte i till utan over under vid har ett
     w na ze i nie do od po za pod nad
     ja on ovat etta kanssa ei se kuin mutta
     one two three first last how why warum wie was zwei drei jeden deux trois
