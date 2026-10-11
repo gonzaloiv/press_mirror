@@ -1,0 +1,28 @@
+name: Publish to Buffer
+
+on:
+  schedule:
+    - cron: "0 7 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Publish latest snapshot
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          BUFFER_CHANNEL_IDS: ${{ secrets.BUFFER_CHANNEL_IDS }}
+          SITE_URL: https://pressmirror.eu
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          SNAPSHOT_COMMIT: ${{ github.sha }}
+        run: python pipeline/publish.py
