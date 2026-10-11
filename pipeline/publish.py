@@ -199,6 +199,13 @@ def main() -> None:
         return
 
     snapshot_date, top_clusters = load_top_clusters(DAILY_POST_COUNT)
+    today = datetime.now(timezone.utc).date().isoformat()
+    if snapshot_date != today:
+        print(
+            f"Latest snapshot {snapshot_date} is not today ({today}); "
+            "skipping Buffer publish."
+        )
+        return
     if not top_clusters:
         print("No displayed cluster for today; nothing to publish.")
         return
