@@ -12,6 +12,7 @@ With no key or channels set, the module is a no-op so local pipeline runs
 never publish by accident.
 """
 
+import hashlib
 import json
 import os
 import sys
@@ -220,27 +221,91 @@ def build_post(
     }
 
 
+def publication_state_path() -> Path:
+    configured = os.environ.get("BUFFER_STATE_PATH")
+    return Path(configured) if configured else PROJECT_DIR / ".github" / "buffer-publications.json"
+
+
+def channel_fingerprint(channel_id: str) -> str:
+    return hashlib.sha256(channel_id.encode("utf-8")).hexdigest()
+
+
+def load_publication_state(snapshot_date: str):
+    path = publication_state_path()
+    try:
+        state = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return set(), []
+    if state.get("snapshot_date") != snapshot_date:
+        return set(), []
+    records = state.get("published", [])
+    completed = {
+        (record["cluster_index"], record["channel_fingerprint"])
+        for record in records
+        if "cluster_index" in record and "channel_fingerprint" in record
+    }
+    return completed, records
+
+
+def save_publication_state(snapshot_date: str, records: list[dict]) -> None:
+    path = publication_state_path()
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = path.with_suffix(path.suffix + ".tmp")
+    temporary.write_text(
+        json.dumps(
+            {"snapshot_date": snapshot_date, "published": records},
+            ensure_ascii=False,
+            indent=2,
+        ) + "\n",
+        encoding="utf-8",
+    )
+    temporary.replace(path)
+
+
 def publish_post(
     channels: list[tuple[str, str | None]],
     post: dict,
     api_key: str,
+    snapshot_date: str,
+    completed: set[tuple[int, str]],
+    records: list[dict],
 ) -> list[str]:
-    """Schedule one post on every channel; return failure notes."""
+    """Schedule one post per unprocessed channel and persist each success."""
     failures = []
     for channel_id, service in channels:
-        result = create_post(
-            channel_id,
-            post["text"],
-            post["image"],
-            post["due_at"],
-            api_key,
-            service,
-        )
+        fingerprint = channel_fingerprint(channel_id)
+        key = (post["index"], fingerprint)
+        if key in completed:
+            print(
+                f"Already scheduled cluster {post['index']} on channel "
+                f"{channel_id}; skipping."
+            )
+            continue
+        try:
+            result = create_post(
+                channel_id,
+                post["text"],
+                post["image"],
+                post["due_at"],
+                api_key,
+                service,
+            )
+        except (HTTPError, URLError, OSError) as error:
+            failures.append(f"{channel_id}: {error}")
+            continue
         errors = publish_errors(result)
         if errors:
             failures.append(f"{channel_id}: {'; '.join(errors)}")
             continue
         post_id = (result.get("data") or {}).get("createPost", {}).get("post", {})
+        completed.add(key)
+        records.append(
+            {
+                "cluster_index": post["index"],
+                "channel_fingerprint": fingerprint,
+            }
+        )
+        save_publication_state(snapshot_date, records)
         print(
             f"Scheduled cluster {post['index']} post {post_id.get('id')} on "
             f"channel {channel_id} for {post['due_at']}."
@@ -277,6 +342,8 @@ def main() -> None:
         for position, (index, cluster) in enumerate(top_clusters, start=1)
     ]
     print(f"Prepared {len(posts)} posts for {snapshot_date}.")
+    completed, records = load_publication_state(snapshot_date)
+    print(f"Already scheduled today: {len(completed)} story/channel pair(s).")
 
     if dry_run:
         print(json.dumps(
@@ -299,7 +366,16 @@ def main() -> None:
 
     failures = []
     for post in posts:
-        failures.extend(publish_post(channels, post, api_key))
+        failures.extend(
+            publish_post(
+                channels,
+                post,
+                api_key,
+                snapshot_date,
+                completed,
+                records,
+            )
+        )
 
     if failures:
         raise SystemExit("Buffer publish had failures:\n" + "\n".join(failures))

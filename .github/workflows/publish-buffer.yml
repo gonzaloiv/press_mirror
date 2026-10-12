@@ -2,11 +2,15 @@ name: Publish to Buffer
 
 on:
   schedule:
-    - cron: "0 7 * * *"
+    - cron: "23 7 * * *"
   workflow_dispatch:
 
+concurrency:
+  group: buffer-publisher
+  cancel-in-progress: false
+
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   publish:
@@ -18,11 +22,40 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Restore publication state
+        run: |
+          state_file="$RUNNER_TEMP/buffer-publications.json"
+          if git fetch origin buffer-state; then
+            git show origin/buffer-state:.github/buffer-publications.json > "$state_file" || printf '{"snapshot_date": null, "published": []}\n' > "$state_file"
+          else
+            printf '{"snapshot_date": null, "published": []}\n' > "$state_file"
+          fi
+
       - name: Publish latest snapshot
         env:
           BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
           BUFFER_CHANNEL_IDS: ${{ secrets.BUFFER_CHANNEL_IDS }}
+          BUFFER_STATE_PATH: ${{ runner.temp }}/buffer-publications.json
           SITE_URL: https://pressmirror.eu
           GITHUB_REPOSITORY: ${{ github.repository }}
           SNAPSHOT_COMMIT: ${{ github.sha }}
         run: python pipeline/publish.py
+
+      - name: Save publication state
+        if: always()
+        run: |
+          state_file="$RUNNER_TEMP/buffer-publications.json"
+          if [ ! -s "$state_file" ]; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git fetch origin buffer-state; then
+            git checkout -B buffer-state origin/buffer-state
+          else
+            git checkout -b buffer-state
+          fi
+          mkdir -p .github
+          cp "$state_file" .github/buffer-publications.json
+          git add .github/buffer-publications.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Record Buffer publication progress"
+          git push origin HEAD:buffer-state
