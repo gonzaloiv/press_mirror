@@ -34,7 +34,7 @@ def maps_dir(snapshot_date: str) -> Path:
 
 
 def snapshot_dirs() -> list[Path]:
-    """Return dated folders holding clusters, newest first."""
+    """Return complete dated snapshots, newest first."""
     if not HISTORY_DIR.is_dir():
         raise FileNotFoundError(f"No history folder found at {HISTORY_DIR}")
     folders = [
@@ -43,9 +43,10 @@ def snapshot_dirs() -> list[Path]:
         if path.is_dir()
         and SNAPSHOT_FOLDER.fullmatch(path.name)
         and (path / CLUSTERS_FILENAME).is_file()
+        and (path / HEADLINES_FILENAME).is_file()
     ]
     if not folders:
-        raise FileNotFoundError(f"No dated cluster snapshots found in {HISTORY_DIR}")
+        raise FileNotFoundError(f"No complete dated snapshots found in {HISTORY_DIR}")
     return sorted(folders, key=lambda path: path.name, reverse=True)
 
 

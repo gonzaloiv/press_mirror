@@ -1,7 +1,6 @@
 import json
 import sys
 from dataclasses import dataclass, field
-from datetime import date
 from pathlib import Path
 
 PROJECT_DIR = Path(__file__).resolve().parent.parent.parent
@@ -14,7 +13,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 from shared.country_codes import to_iso
 from shared.cluster_selection import passes_coverage_gates, selected_cluster_indices
-from shared.snapshots import snapshot_dir
+from shared.snapshots import headlines_file, latest_headlines_file, snapshot_dir
 from pipeline.clustering.labels import build_cluster_label, extract_common_terms
 from pipeline.clustering.llm_label import (
     english_headline,
@@ -43,7 +42,19 @@ class ClusterMembers:
 def load_data():
     data = np.load(INPUT_FILE, allow_pickle=True)
     titles = list(data["titles"])
+    snapshot_date = (
+        str(data["snapshot_date"].item())
+        if "snapshot_date" in data.files
+        else latest_headlines_file().parent.name
+    )
+    source_file = headlines_file(snapshot_date)
+    if not source_file.is_file():
+        raise FileNotFoundError(
+            f"Embeddings refer to {snapshot_date}, but its headlines file is "
+            f"missing at {source_file}. Run ingest.py and embed.py first."
+        )
     return (
+        snapshot_date,
         data["embeddings"],
         titles,
         list(data["sources"]),
@@ -365,7 +376,7 @@ def build_clusters(
 
 
 def main():
-    embeddings, titles, sources, countries, links, fetched_at = load_data()
+    snapshot_date, embeddings, titles, sources, countries, links, fetched_at = load_data()
     print(f"Loaded {len(titles)} headlines.")
 
     labels = cluster(embeddings)
@@ -383,7 +394,7 @@ def main():
     )
     print(f"Kept {len(clusters)} clusters with 2+ articles.")
 
-    snapshot_path = snapshot_dir(date.today().isoformat())
+    snapshot_path = snapshot_dir(snapshot_date)
     snapshot_path.mkdir(parents=True, exist_ok=True)
     output_file = snapshot_path / "clusters.json"
     with output_file.open("w", encoding="utf-8") as f:

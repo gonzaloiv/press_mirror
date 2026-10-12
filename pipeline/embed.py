@@ -47,6 +47,7 @@ def main():
     # 4. Save embeddings + metadata together so we can always line them up.
     np.savez_compressed(
         OUTPUT_FILE,
+        snapshot_date=np.array(input_file.parent.name),
         embeddings=embeddings,
         titles=np.array(headlines, dtype=object),
         sources=np.array([a["source"] for a in articles], dtype=object),
