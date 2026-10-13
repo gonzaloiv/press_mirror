@@ -3,7 +3,12 @@ from unittest.mock import patch
 
 import numpy as np
 
-from pipeline.clustering.cluster import build_clusters
+from pipeline.clustering.cluster import (
+    ClusterMembers,
+    build_clusters,
+    deduplicate_cluster,
+    merge_clusters,
+)
 from shared.cluster_selection import (
     MAX_CLUSTER_COUNT,
     MIN_CLUSTER_REPRESENTATIVE_SIMILARITY,
@@ -299,6 +304,93 @@ class BuildClustersLabelSelectionTests(unittest.TestCase):
         self.assertEqual(
             selected_cluster_indices(clusters),
             list(range(MAX_CLUSTER_COUNT)),
+        )
+
+
+class ClusterPostProcessTests(unittest.TestCase):
+    def test_deduplicate_keeps_nearest_article_per_source(self):
+        embeddings = np.array([[1.0, 0.0], [0.9, 0.1], [0.0, 1.0]])
+
+        members = deduplicate_cluster([0, 1, 2], ["a", "a", "b"], embeddings)
+
+        self.assertEqual(members.indices, [1, 2])
+        self.assertEqual(members.dropped_sources, {"a": 1})
+
+    def test_deduplicate_handles_an_empty_cluster(self):
+        members = deduplicate_cluster([], [], np.zeros((0, 2)))
+
+        self.assertEqual(members.indices, [])
+        self.assertEqual(members.dropped_sources, {})
+
+    def test_merge_combines_close_centroids(self):
+        embeddings = np.array(
+            [[1.0, 0.0], [0.98, 0.02], [0.999, 0.001], [0.97, 0.03]]
+        )
+        clusters = [ClusterMembers([0, 1]), ClusterMembers([2, 3])]
+
+        merged = merge_clusters(
+            clusters, ["a", "b", "c", "d"], embeddings, threshold=0.5
+        )
+
+        self.assertEqual(len(merged), 1)
+        self.assertEqual(merged[0].indices, [0, 1, 2, 3])
+        self.assertTrue(merged[0].merged)
+
+    def test_merge_keeps_distant_centroids_apart(self):
+        embeddings = np.array(
+            [[1.0, 0.0], [0.98, 0.02], [0.0, 1.0], [0.02, 0.98]]
+        )
+        clusters = [ClusterMembers([0, 1]), ClusterMembers([2, 3])]
+
+        merged = merge_clusters(
+            clusters, ["a", "b", "c", "d"], embeddings, threshold=0.5
+        )
+
+        self.assertEqual(len(merged), 2)
+        self.assertFalse(any(cluster.merged for cluster in merged))
+
+
+class BuildClustersDegradationTests(unittest.TestCase):
+    def _fixture(self):
+        shown = [
+            _article(index, f"source{index}", country)
+            for index, country in enumerate(["FR", "DE", "ES", "IT", "FR", "DE"])
+        ]
+        hidden = [_article(6, "source6", "FR"), _article(7, "source7", "DE")]
+        articles = shown + hidden
+        angles = np.deg2rad([-20, -12, -5, 4, 12, 20])
+        cluster_embeddings = np.column_stack((np.cos(angles), np.sin(angles)))
+        embeddings = np.vstack(
+            (cluster_embeddings, np.array([[0.0, 1.0], [0.0, 1.0]]))
+        )
+        return articles, embeddings
+
+    def test_keeps_term_fallback_clusters_when_model_unavailable(self):
+        articles, embeddings = self._fixture()
+
+        with patch(
+            "pipeline.clustering.cluster.translate_shared_terms",
+            return_value=["term"],
+        ), patch(
+            "pipeline.clustering.cluster.generate_llm_label_reviewed",
+            return_value=(None, "generation_failed"),
+        ), patch("builtins.print"):
+            result = build_clusters(
+                [0, 0, 0, 0, 0, 0, 1, 1],
+                [article["title"] for article in articles],
+                [article["source"] for article in articles],
+                [article["country"] for article in articles],
+                [article["link"] for article in articles],
+                embeddings,
+                lambda cluster_titles: ["term"],
+                deduplicate=False,
+                merge=False,
+                llm_available=False,
+            )
+
+        self.assertEqual(len(result), 2)
+        self.assertTrue(
+            any(cluster.get("label_source") == "terms" for cluster in result)
         )
 
 

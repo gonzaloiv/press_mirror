@@ -19,11 +19,16 @@ _SYSTEM_PROMPT = (
     "The shared terms and headlines are usually in other languages (German, "
     "French, Spanish, Italian, Dutch, Swedish, Finnish and others). Translate "
     "the shared event into natural English; never copy non-English words into "
-    "the output. The shared terms are noisy hints, not text to stitch "
+    "the output. Write personal names and organisations in their standard "
+    "English spelling (for example Selenskyi or Zelensky -> Zelenskyy, "
+    "Poutine -> Putin). The shared terms are noisy hints, not text to stitch "
     "together. Read the headlines as a group, identify the central event, and "
-    "describe it in English. Do not invent names, places, numbers, or claims. "
-    "Output one complete English headline of at most {max_words} words: no "
-    "quotes, no list, no colon."
+    "describe it in English. Be specific: name the concrete actor and action, "
+    "and include a distinctive shared term when one is available; avoid vague "
+    "stock phrases such as 'threatens war' or 'raises concerns'. Do not invent "
+    "names, places, numbers, or claims. Output one complete English headline "
+    "of at most {max_words} words, ending on a complete phrase: no quotes, no "
+    "list, no colon."
 )
 
 _FEW_SHOT = (
@@ -36,6 +41,10 @@ _FEW_SHOT = (
     (
         ["Erdbeben", "Panama", "Schäden"],
         "Earthquake causes damage in Panama",
+    ),
+    (
+        ["Putin", "Trump", "Diesel", "Deal"],
+        "Putin and Trump discuss diesel deal",
     ),
 )
 
@@ -63,9 +72,29 @@ _NON_ENGLISH_MARKERS = frozenset(
 _SUBJECTIVE_MARKERS = frozenset(
     "bad good worst best terrible awful brilliant foolish wise stupid "
     "disastrous shameful disgraceful reckless ridiculous absurd pathetic "
-    "outrageous humiliating disastrous"
+    "outrageous humiliating"
     .split()
 )
+
+# Curated stopgap for names and organisations the model transliterates from
+# source languages: the standard English form maps to the non-standard variants
+# that should collapse onto it. It is intentionally small and shared by both
+# the label and the displayed-term paths so a title and its subtitle agree.
+_CANONICAL_NAMES = {
+    "Zelenskyy": (
+        "zelensky", "zelenskyy", "zelenskyj",
+        "selensky", "selenskyi", "selenskyj", "zelenskiy",
+    ),
+    "Putin": ("putin", "poutine"),
+    "NATO": ("nato",),
+    "EU": ("eu",),
+    "UK": ("uk",),
+}
+_NAME_CANONICALS = {
+    variant: canonical
+    for canonical, variants in _CANONICAL_NAMES.items()
+    for variant in variants
+}
 
 
 
@@ -76,7 +105,11 @@ def _english_marker_count(text: str) -> int:
 def english_headline(headlines) -> str | None:
     """Return a context headline with clear English function/content words."""
     for headline in headlines:
-        if headline and headline.strip() and _english_marker_count(headline) >= 2:
+        if not (headline and headline.strip()):
+            continue
+        if _has_non_english_markers(headline):
+            continue
+        if _english_marker_count(headline) >= 2:
             return headline.strip()
     return None
 
@@ -111,7 +144,8 @@ def _messages(terms: list[str], headlines, max_words: int, english_hint=False):
     if english_hint:
         final_prompt += (
             "\nIMPORTANT: reply in neutral English only. Translate source "
-            "terms; do not praise, condemn, or express an opinion about the event."
+            "terms; do not praise, condemn, or express an opinion about the "
+            "event, and avoid vague stock wording."
         )
     messages.append({"role": "user", "content": final_prompt})
     return messages
@@ -119,15 +153,26 @@ def _messages(terms: list[str], headlines, max_words: int, english_hint=False):
 
 _DANGLING_WORDS = frozenset(
     """
-    a an the and or of to in on with for from at by as is are was were be been
-    has have had will would that this these those one two three four five six
-    seven eight nine ten
+    a an the and or but if then than so as of at by for from in into on onto
+    to with without over under after before during while about against between
+    through is are was were be been being has have had will would that this
+    these those one two three four five six seven eight nine ten
     """.split()
 )
 
-_INCOMPLETE_TAIL_WORDS = _DANGLING_WORDS.difference(
-    "one two three four five six seven eight nine ten".split()
-) | frozenset("its their my your our".split())
+# Attributive modifiers that cannot end a headline; truncation should drop
+# them rather than show "…after alleged".
+_PRENOMINAL_MODIFIERS = frozenset(
+    "alleged suspected unnamed unidentified former".split()
+)
+
+_INCOMPLETE_TAIL_WORDS = (
+    _DANGLING_WORDS.difference(
+        "one two three four five six seven eight nine ten".split()
+    )
+    | frozenset("its their my your our".split())
+    | _PRENOMINAL_MODIFIERS
+)
 
 
 def _has_incomplete_tail(words: list[str]) -> bool:
@@ -142,13 +187,22 @@ def _has_cropped_ending(text: str) -> bool:
 
 _REVIEW_STOPWORDS = _INCOMPLETE_TAIL_WORDS | frozenset(
     """
-    but if then than so without over under after before during while about
-    against between through being do does did it his her he she they them we
-    you who why what when where how not no now new more most all any only
+    do does did it his her he she they them we you who why what when where how
+    not no now new more most all any only
     """.split()
 )
 
 _WORD_RE = re.compile(r"[^\W_]+(?:['’][^\W_]+)?", re.UNICODE)
+
+
+def _canonicalize_names(text: str) -> str:
+    """Rewrite transliterated names into their standard English spelling."""
+    def replace(match: re.Match) -> str:
+        word = match.group()
+        canonical = _NAME_CANONICALS.get(word.replace("’", "'").casefold())
+        return canonical if canonical else word
+
+    return _WORD_RE.sub(replace, text)
 
 
 def _content_words(text: str) -> set[str]:
@@ -185,6 +239,7 @@ def _is_dangling(token: str) -> bool:
         not bare
         or len(bare) <= 1
         or bare in _DANGLING_WORDS
+        or bare in _PRENOMINAL_MODIFIERS
         or bare.isdigit()
         or token.endswith(("'s", "’s"))
     )
@@ -194,6 +249,33 @@ def _drop_dangling_tail(words: list[str]) -> list[str]:
     while len(words) > 1 and _is_dangling(words[-1]):
         words.pop()
     return words
+
+
+def clean_headline(text: str, *, max_words: int = LLM_MAX_WORDS) -> str:
+    """Clean and cap a raw headline for use as a fallback label.
+
+    The headline fallback bypasses the LLM review, so cap it and drop a
+    dangling tail here to avoid shipping an overlong or cropped title.
+    """
+    cleaned = text.strip().strip("\"'").strip()
+    cleaned = cleaned.rstrip(".,;:!?…").strip()
+    cleaned = _canonicalize_names(cleaned)
+    words = cleaned.split()
+    if len(words) > max_words:
+        words = _drop_dangling_tail(words[:max_words])
+    return " ".join(words).rstrip(".,;:!?…").strip()
+
+
+def _review_reason(label: str, terms: list[str], headlines) -> str | None:
+    if _has_cropped_ending(label):
+        return "incomplete_ending"
+    if _has_non_english_markers(label):
+        return "non_english_output"
+    if _has_subjective_wording(label):
+        return "subjective_wording"
+    if not _has_context_support(label, terms, headlines):
+        return "insufficient_context_support"
+    return None
 
 
 def _clean_with_review(
@@ -207,6 +289,7 @@ def _clean_with_review(
     )
     cleaned = first_line.strip().strip("\"'").strip()
     cleaned = cleaned.rstrip(".,;:!?…").strip()
+    cleaned = _canonicalize_names(cleaned)
     words = cleaned.split()
     if not words:
         return None, "empty_output"
@@ -216,14 +299,9 @@ def _clean_with_review(
     result = " ".join(words).rstrip(".,;:!?…").strip()
     if not result:
         return None, "empty_output"
-    if _has_cropped_ending(result):
-        return None, "incomplete_ending"
-    if _has_non_english_markers(result):
-        return None, "non_english_output"
-    if _has_subjective_wording(result):
-        return None, "subjective_wording"
-    if not _has_context_support(result, terms, headlines):
-        return None, "insufficient_context_support"
+    reason = _review_reason(result, terms, headlines)
+    if reason is not None:
+        return None, reason
     return result, "accepted_after_truncation" if was_truncated else "accepted"
 
 
@@ -238,6 +316,20 @@ def _load_generator():
         _generator = pipeline("text-generation", model=LLM_MODEL_NAME, device=-1)
         _generator.tokenizer.clean_up_tokenization_spaces = False
     return _generator
+
+
+def generator_available() -> bool:
+    """True when the label model can be loaded in this process.
+
+    Callers use this to degrade gracefully: when the model cannot run at all,
+    label generation falls back to terms for every cluster, so callers should
+    keep those clusters instead of dropping them all.
+    """
+    try:
+        _load_generator()
+    except Exception:
+        return False
+    return True
 
 
 def _generation_config(model):
@@ -441,6 +533,7 @@ def translate_shared_terms(terms: list[str], headlines=(), generator=None) -> li
             continue
         safe_terms = []
         for term in translated:
+            term = _canonicalize_names(term)
             if _has_non_english_markers(term):
                 continue
             if any(_same_name(term, existing) for existing in safe_terms):

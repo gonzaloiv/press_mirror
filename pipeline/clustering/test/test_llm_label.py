@@ -1,6 +1,7 @@
 import unittest
 
 from pipeline.clustering.llm_label import (
+    clean_headline,
     english_headline,
     generate_llm_label,
     generate_llm_label_reviewed,
@@ -103,6 +104,63 @@ class GenerateLlmLabelTests(unittest.TestCase):
         )
 
         self.assertEqual(label, "Quebec election adds new test")
+
+    def test_truncation_drops_a_preposition_and_modifier_tail(self):
+        generator = _FakeGenerator(
+            "Actor Selma Blair arrested in New York after alleged attack"
+        )
+        headlines = ["Actor Selma Blair arrested in New York after alleged attack"]
+
+        label = generate_llm_label(
+            ["Selma", "arrested", "actor", "New York"],
+            headlines,
+            generator=generator,
+        )
+
+        self.assertEqual(label, "Actor Selma Blair arrested in New York")
+
+    def test_canonicalizes_transliterated_names(self):
+        generator = _FakeGenerator(
+            "Putin wants more deal with Trump than Selenskyi"
+        )
+
+        label = generate_llm_label(
+            ["Trump", "Putin", "deal"],
+            ["Trump und Putin schließen Diesel-Deal"],
+            generator=generator,
+        )
+
+        self.assertEqual(label, "Putin wants more deal with Trump than Zelenskyy")
+
+    def test_clean_headline_caps_and_trims_a_dangling_tail(self):
+        self.assertEqual(
+            clean_headline(
+                "A very long fallback headline that keeps going and going"
+            ),
+            "A very long fallback headline that keeps going",
+        )
+
+    def test_clean_headline_canonicalizes_names(self):
+        self.assertEqual(
+            clean_headline("Selenskyi meets NATO leaders"),
+            "Zelenskyy meets NATO leaders",
+        )
+
+    def test_english_headline_skips_non_english_markers(self):
+        self.assertIsNone(english_headline(["Putin and was killed und Krieg"]))
+        self.assertEqual(
+            english_headline(["Nine people dead after mass shooting"]),
+            "Nine people dead after mass shooting",
+        )
+
+    def test_canonicalizes_names_in_translated_terms(self):
+        generator = _FakeGenerator("1. Selenskyi\n2. deal")
+
+        translated = translate_shared_terms(
+            ["Selenskyi", "deal"], generator=generator
+        )
+
+        self.assertEqual(translated, ["Zelenskyy", "deal"])
 
     def test_rejects_a_cropped_possessive_ending(self):
         generator = _FakeGenerator(

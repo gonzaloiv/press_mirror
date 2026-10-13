@@ -16,8 +16,10 @@ from shared.cluster_selection import passes_coverage_gates, selected_cluster_ind
 from shared.snapshots import headlines_file, latest_headlines_file, snapshot_dir
 from pipeline.clustering.labels import build_cluster_label, extract_common_terms
 from pipeline.clustering.llm_label import (
+    clean_headline,
     english_headline,
     generate_llm_label_reviewed,
+    generator_available,
     translate_shared_terms,
 )
 
@@ -216,6 +218,103 @@ def merge_clusters(
     return current
 
 
+def _cluster_entry(
+    cluster,
+    titles,
+    sources,
+    countries,
+    links,
+    embeddings,
+    fetched_at,
+):
+    """Build one output cluster and its centroid-ranked titles for labeling."""
+    indices = cluster.indices
+    sub = embeddings[indices]
+    sim_matrix = cosine_similarity(sub)
+    # Average of the off-diagonal (exclude self-similarity = 1.0).
+    n = len(indices)
+    avg_sim = (sim_matrix.sum() - n) / (n * n - n)
+
+    articles = []
+    for i in indices:
+        article = {
+            "title": titles[i],
+            "source": sources[i],
+            "country": countries[i],
+            "link": links[i],
+        }
+        if fetched_at is not None and fetched_at[i] is not None:
+            article["fetched_at"] = str(fetched_at[i])
+        articles.append(article)
+
+    centroid = sub.mean(axis=0)
+    similarities = cosine_similarity(sub, centroid.reshape(1, -1)).ravel()
+    representative_position = int(np.argmax(similarities))
+    min_representative_similarity = sim_matrix[representative_position].min()
+    ranked_positions = np.argsort(-similarities, kind="stable")
+    cluster_titles = [
+        titles[indices[position]] for position in ranked_positions
+    ]
+
+    cluster_result = {
+        "label": "",
+        "terms": [],
+        "size": len(indices),
+        "avg_similarity": round(float(avg_sim), 3),
+        "min_representative_similarity": round(
+            float(min_representative_similarity), 3
+        ),
+        "articles": articles,
+    }
+    if cluster.dropped_sources:
+        cluster_result["dropped_sources"] = cluster.dropped_sources
+    return cluster_result, cluster_titles
+
+
+def _label_cluster(cluster_result, cluster_titles, labeler):
+    """Fill in one shown cluster's terms and label; return the label outcome."""
+    cluster_terms = labeler(cluster_titles)
+    english_terms = translate_shared_terms(cluster_terms, cluster_titles)
+    label_terms = english_terms or cluster_terms
+    llm_label, review_reason = generate_llm_label_reviewed(
+        label_terms, cluster_titles
+    )
+    cluster_result["source_terms"] = cluster_terms
+    cluster_result["terms"] = english_terms
+    if llm_label:
+        cluster_result["label"] = llm_label
+        cluster_result["label_source"] = "llm"
+    else:
+        fallback = english_headline(cluster_titles)
+        if fallback:
+            cluster_result["label"] = clean_headline(fallback)
+            cluster_result["label_source"] = "headline"
+        else:
+            cluster_result["label"] = build_cluster_label(
+                english_terms or cluster_terms, cluster_titles[0]
+            )
+            cluster_result["label_source"] = "terms"
+    cluster_result["label_review"] = {
+        "status": "accepted" if llm_label else "fallback",
+        "reason": review_reason,
+    }
+    return llm_label, review_reason
+
+
+def _drop_without_labels(result):
+    """Drop display candidates the site cannot name cleanly."""
+    kept = [
+        cluster
+        for cluster in result
+        if cluster.get("label_source") in GOOD_LABEL_SOURCES
+        or not passes_coverage_gates(cluster)
+    ]
+    dropped = len(result) - len(kept)
+    if dropped:
+        print(f"Dropped {dropped} clusters without a usable label.", flush=True)
+    return kept
+
+
 def build_clusters(
     labels,
     titles,
@@ -227,6 +326,7 @@ def build_clusters(
     deduplicate: bool = DEDUPLICATE_WITHIN_CLUSTERS,
     merge: bool = MERGE_RELATED_CLUSTERS,
     fetched_at=None,
+    llm_available: bool = True,
 ):
     """Post-process primary clusters, then build output with similarity stats."""
     raw_clusters = {}
@@ -250,7 +350,6 @@ def build_clusters(
     if merge:
         cluster_groups = merge_clusters(cluster_groups, sources, embeddings)
 
-    entries = []
     label_clusters = [
         cluster for cluster in cluster_groups if len(cluster.indices) >= 2
     ]
@@ -258,55 +357,12 @@ def build_clusters(
         f"Measuring {len(label_clusters)} clusters.",
         flush=True,
     )
-    for cluster in label_clusters:
-        indices = cluster.indices
-
-        # Recompute pairwise similarity *within* this cluster for the display.
-        sub = embeddings[indices]
-        sim_matrix = cosine_similarity(sub)
-        # Average of the off-diagonal (exclude self-similarity = 1.0).
-        n = len(indices)
-        avg_sim = (sim_matrix.sum() - n) / (n * n - n)
-
-        articles = []
-        for i in indices:
-            article = {
-                "title": titles[i],
-                "source": sources[i],
-                "country": countries[i],
-                "link": links[i],
-            }
-            if fetched_at is not None and fetched_at[i] is not None:
-                article["fetched_at"] = str(fetched_at[i])
-            articles.append(article)
-
-        centroid = sub.mean(axis=0)
-        similarities = cosine_similarity(
-            sub,
-            centroid.reshape(1, -1),
-        ).ravel()
-        representative_position = int(np.argmax(similarities))
-        min_representative_similarity = sim_matrix[
-            representative_position
-        ].min()
-        ranked_positions = np.argsort(-similarities, kind="stable")
-        cluster_titles = [
-            titles[indices[position]] for position in ranked_positions
-        ]
-
-        cluster_result = {
-            "label": "",
-            "terms": [],
-            "size": len(indices),
-            "avg_similarity": round(float(avg_sim), 3),
-            "min_representative_similarity": round(
-                float(min_representative_similarity), 3
-            ),
-            "articles": articles,
-        }
-        if cluster.dropped_sources:
-            cluster_result["dropped_sources"] = cluster.dropped_sources
-        entries.append((cluster_result, cluster_titles))
+    entries = [
+        _cluster_entry(
+            cluster, titles, sources, countries, links, embeddings, fetched_at
+        )
+        for cluster in label_clusters
+    ]
 
     # Prefer stories covered in more countries; use article count only for ties.
     entries.sort(
@@ -327,11 +383,8 @@ def build_clusters(
     for label_number, index in enumerate(shown, start=1):
         cluster_result, cluster_titles = entries[index]
         print(f"Generating label {label_number}/{len(shown)}...", flush=True)
-        cluster_terms = labeler(cluster_titles)
-        english_terms = translate_shared_terms(cluster_terms, cluster_titles)
-        label_terms = english_terms or cluster_terms
-        llm_label, review_reason = generate_llm_label_reviewed(
-            label_terms, cluster_titles
+        llm_label, review_reason = _label_cluster(
+            cluster_result, cluster_titles, labeler
         )
         review_action = (
             "kept generated label" if llm_label else "using term fallback"
@@ -341,38 +394,16 @@ def build_clusters(
             f"{review_reason}; {review_action}.",
             flush=True,
         )
-        cluster_result["source_terms"] = cluster_terms
-        cluster_result["terms"] = english_terms
-        if llm_label:
-            cluster_result["label"] = llm_label
-            cluster_result["label_source"] = "llm"
-        else:
-            fallback = english_headline(cluster_titles)
-            if fallback:
-                cluster_result["label"] = fallback
-                cluster_result["label_source"] = "headline"
-            else:
-                cluster_result["label"] = build_cluster_label(
-                    english_terms or cluster_terms, cluster_titles[0]
-                )
-                cluster_result["label_source"] = "terms"
-        cluster_result["label_review"] = {
-            "status": "accepted" if llm_label else "fallback",
-            "reason": review_reason,
-        }
 
-    # A display candidate without a good English name is dropped, so the site
-    # only shows stories it can name cleanly.
-    kept = [
-        cluster
-        for cluster in result
-        if cluster.get("label_source") in GOOD_LABEL_SOURCES
-        or not passes_coverage_gates(cluster)
-    ]
-    dropped = len(result) - len(kept)
-    if dropped:
-        print(f"Dropped {dropped} clusters without a usable label.", flush=True)
-    return kept
+    if not llm_available:
+        # The model could not run at all, so every label is a term fallback.
+        # Keep those clusters rather than emptying the day's grid.
+        print(
+            "Label model unavailable; keeping term-fallback clusters.",
+            flush=True,
+        )
+        return result
+    return _drop_without_labels(result)
 
 
 def main():
@@ -381,6 +412,13 @@ def main():
 
     labels = cluster(embeddings)
     print(f"Found {len(set(labels))} raw clusters.")
+
+    llm_available = generator_available()
+    if not llm_available:
+        print(
+            "Label model unavailable; labels will fall back to shared terms.",
+            flush=True,
+        )
 
     clusters = build_clusters(
         labels,
@@ -391,6 +429,7 @@ def main():
         embeddings,
         extract_common_terms,
         fetched_at=fetched_at,
+        llm_available=llm_available,
     )
     print(f"Kept {len(clusters)} clusters with 2+ articles.")
 
