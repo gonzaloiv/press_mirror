@@ -8,7 +8,11 @@ from sklearn.cluster import AgglomerativeClustering
 from sklearn.metrics.pairwise import cosine_similarity
 
 from shared.country_codes import to_iso
-from shared.cluster_selection import passes_coverage_gates, selected_cluster_indices
+from shared.cluster_selection import (
+    TOP_CLUSTER_COUNT,
+    passes_coverage_gates,
+    selected_cluster_indices,
+)
 from shared.snapshots import headlines_file, latest_headlines_file, snapshot_dir
 from pipeline.clustering.labels import build_cluster_label, extract_common_terms
 from pipeline.clustering.llm_label import (
@@ -77,6 +81,26 @@ def load_data():
             else [None] * len(titles)
         ),
     )
+
+
+def load_summaries(snapshot_date: str) -> dict[str, str]:
+    """Map article links to their RSS summaries for label context.
+
+    Summaries are only used to give the label model more context, so a
+    snapshot without them (or without a headlines file) simply yields none.
+    """
+    path = headlines_file(snapshot_date)
+    if not path.is_file():
+        return {}
+    with path.open(encoding="utf-8") as f:
+        headlines = json.load(f)
+    summaries = {}
+    for article in headlines:
+        link = article.get("link")
+        summary = article.get("summary")
+        if link and summary:
+            summaries[link] = summary
+    return summaries
 
 
 def cluster(embeddings):
@@ -280,13 +304,21 @@ def _cluster_entry(
     return cluster_result, cluster_titles
 
 
-def _label_cluster(cluster_result, cluster_titles, labeler):
+def _label_cluster(cluster_result, cluster_titles, labeler, summaries=None):
     """Fill in one shown cluster's terms and label; return the label outcome."""
+    summaries = summaries or {}
+    context = [
+        summaries[article["link"]]
+        for article in cluster_result["articles"]
+        if article.get("link") in summaries
+    ]
     cluster_terms = labeler(cluster_titles)
-    english_terms = translate_shared_terms(cluster_terms, cluster_titles)
+    english_terms = translate_shared_terms(
+        cluster_terms, cluster_titles, summaries=context
+    )
     label_terms = english_terms or cluster_terms
     llm_label, review_reason = generate_llm_label_reviewed(
-        label_terms, cluster_titles
+        label_terms, cluster_titles, summaries=context
     )
     cluster_result["source_terms"] = cluster_terms
     cluster_result["terms"] = english_terms
@@ -310,13 +342,73 @@ def _label_cluster(cluster_result, cluster_titles, labeler):
     return llm_label, review_reason
 
 
-def _drop_without_labels(result):
-    """Drop display candidates the site cannot name cleanly."""
+def _ranked_gate_candidates(result) -> list[int]:
+    """Gated clusters, most similar first (the app's display ranking)."""
+    ranked = [
+        index
+        for index, cluster in enumerate(result)
+        if passes_coverage_gates(cluster)
+    ]
+    ranked.sort(key=lambda index: (-result[index]["avg_similarity"], index))
+    return ranked
+
+
+def _label_in_order(
+    result,
+    entries,
+    labeler,
+    summaries,
+    order: list[int],
+    first_number: int,
+    total: int,
+):
+    """Label each candidate cluster in order; return the clean-label count."""
+    clean = 0
+    for offset, index in enumerate(order):
+        cluster_result, cluster_titles = entries[index]
+        label_number = first_number + offset
+        print(f"Generating label {label_number}/{total}...", flush=True)
+        llm_label, review_reason = _label_cluster(
+            cluster_result, cluster_titles, labeler, summaries
+        )
+        review_action = (
+            "kept generated label" if llm_label else "using term fallback"
+        )
+        print(
+            f"Label review {label_number}/{total}: "
+            f"{review_reason}; {review_action}.",
+            flush=True,
+        )
+        if cluster_result.get("label_source") in GOOD_LABEL_SOURCES:
+            clean += 1
+    return clean
+
+
+def _prune_without_labels(result, ranked: list[int]):
+    """Keep the daily five named: clean labels first, fallbacks to fill.
+
+    A gated cluster with a clean name (LLM or headline) is always kept.
+    When fewer than five carry one, the best term-assembled names fill the
+    remaining daily slots; gated clusters left unlabeled are dropped.
+    """
+    good = [
+        index
+        for index in ranked
+        if result[index].get("label_source") in GOOD_LABEL_SOURCES
+    ]
+    keep = set(good)
+    if len(good) < TOP_CLUSTER_COUNT:
+        fallbacks = [
+            index
+            for index in ranked
+            if result[index].get("label_source")
+            and result[index].get("label_source") not in GOOD_LABEL_SOURCES
+        ]
+        keep.update(fallbacks[:TOP_CLUSTER_COUNT - len(good)])
     kept = [
         cluster
-        for cluster in result
-        if cluster.get("label_source") in GOOD_LABEL_SOURCES
-        or not passes_coverage_gates(cluster)
+        for index, cluster in enumerate(result)
+        if index in keep or not passes_coverage_gates(cluster)
     ]
     dropped = len(result) - len(kept)
     if dropped:
@@ -335,6 +427,7 @@ def build_clusters(
     deduplicate: bool = DEDUPLICATE_WITHIN_CLUSTERS,
     merge: bool = MERGE_RELATED_CLUSTERS,
     fetched_at=None,
+    summaries=None,
     llm_available: bool = True,
 ):
     """Post-process primary clusters, then build output with similarity stats."""
@@ -384,35 +477,43 @@ def build_clusters(
     result = [entry[0] for entry in entries]
 
     # Labels are only needed for clusters that pass the display filters.
+    ranked = _ranked_gate_candidates(result)
     shown = selected_cluster_indices(result)
     print(
         f"Generating labels for {len(shown)} displayed clusters.",
         flush=True,
     )
-    for label_number, index in enumerate(shown, start=1):
-        cluster_result, cluster_titles = entries[index]
-        print(f"Generating label {label_number}/{len(shown)}...", flush=True)
-        llm_label, review_reason = _label_cluster(
-            cluster_result, cluster_titles, labeler
-        )
-        review_action = (
-            "kept generated label" if llm_label else "using term fallback"
-        )
-        print(
-            f"Label review {label_number}/{len(shown)}: "
-            f"{review_reason}; {review_action}.",
-            flush=True,
-        )
+    good_labels = _label_in_order(
+        result, entries, labeler, summaries, shown, 1, len(shown)
+    )
+    if good_labels < TOP_CLUSTER_COUNT:
+        # The daily grid wants five named stories, so label deeper gated
+        # candidates in similarity order until five carry a clean label.
+        deeper = [index for index in ranked if index not in set(shown)]
+        if deeper:
+            total = len(shown) + len(deeper)
+            print(
+                f"{good_labels}/{len(shown)} clean labels; labeling "
+                f"{len(deeper)} more candidates to fill the daily selection.",
+                flush=True,
+            )
+            good_labels += _label_in_order(
+                result,
+                entries,
+                labeler,
+                summaries,
+                deeper,
+                len(shown) + 1,
+                total,
+            )
 
     if not llm_available:
-        # The model could not run at all, so every label is a term fallback.
-        # Keep those clusters rather than emptying the day's grid.
+        # The model could not run at all, so every label is a fallback.
         print(
-            "Label model unavailable; keeping term-fallback clusters.",
+            "Label model unavailable; keeping fallback-labeled clusters.",
             flush=True,
         )
-        return result
-    return _drop_without_labels(result)
+    return _prune_without_labels(result, ranked)
 
 
 def main():
@@ -429,6 +530,10 @@ def main():
             flush=True,
         )
 
+    summaries = load_summaries(data.snapshot_date)
+    if summaries:
+        print(f"Loaded {len(summaries)} RSS summaries for label context.")
+
     clusters = build_clusters(
         labels,
         data.titles,
@@ -438,6 +543,7 @@ def main():
         data.embeddings,
         extract_common_terms,
         fetched_at=data.fetched_at,
+        summaries=summaries,
         llm_available=llm_available,
     )
     print(f"Kept {len(clusters)} clusters with 2+ articles.")

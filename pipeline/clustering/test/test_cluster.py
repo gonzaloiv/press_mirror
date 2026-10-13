@@ -1,4 +1,7 @@
+import json
+import tempfile
 import unittest
+from pathlib import Path
 from unittest.mock import patch
 
 import numpy as np
@@ -7,8 +10,10 @@ from pipeline.clustering.cluster import (
     ClusterMembers,
     build_clusters,
     deduplicate_cluster,
+    load_summaries,
     merge_clusters,
 )
+from shared import snapshots
 from shared.cluster_selection import (
     MAX_CLUSTER_COUNT,
     MIN_CLUSTER_REPRESENTATIVE_SIMILARITY,
@@ -116,7 +121,7 @@ class BuildClustersLabelSelectionTests(unittest.TestCase):
         self.assertEqual(result[1]["terms"], [])
         self.assertNotIn("label_source", result[1])
 
-    def test_drops_display_candidates_without_a_good_label(self):
+    def test_fills_daily_grid_with_terms_when_no_clean_label(self):
         shown_articles = [
             _article(index, f"source{index}", country)
             for index, country in enumerate(["FR", "DE", "ES", "IT", "FR", "DE"])
@@ -156,11 +161,12 @@ class BuildClustersLabelSelectionTests(unittest.TestCase):
                 merge=False,
             )
 
-        # The displayed candidate fell back to terms and was dropped; only the
-        # sub-threshold cluster (never displayed) remains.
-        self.assertEqual(len(result), 1)
-        self.assertEqual(result[0]["terms"], [])
-        self.assertNotIn("label_source", result[0])
+        # The only gated cluster fell back to terms, so it fills the daily
+        # selection instead of being dropped; the sub-threshold cluster
+        # (never displayed) also remains.
+        self.assertEqual(len(result), 2)
+        self.assertEqual(result[0]["label_source"], "terms")
+        self.assertNotIn("label_source", result[1])
 
     def test_falls_back_to_english_headline_when_llm_rejected(self):
         english = "Nine people dead after mass shooting in Pennsylvania"
@@ -392,6 +398,123 @@ class BuildClustersDegradationTests(unittest.TestCase):
         self.assertTrue(
             any(cluster.get("label_source") == "terms" for cluster in result)
         )
+
+
+class DailyFiveTests(unittest.TestCase):
+    def _gated_fixture(self, cluster_count):
+        """`cluster_count` gate-passing clusters, all equally similar."""
+        articles = [
+            _article(index, f"source{index}", _COUNTRIES[index % 6])
+            for index in range(cluster_count * 6)
+        ]
+        titles = [article["title"] for article in articles]
+        sources = [article["source"] for article in articles]
+        countries = [article["country"] for article in articles]
+        links = [article["link"] for article in articles]
+        angles = [
+            np.deg2rad(30 * (index // 6)) for index in range(cluster_count * 6)
+        ]
+        embeddings = np.column_stack((np.cos(angles), np.sin(angles)))
+        labels = [
+            cluster for cluster in range(cluster_count) for _ in range(6)
+        ]
+        return titles, sources, countries, links, embeddings, labels
+
+    def _labeling(self, clean_before_rejection):
+        calls = {"count": 0}
+
+        def fake_generate(*args, **kwargs):
+            calls["count"] += 1
+            if calls["count"] <= clean_before_rejection:
+                return ("Shared event label", "accepted")
+            return (None, "insufficient_context_support")
+
+        return fake_generate, calls
+
+    def _run(self, cluster_count, clean_before_rejection):
+        titles, sources, countries, links, embeddings, labels = (
+            self._gated_fixture(cluster_count)
+        )
+        generate, calls = self._labeling(clean_before_rejection)
+        with patch(
+            "pipeline.clustering.cluster.translate_shared_terms",
+            return_value=["term"],
+        ), patch(
+            "pipeline.clustering.cluster.generate_llm_label_reviewed",
+            side_effect=generate,
+        ), patch("builtins.print"):
+            result = build_clusters(
+                labels,
+                titles,
+                sources,
+                countries,
+                links,
+                embeddings,
+                lambda cluster_titles: ["term"],
+                deduplicate=False,
+                merge=False,
+            )
+        return result, calls
+
+    def test_fills_daily_five_with_fallback_labels(self):
+        # Six gate-passing clusters, only two label cleanly: the daily five
+        # is two LLM labels plus the three best term-assembled names.
+        result, _ = self._run(cluster_count=6, clean_before_rejection=2)
+
+        self.assertEqual(len(result), 5)
+        sources = [cluster["label_source"] for cluster in result]
+        self.assertEqual(sources, ["llm", "llm", "terms", "terms", "terms"])
+
+    def test_labels_deeper_candidates_until_five_are_clean(self):
+        # Twelve gate-passing clusters but the display pool holds nine: when
+        # only two label cleanly, labeling extends past the pool.
+        result, calls = self._run(cluster_count=12, clean_before_rejection=2)
+
+        self.assertEqual(calls["count"], 12)
+        self.assertEqual(len(result), 5)
+        sources = [cluster["label_source"] for cluster in result]
+        self.assertEqual(sources, ["llm", "llm", "terms", "terms", "terms"])
+
+    def test_drops_fallbacks_once_five_clean_labels_exist(self):
+        # Six gate-passing clusters, five label cleanly: the sixth cluster's
+        # term fallback is dropped again.
+        result, _ = self._run(cluster_count=6, clean_before_rejection=5)
+
+        self.assertEqual(len(result), 5)
+        self.assertEqual(
+            [cluster["label_source"] for cluster in result],
+            ["llm", "llm", "llm", "llm", "llm"],
+        )
+
+
+class LoadSummariesTests(unittest.TestCase):
+    def test_maps_links_to_non_empty_summaries(self):
+        with tempfile.TemporaryDirectory() as directory:
+            history = Path(directory)
+            day = history / "2026-10-13"
+            day.mkdir()
+            (day / "headlines.json").write_text(
+                json.dumps(
+                    [
+                        {"link": "https://a", "summary": "First summary"},
+                        {"link": "https://b", "summary": ""},
+                        {"link": "https://c"},
+                    ]
+                ),
+                encoding="utf-8",
+            )
+
+            with patch.object(snapshots, "HISTORY_DIR", history):
+                summaries = load_summaries("2026-10-13")
+
+        self.assertEqual(summaries, {"https://a": "First summary"})
+
+    def test_missing_headlines_file_returns_nothing(self):
+        with tempfile.TemporaryDirectory() as directory:
+            with patch.object(snapshots, "HISTORY_DIR", Path(directory)):
+                summaries = load_summaries("2026-10-13")
+
+        self.assertEqual(summaries, {})
 
 
 if __name__ == "__main__":

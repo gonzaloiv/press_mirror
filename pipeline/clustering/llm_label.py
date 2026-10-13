@@ -13,6 +13,8 @@ LLM_MODEL_NAME = "Qwen/Qwen2.5-1.5B-Instruct"
 LLM_MAX_WORDS = 9
 LLM_MAX_NEW_TOKENS = 32
 LLM_CONTEXT_HEADLINES = 8
+LLM_CONTEXT_SUMMARIES = 5
+LLM_SUMMARY_MAX_CHARS = 300
 
 _SYSTEM_PROMPT = (
     "You write one short, factual news headline ALWAYS IN ENGLISH. "
@@ -123,7 +125,20 @@ def _context_headlines(headlines) -> list[str]:
     return context[:LLM_CONTEXT_HEADLINES]
 
 
-def _user_prompt(terms: list[str], headlines) -> str:
+def _trim_summary(text: str) -> str:
+    return " ".join(str(text).split())[:LLM_SUMMARY_MAX_CHARS].strip()
+
+
+def _context_summaries(summaries) -> list[str]:
+    """Non-empty source descriptions, collapsed and capped for prompts."""
+    return [
+        _trim_summary(summary)
+        for summary in summaries
+        if summary and summary.strip()
+    ][:LLM_CONTEXT_SUMMARIES]
+
+
+def _user_prompt(terms: list[str], headlines, summaries=()) -> str:
     lines = [
         "Noisy shared-term hints (do not repeat literally): " + ", ".join(terms)
     ]
@@ -132,11 +147,24 @@ def _user_prompt(terms: list[str], headlines) -> str:
         lines.append("Headlines from this cluster, English first:")
         for headline in context:
             lines.append(f"- {headline}")
+    descriptions = _context_summaries(summaries)
+    if descriptions:
+        lines.append(
+            "Source descriptions (background context, do not copy verbatim):"
+        )
+        for description in descriptions:
+            lines.append(f"- {description}")
     lines.append("Write one natural English headline for the shared event.")
     return "\n".join(lines)
 
 
-def _messages(terms: list[str], headlines, max_words: int, english_hint=False):
+def _messages(
+    terms: list[str],
+    headlines,
+    max_words: int,
+    english_hint=False,
+    summaries=(),
+):
     messages = [
         {
             "role": "system",
@@ -148,7 +176,7 @@ def _messages(terms: list[str], headlines, max_words: int, english_hint=False):
             {"role": "user", "content": _user_prompt(example_terms, [])}
         )
         messages.append({"role": "assistant", "content": example_headline})
-    final_prompt = _user_prompt(terms, headlines)
+    final_prompt = _user_prompt(terms, headlines, summaries)
     if english_hint:
         final_prompt += (
             "\nIMPORTANT: reply in neutral English only. Translate source "
@@ -406,10 +434,12 @@ def _run_chat(model, messages, use_config: bool) -> str:
     return output[0]["generated_text"]
 
 
-def _generate_once(model, terms, headlines, max_words, english_hint, use_config):
+def _generate_once(
+    model, terms, headlines, max_words, english_hint, use_config, summaries=()
+):
     return _run_chat(
         model,
-        _messages(terms, headlines, max_words, english_hint),
+        _messages(terms, headlines, max_words, english_hint, summaries),
         use_config,
     )
 
@@ -420,6 +450,7 @@ def generate_llm_label_reviewed(
     *,
     max_words: int = LLM_MAX_WORDS,
     generator=None,
+    summaries=(),
 ) -> tuple[str | None, str]:
     if not terms:
         return None, "no_terms"
@@ -437,6 +468,7 @@ def generate_llm_label_reviewed(
                 max_words,
                 english_hint=attempt > 0,
                 use_config=generator is None,
+                summaries=summaries,
             )
         except Exception:
             return None, "generation_failed"
@@ -454,14 +486,19 @@ def generate_llm_label(
     *,
     max_words: int = LLM_MAX_WORDS,
     generator=None,
+    summaries=(),
 ) -> str | None:
     label, _ = generate_llm_label_reviewed(
-        terms, headlines, max_words=max_words, generator=generator
+        terms,
+        headlines,
+        max_words=max_words,
+        generator=generator,
+        summaries=summaries,
     )
     return label
 
 
-def _translation_messages(terms, headlines, english_hint=False):
+def _translation_messages(terms, headlines, english_hint=False, summaries=()):
     messages = [{"role": "system", "content": _TERM_TRANSLATION_SYSTEM_PROMPT}]
     for example_terms, example_output in _TERM_TRANSLATION_EXAMPLES:
         prompt = "Translate these terms:\n" + "\n".join(
@@ -474,6 +511,9 @@ def _translation_messages(terms, headlines, english_hint=False):
     prompt_lines = ["Translate these terms into English using the headlines:"]
     for headline in _context_headlines(headlines):
         prompt_lines.append(f"Headline: {headline}")
+    descriptions = _context_summaries(summaries)
+    for description in descriptions:
+        prompt_lines.append(f"Context: {description}")
     prompt_lines.append("Terms:")
     for index, term in enumerate(terms, start=1):
         prompt_lines.append(f"{index}. {term}")
@@ -528,7 +568,9 @@ def _same_name(term: str, existing: str) -> bool:
     return left is not None and left == right
 
 
-def translate_shared_terms(terms: list[str], headlines=(), generator=None) -> list[str]:
+def translate_shared_terms(
+    terms: list[str], headlines=(), generator=None, summaries=()
+) -> list[str]:
     """Translate displayed cluster keywords into English; discard unsafe output."""
     if not terms:
         return []
@@ -540,7 +582,9 @@ def translate_shared_terms(terms: list[str], headlines=(), generator=None) -> li
         try:
             generated = _run_chat(
                 model,
-                _translation_messages(terms, headlines, english_hint=attempt > 0),
+                _translation_messages(
+                    terms, headlines, english_hint=attempt > 0, summaries=summaries
+                ),
                 generator is None,
             )
         except Exception:

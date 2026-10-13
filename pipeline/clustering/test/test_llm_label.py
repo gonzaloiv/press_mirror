@@ -380,6 +380,47 @@ class GenerateLlmLabelTests(unittest.TestCase):
         self.assertIn("- Headline 7", user_message)
         self.assertNotIn("- Headline 8", user_message)
 
+    def test_prompt_includes_source_descriptions(self):
+        generator = _FakeGenerator("Moscow drone attack")
+
+        generate_llm_label(
+            ["Moscow", "drone"],
+            ["Moscow drone attack"],
+            summaries=["A drone struck a Moscow refinery overnight."],
+            generator=generator,
+        )
+
+        user_message = generator.tokenizer.messages[-1]["content"]
+        self.assertIn("Moscow refinery", user_message)
+
+    def test_caps_source_descriptions(self):
+        generator = _FakeGenerator("Moscow drone attack")
+        summaries = [f"Summary {index}" for index in range(10)]
+
+        generate_llm_label(
+            ["Moscow"],
+            ["Moscow drone attack"],
+            summaries=summaries,
+            generator=generator,
+        )
+
+        user_message = generator.tokenizer.messages[-1]["content"]
+        self.assertIn("- Summary 4", user_message)
+        self.assertNotIn("- Summary 5", user_message)
+
+    def test_translation_prompt_includes_source_descriptions(self):
+        generator = _FakeGenerator("1. deal")
+
+        translate_shared_terms(
+            ["deal"],
+            ["Deal unterzeichnet"],
+            summaries=["Der Deal wurde gestern unterschrieben."],
+            generator=generator,
+        )
+
+        user_message = generator.tokenizer.messages[-1]["content"]
+        self.assertIn("gestern unterschrieben", user_message)
+
 
 if __name__ == "__main__":
     unittest.main()

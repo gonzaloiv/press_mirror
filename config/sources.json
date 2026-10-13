@@ -1,6 +1,6 @@
 {
-    "version": 6,
-    "generated": "2026-10-09",
+    "version": 7,
+    "generated": "2026-10-13",
     "notes": "Curated RSS feeds for Press | Mirror. Country codes use ISO 3166-1 alpha-2 except UK (which is GB in ISO but UK in common usage — normalize to GB before matching against GeoJSON). A feed that needs sanitized re-parsing when it serves malformed XML sets \"lenient\": true.",
     "feeds": [
         {
@@ -334,7 +334,7 @@
         {
             "source": "The Kyiv Independent",
             "country": "UA",
-            "url": "https://kyivindependent.com/feed.xml",
+            "url": "https://kyivindependent.com/news-archive/rss/",
             "site": "https://kyivindependent.com",
             "lang": "en",
             "lean": "centre"

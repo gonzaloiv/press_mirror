@@ -4,6 +4,7 @@ import socket
 import sys
 import time
 from datetime import date, datetime, timezone
+from html import unescape
 from pathlib import Path
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
@@ -18,6 +19,9 @@ USER_AGENT = "Mozilla/5.0 (compatible; PressMirrorBot/0.1; +https://pressmirror.
 FETCH_TIMEOUT_SECONDS = 10
 RETRY_DELAY_SECONDS = 2
 POLITE_DELAY_SECONDS = 0.5
+SUMMARY_MAX_CHARS = 400
+HTML_TAG = re.compile(r"<[^>]+>")
+WHITESPACE = re.compile(r"\s+")
 SUPPRESSED_PARSE_WARNINGS = (
     "document declared as us-ascii, but parsed as utf-8",
     "xml is not an xml media type",
@@ -72,6 +76,26 @@ def sanitize_xml(content: bytes) -> bytes:
         content = content[3:]
     content = UNESCAPED_AMPERSAND.sub(b"&amp;", content)
     return ILLEGAL_XML_CONTROLS.sub(b"", content)
+
+
+def clean_summary(entry, title: str) -> str:
+    """Return a plain-text RSS summary for label context, or '' if unusable.
+
+    Feeds expose the summary under different keys and formats, so fall back
+    across them, strip markup, collapse whitespace, and drop anything empty or
+    identical to the title (which adds no context).
+    """
+    raw = entry.get("summary") or entry.get("description") or ""
+    if not raw:
+        content = entry.get("content")
+        if content:
+            raw = content[0].get("value", "")
+    if not raw:
+        return ""
+    text = WHITESPACE.sub(" ", unescape(HTML_TAG.sub(" ", str(raw)))).strip()
+    if not text or text.casefold() == title.casefold():
+        return ""
+    return text[:SUMMARY_MAX_CHARS].strip()
 
 
 def fetch_parsed_feed(feed: dict):
@@ -149,6 +173,7 @@ def fetch_feed(feed: dict, parsed) -> list[dict]:
             "country": feed["country"],
             "published": published_iso,
             "fetched_at": fetched_at,
+            "summary": clean_summary(entry, title),
         })
 
     print(f"    -> {len(articles)} headlines")

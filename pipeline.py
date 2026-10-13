@@ -5,8 +5,8 @@ from pathlib import Path
 
 PROJECT_DIR = Path(__file__).resolve().parent
 PIPELINE_STAGES = (
-    # "pipeline.ingest",
-    # "pipeline.embed",
+    "pipeline.ingest",
+    "pipeline.embed",
     "pipeline.clustering.cluster",
     "pipeline.render",
 )
