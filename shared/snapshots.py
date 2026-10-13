@@ -33,8 +33,8 @@ def maps_dir(snapshot_date: str) -> Path:
     return snapshot_dir(snapshot_date) / MAPS_FOLDER
 
 
-def snapshot_dirs() -> list[Path]:
-    """Return complete dated snapshots, newest first."""
+def _complete_snapshot_dirs(*required_files: str) -> list[Path]:
+    """Return dated snapshot folders holding every required file, newest first."""
     if not HISTORY_DIR.is_dir():
         raise FileNotFoundError(f"No history folder found at {HISTORY_DIR}")
     folders = [
@@ -42,12 +42,19 @@ def snapshot_dirs() -> list[Path]:
         for path in HISTORY_DIR.iterdir()
         if path.is_dir()
         and SNAPSHOT_FOLDER.fullmatch(path.name)
-        and (path / CLUSTERS_FILENAME).is_file()
-        and (path / HEADLINES_FILENAME).is_file()
+        and all((path / name).is_file() for name in required_files)
     ]
     if not folders:
-        raise FileNotFoundError(f"No complete dated snapshots found in {HISTORY_DIR}")
+        required = " and ".join(required_files)
+        raise FileNotFoundError(
+            f"No dated snapshots with {required} found in {HISTORY_DIR}"
+        )
     return sorted(folders, key=lambda path: path.name, reverse=True)
+
+
+def snapshot_dirs() -> list[Path]:
+    """Return complete dated snapshots (headlines + clusters), newest first."""
+    return _complete_snapshot_dirs(HEADLINES_FILENAME, CLUSTERS_FILENAME)
 
 
 def snapshot_dates() -> list[str]:
@@ -57,19 +64,4 @@ def snapshot_dates() -> list[str]:
 
 def latest_headlines_file() -> Path:
     """Return the newest snapshot's headlines file."""
-    if not HISTORY_DIR.is_dir():
-        raise FileNotFoundError(f"No history folder found at {HISTORY_DIR}")
-    folders = sorted(
-        (
-            path
-            for path in HISTORY_DIR.iterdir()
-            if path.is_dir()
-            and SNAPSHOT_FOLDER.fullmatch(path.name)
-            and (path / HEADLINES_FILENAME).is_file()
-        ),
-        key=lambda path: path.name,
-        reverse=True,
-    )
-    if not folders:
-        raise FileNotFoundError(f"No dated headline files found in {HISTORY_DIR}")
-    return folders[0] / HEADLINES_FILENAME
+    return _complete_snapshot_dirs(HEADLINES_FILENAME)[0] / HEADLINES_FILENAME

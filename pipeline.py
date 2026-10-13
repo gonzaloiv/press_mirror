@@ -4,20 +4,19 @@ from pathlib import Path
 
 
 PROJECT_DIR = Path(__file__).resolve().parent
-PIPELINE_DIR = PROJECT_DIR / "pipeline"
 PIPELINE_STAGES = (
-    PIPELINE_DIR / "ingest.py",
-    PIPELINE_DIR / "embed.py",
-    PIPELINE_DIR / "clustering" / "cluster.py",
-    PIPELINE_DIR / "render.py"
+    # "pipeline.ingest",
+    # "pipeline.embed",
+    "pipeline.clustering.cluster",
+    "pipeline.render",
 )
 
 
-def main() -> None: 
-    for script in PIPELINE_STAGES:
-        print(f"\n=== Running {script.name} ===", flush=True)
-        command = [sys.executable, str(script)]
-        if script.name == "render.py":
+def main() -> None:
+    for stage in PIPELINE_STAGES:
+        print(f"\n=== Running {stage} ===", flush=True)
+        command = [sys.executable, "-m", stage]
+        if stage == "pipeline.render":
             command.append("--clean")
         result = subprocess.run(
             command,
@@ -25,8 +24,8 @@ def main() -> None:
             check=False,
         )
         if result.returncode != 0:
-            raise SystemExit(   
-                f"Pipeline stopped: {script.name} exited with status "
+            raise SystemExit(
+                f"Pipeline stopped: {stage} exited with status "
                 f"{result.returncode}."
             )
 

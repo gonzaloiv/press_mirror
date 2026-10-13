@@ -1,14 +1,11 @@
 import json
 import os
-import sys
 from datetime import date, datetime, timezone
 from pathlib import Path
 
 from flask import Flask, abort, render_template, request, send_from_directory, url_for
 
 PROJECT_DIR = Path(__file__).resolve().parent.parent
-if str(PROJECT_DIR) not in sys.path:
-    sys.path.insert(0, str(PROJECT_DIR))
 
 from shared.country_codes import (
     COUNTRY_NAMES,
@@ -23,7 +20,7 @@ from web_app.map_presentation import european_coverage, map_viewport
 
 STATIC_DIR = PROJECT_DIR / "static"
 STATIC_DIR.mkdir(parents=True, exist_ok=True)
-SOURCES_FILE = PROJECT_DIR / "pipeline" / "sources.json"
+SOURCES_FILE = PROJECT_DIR / "config" / "sources.json"
 
 APP_NAME = r"Press\Mirror"
 
@@ -237,6 +234,8 @@ def detail_view(cluster_id):
         "card.html" if thumbnail else "detail.html",
         label=cluster["label"],
         terms=cluster.get("terms", []),
+        label_source=cluster.get("label_source"),
+        label_review=cluster.get("label_review"),
         thumbnail=thumbnail,
         covered=covered,
         covered_country_names=covered_country_names,

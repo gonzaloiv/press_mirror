@@ -39,6 +39,12 @@
             </div>
         </div>
 
+        {% if label_source %}
+        <p class="label-provenance">
+            Label source: {{ label_source }}{% if label_review and label_review.reason %} — {{ label_review.reason }}{% endif %}
+        </p>
+        {% endif %}
+
         <div class="sources">
             {% for group in source_groups %}
             <section class="source-country">

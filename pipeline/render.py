@@ -2,11 +2,6 @@ import argparse
 import importlib
 import json
 import sys
-from pathlib import Path
-
-PROJECT_DIR = Path(__file__).resolve().parent.parent
-if str(PROJECT_DIR) not in sys.path:
-    sys.path.insert(0, str(PROJECT_DIR))
 
 from shared.cluster_selection import selected_cluster_indices
 from shared.snapshots import clusters_file, maps_dir, snapshot_dates

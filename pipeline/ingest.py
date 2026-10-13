@@ -10,17 +10,14 @@ from urllib.request import Request, urlopen
 
 import feedparser
 
-PROJECT_DIR = Path(__file__).resolve().parent.parent
-if str(PROJECT_DIR) not in sys.path:
-    sys.path.insert(0, str(PROJECT_DIR))
-
 from shared.snapshots import snapshot_dir
 
-SOURCES_FILE = Path(__file__).resolve().parent / "sources.json"
+PROJECT_DIR = Path(__file__).resolve().parent.parent
+SOURCES_FILE = PROJECT_DIR / "config" / "sources.json"
 USER_AGENT = "Mozilla/5.0 (compatible; PressMirrorBot/0.1; +https://pressmirror.eu)"
 FETCH_TIMEOUT_SECONDS = 10
 RETRY_DELAY_SECONDS = 2
-LENIENT_RECOVERY_FEEDS = {"Público", "Politiken", "Jyllands-Posten"}
+POLITE_DELAY_SECONDS = 0.5
 SUPPRESSED_PARSE_WARNINGS = (
     "document declared as us-ascii, but parsed as utf-8",
     "xml is not an xml media type",
@@ -32,7 +29,7 @@ ILLEGAL_XML_CONTROLS = re.compile(rb"[\x00-\x08\x0B\x0C\x0E-\x1F]")
 
 
 def load_feeds() -> list[dict]:
-    """Load configured RSS feeds from sources.json."""
+    """Load configured RSS feeds from config/sources.json."""
     with SOURCES_FILE.open(encoding="utf-8") as f:
         config = json.load(f)
     return config["feeds"]
@@ -51,17 +48,18 @@ def fetch_raw_feed(feed: dict) -> bytes:
 
 
 def fetch_error(error: Exception) -> FeedFetchError:
-    if isinstance(error, HTTPError):
-        return FeedFetchError("URL problem", str(error))
-    if isinstance(error, URLError) and isinstance(
-        error.reason, (TimeoutError, socket.timeout)
+    """Classify any fetch exception; every failure is a URL problem."""
+    message = str(error)
+    if isinstance(error, (TimeoutError, socket.timeout)) or (
+        isinstance(error, URLError)
+        and isinstance(error.reason, (TimeoutError, socket.timeout))
     ):
-        return FeedFetchError("URL problem", f"Timeout: {error}")
-    if isinstance(error, (TimeoutError, socket.timeout)):
-        return FeedFetchError("URL problem", f"Timeout: {error}")
-    if isinstance(error, OSError):
-        return FeedFetchError("URL problem", f"Network error: {error}")
-    return FeedFetchError("URL problem", str(error))
+        message = f"Timeout: {error}"
+    elif isinstance(error, HTTPError):
+        pass
+    elif isinstance(error, OSError):
+        message = f"Network error: {error}"
+    return FeedFetchError("URL problem", message)
 
 
 def is_suppressed_parse_warning(parsed) -> bool:
@@ -89,10 +87,7 @@ def fetch_parsed_feed(feed: dict):
                     if "xml is not an xml media type" in message.lower()
                     else "Malformed XML"
                 )
-                raise FeedFetchError(
-                    reason,
-                    message,
-                )
+                raise FeedFetchError(reason, message)
             return parsed
         except FeedFetchError as error:
             reason = error.reason
@@ -110,7 +105,7 @@ def fetch_parsed_feed(feed: dict):
 
 
 def recover_malformed_feed(feed: dict):
-    """Re-fetch and sanitize a known malformed feed once before giving up."""
+    """Re-fetch and sanitize a feed flagged lenient once before giving up."""
     try:
         content = sanitize_xml(fetch_raw_feed(feed))
         parsed = feedparser.parse(content, agent=USER_AGENT)
@@ -160,6 +155,26 @@ def fetch_feed(feed: dict, parsed) -> list[dict]:
     return articles
 
 
+def fetch_articles(feed: dict) -> list[dict]:
+    """Fetch one feed and return its headlines, or raise FeedFetchError."""
+    try:
+        parsed = fetch_parsed_feed(feed)
+    except FeedFetchError as error:
+        if not (feed.get("lenient") and error.reason == "Malformed XML"):
+            raise
+        parsed = recover_malformed_feed(feed)
+
+    if not parsed.entries and feed.get("lenient"):
+        parsed = recover_malformed_feed(feed)
+
+    if not parsed.entries:
+        print("    -> 0 entries")
+        raise FeedFetchError(
+            "Empty feed", "Parsed successfully but contained 0 entries"
+        )
+    return fetch_feed(feed, parsed)
+
+
 def main():
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(errors="backslashreplace")
@@ -173,25 +188,13 @@ def main():
     for feed in feeds:
         print(f"  Fetching {feed['source']} ({feed['country']})...")
         try:
-            parsed = fetch_parsed_feed(feed)
+            articles = fetch_articles(feed)
         except FeedFetchError as error:
-            if feed["source"] in LENIENT_RECOVERY_FEEDS and error.reason == "Malformed XML":
-                try:
-                    parsed = recover_malformed_feed(feed)
-                except FeedFetchError as recovery_error:
-                    error = recovery_error
-                else:
-                    all_articles.extend(fetch_feed(feed, parsed))
-                    print(f"    -> {len(parsed.entries)} entries after lenient parse")
-                    time.sleep(0.5)
-                    continue
             failures.append({
                 **feed,
                 "reason": error.reason,
                 "error": str(error),
             })
-            time.sleep(0.5)
-            continue
         except Exception as error:
             failure = fetch_error(error)
             failures.append({
@@ -199,48 +202,13 @@ def main():
                 "reason": failure.reason,
                 "error": str(failure),
             })
-            time.sleep(0.5)
-            continue
-
-        if feed["source"] in LENIENT_RECOVERY_FEEDS and not parsed.entries:
-            try:
-                parsed = recover_malformed_feed(feed)
-            except FeedFetchError as error:
-                failures.append({
-                    **feed,
-                    "reason": error.reason,
-                    "error": str(error),
-                })
-                time.sleep(0.5)
-                continue
-
-        if not parsed.entries:
-            failures.append({
-                **feed,
-                "reason": "Empty feed",
-                "error": "Parsed successfully but contained 0 entries",
-            })
-            print("    -> 0 entries")
         else:
-            try:
-                all_articles.extend(fetch_feed(feed, parsed))
-                print(f"    -> {len(parsed.entries)} entries")
-            except Exception as error:
-                failures.append({
-                    **feed,
-                    "reason": "URL problem",
-                    "error": f"Processing error: {error}",
-                })
+            all_articles.extend(articles)
         # Be polite: don't hammer servers.
-        time.sleep(0.5)
+        time.sleep(POLITE_DELAY_SECONDS)
 
-    # Deduplicate on link (some feeds repeat entries).
-    seen = set()
-    unique = []
-    for a in all_articles:
-        if a["link"] not in seen:
-            seen.add(a["link"])
-            unique.append(a)
+    # Deduplicate on link (some feeds repeat entries), keeping the first fetch.
+    unique = list({article["link"]: article for article in all_articles}.values())
 
     snapshot_path = snapshot_dir(date.today().isoformat())
     snapshot_path.mkdir(parents=True, exist_ok=True)

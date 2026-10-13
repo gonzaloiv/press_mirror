@@ -15,7 +15,6 @@ never publish by accident.
 import hashlib
 import json
 import os
-import sys
 import time
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -23,8 +22,6 @@ from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
 PROJECT_DIR = Path(__file__).resolve().parent.parent
-if str(PROJECT_DIR) not in sys.path:
-    sys.path.insert(0, str(PROJECT_DIR))
 
 from shared.cluster_selection import selected_cluster_indices
 from shared.country_codes import to_iso

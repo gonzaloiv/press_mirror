@@ -14,12 +14,13 @@ from unicodedata import combining, normalize
 
 import numpy as np
 
+from config import EMBEDDING_MODEL_NAME
+
 MAX_SHARED_TERMS = 7
 MIN_SHARED_HEADLINES = 2
 MAX_TERM_WORDS = 3
 CONCEPT_SIMILARITY_THRESHOLD = 0.72
 
-MODEL_NAME = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
 _model = None
 
 _WORD_RE = re.compile(r"[^\W_]+(?:['’][^\W_]+)?", re.UNICODE)
@@ -254,11 +255,9 @@ def _default_encode(texts: list[str]) -> np.ndarray:
     if _model is None:
         from sentence_transformers import SentenceTransformer
 
-        try:
-            from config import HF_TOKEN
-        except ImportError:
-            HF_TOKEN = None
-        _model = SentenceTransformer(MODEL_NAME, token=HF_TOKEN)
+        from config import HF_TOKEN
+
+        _model = SentenceTransformer(EMBEDDING_MODEL_NAME, token=HF_TOKEN)
     return _model.encode(
         list(texts),
         batch_size=32,
@@ -292,15 +291,6 @@ def extract_common_terms(
     selected = recurring if recurring else concepts[:1]
     selected = _suppress_overlapping(selected)
     return [concept.display for concept in selected[:max_terms]]
-
-
-def generate_topic_label(titles: list[str], **options) -> str:
-    """Legacy entry point: the shared terms assembled for display."""
-    terms = extract_common_terms(titles, **options)
-    representative = next(
-        (title for title in titles if title and title.strip()), ""
-    )
-    return build_cluster_label(terms, representative)
 
 
 def _find_span(representative: list[str], tokens: list[str]) -> int | None:

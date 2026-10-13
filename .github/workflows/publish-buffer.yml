@@ -37,7 +37,7 @@ jobs:
           SITE_URL: https://pressmirror.eu
           GITHUB_REPOSITORY: ${{ github.repository }}
           SNAPSHOT_COMMIT: ${{ github.sha }}
-        run: python pipeline/publish.py
+        run: python -m pipeline.publish
 
       - name: Save publication state
         if: always()

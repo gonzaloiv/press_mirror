@@ -49,11 +49,13 @@ _FEW_SHOT = (
 )
 
 
+# Only tokens longer than two characters can count (see _content_words), so
+# this holds no one- or two-letter entries.
 _ENGLISH_MARKERS = frozenset(
-    "a an the and or but of to in on at by for from with after before while "
-    "as is are was were be been being has have had says said who what where "
-    "when why how will would can could should people killed dead attack "
-    "attacks reported officials government president"
+    "the and but for from with after before while are was were been being "
+    "has have had says said who what where when why how will would can could "
+    "should people killed dead attack attacks reported officials government "
+    "president"
     .split()
 )
 
@@ -114,15 +116,21 @@ def english_headline(headlines) -> str | None:
     return None
 
 
+def _context_headlines(headlines) -> list[str]:
+    """Non-empty headlines, most clearly-English first, capped for prompts."""
+    context = [title for title in headlines if title and title.strip()]
+    context.sort(key=lambda title: -_english_marker_count(title))
+    return context[:LLM_CONTEXT_HEADLINES]
+
+
 def _user_prompt(terms: list[str], headlines) -> str:
     lines = [
         "Noisy shared-term hints (do not repeat literally): " + ", ".join(terms)
     ]
-    context = [title for title in headlines if title and title.strip()]
-    context.sort(key=lambda title: -_english_marker_count(title))
+    context = _context_headlines(headlines)
     if context:
         lines.append("Headlines from this cluster, English first:")
-        for headline in context[:LLM_CONTEXT_HEADLINES]:
+        for headline in context:
             lines.append(f"- {headline}")
     lines.append("Write one natural English headline for the shared event.")
     return "\n".join(lines)
@@ -318,6 +326,16 @@ def _load_generator():
     return _generator
 
 
+def _resolve_generator(generator):
+    """Return a usable generator, or None when the model cannot load."""
+    if generator is not None:
+        return generator
+    try:
+        return _load_generator()
+    except Exception:
+        return None
+
+
 def generator_available() -> bool:
     """True when the label model can be loaded in this process.
 
@@ -374,9 +392,10 @@ _RECOVERABLE_REASONS = frozenset(
 )
 
 
-def _generate_once(model, terms, headlines, max_words, english_hint, use_config):
+def _run_chat(model, messages, use_config: bool) -> str:
+    """Apply the chat template, run the model once, return generated text."""
     prompt = model.tokenizer.apply_chat_template(
-        _messages(terms, headlines, max_words, english_hint),
+        messages,
         tokenize=False,
         add_generation_prompt=True,
     )
@@ -385,6 +404,14 @@ def _generate_once(model, terms, headlines, max_words, english_hint, use_config)
         kwargs["generation_config"] = _generation_config(model)
     output = model(prompt, **kwargs)
     return output[0]["generated_text"]
+
+
+def _generate_once(model, terms, headlines, max_words, english_hint, use_config):
+    return _run_chat(
+        model,
+        _messages(terms, headlines, max_words, english_hint),
+        use_config,
+    )
 
 
 def generate_llm_label_reviewed(
@@ -396,9 +423,8 @@ def generate_llm_label_reviewed(
 ) -> tuple[str | None, str]:
     if not terms:
         return None, "no_terms"
-    try:
-        model = generator if generator is not None else _load_generator()
-    except Exception:
+    model = _resolve_generator(generator)
+    if model is None:
         return None, "generation_failed"
 
     reason = "generation_failed"
@@ -446,9 +472,7 @@ def _translation_messages(terms, headlines, english_hint=False):
         messages.append({"role": "assistant", "content": example_output})
 
     prompt_lines = ["Translate these terms into English using the headlines:"]
-    context = [title for title in headlines if title and title.strip()]
-    context.sort(key=lambda title: -_english_marker_count(title))
-    for headline in context[:LLM_CONTEXT_HEADLINES]:
+    for headline in _context_headlines(headlines):
         prompt_lines.append(f"Headline: {headline}")
     prompt_lines.append("Terms:")
     for index, term in enumerate(terms, start=1):
@@ -508,27 +532,20 @@ def translate_shared_terms(terms: list[str], headlines=(), generator=None) -> li
     """Translate displayed cluster keywords into English; discard unsafe output."""
     if not terms:
         return []
-    try:
-        model = generator if generator is not None else _load_generator()
-    except Exception:
+    model = _resolve_generator(generator)
+    if model is None:
         return []
 
     for attempt in range(2):
         try:
-            prompt = model.tokenizer.apply_chat_template(
+            generated = _run_chat(
+                model,
                 _translation_messages(terms, headlines, english_hint=attempt > 0),
-                tokenize=False,
-                add_generation_prompt=True,
+                generator is None,
             )
-            kwargs = {"return_full_text": False}
-            if generator is None:
-                kwargs["generation_config"] = _generation_config(model)
-            output = model(prompt, **kwargs)
         except Exception:
             return []
-        translated = _parse_translated_terms(
-            output[0]["generated_text"], len(terms)
-        )
+        translated = _parse_translated_terms(generated, len(terms))
         if translated is None:
             continue
         safe_terms = []

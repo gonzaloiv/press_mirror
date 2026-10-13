@@ -1,11 +1,7 @@
 import json
-import sys
 from dataclasses import dataclass, field
 from pathlib import Path
-
-PROJECT_DIR = Path(__file__).resolve().parent.parent.parent
-if str(PROJECT_DIR) not in sys.path:
-    sys.path.insert(0, str(PROJECT_DIR))
+from typing import NamedTuple
 
 import numpy as np
 from sklearn.cluster import AgglomerativeClustering
@@ -23,7 +19,20 @@ from pipeline.clustering.llm_label import (
     translate_shared_terms,
 )
 
+PROJECT_DIR = Path(__file__).resolve().parent.parent.parent
 INPUT_FILE = PROJECT_DIR / "data" / "embeddings.npz"
+
+
+class SnapshotData(NamedTuple):
+    """One snapshot's embeddings and the article fields clustered from them."""
+
+    snapshot_date: str
+    embeddings: np.ndarray
+    titles: list[str]
+    sources: list[str]
+    countries: list[str]
+    links: list[str]
+    fetched_at: list
 
 GOOD_LABEL_SOURCES = frozenset({"llm", "headline"})
 
@@ -55,7 +64,7 @@ def load_data():
             f"Embeddings refer to {snapshot_date}, but its headlines file is "
             f"missing at {source_file}. Run ingest.py and embed.py first."
         )
-    return (
+    return SnapshotData(
         snapshot_date,
         data["embeddings"],
         titles,
@@ -203,17 +212,17 @@ def merge_clusters(
         )
         current = next_clusters
 
-        if pass_number == max_passes:
-            final_centroids = [
-                embeddings[cluster.indices].mean(axis=0)
-                for cluster in current
-            ]
-            final_similarities = cosine_similarity(final_centroids)
-            if np.any(np.triu(final_similarities >= threshold, k=1)):
-                print(
-                    f"Warning: similar clusters remain after {max_passes} "
-                    "merge passes."
-                )
+    if current:
+        final_centroids = [
+            embeddings[cluster.indices].mean(axis=0)
+            for cluster in current
+        ]
+        final_similarities = cosine_similarity(final_centroids)
+        if np.any(np.triu(final_similarities >= threshold, k=1)):
+            print(
+                f"Warning: similar clusters remain after {max_passes} "
+                "merge passes."
+            )
 
     return current
 
@@ -407,10 +416,10 @@ def build_clusters(
 
 
 def main():
-    snapshot_date, embeddings, titles, sources, countries, links, fetched_at = load_data()
-    print(f"Loaded {len(titles)} headlines.")
+    data = load_data()
+    print(f"Loaded {len(data.titles)} headlines.")
 
-    labels = cluster(embeddings)
+    labels = cluster(data.embeddings)
     print(f"Found {len(set(labels))} raw clusters.")
 
     llm_available = generator_available()
@@ -422,18 +431,18 @@ def main():
 
     clusters = build_clusters(
         labels,
-        titles,
-        sources,
-        countries,
-        links,
-        embeddings,
+        data.titles,
+        data.sources,
+        data.countries,
+        data.links,
+        data.embeddings,
         extract_common_terms,
-        fetched_at=fetched_at,
+        fetched_at=data.fetched_at,
         llm_available=llm_available,
     )
     print(f"Kept {len(clusters)} clusters with 2+ articles.")
 
-    snapshot_path = snapshot_dir(snapshot_date)
+    snapshot_path = snapshot_dir(data.snapshot_date)
     snapshot_path.mkdir(parents=True, exist_ok=True)
     output_file = snapshot_path / "clusters.json"
     with output_file.open("w", encoding="utf-8") as f:
