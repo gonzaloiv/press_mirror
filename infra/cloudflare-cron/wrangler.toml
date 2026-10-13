@@ -1,0 +1,6 @@
+name = "pressmirror-cron"
+main = "src/index.js"
+compatibility_date = "2026-10-13"
+
+[triggers]
+crons = ["17 5 * * *", "23 6 * * *", "23 7 * * *"]
