@@ -41,10 +41,13 @@ htmlcov/
 # pyenv
 # .python-version
 
+### Cloudflare / Wrangler
+.wrangler/
+wrangler-account.json
+
 ### Windows
 # Windows thumbnail cache files
 Thumbs.db
-
 # Folder config file
 [Dd]esktop.ini
 
