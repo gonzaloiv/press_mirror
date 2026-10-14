@@ -171,6 +171,75 @@ class ExtractCommonTermsTests(unittest.TestCase):
             extract_common_terms(["   "], encode=_ConceptEncoder()), []
         )
 
+    def test_numeric_tokens_are_not_shared_terms(self):
+        titles = [
+            "Vienna summit opens on 14th",
+            "Leaders meet for Vienna summit 14th",
+            "Vienna summit draws 14th delegation",
+        ]
+
+        terms = extract_common_terms(
+            titles, encode=_ConceptEncoder(titles=titles)
+        )
+        normalized = [_normalize(term) for term in terms]
+
+        self.assertNotIn("14th", normalized)
+        self.assertTrue(
+            all(
+                not any(character.isdigit() for character in term)
+                for term in normalized
+            )
+        )
+
+    def test_hyphenated_words_stay_a_single_token(self):
+        titles = [
+            "Co-op store fire in Berlin",
+            "Berlin Co-op fire investigated",
+            "Co-op blaze under investigation",
+        ]
+
+        terms = extract_common_terms(
+            titles, encode=_ConceptEncoder(titles=titles)
+        )
+        normalized = [_normalize(term) for term in terms]
+
+        self.assertIn("co-op", normalized)
+        self.assertNotIn("co", normalized)
+
+    def test_generic_filler_words_are_not_shared_terms(self):
+        titles = [
+            "Shooting heard in Berlin centre",
+            "Berlin centre shooting heard",
+            "Shooting reported in Berlin centre",
+        ]
+
+        terms = extract_common_terms(
+            titles, encode=_ConceptEncoder(titles=titles)
+        )
+        normalized = [_normalize(term) for term in terms]
+
+        self.assertNotIn("heard", normalized)
+        self.assertIn("berlin centre", normalized)
+
+    def test_singular_and_plural_collapse_to_one_term(self):
+        titles = [
+            "Cyberattack hits French supermarkets",
+            "French supermarkets hit by cyberattack",
+            "Cyberattack targets a supermarket fridge",
+            "Supermarket fridge hit by cyberattack",
+        ]
+
+        terms = extract_common_terms(
+            titles, encode=_ConceptEncoder(titles=titles)
+        )
+        normalized = [_normalize(term) for term in terms]
+        supermarket_forms = [
+            term for term in normalized if term.startswith("supermarket")
+        ]
+
+        self.assertLessEqual(len(supermarket_forms), 1)
+        self.assertIn("cyberattack", normalized)
+
 
 class BuildClusterLabelTests(unittest.TestCase):
     def test_orders_terms_by_representative_headline(self):

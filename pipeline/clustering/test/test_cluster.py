@@ -121,7 +121,7 @@ class BuildClustersLabelSelectionTests(unittest.TestCase):
         self.assertEqual(result[1]["terms"], [])
         self.assertNotIn("label_source", result[1])
 
-    def test_fills_daily_grid_with_terms_when_no_clean_label(self):
+    def test_drops_keyword_only_cluster_when_no_clean_label(self):
         shown_articles = [
             _article(index, f"source{index}", country)
             for index, country in enumerate(["FR", "DE", "ES", "IT", "FR", "DE"])
@@ -161,12 +161,16 @@ class BuildClustersLabelSelectionTests(unittest.TestCase):
                 merge=False,
             )
 
-        # The only gated cluster fell back to terms, so it fills the daily
-        # selection instead of being dropped; the sub-threshold cluster
-        # (never displayed) also remains.
-        self.assertEqual(len(result), 2)
-        self.assertEqual(result[0]["label_source"], "terms")
-        self.assertNotIn("label_source", result[1])
+        # The gated cluster fell back to a keyword-only label, so it is
+        # dropped rather than padded into the daily selection; only the
+        # sub-threshold cluster (never displayed) remains.
+        self.assertEqual(len(result), 1)
+        self.assertTrue(
+            all(
+                cluster.get("label_source") != "terms" for cluster in result
+            )
+        )
+        self.assertNotIn("label_source", result[0])
 
     def test_falls_back_to_english_headline_when_llm_rejected(self):
         english = "Nine people dead after mass shooting in Pennsylvania"
@@ -456,24 +460,25 @@ class DailyFiveTests(unittest.TestCase):
             )
         return result, calls
 
-    def test_fills_daily_five_with_fallback_labels(self):
-        # Six gate-passing clusters, only two label cleanly: the daily five
-        # is two LLM labels plus the three best term-assembled names.
+    def test_keeps_clean_labels_and_drops_keyword_fallbacks(self):
+        # Six gate-passing clusters, only two label cleanly: the keyword-only
+        # fallbacks are dropped instead of padding the grid to five.
         result, _ = self._run(cluster_count=6, clean_before_rejection=2)
 
-        self.assertEqual(len(result), 5)
+        self.assertEqual(len(result), 2)
         sources = [cluster["label_source"] for cluster in result]
-        self.assertEqual(sources, ["llm", "llm", "terms", "terms", "terms"])
+        self.assertEqual(sources, ["llm", "llm"])
 
     def test_labels_deeper_candidates_until_five_are_clean(self):
         # Twelve gate-passing clusters but the display pool holds nine: when
-        # only two label cleanly, labeling extends past the pool.
+        # only two label cleanly, labeling extends past the pool, and the
+        # keyword-only fallbacks are still dropped.
         result, calls = self._run(cluster_count=12, clean_before_rejection=2)
 
         self.assertEqual(calls["count"], 12)
-        self.assertEqual(len(result), 5)
+        self.assertEqual(len(result), 2)
         sources = [cluster["label_source"] for cluster in result]
-        self.assertEqual(sources, ["llm", "llm", "terms", "terms", "terms"])
+        self.assertEqual(sources, ["llm", "llm"])
 
     def test_drops_fallbacks_once_five_clean_labels_exist(self):
         # Six gate-passing clusters, five label cleanly: the sixth cluster's

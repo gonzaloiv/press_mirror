@@ -384,12 +384,16 @@ def _label_in_order(
     return clean
 
 
-def _prune_without_labels(result, ranked: list[int]):
-    """Keep the daily five named: clean labels first, fallbacks to fill.
+def _prune_without_labels(
+    result, ranked: list[int], llm_available: bool = True
+):
+    """Keep the daily five named: clean labels only, fallbacks dropped.
 
-    A gated cluster with a clean name (LLM or headline) is always kept.
-    When fewer than five carry one, the best term-assembled names fill the
-    remaining daily slots; gated clusters left unlabeled are dropped.
+    A gated cluster with a clean name (LLM or headline) is always kept. A
+    keyword-only fallback shares the defect of a rejected label, so it is
+    dropped rather than shown or used to pad the daily selection. The lone
+    exception is a label model that cannot run at all: then the fallbacks
+    fill the remaining slots so a broken model still shows a page.
     """
     good = [
         index
@@ -397,14 +401,14 @@ def _prune_without_labels(result, ranked: list[int]):
         if result[index].get("label_source") in GOOD_LABEL_SOURCES
     ]
     keep = set(good)
-    if len(good) < TOP_CLUSTER_COUNT:
+    if not llm_available and len(good) < TOP_CLUSTER_COUNT:
         fallbacks = [
             index
             for index in ranked
             if result[index].get("label_source")
             and result[index].get("label_source") not in GOOD_LABEL_SOURCES
         ]
-        keep.update(fallbacks[:TOP_CLUSTER_COUNT - len(good)])
+        keep.update(fallbacks[: TOP_CLUSTER_COUNT - len(good)])
     kept = [
         cluster
         for index, cluster in enumerate(result)
@@ -513,7 +517,7 @@ def build_clusters(
             "Label model unavailable; keeping fallback-labeled clusters.",
             flush=True,
         )
-    return _prune_without_labels(result, ranked)
+    return _prune_without_labels(result, ranked, llm_available)
 
 
 def main():

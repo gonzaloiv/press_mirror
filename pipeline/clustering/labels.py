@@ -23,7 +23,7 @@ CONCEPT_SIMILARITY_THRESHOLD = 0.72
 
 _model = None
 
-_WORD_RE = re.compile(r"[^\W_]+(?:['’][^\W_]+)?", re.UNICODE)
+_WORD_RE = re.compile(r"[^\W_]+(?:[-‐‑'’][^\W_]+)*", re.UNICODE)
 
 # Generic function words only. Content-bearing vocabulary is never listed here.
 _FUNCTION_WORDS = frozenset(
@@ -54,6 +54,8 @@ _FUNCTION_WORDS = frozenset(
     comment pourquoi dos tres como porque due come perche dois como porque twee
     drie hoe waarom dwa trzy jak dlaczego tva tre hur varfor kaksi kolme miten
     miksi
+    heard says said reportedly according breaking live update updates watch
+    photo photos video videos
     us
     """.split()
 )
@@ -75,7 +77,11 @@ def _raw_tokens(text: str) -> list[str]:
 
 
 def _is_content(token: str) -> bool:
-    return len(token) >= 2 and not token.isdigit() and token not in _FUNCTION_WORDS
+    return (
+        len(token) >= 2
+        and not any(character.isdigit() for character in token)
+        and token not in _FUNCTION_WORDS
+    )
 
 
 @dataclass
@@ -232,6 +238,17 @@ def _ranked(concepts: list[_Concept]) -> list[_Concept]:
     )
 
 
+def _stem_token(token: str) -> str:
+    """Fold a simple plural onto its singular so both are one concept."""
+    if len(token) > 3 and token.endswith("s") and not token.endswith("ss"):
+        return token[:-1]
+    return token
+
+
+def _stemmed(tokens) -> set[str]:
+    return {_stem_token(token) for token in tokens}
+
+
 def _suppress_overlapping(concepts: list[_Concept]) -> list[_Concept]:
     """Collapse nested concepts into their most specific member.
 
@@ -239,13 +256,19 @@ def _suppress_overlapping(concepts: list[_Concept]) -> list[_Concept]:
     "Ex chef"), showing both repeats the same words on screen. The longer
     phrase contains all of the shorter one's words, so the longer phrase is
     the member worth keeping, even when the bare word is the more frequent.
+    Simple plural/singular variants ("supermarkets" / "supermarket") are
+    folded together first so the pair collapses to a single member.
     """
     kept: list[_Concept] = []
     for concept in concepts:
-        tokens = set(concept.tokens)
-        if any(tokens <= set(other.tokens) for other in kept):
+        tokens = _stemmed(concept.tokens)
+        if any(tokens <= _stemmed(other.tokens) for other in kept):
             continue
-        kept = [other for other in kept if not set(other.tokens) < tokens]
+        kept = [
+            other
+            for other in kept
+            if not _stemmed(other.tokens) < tokens
+        ]
         kept.append(concept)
     return kept
 

@@ -3,8 +3,7 @@ const REF = "main";
 
 const WORKFLOWS_BY_CRON = {
   "17 5 * * *": "daily-pipeline.yml",
-  "23 6 * * *": "daily-pipeline.yml",
-  "23 7 * * *": "publish-buffer.yml",
+  "23 6 * * *": "publish-buffer.yml",
 };
 
 async function dispatchWorkflow(workflowFile, env) {
