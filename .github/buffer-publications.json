@@ -1,5 +1,5 @@
 {
-  "snapshot_date": "2026-10-26",
+  "snapshot_date": "2026-10-27",
   "published": [
     {
       "cluster_index": 4,
@@ -10,19 +10,19 @@
       "channel_fingerprint": "3c65f2c0b3c30497042ce81c5bd22dd5bb1305d4e580103ae7d4eb23372cc4bb"
     },
     {
-      "cluster_index": 7,
+      "cluster_index": 8,
       "channel_fingerprint": "4a12303785306e36da9f39c1210ac2da8ae9ff38d848c2c3bcbee4289b23a5c9"
     },
     {
-      "cluster_index": 7,
+      "cluster_index": 8,
       "channel_fingerprint": "3c65f2c0b3c30497042ce81c5bd22dd5bb1305d4e580103ae7d4eb23372cc4bb"
     },
     {
-      "cluster_index": 10,
+      "cluster_index": 7,
       "channel_fingerprint": "4a12303785306e36da9f39c1210ac2da8ae9ff38d848c2c3bcbee4289b23a5c9"
     },
     {
-      "cluster_index": 10,
+      "cluster_index": 7,
       "channel_fingerprint": "3c65f2c0b3c30497042ce81c5bd22dd5bb1305d4e580103ae7d4eb23372cc4bb"
     }
   ]
