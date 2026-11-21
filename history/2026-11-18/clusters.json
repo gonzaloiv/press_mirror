@@ -1,0 +1,3329 @@
+[
+  {
+    "label": "Ukraine damages Russian-controlled Crimean bridge",
+    "terms": [
+      "Putin",
+      "Ukraine",
+      "bridge",
+      "Crimea",
+      "destroy",
+      "Russia’s",
+      "symbol"
+    ],
+    "size": 19,
+    "avg_similarity": 0.752,
+    "min_representative_similarity": 0.65,
+    "articles": [
+      {
+        "title": "Comment les Ukrainiens ont réussi à détruire une partie du « pont de Poutine » reliant la Russie à la Crimée",
+        "source": "Le Monde",
+        "country": "FR",
+        "link": "https://www.lemonde.fr/international/article/2026/11/17/comment-les-ukrainiens-ont-reussi-a-detruire-une-partie-du-pont-de-poutine-reliant-la-russie-a-la-crimee_6813025_3210.html",
+        "fetched_at": "2026-11-18T05:20:01.596988+00:00"
+      },
+      {
+        "title": "Guerre en Ukraine : une partie du pont de Crimée s’effondre après des frappes de Kiev",
+        "source": "France 24",
+        "country": "FR",
+        "link": "https://www.france24.com/fr/vid%C3%A9o/20261117-guerre-en-ukraine-une-partie-du-pont-de-crim%C3%A9e-s-effondre-apr%C3%A8s-des-frappes-de-kiev",
+        "fetched_at": "2026-11-18T05:20:02.953703+00:00"
+      },
+      {
+        "title": "Guerre en Ukraine : pont de Crimée gravement endommagé, Poutine attendu en Chine, … Le point sur la nuit",
+        "source": "Ouest-France",
+        "country": "FR",
+        "link": "https://www.ouest-france.fr/europe/ukraine/guerre-en-ukraine-pont-de-crimee-gravement-endommage-poutine-attendu-en-chine-le-point-sur-la-nuit-bc3f5ee2-e305-11f1-9a72-32f9104dab1b?utm_source=fluxpublicactu&utm_medium=fluxrss&utm_campaign=banquedecontenu",
+        "fetched_at": "2026-11-18T05:20:06.307649+00:00"
+      },
+      {
+        "title": "Ucrania destruye parte del puente de Crimea, símbolo de la anexión rusa impuesta por Putin",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/internacional/2026-11-17/ucrania-destruye-e-inutiliza-parte-del-puente-de-crimea.html",
+        "fetched_at": "2026-11-18T05:20:08.495222+00:00"
+      },
+      {
+        "title": "Ucrania golpea por segundo día consecutivo el puente de Crimea, símbolo de las ambiciones de Putin",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/internacional/20261117/11686149/nuevo-ataque-drones-ucranianos-puente-crimea-deja-dos-muertos.html",
+        "fetched_at": "2026-11-18T05:20:10.389658+00:00"
+      },
+      {
+        "title": "Putin's Crimean Bridge partly collapses as Zelensky hails 'unprecedented' attack by Ukraine",
+        "source": "BBC World",
+        "country": "UK",
+        "link": "https://www.bbc.co.uk/news/articles/cw772jk4rvmxo?at_medium=RSS&at_campaign=rss",
+        "fetched_at": "2026-11-18T05:20:12.181968+00:00"
+      },
+      {
+        "title": "How Ukraine struck the Kerch bridge, a symbol of Putin’s rule",
+        "source": "The Guardian",
+        "country": "UK",
+        "link": "https://www.theguardian.com/world/2026/nov/17/how-ukraine-struck-kerch-bridge-symbol-vladimir-putin-rule",
+        "fetched_at": "2026-11-18T05:20:12.828670+00:00"
+      },
+      {
+        "title": "Krieg gegen die Ukraine: Wie schwer ist die Krim-Brücke getroffen?",
+        "source": "Tagesschau",
+        "country": "DE",
+        "link": "https://www.tagesschau.de/ausland/europa/krim-bruecke-152.html",
+        "fetched_at": "2026-11-18T05:20:17.449435+00:00"
+      },
+      {
+        "title": "Zerstörte Krim-Brücke: Die Ukraine versetzt Putin einen schweren Schlag",
+        "source": "Süddeutsche Zeitung",
+        "country": "DE",
+        "link": "https://www.sueddeutsche.de/politik/kertsch-bruecke-ukraine-krim-russland-li.3581771",
+        "fetched_at": "2026-11-18T05:20:18.949112+00:00"
+      },
+      {
+        "title": "Krim-Brücke: Ein empfindlicher Treffer gegen Putin",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/aktuell/politik/ukraine/angriff-auf-die-krim-bruecke-was-der-treffer-fuer-putin-bedeutet-201691161.html",
+        "fetched_at": "2026-11-18T05:20:19.926762+00:00"
+      },
+      {
+        "title": "Schiaffo a Putin, i missili Kiev fanno crollare il ponte della Crimea",
+        "source": "ANSA",
+        "country": "IT",
+        "link": "https://www.ansa.it/sito/videogallery/mondo/2026/11/17/lucraina-colpisce-il-ponte-di-crimea-le-immagini-dal-drone-poco-prima-dellimpatto_557b934d-d2cf-4abf-ac50-e6fdede97e0f.html",
+        "fetched_at": "2026-11-18T05:20:22.223788+00:00"
+      },
+      {
+        "title": "Lo schiaffo dell’Ucraina: spezzato il ponte di Kerch, l’opera simbolo dello zar",
+        "source": "La Repubblica",
+        "country": "IT",
+        "link": "https://www.repubblica.it/esteri/2026/11/18/news/smacco_ucraina_spezzato_ponte_di_kerch_opera_simbolo_di_putin-425730774/",
+        "fetched_at": "2026-11-18T05:20:23.288747+00:00"
+      },
+      {
+        "title": "Na vier jaar proberen heeft Oekraïne het voor elkaar: de Krimbrug is ingestort. Met hulp van wapenfabrikant Destinus uit Hengelo",
+        "source": "NRC",
+        "country": "NL",
+        "link": "https://www.nrc.nl/nieuws/2026/11/17/na-vier-jaar-proberen-heeft-oekraine-het-voor-elkaar-de-krimbrug-is-ingestort-a4941622",
+        "fetched_at": "2026-11-18T05:20:34.325832+00:00"
+      },
+      {
+        "title": "Wołodymyr Zełenski mówi o ataku na most Krymski. Europę wschodnią nawiedziło trzęsienie ziemi. Podsumowanie nocy",
+        "source": "Onet Wiadomości",
+        "country": "PL",
+        "link": "https://wiadomosci.onet.pl/swiat/zelenski-o-ataku-ukrainy-wstrzasy-na-wschodzie-europy-podsumowanie-nocy/j01l0mr",
+        "fetched_at": "2026-11-18T05:20:38.059001+00:00"
+      },
+      {
+        "title": "Wie der Ukraine der große Schlag gegen Putins Krimbrücke gelang",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000349659/wie-der-ukraine-der-grosse-schlag-gegen-putins-krimbruecke-gelang?ref=rss",
+        "fetched_at": "2026-11-18T05:20:41.078280+00:00"
+      },
+      {
+        "title": "Krimbron skadad efter ukrainska attacker",
+        "source": "Dagens Nyheter",
+        "country": "SE",
+        "link": "https://www.dn.se/varlden/krimbron-uppges-skadad-efter-ukrainska-attacker/",
+        "fetched_at": "2026-11-18T05:20:43.081098+00:00"
+      },
+      {
+        "title": "Krimin siltaisku | Ukraina valmisteli kuukauden operaatiota, jolla iskettiin Venäjän silmä­terään",
+        "source": "Helsingin Sanomat",
+        "country": "FI",
+        "link": "https://www.hs.fi/maailma/art-2000012419428.html",
+        "fetched_at": "2026-11-18T05:20:44.441868+00:00"
+      },
+      {
+        "title": "Hvordan klarte ukrainerne å ødelegge Krym-broen til Putin? – Timingen er ufattelig",
+        "source": "Aftenposten",
+        "country": "NO",
+        "link": "https://www.aftenposten.no/verden/i/lMAOwk/hvordan-klarte-ukrainerne-aa-oedelegge-krym-broen-til-putin-timingen-er-ufattelig?utm_medium=rss",
+        "fetched_at": "2026-11-18T05:20:53.792075+00:00"
+      },
+      {
+        "title": "Analysis: Why Ukraine's strike on the Crimean Bridge is such a big deal",
+        "source": "The Kyiv Independent",
+        "country": "UA",
+        "link": "https://kyivindependent.com/analysis-why-ukraines-strike-on-the-crimean-bridge-is-such-a-big-deal/",
+        "fetched_at": "2026-11-18T05:20:55.203547+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "Tagesschau": 1,
+      "Der Standard": 1,
+      "The Kyiv Independent": 2,
+      "Frankfurter Allgemeine": 1,
+      "Helsingin Sanomat": 1,
+      "BBC World": 1,
+      "Dagens Nyheter": 1
+    },
+    "source_terms": [
+      "Putin",
+      "Ukraine",
+      "pont",
+      "Crimée",
+      "ødelegge",
+      "Putin’s",
+      "símbolo"
+    ],
+    "label_source": "llm",
+    "label_review": {
+      "status": "accepted",
+      "reason": "accepted"
+    }
+  },
+  {
+    "label": "Nvidia chief Jensen Huang wants comeback",
+    "terms": [
+      "Huang",
+      "Nvidia",
+      "return",
+      "Jensen",
+      "ready",
+      "Former CEO"
+    ],
+    "size": 12,
+    "avg_similarity": 0.729,
+    "min_representative_similarity": 0.678,
+    "articles": [
+      {
+        "title": "Le conseil d'administration de Nvidia ferme la porte à un retour de son ex-patron Jensen Huang",
+        "source": "France 24",
+        "country": "FR",
+        "link": "https://www.france24.com/fr/%C3%A9co-tech/20261117-conseil-administration-nvidia-semi-conducteurs-ferme-porte-retour-ex-patron-jensen-huang-harvey-jones-resultats-ia",
+        "fetched_at": "2026-11-18T05:20:02.953703+00:00"
+      },
+      {
+        "title": "Jensen Huang dice que sería un “honor” volver a Nvidia tras la “avalancha” de peticiones",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/economia/20261117/11686754/jensen-huang-dice-seria-honor-volver-nvidia-avalancha-peticiones.html",
+        "fetched_at": "2026-11-18T05:20:10.389658+00:00"
+      },
+      {
+        "title": "Nvidia says it won't reinstate Huang as firm reports bumper results",
+        "source": "BBC World",
+        "country": "UK",
+        "link": "https://www.bbc.co.uk/news/articles/cm2kl50vkwkdo?at_medium=RSS&at_campaign=rss",
+        "fetched_at": "2026-11-18T05:20:12.181968+00:00"
+      },
+      {
+        "title": "Jensen Huang kann sich Rückkehr an Nvidia-Spitze vorstellen",
+        "source": "Tagesschau",
+        "country": "DE",
+        "link": "https://www.tagesschau.de/wirtschaft/unternehmen/nvidia-huang-rueckkehr-100.html",
+        "fetched_at": "2026-11-18T05:20:17.449435+00:00"
+      },
+      {
+        "title": "Nvidia-Affäre: Der jähe Fall des Jensen Huang",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/aktuell/wirtschaft/unternehmen/jensen-huang-geht-ein-schock-fuer-nvidia-aber-keine-katastrophe-201677508.html",
+        "fetched_at": "2026-11-18T05:20:19.926762+00:00"
+      },
+      {
+        "title": "<![CDATA[ Jensen Huang assume desejo de voltar à Nvidia ]]>",
+        "source": "Correio da Manhã",
+        "country": "PT",
+        "link": "https://www.cmjornal.pt/mundo/detalhe/jensen-huang-assume-desejo-de-voltar-a-nvidia",
+        "fetched_at": "2026-11-18T05:20:35.879151+00:00"
+      },
+      {
+        "title": "Nvidia-Verwaltungsrat schließt Rückkehr von Ex-Chef Huang aus",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000349575/nvidia-verwaltungsrat-schlie223t-r252ckkehr-von-ex-chef-huang-aus?ref=rss",
+        "fetched_at": "2026-11-18T05:20:41.078280+00:00"
+      },
+      {
+        "title": "Jensen Huang bereit für Rückkehr zu Nvidia: „Es wäre mir eine Ehre“",
+        "source": "Kurier",
+        "country": "AT",
+        "link": "https://kurier.at/politik/ausland/usa-china-trump-nvidia-huang/403206378",
+        "fetched_at": "2026-11-18T05:20:41.771410+00:00"
+      },
+      {
+        "title": "Upprop för att Jensen Huang ska återvända till Nvidia",
+        "source": "Dagens Nyheter",
+        "country": "SE",
+        "link": "https://www.dn.se/ekonomi/upprop-for-att-jensen-huang-ska-atervanda-till-nvidia/",
+        "fetched_at": "2026-11-18T05:20:43.081098+00:00"
+      },
+      {
+        "title": "Vakoiluskandaali | Jensen Huang sanoo olevansa valmis palaamaan Nvidian johtoon",
+        "source": "Helsingin Sanomat",
+        "country": "FI",
+        "link": "https://www.hs.fi/visio/art-2000012419729.html",
+        "fetched_at": "2026-11-18T05:20:44.441868+00:00"
+      },
+      {
+        "title": "Nevěrný Huang je připraven vrátit se do čela Nvidie, vystoupí před Kongresem",
+        "source": "iDNES.cz",
+        "country": "CZ",
+        "link": "https://www.idnes.cz/ekonomika/zahranicni/huang-je-pripraven-se-vratit-do-cela-nvidie-bude-vypovidat-pred-kongresem.A261117_181940_eko-zahranicni_iluj#utm_source=rss&utm_medium=feed&utm_campaign=zpravodaj&utm_content=main",
+        "fetched_at": "2026-11-18T05:20:47.863232+00:00"
+      },
+      {
+        "title": "Jensen Huang åpner for comeback som Nvidia-sjef",
+        "source": "Aftenposten",
+        "country": "NO",
+        "link": "https://e24.no/i/kv7g2k?utm_medium=rss",
+        "fetched_at": "2026-11-18T05:20:53.792075+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "France 24": 1,
+      "Der Standard": 1,
+      "Helsingin Sanomat": 1,
+      "Aftenposten": 1,
+      "Frankfurter Allgemeine": 2
+    },
+    "source_terms": [
+      "Huang",
+      "Nvidia",
+      "Rückkehr",
+      "Jensen",
+      "vrátit",
+      "připraven",
+      "Ex-Chef"
+    ],
+    "label_source": "llm",
+    "label_review": {
+      "status": "accepted",
+      "reason": "accepted"
+    }
+  },
+  {
+    "label": "Mary Peltola wins Alaska Senate seat",
+    "terms": [
+      "United States",
+      "Alaska",
+      "Senate",
+      "Democrats",
+      "American",
+      "Democratic",
+      "Republican"
+    ],
+    "size": 13,
+    "avg_similarity": 0.757,
+    "min_representative_similarity": 0.707,
+    "articles": [
+      {
+        "title": "Midterms 2026 : malgré la polémique, les démocrates s’imposent en Alaska et parachèvent le basculement du Sénat américain",
+        "source": "Le Monde",
+        "country": "FR",
+        "link": "https://www.lemonde.fr/international/article/2026/11/18/midterms-2026-malgre-la-polemique-les-democrates-s-imposent-en-alaska-et-parachevent-le-basculement-du-senat-americain_6813069_3210.html",
+        "fetched_at": "2026-11-18T05:20:01.596988+00:00"
+      },
+      {
+        "title": "Sénat américain : les démocrates remportent l’Alaska et étendent leur majorité à 56 sièges contre 44",
+        "source": "Le Figaro",
+        "country": "FR",
+        "link": "https://www.lefigaro.fr/international/senat-americain-les-democrates-remportent-l-alaska-et-etendent-leur-majorite-a-56-sieges-contre-44-20261118",
+        "fetched_at": "2026-11-18T05:20:02.292399+00:00"
+      },
+      {
+        "title": "Sénat américain : en prenant l'Alaska, les démocrates étendent leur majorité à 56 sièges contre 44",
+        "source": "France 24",
+        "country": "FR",
+        "link": "https://www.france24.com/fr/am%C3%A9riques/20261118-etats-unis-midterms-senat-americain-alaska-peltola-victoire-democrates-etendent-leur-majorite-56-sieges",
+        "fetched_at": "2026-11-18T05:20:02.953703+00:00"
+      },
+      {
+        "title": "‘Aarigaa!’: the triumph of Mary Peltola’s historic US Senate win and what it means for Alaska Natives",
+        "source": "The Guardian",
+        "country": "UK",
+        "link": "https://www.theguardian.com/us-news/2026/nov/18/mary-peltola-alaska-win-analysis",
+        "fetched_at": "2026-11-18T05:20:12.828670+00:00"
+      },
+      {
+        "title": "USA: Demokratin Peltola gewinnt Senatssitz in Alaska",
+        "source": "Süddeutsche Zeitung",
+        "country": "DE",
+        "link": "https://www.sueddeutsche.de/politik/usa-news-liveblog-alaska-demokraten-peltola-li.3578585",
+        "fetched_at": "2026-11-18T05:20:18.949112+00:00"
+      },
+      {
+        "title": "USA unter Trump: Demokraten gewinnen auch noch Senatssitz in Alaska",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/aktuell/politik/usa-unter-trump/liveticker-usa-unter-trump-demokraten-gewinnen-auch-noch-senatssitz-in-alaska-faz-19444916.html",
+        "fetched_at": "2026-11-18T05:20:19.926762+00:00"
+      },
+      {
+        "title": "Der US-Überblick am Morgen: Demokraten gewinnen in Alaska, NSA-Kommunikationsnetz ausgefallen",
+        "source": "Die Zeit",
+        "country": "DE",
+        "link": "https://www.zeit.de/politik/ausland/2026-11/kalshi-cftc-wetten-donald-trump-rede-usa",
+        "fetched_at": "2026-11-18T05:20:20.816603+00:00"
+      },
+      {
+        "title": "Midterm Usa, i democratici vincono anche in Alaska: Peltola strappa il seggio ai repubblicani",
+        "source": "La Repubblica",
+        "country": "IT",
+        "link": "https://www.repubblica.it/esteri/2026/11/18/news/midterm_usa_democratici_vincono_alaska_mary_peltola_senato-425731128/",
+        "fetched_at": "2026-11-18T05:20:23.288747+00:00"
+      },
+      {
+        "title": "Democraat Mary Peltola verslaat zittende Republikein en wint senaatszetel in Alaska",
+        "source": "de Volkskrant",
+        "country": "NL",
+        "link": "https://www.volkskrant.nl/buitenland/democraat-mary-peltola-verslaat-zittende-republikein-en-wint-senaatszetel-in-alaska~bc3bb24d/",
+        "fetched_at": "2026-11-18T05:20:32.801150+00:00"
+      },
+      {
+        "title": "USA: Ostatni sukces demokratów w wyborach do Senatu. Wygrali na Alasce",
+        "source": "Rzeczpospolita",
+        "country": "PL",
+        "link": "https://www.rp.pl/polityka/art45505351-usa-ostatni-sukces-demokratow-w-wyborach-do-senatu-wygrali-na-alasce",
+        "fetched_at": "2026-11-18T05:20:36.741751+00:00"
+      },
+      {
+        "title": "US-Midterms: Demokratin Peltola gewinnt Senatssitz in Alaska",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000349753/peltola-gewinnt-in-alaska-klare-mehrheit-f252r-demokraten-im-us-senat?ref=rss",
+        "fetched_at": "2026-11-18T05:20:41.078280+00:00"
+      },
+      {
+        "title": "Aljaška patří demokratům. Kandidátce pomohla finta s jmény, tvrdí republikáni",
+        "source": "iDNES.cz",
+        "country": "CZ",
+        "link": "https://www.idnes.cz/zpravy/zahranicni/peltolaova-vyhrala-senatorsky-mandat-na-aljasce-demokrate-maji-56-kresel.A261118_042436_zahranicni_air#utm_source=rss&utm_medium=feed&utm_campaign=zpravodaj&utm_content=main",
+        "fetched_at": "2026-11-18T05:20:47.863232+00:00"
+      },
+      {
+        "title": "Demokratene sikret seg senatsplassen i Alaska",
+        "source": "Aftenposten",
+        "country": "NO",
+        "link": "https://www.aftenposten.no/verden/i/g374qB/demokratene-sikret-seg-senatsplassen-i-alaska?utm_medium=rss",
+        "fetched_at": "2026-11-18T05:20:53.792075+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "Frankfurter Allgemeine": 1
+    },
+    "source_terms": [
+      "USA",
+      "Alaska",
+      "Sénat",
+      "démocrates",
+      "américain",
+      "Demokratin",
+      "Republikein"
+    ],
+    "label_source": "llm",
+    "label_review": {
+      "status": "accepted",
+      "reason": "accepted"
+    }
+  },
+  {
+    "label": "Robert Pattinson takes on new James Bond role",
+    "terms": [
+      "Bond",
+      "James",
+      "New",
+      "Robert",
+      "Pattinson"
+    ],
+    "size": 10,
+    "avg_similarity": 0.79,
+    "min_representative_similarity": 0.73,
+    "articles": [
+      {
+        "title": "« Un James Bond plus cérébral que musclé » : ce que pensent les critiques cinéma du Figaro de Robert Pattinson en agent 007",
+        "source": "Le Figaro",
+        "country": "FR",
+        "link": "https://www.lefigaro.fr/cinema/un-james-bond-plus-cerebral-que-muscle-ce-que-pensent-les-critiques-cinema-du-figaro-de-robert-pattinson-en-agent-007-20261118",
+        "fetched_at": "2026-11-18T05:20:02.292399+00:00"
+      },
+      {
+        "title": "Robert Pattinson sera le prochain James Bond : 10 choses à savoir sur le nouveau 007",
+        "source": "L'Obs",
+        "country": "FR",
+        "link": "https://www.nouvelobs.com/cinema/20261117.OBS120206/robert-pattinson-sera-le-prochain-james-bond-10-choses-a-savoir-sur-le-nouveau-007.html",
+        "fetched_at": "2026-11-18T05:20:05.335800+00:00"
+      },
+      {
+        "title": "¿Está James Bond caducado? Robert Pattinson se enfrenta al macho alfa en el próximo 007",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/icon/cultura/2026-11-18/esta-james-bond-caducado-robert-pattinson-se-enfrenta-al-macho-alfa-en-el-proximo-007.html",
+        "fetched_at": "2026-11-18T05:20:08.495222+00:00"
+      },
+      {
+        "title": "Podcast: „Auf den Punkt“: Neuer James Bond: Ist Robert Pattinson der richtige?",
+        "source": "Süddeutsche Zeitung",
+        "country": "DE",
+        "link": "https://www.sueddeutsche.de/kultur/podcast-nachrichten-auf-den-punkt-james-bond-pattinson-film-li.3581823",
+        "fetched_at": "2026-11-18T05:20:18.949112+00:00"
+      },
+      {
+        "title": "Robert Pattinson als James Bond: Risiko sieht anders aus",
+        "source": "Die Zeit",
+        "country": "DE",
+        "link": "https://www.zeit.de/feuilleton/film/2026-11/robert-pattinson-james-bond-007-rolle-kritik",
+        "fetched_at": "2026-11-18T05:20:20.816603+00:00"
+      },
+      {
+        "title": "Wat voor een James Bond wordt Robert Pattinson?",
+        "source": "NRC",
+        "country": "NL",
+        "link": "https://www.nrc.nl/nieuws/2026/11/16/wat-voor-een-james-bond-wordt-acteur-robert-pattinson-a4941541",
+        "fetched_at": "2026-11-18T05:20:34.325832+00:00"
+      },
+      {
+        "title": "Robert Pattinson, un James Bond dépressif ?",
+        "source": "La Libre Belgique",
+        "country": "BE",
+        "link": "https://www.lalibre.be/culture/cinema/films/2026/11/16/robert-pattinson-un-james-bond-depressif-X74WBN6YXVEKVD7OC5EUIWCHB4/",
+        "fetched_at": "2026-11-18T05:20:40.317018+00:00"
+      },
+      {
+        "title": "Neuer James Bond: Robert Pattinson sorgt für Aufsehen",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000349646/neuer-james-bond-robert-pattinson-sorgt-f252r-aufsehen?ref=rss",
+        "fetched_at": "2026-11-18T05:20:41.078280+00:00"
+      },
+      {
+        "title": "Robert Pattinson är nya James Bond: ”En ära”",
+        "source": "Dagens Nyheter",
+        "country": "SE",
+        "link": "https://www.dn.se/kultur/robert-pattinson-ar-nya-james-bond-en-ara/",
+        "fetched_at": "2026-11-18T05:20:43.081098+00:00"
+      },
+      {
+        "title": "Bond | Uudeksi James Bondiksi valittiin Hollywoodin outo­lintu, joka on samalla varma raha­sampo",
+        "source": "Helsingin Sanomat",
+        "country": "FI",
+        "link": "https://www.hs.fi/popkulttuuri/art-2000012418565.html",
+        "fetched_at": "2026-11-18T05:20:44.441868+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "NRC": 1,
+      "El País": 1,
+      "L'Obs": 1
+    },
+    "source_terms": [
+      "Bond",
+      "James",
+      "Neuer",
+      "Pattinson",
+      "Robert"
+    ],
+    "label_source": "llm",
+    "label_review": {
+      "status": "accepted",
+      "reason": "accepted"
+    }
+  },
+  {
+    "label": "Russian military plane crashes in Siberia, killing all",
+    "terms": [
+      "russian",
+      "crash",
+      "aircraft",
+      "military",
+      "dead",
+      "plane crashes",
+      "crashed"
+    ],
+    "size": 7,
+    "avg_similarity": 0.778,
+    "min_representative_similarity": 0.756,
+    "articles": [
+      {
+        "title": "Al menos 17 muertos tras estrellarse un avión de transporte militar ruso en Siberia",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/internacional/20261117/11686698/17-muertos-estrellarse-avion-transporte-militar-ruso-siberia.html",
+        "fetched_at": "2026-11-18T05:20:10.389658+00:00"
+      },
+      {
+        "title": "Russian military plane crashes, killing all 19 on board",
+        "source": "BBC World",
+        "country": "UK",
+        "link": "https://www.bbc.co.uk/news/articles/cw8085rykkmgo?at_medium=RSS&at_campaign=rss",
+        "fetched_at": "2026-11-18T05:20:12.181968+00:00"
+      },
+      {
+        "title": "Russland: Militärflugzeug stürzt in Sibirien ab — 19 Tote",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/aktuell/gesellschaft/ungluecke/militaermaschine-in-sibirien-abgestuerzt-19-tote-201692769.html",
+        "fetched_at": "2026-11-18T05:20:19.926762+00:00"
+      },
+      {
+        "title": "Un avion militaire s'écrase en Sibérie faisant 17 morts, selon la presse russe",
+        "source": "La Libre Belgique",
+        "country": "BE",
+        "link": "https://www.lalibre.be/international/europe/2026/11/17/un-avion-militaire-secrase-en-siberie-faisant-17-morts-selon-la-presse-russe-O6MJJ4YSJBAQBGYWYLCOCOFT3Y/",
+        "fetched_at": "2026-11-18T05:20:40.317018+00:00"
+      },
+      {
+        "title": "Siperia | Venäläinen sotilas­kuljetuskone syöksyi maahan, 17 kuoli",
+        "source": "Helsingin Sanomat",
+        "country": "FI",
+        "link": "https://www.hs.fi/maailma/art-2000012419691.html",
+        "fetched_at": "2026-11-18T05:20:44.441868+00:00"
+      },
+      {
+        "title": "V Kemerovské oblasti na Sibiři se zřítilo vojenské letadlo, zahynulo 19 lidí",
+        "source": "iDNES.cz",
+        "country": "CZ",
+        "link": "https://www.idnes.cz/zpravy/zahranicni/an-12-kemerovska-oblast-sibirletecka-katastrofa-pad-letadla.A261117_163914_zahranicni_aya#utm_source=rss&utm_medium=feed&utm_campaign=zpravodaj&utm_content=main",
+        "fetched_at": "2026-11-18T05:20:47.863232+00:00"
+      },
+      {
+        "title": "Russisk transportfly styrtet i Sibir",
+        "source": "Aftenposten",
+        "country": "NO",
+        "link": "https://www.aftenposten.no/norge/i/BrRkdE/russisk-transportfly-styrtet-i-sibir?utm_medium=rss",
+        "fetched_at": "2026-11-18T05:20:53.792075+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "La Libre Belgique": 1
+    },
+    "source_terms": [
+      "ruso",
+      "ab",
+      "avion",
+      "militar",
+      "morts",
+      "plane crashes",
+      "stürzt"
+    ],
+    "label_source": "llm",
+    "label_review": {
+      "status": "accepted",
+      "reason": "accepted_after_truncation"
+    }
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 8,
+    "avg_similarity": 0.69,
+    "min_representative_similarity": 0.618,
+    "articles": [
+      {
+        "title": "Nvidia bate previsiones al duplicar los ingresos y los beneficios, y defiende el poder de su tecnología",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/economia/2026-11-17/nvidia-bate-previsiones-al-disparar-sus-ingresos-un-103-y-defiende-el-poder-de-su-tecnologia-y-su-remuneracion-a-los-accionistas.html",
+        "fetched_at": "2026-11-18T05:20:08.495222+00:00"
+      },
+      {
+        "title": "Nvidia bate todas las expectativas en el primer informe trimestral sin Jensen Huang",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/economia/20261117/11686877/nvidia-bate-todas-expectativas-primer-informe-trimestral-jensen-huang.html",
+        "fetched_at": "2026-11-18T05:20:10.389658+00:00"
+      },
+      {
+        "title": "Neue Quartalszahlen: Nvidia verdoppelt Umsatz und Gewinn",
+        "source": "Tagesschau",
+        "country": "DE",
+        "link": "https://www.tagesschau.de/wirtschaft/unternehmen/nvidia-quartalsergebnisse-100.html",
+        "fetched_at": "2026-11-18T05:20:17.449435+00:00"
+      },
+      {
+        "title": "Nvidia overtreft verwachtingen",
+        "source": "De Telegraaf",
+        "country": "NL",
+        "link": "https://www.telegraaf.nl/financieel/nvidia-overtreft-verwachtingen/164656496.html",
+        "fetched_at": "2026-11-18T05:20:31.411264+00:00"
+      },
+      {
+        "title": "Eerste kwartaalcijfers Nvidia sinds spionageschandaal overtreffen verwachtingen: meer dan 100 miljard dollar omzet",
+        "source": "de Volkskrant",
+        "country": "NL",
+        "link": "https://www.volkskrant.nl/buitenland/eerste-kwartaalcijfers-nvidia-sinds-spionageschandaal-overtreffen-verwachtingen-meer-dan-100-miljard-dollar-omzet~bb73aa78/",
+        "fetched_at": "2026-11-18T05:20:32.801150+00:00"
+      },
+      {
+        "title": "Nvidia dépasse les attentes au troisième trimestre : Malgré un chiffre d’affaires plus que doublé, Jensen Huang ne devrait pas être réintégré",
+        "source": "La Libre Belgique",
+        "country": "BE",
+        "link": "https://www.lalibre.be/economie/placements/2026/11/17/nvidia-depasse-les-attentes-au-troisieme-trimestre-chiffre-daffaires-plus-que-double-J6HBHTFB4JF2JKSCLP4KA3OWC4/",
+        "fetched_at": "2026-11-18T05:20:40.317018+00:00"
+      },
+      {
+        "title": "Nvidia verdoppelt Umsatz und Gewinn",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000349749/nvidia-verdoppelt-umsatz-und-gewinn?ref=rss",
+        "fetched_at": "2026-11-18T05:20:41.078280+00:00"
+      },
+      {
+        "title": "Nvidia klår förväntningarna – aktien lyfter",
+        "source": "Dagens Nyheter",
+        "country": "SE",
+        "link": "https://www.dn.se/ekonomi/nvidia-klar-forvantningarna-aktien-lyfter/",
+        "fetched_at": "2026-11-18T05:20:43.081098+00:00"
+      }
+    ]
+  },
+  {
+    "label": "Pakistani man sentenced to 27 years in US prison",
+    "terms": [
+      "Trump",
+      "Pakistani",
+      "assassination attempt",
+      "imprisonment",
+      "conspiracy plans",
+      "convicted",
+      "two-year sentence"
+    ],
+    "size": 6,
+    "avg_similarity": 0.79,
+    "min_representative_similarity": 0.712,
+    "articles": [
+      {
+        "title": "Aux Etats-Unis, un Pakistanais condamné à vingt-sept ans de prison pour tentative d’assassinat sur des personnalités politiques, dont Donald Trump",
+        "source": "Le Monde",
+        "country": "FR",
+        "link": "https://www.lemonde.fr/international/article/2026/11/18/etats-unis-un-pakistanais-condamne-a-plus-de-vingt-sept-ans-de-prison-pour-tentative-d-assassinat-sur-des-personnalites-politiques-dont-donald-trump_6813059_3210.html",
+        "fetched_at": "2026-11-18T05:20:01.596988+00:00"
+      },
+      {
+        "title": "Pakistani man sentenced to 27 years in US prison over Trump murder plot",
+        "source": "The Guardian",
+        "country": "UK",
+        "link": "https://www.theguardian.com/us-news/2026/nov/17/pakistani-man-jailed-trump-murder-plot",
+        "fetched_at": "2026-11-18T05:20:12.828670+00:00"
+      },
+      {
+        "title": "„Agent IraNS“: Pakistaner erhält 27 Jahre Haft wegen Anschlagsplänen gegen Trump",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/aktuell/politik/usa-unter-trump/attentat-auf-trump-geplant-27-jahre-haft-fuer-pakistaner-accg-201693037.html",
+        "fetched_at": "2026-11-18T05:20:19.926762+00:00"
+      },
+      {
+        "title": "Pakistaan krijgt 27 jaar cel voor beramen moordaanslag op Trump",
+        "source": "De Telegraaf",
+        "country": "NL",
+        "link": "https://www.telegraaf.nl/buitenland/pakistaan-krijgt-27-jaar-cel-voor-beramen-moordaanslag-op-trump/164714230.html",
+        "fetched_at": "2026-11-18T05:20:31.411264+00:00"
+      },
+      {
+        "title": "Pakistaan krijgt 27 jaar cel voor beramen moordaanslag op Trump",
+        "source": "de Volkskrant",
+        "country": "NL",
+        "link": "https://www.volkskrant.nl/buitenland/pakistaan-krijgt-27-jaar-cel-voor-beramen-moordaanslag-op-trump~b18da80f/",
+        "fetched_at": "2026-11-18T05:20:32.801150+00:00"
+      },
+      {
+        "title": "Pakistansk mann dømt til 27 års fengsel for attentatplaner i USA",
+        "source": "Aftenposten",
+        "country": "NO",
+        "link": "https://www.aftenposten.no/verden/i/530Ww1/pakistansk-mann-doemt-til-27-aars-fengsel-for-attentatplaner-i-usa?utm_medium=rss",
+        "fetched_at": "2026-11-18T05:20:53.792075+00:00"
+      }
+    ],
+    "source_terms": [
+      "Trump",
+      "Pakistani",
+      "moordaanslag",
+      "prison",
+      "attentatplaner",
+      "condamné",
+      "jaar cel"
+    ],
+    "label_source": "llm",
+    "label_review": {
+      "status": "accepted",
+      "reason": "accepted_after_truncation"
+    }
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 6,
+    "avg_similarity": 0.644,
+    "min_representative_similarity": 0.56,
+    "articles": [
+      {
+        "title": "Ce que l’on sait des soldats français en Ukraine et de la mission « Volia »",
+        "source": "L'Obs",
+        "country": "FR",
+        "link": "https://www.nouvelobs.com/monde/20261117.OBS120211/ce-que-l-on-sait-des-soldats-francais-deployes-en-ukraine-et-de-la-mission-volia.html",
+        "fetched_at": "2026-11-18T05:20:05.335800+00:00"
+      },
+      {
+        "title": "POINT DE VUE. Contre le partage de l’Europe",
+        "source": "Ouest-France",
+        "country": "FR",
+        "link": "https://www.ouest-france.fr/europe/ukraine/point-de-vue-contre-le-partage-de-leurope-652933a6-e28f-11f1-a3b1-0c6de532ce7d?utm_source=fluxpublicactu&utm_medium=fluxrss&utm_campaign=banquedecontenu",
+        "fetched_at": "2026-11-18T05:20:06.307649+00:00"
+      },
+      {
+        "title": "In het machtsspel rond de oorlog in Oekraïne moet Europa als één blok optreden",
+        "source": "NRC",
+        "country": "NL",
+        "link": "https://www.nrc.nl/nieuws/2026/11/13/in-het-machtsspel-rond-de-oorlog-in-oekraine-moet-europa-als-een-blok-optreden-a4941246",
+        "fetched_at": "2026-11-18T05:20:34.325832+00:00"
+      },
+      {
+        "title": "Soldats français déployés en Ukraine : Moscou y voit une \"participation directe\" au conflit",
+        "source": "La Libre Belgique",
+        "country": "BE",
+        "link": "https://www.lalibre.be/international/europe/guerre-ukraine-russie/2026/11/17/soldats-francais-deployes-en-ukraine-moscou-y-voit-une-participation-directe-au-conflit-TRCNYQBJRZHH3FGGYOGSVTIULQ/",
+        "fetched_at": "2026-11-18T05:20:40.317018+00:00"
+      },
+      {
+        "title": "Mission Volia: Was es mit der französischen Geheimtruppe in der Ukraine auf sich hat",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000349736/mission-volia-was-es-mit-der-franzoesischen-geheimtruppe-in-der-ukraine-auf-sich-hat?ref=rss",
+        "fetched_at": "2026-11-18T05:20:41.078280+00:00"
+      },
+      {
+        "title": "BLOGI ⟩ 1729. sõjapäev Ukrainas: Stubbi hinnangul tänavu Ukrainas rahu ei saavutata",
+        "source": "Postimees",
+        "country": "EE",
+        "link": "https://pmo.ee/8584667",
+        "fetched_at": "2026-11-18T05:20:52.710744+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "Der Standard": 1,
+      "NRC": 1
+    }
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 5,
+    "avg_similarity": 0.71,
+    "min_representative_similarity": 0.708,
+    "articles": [
+      {
+        "title": "Sortie de « GTA VI » : « Ce jeu vidéo raconte une société en état de crise perpétuelle »",
+        "source": "L'Obs",
+        "country": "FR",
+        "link": "https://www.nouvelobs.com/idees/20261115.OBS120143/sortie-de-gta-vi-ce-jeu-video-raconte-une-societe-en-etat-de-crise-perpetuelle.html",
+        "fetched_at": "2026-11-18T05:20:05.335800+00:00"
+      },
+      {
+        "title": "El día que el mundo se detendrá para jugar al 'GTA VI', el último videojuego hecho 'a mano'",
+        "source": "El Mundo",
+        "country": "ES",
+        "link": "https://www.elmundo.es/cultura/2026/11/17/6afc7774e85ececa078b457f.html",
+        "fetched_at": "2026-11-18T05:20:09.307261+00:00"
+      },
+      {
+        "title": "Vrij nemen voor <b>GTA VI</b>: ‘Het is gewoon leuk om de slechterik te spelen’",
+        "source": "NRC",
+        "country": "NL",
+        "link": "https://www.nrc.nl/nieuws/2026/11/17/vrij-nemen-voor-gta-vi-het-is-gewoon-leuk-om-de-slechterik-te-spelen-a4941495",
+        "fetched_at": "2026-11-18T05:20:34.325832+00:00"
+      },
+      {
+        "title": "\"GTA 6\": Die Welt im Ausnahmezustand – wegen eines Videospiels",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000349404/gta-6-die-welt-im-ausnahmezustand-wegen-eines-videospiels?ref=rss",
+        "fetched_at": "2026-11-18T05:20:41.078280+00:00"
+      },
+      {
+        "title": "Kult och kontroverser – så har ”GTA” gasat genom spelvärlden",
+        "source": "Dagens Nyheter",
+        "country": "SE",
+        "link": "https://www.dn.se/kultur/kult-och-kontroverser-sa-har-gta-gasat-genom-spelvarlden/",
+        "fetched_at": "2026-11-18T05:20:43.081098+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 6,
+    "avg_similarity": 0.668,
+    "min_representative_similarity": 0.63,
+    "articles": [
+      {
+        "title": "Feijóo reivindica su perfil autonomista y hace guiños al plurilingüismo en Cataluña y Euskadi pese a programa del PP",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/espana/elecciones-generales/2026-11-18/feijoo-reivindica-su-perfil-autonomista-y-hace-guinos-al-plurilinguismo-en-cataluna-y-euskadi-pese-a-programa-del-pp.html",
+        "fetched_at": "2026-11-18T05:20:08.495222+00:00"
+      },
+      {
+        "title": "La jugada de Salvador Illa ante el independentismo para colar a su favorito en el Arzobispado de Barcelona",
+        "source": "El Confidencial",
+        "country": "ES",
+        "link": "https://www.elconfidencial.com/espana/cataluna/2026-11-18/illa-cuela-independentismo-candidato-arzobispado_4467035/",
+        "fetched_at": "2026-11-18T05:20:11.222291+00:00"
+      },
+      {
+        "title": "Aufruhr in Italien: Zu billig für die Dolomiten",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/aktuell/feuilleton/debatten/kfc-in-den-dolomiten-sorgt-fuer-aufruhr-fastfood-ist-zu-billig-accg-201687728.html",
+        "fetched_at": "2026-11-18T05:20:19.926762+00:00"
+      },
+      {
+        "title": "MELONI AL VINITALY La premier: saremo  implacabili contro  chi danneggia  i prodotti italiani",
+        "source": "Corriere della Sera",
+        "country": "IT",
+        "link": "https://www.corriere.it/economia/aziende/24_aprile_15/meloni-implacabili-contro-chi-danneggia-i-prodotti-italiani-e12a1ab8-2368-46c6-ad83-64174ea8exlk.shtml",
+        "fetched_at": "2026-11-18T05:20:29.017920+00:00"
+      },
+      {
+        "title": "Sciopero generale Cgil del 20 novembre: chi si ferma e chi no, fasce garantite e cortei in tutta Italia",
+        "source": "Il Sole 24 Ore",
+        "country": "IT",
+        "link": "https://www.ilsole24ore.com/art/sciopero-generale-cgil-20-novembre-chi-si-ferma-e-chi-no-fasce-garantite-e-cortei-tutta-italia-AJ4y6VJC",
+        "fetched_at": "2026-11-18T05:20:30.512787+00:00"
+      },
+      {
+        "title": "Iceye | Toimitus­johtaja miljardien kaupasta: Emme olisi edenneet ilman keskustelua Italian hallituksen kanssa",
+        "source": "Helsingin Sanomat",
+        "country": "FI",
+        "link": "https://www.hs.fi/visio/art-2000012418684.html",
+        "fetched_at": "2026-11-18T05:20:44.441868+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "Corriere della Sera": 1
+    }
+  },
+  {
+    "label": "Alexander Zverev advances to ATP Finals semifinals",
+    "terms": [
+      "Zverev",
+      "ATP Finals",
+      "Alexander Zverev",
+      "Ben Shelton",
+      "fast/fast-paced"
+    ],
+    "size": 6,
+    "avg_similarity": 0.801,
+    "min_representative_similarity": 0.75,
+    "articles": [
+      {
+        "title": "Turin: Zverev zieht vorzeitig in das Halbfinale der ATP Finals ein",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/aktuell/sport/alexander-zverev-im-halbfinale-der-atp-finals-in-turin-201692860.html",
+        "fetched_at": "2026-11-18T05:20:19.926762+00:00"
+      },
+      {
+        "title": "Atp Finals: Zverev schianta Shelton e vola in semifinale",
+        "source": "ANSA",
+        "country": "IT",
+        "link": "https://www.ansa.it/sito/notizie/sport/tennis/speciali/atp_finals_2026/2026/11/17/atp-finals-zverev-schianta-shelton-e-vola-in-semifinale_5f3b122e-2fd5-421b-93bd-913c77c92088.html",
+        "fetched_at": "2026-11-18T05:20:22.223788+00:00"
+      },
+      {
+        "title": "Zverev va veloce, battuto anche Shelton: è in semifinale alle Atp Finals",
+        "source": "La Repubblica",
+        "country": "IT",
+        "link": "https://www.repubblica.it/sport/tennis/2026/11/17/news/zverev_shelton_atp_finals_risultati_oggi-425730978/",
+        "fetched_at": "2026-11-18T05:20:23.288747+00:00"
+      },
+      {
+        "title": "Alexander Zverev na zege op Ben Shelton naar halve finales ATP Finals",
+        "source": "De Telegraaf",
+        "country": "NL",
+        "link": "https://www.telegraaf.nl/sport/tennis/alexander-zverev-na-zege-op-ben-shelton-naar-halve-finales-atp-finals/164630798.html",
+        "fetched_at": "2026-11-18T05:20:31.411264+00:00"
+      },
+      {
+        "title": "Zverev nach Sieg über Shelton im Halbfinale der ATP Finals",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000349751/zverev-nach-sieg-ueber-shelton-im-halbfinale-der-atp-finals?ref=rss",
+        "fetched_at": "2026-11-18T05:20:41.078280+00:00"
+      },
+      {
+        "title": "ATP-Finals: Zverev löst vorzeitig das Ticket fürs Halbfinale",
+        "source": "Kurier",
+        "country": "AT",
+        "link": "https://kurier.at/sport/tennis/tennis-zverev-atp-finals-shelton-turin/403206387",
+        "fetched_at": "2026-11-18T05:20:41.771410+00:00"
+      }
+    ],
+    "source_terms": [
+      "Zverev",
+      "Finals",
+      "ATP",
+      "Shelton",
+      "veloce"
+    ],
+    "label_source": "llm",
+    "label_review": {
+      "status": "accepted",
+      "reason": "accepted"
+    }
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 5,
+    "avg_similarity": 0.79,
+    "min_representative_similarity": 0.789,
+    "articles": [
+      {
+        "title": "Nueva caída en las infraestructuras de EE UU: ahora, la red de comunicación interna de los servicios secretos",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/us/2026-11-17/nueva-caida-en-las-infraestructuras-de-ee-uu-ahora-la-red-de-comunicacion-interna-de-los-servicios-secretos.html",
+        "fetched_at": "2026-11-18T05:20:08.495222+00:00"
+      },
+      {
+        "title": "Cae la red de comunicaciones de la agencia de seguridad de Estados Unidos",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/internacional/20261117/11686752/cae-red-interna-comunicaciones-agencia-seguridad-estados-unidos.html",
+        "fetched_at": "2026-11-18T05:20:10.389658+00:00"
+      },
+      {
+        "title": "Le réseau de communication interne de l'agence américaine de renseignement hors service",
+        "source": "La Libre Belgique",
+        "country": "BE",
+        "link": "https://www.lalibre.be/international/amerique/2026/11/17/le-reseau-de-communication-interne-de-lagence-americaine-de-renseignement-hors-service-IFNQ7SF5EFAKRFSBDH27LLMUUA/",
+        "fetched_at": "2026-11-18T05:20:40.317018+00:00"
+      },
+      {
+        "title": "Internes Kommunikationsnetz des US-Geheimdienstes NSA ausgefallen",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000349745/internes-kommunikationsnetz-des-us-geheimdienstes-nsa-ausgefallen?ref=rss",
+        "fetched_at": "2026-11-18T05:20:41.078280+00:00"
+      },
+      {
+        "title": "Hemmelig kommunikasjonsnettverk i USAs etterretning nede for telling",
+        "source": "Aftenposten",
+        "country": "NO",
+        "link": "https://www.aftenposten.no/verden/i/lMAJKM/hemmelig-kommunikasjonsnettverk-i-usas-etterretning-nede-for-telling?utm_medium=rss",
+        "fetched_at": "2026-11-18T05:20:53.792075+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 4,
+    "avg_similarity": 0.692,
+    "min_representative_similarity": 0.68,
+    "articles": [
+      {
+        "title": "Sigue el tiempo revuelto: lluvia en la mitad oeste peninsular",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/el-tiempo/2026-11-17/sigue-el-tiempo-revuelto-lluvia-en-la-mitad-oeste-peninsular.html",
+        "fetched_at": "2026-11-18T05:20:08.495222+00:00"
+      },
+      {
+        "title": "Wettervorhersage: Es wird ungemütlich mit Unwettern, Dauerregen und Sturm",
+        "source": "Die Zeit",
+        "country": "DE",
+        "link": "https://www.zeit.de/news/2026-11/18/es-wird-ungemuetlich-mit-unwettern-dauerregen-und-sturm",
+        "fetched_at": "2026-11-18T05:20:20.816603+00:00"
+      },
+      {
+        "title": "Van droog weer is voorlopig weinig te merken: woensdag opnieuw kans op buien",
+        "source": "De Telegraaf",
+        "country": "NL",
+        "link": "https://www.telegraaf.nl/binnenland/van-droog-weer-is-voorlopig-weinig-te-merken-woensdag-opnieuw-kans-op-buien/164701129.html",
+        "fetched_at": "2026-11-18T05:20:31.411264+00:00"
+      },
+      {
+        "title": "Météo : un mercredi doux mais pluvieux",
+        "source": "La Libre Belgique",
+        "country": "BE",
+        "link": "https://www.lalibre.be/belgique/societe/2026/11/17/meteo-un-mercredi-doux-mais-pluvieux-GRLOZ5UOEJAIDOUP34V5CSDNY4/",
+        "fetched_at": "2026-11-18T05:20:40.317018+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 4,
+    "avg_similarity": 0.766,
+    "min_representative_similarity": 0.735,
+    "articles": [
+      {
+        "title": "Deutsche Bank procesó millones ligados a Jeffrey Epstein y a oligarcas rusos",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/dinero/20261117/11686248/deutsche-bank-proceso-mas-500-millones-euros-ligados-jeffrey-epstein.html",
+        "fetched_at": "2026-11-18T05:20:10.389658+00:00"
+      },
+      {
+        "title": "Gelekte documenten Deutsche Bank leggen dubieuze banden bloot met oligarchen en Jeffrey Epstein",
+        "source": "de Volkskrant",
+        "country": "NL",
+        "link": "https://www.volkskrant.nl/economie/gelekte-documenten-deutsche-bank-leggen-dubieuze-banden-bloot-met-oligarchen-en-jeffrey-epstein~b62b072c/",
+        "fetched_at": "2026-11-18T05:20:32.801150+00:00"
+      },
+      {
+        "title": "Fraude fiscale, Epstein et même Donald Trump : la Deutsche Bank secouée par un scandale d'ampleur mondiale",
+        "source": "La Libre Belgique",
+        "country": "BE",
+        "link": "https://www.lalibre.be/economie/entreprises-startup/2026/11/17/fraude-fiscale-epstein-et-meme-donald-trump-la-deutsche-bank-secouee-par-un-scandale-dampleur-mondiale-DJWCFSFYRZEKPI3WSALQFM75XI/",
+        "fetched_at": "2026-11-18T05:20:40.317018+00:00"
+      },
+      {
+        "title": "Geheime Dokumente zeigen: Deutsche Bank bewegte rund 580 Millionen Dollar für Epstein",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000348866/geheime-dokumente-zeigen-deutsche-bank-bewegte-rund-580-millionen-dollar-fuer-epstein?ref=rss",
+        "fetched_at": "2026-11-18T05:20:41.078280+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "Der Standard": 1
+    }
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 4,
+    "avg_similarity": 0.754,
+    "min_representative_similarity": 0.75,
+    "articles": [
+      {
+        "title": "Prague train crash leaves 46 people injured",
+        "source": "Sky News",
+        "country": "UK",
+        "link": "https://news.sky.com/story/prague-train-crash-leaves-46-people-injured-13613217",
+        "fetched_at": "2026-11-18T05:20:14.361237+00:00"
+      },
+      {
+        "title": "Züge in Prag zusammengestoßen - Über 40 Verletzte bei Kollision auf Brücke",
+        "source": "Tagesschau",
+        "country": "DE",
+        "link": "https://www.tagesschau.de/ausland/europa/tschechien-zug-unglueck-100.html",
+        "fetched_at": "2026-11-18T05:20:17.449435+00:00"
+      },
+      {
+        "title": "U hlavního nádraží v Praze se srazily dva vlaky, záchranáři ošetřili i těžce zraněné",
+        "source": "iDNES.cz",
+        "country": "CZ",
+        "link": "https://www.idnes.cz/praha/zpravy/u-hlavniho-nadrazi-v-praze-se-srazily-dva-vlaky-na-miste-jsou-zraneni.A261117_074934_praha-zpravy_vank#utm_source=rss&utm_medium=feed&utm_campaign=zpravodaj&utm_content=main",
+        "fetched_at": "2026-11-18T05:20:47.863232+00:00"
+      },
+      {
+        "title": "15 Ukrainians among 46 injured in Prague train collision",
+        "source": "The Kyiv Independent",
+        "country": "UA",
+        "link": "https://kyivindependent.com/15-ukrainians-among-46-injured-in-prague-train-collision-2/",
+        "fetched_at": "2026-11-18T05:20:55.203547+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 5,
+    "avg_similarity": 0.692,
+    "min_representative_similarity": 0.678,
+    "articles": [
+      {
+        "title": "Présidentielle 2027 : le RN propose une avantageuse réforme des retraites mais sacrifie les précaires et la politique du logement pour la financer",
+        "source": "Le Monde",
+        "country": "FR",
+        "link": "https://www.lemonde.fr/politique/article/2026/11/18/le-rn-compte-financer-son-avantageuse-reforme-des-retraites-et-un-debut-de-capitalisation-au-detriment-des-precaires-et-de-la-politique-du-logement_6813066_823448.html",
+        "fetched_at": "2026-11-18T05:20:01.596988+00:00"
+      },
+      {
+        "title": "Présidentielle 2027 : Marine Le Pen se convertit à la capitalisation pour crédibiliser le projet retraites du RN",
+        "source": "Le Figaro",
+        "country": "FR",
+        "link": "https://www.lefigaro.fr/elections/presidentielles/programmes/presidentielle-2027-marine-le-pen-se-convertit-a-la-capitalisation-pour-credibiliser-le-projet-retraites-du-rn-20261117",
+        "fetched_at": "2026-11-18T05:20:02.292399+00:00"
+      },
+      {
+        "title": "Capitalisation, durcissement de la validation des trimestres : ce qu’il faut retenir du projet de réforme des retraites de Marine Le Pen",
+        "source": "L'Obs",
+        "country": "FR",
+        "link": "https://www.nouvelobs.com/politique/20261117.OBS120213/capitalisation-durcissement-de-la-validation-des-trimestres-ce-qu-il-faut-retenir-du-projet-de-reforme-des-retraites-de-marine-le-pen.html",
+        "fetched_at": "2026-11-18T05:20:05.335800+00:00"
+      },
+      {
+        "title": "Pensiones: la derecha evita hablar de sus dudas sobre el sistema y la izquierda promete reforzarlo pese a la tensión de las cuentas",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/economia/2026-11-18/pensiones-la-derecha-evita-hablar-de-sus-dudas-sobre-el-sistema-y-la-izquierda-promete-reforzarlo-pese-a-la-tension-de-las-cuentas.html",
+        "fetched_at": "2026-11-18T05:20:08.495222+00:00"
+      },
+      {
+        "title": "Altersvorsorge-Rechner: Mehrere Hundert Euro pro Monat Unterschied im Ruhestand möglich",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/aktuell/finanzen/lohnt-das-altersvorsorgedepot-im-vergleich-zum-etf-201652753.html",
+        "fetched_at": "2026-11-18T05:20:19.926762+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "Le Figaro": 2,
+      "Frankfurter Allgemeine": 1
+    }
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 4,
+    "avg_similarity": 0.701,
+    "min_representative_similarity": 0.7,
+    "articles": [
+      {
+        "title": "Au procès de l’interpellation violente de Michel Zecler, mea culpa et fausses justifications des policiers",
+        "source": "Le Monde",
+        "country": "FR",
+        "link": "https://www.lemonde.fr/societe/article/2026/11/18/au-proces-de-l-interpellation-violente-de-michel-zecler-mea-culpa-et-fausses-justifications-des-policiers_6813061_3224.html",
+        "fetched_at": "2026-11-18T05:20:01.596988+00:00"
+      },
+      {
+        "title": "« Ils sont entrés et m’ont lynché » : Michel Zecler exemplaire au procès des policiers qui l’ont agressé",
+        "source": "L'Obs",
+        "country": "FR",
+        "link": "https://www.nouvelobs.com/justice/20261111.OBS120042/ils-sont-entres-et-m-ont-lynche-michel-zecler-exemplaire-au-proces-des-policiers-qui-l-ont-agresse.html",
+        "fetched_at": "2026-11-18T05:20:05.335800+00:00"
+      },
+      {
+        "title": "Il chi, il come e il quando dell’inchiesta per depistaggio sull’ex capo della polizia De Gennaro",
+        "source": "La Repubblica",
+        "country": "IT",
+        "link": "https://palermo.repubblica.it/cronaca/2026/11/17/news/gianni_de_gennaro_inchiesta_depistaggio_stragi_borsellino-425729564/",
+        "fetched_at": "2026-11-18T05:20:23.288747+00:00"
+      },
+      {
+        "title": "Nächster Prozess gegen zwei Prügelpolizisten oder Verleumdungsopfer",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000349676/naechster-prozess-gegen-zwei-pruegelpolizisten-oder-verleumdungsopfer?ref=rss",
+        "fetched_at": "2026-11-18T05:20:41.078280+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 4,
+    "avg_similarity": 0.683,
+    "min_representative_similarity": 0.696,
+    "articles": [
+      {
+        "title": "Alemania escoge un economista jefe para el BCE y despeja el camino de la presidencia a De Cos",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/economia/20261117/11686446/alemania-escoge-brunnermeier-bce-despeja-camino-cos-presidencia.html",
+        "fetched_at": "2026-11-18T05:20:10.389658+00:00"
+      },
+      {
+        "title": "Markus Brunnermeier: Diesen deutschen Ökonomen will Lars Klingbeil in die EZB schicken",
+        "source": "Süddeutsche Zeitung",
+        "country": "DE",
+        "link": "https://www.sueddeutsche.de/meinung/markus-brunnermeier-ezb-chefvolkswirt-princeton-philip-lane-profil-li.3581808",
+        "fetched_at": "2026-11-18T05:20:18.949112+00:00"
+      },
+      {
+        "title": "Neuer EZB-Chefvolkswirt: Ein pragmatischer Ökonom",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/aktuell/finanzen/finanzmarkt/markus-brunnermeier-deutschlands-kandidat-fuer-die-ezb-201691095.html",
+        "fetched_at": "2026-11-18T05:20:19.926762+00:00"
+      },
+      {
+        "title": "Vanaf volgende week: gesprekken met grote Europese economen (teaser)",
+        "source": "NRC",
+        "country": "NL",
+        "link": "https://www.nrc.nl/nieuws/2026/11/12/vanaf-volgende-week-gesprekken-met-grote-europese-economen-teaser-a4941152",
+        "fetched_at": "2026-11-18T05:20:34.325832+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 4,
+    "avg_similarity": 0.801,
+    "min_representative_similarity": 0.799,
+    "articles": [
+      {
+        "title": "Türkei stellt oppositionsnahen Sender unter Zwangsverwaltung",
+        "source": "Tagesschau",
+        "country": "DE",
+        "link": "https://www.tagesschau.de/ausland/europa/tuerkei-sender-razzia-100.html",
+        "fetched_at": "2026-11-18T05:20:17.449435+00:00"
+      },
+      {
+        "title": "Turkije muilkorft opnieuw kritische televisiezender: ‘Mediaklimaat is in een donkere winter beland’",
+        "source": "de Volkskrant",
+        "country": "NL",
+        "link": "https://www.volkskrant.nl/buitenland/turkije-muilkorft-opnieuw-kritische-televisiezender-mediaklimaat-is-in-een-donkere-winter-beland~ba83bf04/",
+        "fetched_at": "2026-11-18T05:20:32.801150+00:00"
+      },
+      {
+        "title": "Turkse regering wijst bewindvoerder aan bij tv-zender Sözcü TV, volgende oppositiekanaal onder controle van regering",
+        "source": "NRC",
+        "country": "NL",
+        "link": "https://www.nrc.nl/nieuws/2026/11/17/turkse-regering-wijst-bewindvoerder-aan-bij-tv-zender-sozcu-tv-volgende-oppositiekanaal-onder-controle-van-regering-a4941609",
+        "fetched_at": "2026-11-18T05:20:34.325832+00:00"
+      },
+      {
+        "title": "Türkei: Oppositionsnaher Sender Sözcü TV unter Zwangsverwaltung",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000349681/tuerkei-oppositionsnaher-sender-soezcue-tv-unter-zwangsverwaltung?ref=rss",
+        "fetched_at": "2026-11-18T05:20:41.078280+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 3,
+    "avg_similarity": 0.704,
+    "min_representative_similarity": 0.713,
+    "articles": [
+      {
+        "title": "« Une forme de contrôle au faciès a gagné la classe politique française »",
+        "source": "L'Obs",
+        "country": "FR",
+        "link": "https://www.nouvelobs.com/opinions/20261117.OBS120200/une-forme-de-controle-au-facies-a-gagne-la-classe-politique-francaise.html",
+        "fetched_at": "2026-11-18T05:20:05.335800+00:00"
+      },
+      {
+        "title": "Rivalerna budade över varann i fransk valdebatt",
+        "source": "Dagens Nyheter",
+        "country": "SE",
+        "link": "https://www.dn.se/varlden/rivalerna-budade-over-varann-i-fransk-valdebatt/",
+        "fetched_at": "2026-11-18T05:20:43.081098+00:00"
+      },
+      {
+        "title": "GALERII ⟩ Evart pärast euromängu: «Prantslased on küll viisakad, aga asjad käivad siin ligadi-logadi»",
+        "source": "Postimees",
+        "country": "EE",
+        "link": "https://pmo.ee/8585345",
+        "fetched_at": "2026-11-18T05:20:52.710744+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "L'Obs": 1,
+      "Dagens Nyheter": 1
+    }
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 3,
+    "avg_similarity": 0.714,
+    "min_representative_similarity": 0.696,
+    "articles": [
+      {
+        "title": "Horlogerie : Genève en surchauffe",
+        "source": "L'Obs",
+        "country": "FR",
+        "link": "https://www.nouvelobs.com/tendances/20261114.OBS120126/horlogerie-geneve-en-surchauffe.html",
+        "fetched_at": "2026-11-18T05:20:05.335800+00:00"
+      },
+      {
+        "title": "Welche Opfer fordert der Widerstand? Neues \"Tribute von Panem\"-Prequel",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000348204/welche-opfer-fordert-der-widerstand-neues-tribute-von-panem-prequel?ref=rss",
+        "fetched_at": "2026-11-18T05:20:41.078280+00:00"
+      },
+      {
+        "title": "Malin Fransson: En medalj också för obesjungna hjältar",
+        "source": "Dagens Nyheter",
+        "country": "SE",
+        "link": "https://www.dn.se/sport/malin-fransson-en-medalj-ocksa-for-obesjungna-hjaltar/",
+        "fetched_at": "2026-11-18T05:20:43.081098+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "Dagens Nyheter": 1,
+      "L'Obs": 1
+    }
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 3,
+    "avg_similarity": 0.74,
+    "min_representative_similarity": 0.746,
+    "articles": [
+      {
+        "title": "La vivienda protegida pierde peso en el mercado inmobiliario en plena crisis habitacional",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/economia/vivienda/2026-11-18/la-vivienda-protegida-pierde-peso-en-el-mercado-inmobiliario-en-plena-crisis-habitacional.html",
+        "fetched_at": "2026-11-18T05:20:08.495222+00:00"
+      },
+      {
+        "title": "Immobilien vor Gericht: Auszug entbindet Mitmieter nicht von Rückgabe der Wohnung",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/aktuell/wirtschaft/immobilien-wohnen/mieten-vermieten/auszug-entbindet-mitmieter-nicht-von-wohnungsrueckgabe-accg-201298412.html",
+        "fetched_at": "2026-11-18T05:20:19.926762+00:00"
+      },
+      {
+        "title": "Huren van huis of appartement steeds problematischer voor woningzoekenden",
+        "source": "de Volkskrant",
+        "country": "NL",
+        "link": "https://www.volkskrant.nl/binnenland/huren-van-huis-of-appartement-steeds-problematischer-voor-woningzoekenden~b3eee7bd/",
+        "fetched_at": "2026-11-18T05:20:32.801150+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "Frankfurter Allgemeine": 3
+    }
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 3,
+    "avg_similarity": 0.859,
+    "min_representative_similarity": 0.866,
+    "articles": [
+      {
+        "title": "La Voyager 1 alcanza un día luz de la Tierra: 49 años de viaje y todavía contesta",
+        "source": "El Mundo",
+        "country": "ES",
+        "link": "https://www.elmundo.es/papel/historias/2026/11/17/6afc7feafc6c8338198b459a.html",
+        "fetched_at": "2026-11-18T05:20:09.307261+00:00"
+      },
+      {
+        "title": "Voyager 1 bereikt kosmische mijlpaal: afstand van één lichtdag tot de aarde. ‘Als ik terugkijk, realiseer ik me pas hoe weinig we eigenlijk over het zonnestelsel wisten vóór Voyager’",
+        "source": "de Volkskrant",
+        "country": "NL",
+        "link": "https://www.volkskrant.nl/wetenschap/voyager-1-bereikt-kosmische-mijlpaal-afstand-van-een-lichtdag-tot-de-aarde-als-ik-terugkijk-realiseer-ik-me-pas-hoe-weinig-we-eigenlijk-over-het-zonnestelsel-wisten-voor-voyager~b6497b6c/",
+        "fetched_at": "2026-11-18T05:20:32.801150+00:00"
+      },
+      {
+        "title": "Voyager 1 ist einen ganzen Lichttag von der Erde entfernt",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000349709/voyager-1-ist-einen-ganzen-lichttag-von-der-erde-entfernt?ref=rss",
+        "fetched_at": "2026-11-18T05:20:41.078280+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 3,
+    "avg_similarity": 0.83,
+    "min_representative_similarity": 0.829,
+    "articles": [
+      {
+        "title": "James Blunt cumple su promesa y asegura que se ha cambiado legalmente el nombre a Ryan Air",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/gente/20261117/11686663/james-blunt-cumple-promesa-asegura-cambiado-legalmente-nombre-ryan-air.html",
+        "fetched_at": "2026-11-18T05:20:10.389658+00:00"
+      },
+      {
+        "title": "Zanger James Blunt wil naam veranderen in Ryan Air",
+        "source": "De Telegraaf",
+        "country": "NL",
+        "link": "https://www.telegraaf.nl/entertainment/sterren/zanger-james-blunt-wil-naam-veranderen-in-ryan-air/164710004.html",
+        "fetched_at": "2026-11-18T05:20:31.411264+00:00"
+      },
+      {
+        "title": "James Blunt change de nom et devient \"Ryan Air\" en hommage à la compagnie aérienne",
+        "source": "La Libre Belgique",
+        "country": "BE",
+        "link": "https://www.lalibre.be/culture/musique/2026/11/17/james-blunt-change-de-nom-et-devient-ryan-air-en-hommage-a-la-compagnie-aerienne-N7NKYMYXEFA25DDJR4W2TKL55U/",
+        "fetched_at": "2026-11-18T05:20:40.317018+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 3,
+    "avg_similarity": 0.74,
+    "min_representative_similarity": 0.763,
+    "articles": [
+      {
+        "title": "Weiterbildung: Die besten KI-Kurse für Einsteiger und Entscheider",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/aktuell/wirtschaft/kuenstliche-intelligenz/fuer-2026-die-besten-ki-kurse-fuer-einsteiger-und-entscheider-accg-200376858.html",
+        "fetched_at": "2026-11-18T05:20:19.926762+00:00"
+      },
+      {
+        "title": "Anthropic: Fünf Fragen und Antworten zum großen KI-Börsengang",
+        "source": "Kurier",
+        "country": "AT",
+        "link": "https://kurier.at/wirtschaft/anthropic-boersengang-fragen-kuenstliche-intelligenz-analyst-investor/403206360",
+        "fetched_at": "2026-11-18T05:20:41.771410+00:00"
+      },
+      {
+        "title": "Black Box Anthropic: Wer beim KI-Pionier das Sagen hat",
+        "source": "Neue Zürcher Zeitung",
+        "country": "CH",
+        "link": "https://www.nzz.ch/wirtschaft/black-box-anthropic-wer-beim-ki-pionier-das-sagen-hat-ld.10063675",
+        "fetched_at": "2026-11-18T05:20:54.461057+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "Frankfurter Allgemeine": 1
+    }
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 4,
+    "avg_similarity": 0.745,
+    "min_representative_similarity": 0.671,
+    "articles": [
+      {
+        "title": "Trump in Asia ahead of talks with Russian and Chinese presidents",
+        "source": "BBC World",
+        "country": "UK",
+        "link": "https://www.bbc.co.uk/news/articles/crq5vlxxx32no?at_medium=RSS&at_campaign=rss",
+        "fetched_at": "2026-11-18T05:20:12.181968+00:00"
+      },
+      {
+        "title": "ASEAN, Quad, APEC: Trump auf Gipfel-Tour durch Asien",
+        "source": "Tagesschau",
+        "country": "DE",
+        "link": "https://www.tagesschau.de/ausland/asien/asean-quad-apec-trump-100.html",
+        "fetched_at": "2026-11-18T05:20:17.449435+00:00"
+      },
+      {
+        "title": "Trumps Asienreise: Vor dem China-Gipfel dominieren Spannungen und Sorgen rund um KI",
+        "source": "Süddeutsche Zeitung",
+        "country": "DE",
+        "link": "https://www.sueddeutsche.de/politik/trump-putin-xi-jingping-pannenserie-flugverkehr-cyberangriff-ki-ukraine-li.3582083",
+        "fetched_at": "2026-11-18T05:20:18.949112+00:00"
+      },
+      {
+        "title": "Asien: Trump startet Asienreise mit Quad-Gipfel auf den Philippinen",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/video/quad-gruppe-trifft-sich-erstmals-seit-zwei-jahren-201692151.html",
+        "fetched_at": "2026-11-18T05:20:19.926762+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 4,
+    "avg_similarity": 0.714,
+    "min_representative_similarity": 0.732,
+    "articles": [
+      {
+        "title": "\"Glücksatlas 2026\": In Bayern leben die zufriedensten Deutschen",
+        "source": "Tagesschau",
+        "country": "DE",
+        "link": "https://www.tagesschau.de/inland/gesellschaft/gluecksatlas-166.html",
+        "fetched_at": "2026-11-18T05:20:17.449435+00:00"
+      },
+      {
+        "title": "Bundestrainer: Deutschland spielt schon wie eine Jürgen-Klopp-Mannschaft",
+        "source": "Süddeutsche Zeitung",
+        "country": "DE",
+        "link": "https://www.sueddeutsche.de/sport/nationalmannschaft-klopp-bilanz-erfolg-niederlande-li.3581773",
+        "fetched_at": "2026-11-18T05:20:18.949112+00:00"
+      },
+      {
+        "title": "Juergen Boos: Frankfurt dankt dem Direktor der Buchmesse",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/aktuell/rhein-main/kultur/juergen-boos-frankfurt-ehrt-den-direktor-der-buchmesse-201690133.html",
+        "fetched_at": "2026-11-18T05:20:19.926762+00:00"
+      },
+      {
+        "title": "Der Feind im eigenen Haus: Norwegen unter deutscher Besatzung",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000349495/der-feind-im-eigenen-haus-norwegen-unter-deutscher-besatzung?ref=rss",
+        "fetched_at": "2026-11-18T05:20:41.078280+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "Frankfurter Allgemeine": 3
+    }
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 3,
+    "avg_similarity": 0.773,
+    "min_representative_similarity": 0.75,
+    "articles": [
+      {
+        "title": "Manifestations du 17 novembre : de Paris à Lyon, un mouvement qui regarde vers la présidentielle, « on envoie un message au prochain locataire de l’Elysée »",
+        "source": "Le Monde",
+        "country": "FR",
+        "link": "https://www.lemonde.fr/politique/article/2026/11/17/manifestations-du-17-novembre-de-paris-a-lyon-un-mouvement-qui-regarde-vers-la-presidentielle-on-envoie-un-message-au-prochain-locataire-de-l-elysee_6813043_823448.html",
+        "fetched_at": "2026-11-18T05:20:01.596988+00:00"
+      },
+      {
+        "title": "Manifestations du 17 novembre: entre 146 000 et 500 000 personnes ont défilé en France",
+        "source": "Mediapart",
+        "country": "FR",
+        "link": "https://www.mediapart.fr/journal/france/171126/manifestations-du-17-novembre-entre-146-000-et-500-000-personnes-ont-defile-en-france",
+        "fetched_at": "2026-11-18T05:20:03.692736+00:00"
+      },
+      {
+        "title": "Sozialproteste in Frankreich reißen nicht ab",
+        "source": "Tagesschau",
+        "country": "DE",
+        "link": "https://www.tagesschau.de/ausland/europa/frankreich-proteste-254.html",
+        "fetched_at": "2026-11-18T05:20:17.449435+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 3,
+    "avg_similarity": 0.693,
+    "min_representative_similarity": 0.713,
+    "articles": [
+      {
+        "title": "De la garde à vue au conseil de discipline du lycée, la double peine pour les élèves",
+        "source": "Mediapart",
+        "country": "FR",
+        "link": "https://www.mediapart.fr/journal/france/171126/de-la-garde-vue-au-conseil-de-discipline-du-lycee-la-double-peine-pour-les-eleves",
+        "fetched_at": "2026-11-18T05:20:03.692736+00:00"
+      },
+      {
+        "title": "Mouvement lycéen : « Les jeunes sont confrontés à un système de non-dits sadique et pervers »",
+        "source": "L'Obs",
+        "country": "FR",
+        "link": "https://www.nouvelobs.com/societe/20261107.OBS119916/mouvement-lyceen-les-jeunes-sont-confrontes-a-un-systeme-de-non-dits-sadique-et-pervers.html",
+        "fetched_at": "2026-11-18T05:20:05.335800+00:00"
+      },
+      {
+        "title": "Aussonderung statt Miteinander? Ein Comeback der Sonderschule schadet Kindern und Gesellschaft",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000349398/aussonderung-statt-miteinander-ein-comeback-der-sonderschule-schadet-kindern-und-gesellschaft?ref=rss",
+        "fetched_at": "2026-11-18T05:20:41.078280+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "L'Obs": 1
+    }
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 3,
+    "avg_similarity": 0.7,
+    "min_representative_similarity": 0.709,
+    "articles": [
+      {
+        "title": "Putin's War of Aggression: A Journey Along the Dnipro in Wartime Ukraine",
+        "source": "Der Spiegel",
+        "country": "DE",
+        "link": "https://www.spiegel.de/international/world/putins-war-of-aggression-a-journey-along-the-dnipro-in-wartime-ukraine-a-b943efc8-a374-4f78-a8e9-0d55e750a8dc#ref=rss",
+        "fetched_at": "2026-11-18T05:20:16.178286+00:00"
+      },
+      {
+        "title": "Nach dem Telefonat: Putin kann auch zuhören, sagt Alexander Stubb",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/aktuell/politik/ukraine/wie-alexander-stubb-sein-telefonat-mit-putin-verteidigt-accg-201666647.html",
+        "fetched_at": "2026-11-18T05:20:19.926762+00:00"
+      },
+      {
+        "title": "Putins gefährliche Speisekarte",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000349372/putins-gefaehrliche-speisekarte?ref=rss",
+        "fetched_at": "2026-11-18T05:20:41.078280+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 3,
+    "avg_similarity": 0.834,
+    "min_representative_similarity": 0.852,
+    "articles": [
+      {
+        "title": "Jahrestag der Revolution: Zehntausende protestieren gegen Regierung in der Slowakei",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/aktuell/politik/ausland/zehntausende-menschen-protestieren-gegen-regierung-in-der-slowakei-201692751.html",
+        "fetched_at": "2026-11-18T05:20:19.926762+00:00"
+      },
+      {
+        "title": "Zehntausende protestieren in Bratislava gegen Fico",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000349746/zehntausende-protestieren-in-bratislava-gegen-fico?ref=rss",
+        "fetched_at": "2026-11-18T05:20:41.078280+00:00"
+      },
+      {
+        "title": "„Genug von Fico“: Tausende protestieren in der Slowakei gegen Regierung",
+        "source": "Kurier",
+        "country": "AT",
+        "link": "https://kurier.at/politik/ausland/slowakei-proteste-regierung/403206379",
+        "fetched_at": "2026-11-18T05:20:41.771410+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 3,
+    "avg_similarity": 0.74,
+    "min_representative_similarity": 0.727,
+    "articles": [
+      {
+        "title": "Maakte Jeffrey Epstein zelf een einde aan zijn leven? Deze expert denkt aan moord",
+        "source": "De Telegraaf",
+        "country": "NL",
+        "link": "https://www.telegraaf.nl/video/maakte-jeffrey-epstein-zelf-een-einde-aan-zijn-leven-deze-expert-denkt-aan-moord/164689640.html",
+        "fetched_at": "2026-11-18T05:20:31.411264+00:00"
+      },
+      {
+        "title": "Bewijzen foto’s dat Jeffrey Epstein werd vermoord? Daar lijkt het niet op, zegt forensisch patholoog",
+        "source": "NRC",
+        "country": "NL",
+        "link": "https://www.nrc.nl/nieuws/2026/11/17/forensisch-patholoog-ziet-geen-aanwijzing-van-moord-op-jeffrey-epstein-op-gepubliceerde-fotos-a4941633",
+        "fetched_at": "2026-11-18T05:20:34.325832+00:00"
+      },
+      {
+        "title": "Rättsläkare: Epstein mördades i sin cell",
+        "source": "Dagens Nyheter",
+        "country": "SE",
+        "link": "https://www.dn.se/varlden/rattslakare-epstein-mordades-i-sin-cell/",
+        "fetched_at": "2026-11-18T05:20:43.081098+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 3,
+    "avg_similarity": 0.716,
+    "min_representative_similarity": 0.748,
+    "articles": [
+      {
+        "title": "Ticker-Nachlese: So lief das \"Geisterspiel\" in Debrecen zwischen Österreich und Israel ab",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/jetzt/livebericht/3000000349624/geisterspiel-in-debrecen-oesterreich-vs-israel-ab-2045-uhr?ref=rss",
+        "fetched_at": "2026-11-18T05:20:41.078280+00:00"
+      },
+      {
+        "title": "Nations League: Österreich verpasst den Sieg gegen Israel",
+        "source": "Kurier",
+        "country": "AT",
+        "link": "https://kurier.at/sport/fussball/rangnick-oefb-nations-league-israel-debrecen-oesterreich/403206376",
+        "fetched_at": "2026-11-18T05:20:41.771410+00:00"
+      },
+      {
+        "title": "Ende der Widersprüchlichkeiten: Magyar ordnet Ungarns Verhältnis zu Israel und den Juden neu",
+        "source": "Neue Zürcher Zeitung",
+        "country": "CH",
+        "link": "https://www.nzz.ch/international/ungarn-magyar-fuer-neues-verhaeltnis-zu-israel-und-ungarn-ld.10061117",
+        "fetched_at": "2026-11-18T05:20:54.461057+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.808,
+    "min_representative_similarity": 0.808,
+    "articles": [
+      {
+        "title": "« Inside Deutsche Bank » : les documents secrets qui lient Donald Trump à l’argent sale azerbaïdjanais",
+        "source": "Le Monde",
+        "country": "FR",
+        "link": "https://www.lemonde.fr/les-decodeurs/article/2026/11/17/inside-deutsche-bank-les-documents-secrets-qui-lient-donald-trump-a-l-argent-sale-azerbaidjanais_6812989_4355770.html",
+        "fetched_at": "2026-11-18T05:20:01.596988+00:00"
+      },
+      {
+        "title": "Enthüllt: Trump-Firma erhielt verdächtige Zahlungen aus Russland und Aserbaidschan",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000348865/enthuellt-trump-firma-erhielt-verdaechtige-zahlungen-aus-russland-und-aserbaidschan?ref=rss",
+        "fetched_at": "2026-11-18T05:20:41.078280+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.776,
+    "min_representative_similarity": 0.776,
+    "articles": [
+      {
+        "title": "L’armée iranienne dit avoir ciblé du matériel militaire américain sur une base au Koweït",
+        "source": "Le Figaro",
+        "country": "FR",
+        "link": "https://www.lefigaro.fr/international/koweit-l-armee-dit-qu-elle-pare-des-attaques-de-drones-hostiles-20261118",
+        "fetched_at": "2026-11-18T05:20:02.292399+00:00"
+      },
+      {
+        "title": "Amerikanske kampfly angrep iransk missilbase",
+        "source": "Aftenposten",
+        "country": "NO",
+        "link": "https://www.aftenposten.no/verden/i/z0GxrO/amerikanske-kampfly-angrep-iransk-missilbase?utm_medium=rss",
+        "fetched_at": "2026-11-18T05:20:53.792075+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.76,
+    "min_representative_similarity": 0.76,
+    "articles": [
+      {
+        "title": "\"Fractures françaises\" : jusqu'où ?",
+        "source": "France 24",
+        "country": "FR",
+        "link": "https://www.france24.com/fr/%C3%A9missions/le-d%C3%A9bat/20261117-fractures-fran%C3%A7aises-jusqu-o%C3%B9",
+        "fetched_at": "2026-11-18T05:20:02.953703+00:00"
+      },
+      {
+        "title": "Messe Paris Photo: Die ganze Geschichte der Fotografie praktisch zum Schnäppchenpreis",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/aktuell/feuilleton/kunstmarkt/die-ganze-geschichte-der-fotografie-auf-der-messe-paris-photo-accg-201680111.html",
+        "fetched_at": "2026-11-18T05:20:19.926762+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.729,
+    "min_representative_similarity": 0.729,
+    "articles": [
+      {
+        "title": "Manifestation du 17 novembre : revivez les temps forts de cette journée de mobilisation",
+        "source": "L'Obs",
+        "country": "FR",
+        "link": "https://www.nouvelobs.com/societe/20261117.OBS120204/en-direct-manifestation-du-17-novembre-a-paris-le-cortege-s-elance-depuis-nation-direction-la-place-d-italie-suivez-la-nouvelle-journee-de-mobilisation.html",
+        "fetched_at": "2026-11-18T05:20:05.335800+00:00"
+      },
+      {
+        "title": "Abermalige Proteste: Gen Z verzichtet auf Marsch durch die Innenstadt",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/aktuell/rhein-main/frankfurt/proteste-am-freitag-gen-z-verzichtet-auf-marsch-durch-die-frankfurter-innenstadt-201691752.html",
+        "fetched_at": "2026-11-18T05:20:19.926762+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "Frankfurter Allgemeine": 1,
+      "L'Obs": 1
+    }
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.744,
+    "min_representative_similarity": 0.744,
+    "articles": [
+      {
+        "title": "« Trump est une tour toxique vacillante faite de malhonnêteté rance et de pure stupidité » : Art Spiegelman, vingt-cinq ans après le 11-Septembre",
+        "source": "L'Obs",
+        "country": "FR",
+        "link": "https://www.nouvelobs.com/monde/20260911.OBS118120/trump-est-une-tour-toxique-vacillante-faite-de-malhonnetete-rance-et-de-pure-stupidite-art-spiegelman-vingt-cinq-ans-apres-le-11-septembre.html",
+        "fetched_at": "2026-11-18T05:20:05.335800+00:00"
+      },
+      {
+        "title": "“Vous êtes pathétique” : Trump s’en prend à une journaliste qui le questionnait sur les dépenses hallucinantes consacrées à Washington",
+        "source": "La Libre Belgique",
+        "country": "BE",
+        "link": "https://www.lalibre.be/international/amerique/2026/11/17/vous-etes-pathetique-trump-sen-prend-a-une-journaliste-qui-le-questionnait-sur-les-depenses-hallucinantes-consacrees-a-washington-OLUZDQB3FVEUFBWIBGSLZPFYQ4/",
+        "fetched_at": "2026-11-18T05:20:40.317018+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.775,
+    "min_representative_similarity": 0.775,
+    "articles": [
+      {
+        "title": "Du verger aux tables étoilées, le cidre en pleine effervescence",
+        "source": "L'Obs",
+        "country": "FR",
+        "link": "https://www.nouvelobs.com/tendances/20261114.OBS120124/du-verger-aux-tables-etoilees-le-cidre-en-pleine-effervescence.html",
+        "fetched_at": "2026-11-18T05:20:05.335800+00:00"
+      },
+      {
+        "title": "Come apparecchiare la tavola secondo il galateo (e le parole da non dire mai)",
+        "source": "Corriere della Sera",
+        "country": "IT",
+        "link": "https://www.corriere.it/cook/news/24_maggio_12/come-apparecchiare-tavola-secondo-galateo-parole-non-dire-mai-3ba864e2-0ea8-11ef-aec7-630484bff6fc.shtml",
+        "fetched_at": "2026-11-18T05:20:29.017920+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.741,
+    "min_representative_similarity": 0.741,
+    "articles": [
+      {
+        "title": "Jensen Huang, PDG de Nvidia, pris dans un scandale d’adultère et d’espionnage : on vous explique l’affaire",
+        "source": "L'Obs",
+        "country": "FR",
+        "link": "https://www.nouvelobs.com/monde/20261109.OBS119995/jensen-huang-pdg-de-nvidia-pris-dans-un-scandale-d-adultere-et-d-espionnage-on-vous-explique-l-affaire.html",
+        "fetched_at": "2026-11-18T05:20:05.335800+00:00"
+      },
+      {
+        "title": "Scandale Nvidia : Jensen Huang aurait eu une troisième relation extraconjugale",
+        "source": "La Libre Belgique",
+        "country": "BE",
+        "link": "https://www.lalibre.be/economie/entreprises-startup/2026/11/13/scandale-nvidia-jensen-huang-aurait-eu-une-troisieme-relation-extraconjugale-QP4YAN5OVBBQFITESH432VBZQU/",
+        "fetched_at": "2026-11-18T05:20:40.317018+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "La Libre Belgique": 1,
+      "L'Obs": 1
+    }
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.722,
+    "min_representative_similarity": 0.722,
+    "articles": [
+      {
+        "title": "La estafa de la tienda en línea falsa",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/tecnologia/branded/ocurrio-en-internet/2026-11-16/la-estafa-de-la-tienda-en-linea-falsa.html",
+        "fetched_at": "2026-11-18T05:20:08.495222+00:00"
+      },
+      {
+        "title": "Online Scams: The Shady World of Fraudulent Investment Sites",
+        "source": "Der Spiegel",
+        "country": "DE",
+        "link": "https://www.spiegel.de/international/world/online-scams-the-shady-world-of-fraudulent-investment-sites-a-36d59b48-23ea-4ae5-9532-7a6d3fb086d3#ref=rss",
+        "fetched_at": "2026-11-18T05:20:16.178286+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.795,
+    "min_representative_similarity": 0.795,
+    "articles": [
+      {
+        "title": "Menos antibióticos, pero más superbacterias: la paradoja mortal que golpea especialmente a España",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/salud-y-bienestar/2026-11-18/menos-antibioticos-pero-mas-superbacterias-la-paradoja-mortal-que-golpea-especialmente-a-espana.html",
+        "fetched_at": "2026-11-18T05:20:08.495222+00:00"
+      },
+      {
+        "title": "Europäischer Antibiotikatag: ECDC: Resistente Keime verbreiten sich in Europa",
+        "source": "Die Zeit",
+        "country": "DE",
+        "link": "https://www.zeit.de/news/2026-11/18/ecdc-resistente-keime-verbreiten-sich-in-europa",
+        "fetched_at": "2026-11-18T05:20:20.816603+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.746,
+    "min_representative_similarity": 0.746,
+    "articles": [
+      {
+        "title": "Thomas Markle, acusado también en Filipinas: se enfrenta a cargos por “distribuir, vender y exportar” material de pornografía infantil",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/gente/2026-11-17/thomas-markle-acusado-tambien-en-filipinas-se-enfrenta-a-cargos-por-distribuir-vender-y-exportar-material-de-pornografia-infantil.html",
+        "fetched_at": "2026-11-18T05:20:08.495222+00:00"
+      },
+      {
+        "title": "Philippines police ask prosecutors to charge Thomas Markle over child sex abuse material",
+        "source": "BBC World",
+        "country": "UK",
+        "link": "https://www.bbc.co.uk/news/articles/ckg5ry8m49ggo?at_medium=RSS&at_campaign=rss",
+        "fetched_at": "2026-11-18T05:20:12.181968+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.775,
+    "min_representative_similarity": 0.775,
+    "articles": [
+      {
+        "title": "Elecciones generales del 29N: últimos sondeos, encuestas y actos de la campaña electoral en España, hoy en directo",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/politica/20261117/11685191/elecciones-geenrales-29n-2026-campana-electoral-martes-17-noviembre-ultima-hora-en-directo.html",
+        "fetched_at": "2026-11-18T05:20:10.389658+00:00"
+      },
+      {
+        "title": "Who to watch in Spain's election race",
+        "source": "BBC World",
+        "country": "UK",
+        "link": "https://www.bbc.co.uk/news/articles/cxr5g4lyp94no?at_medium=RSS&at_campaign=rss",
+        "fetched_at": "2026-11-18T05:20:12.181968+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.804,
+    "min_representative_similarity": 0.804,
+    "articles": [
+      {
+        "title": "El alcalde Mamdani desmantela el ‘grupo salvaje’ de la policía de Nueva York",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/internacional/20261117/11686723/alcalde-mamdani-desmantela-grupo-salvaje-policia-nueva-york.html",
+        "fetched_at": "2026-11-18T05:20:10.389658+00:00"
+      },
+      {
+        "title": "\"Une approche de désescalade\" : à New York, Zohran Mamdani décide de dissoudre une unité de police \"notoirement violente\"",
+        "source": "La Libre Belgique",
+        "country": "BE",
+        "link": "https://www.lalibre.be/international/amerique/2026/11/17/une-approche-de-desescalade-a-new-york-zohran-mamdani-decide-de-dissoudre-une-unite-de-police-notoirement-violente-SXXQQTL3HJHDPH5PFYKCPMUQPU/",
+        "fetched_at": "2026-11-18T05:20:40.317018+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.742,
+    "min_representative_similarity": 0.742,
+    "articles": [
+      {
+        "title": "La Lista Estudiantil de Serbia se estrena en el Parlamento",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/internacional/20261117/11686649/lista-estudiantil-serbia-estrena-parlamento.html",
+        "fetched_at": "2026-11-18T05:20:10.389658+00:00"
+      },
+      {
+        "title": "Students' List candidates take seats as Serbian parliament opens",
+        "source": "Deutsche Welle",
+        "country": "DE",
+        "link": "https://www.dw.com/en/students-list-candidates-take-seats-as-serbian-parliament-opens/a-79969166?maca=en-rss-en-world-4025-rdf",
+        "fetched_at": "2026-11-18T05:20:15.051691+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.789,
+    "min_representative_similarity": 0.789,
+    "articles": [
+      {
+        "title": "Detectado un terremoto de magnitud 2,3 en la costa de Badalona",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/local/barcelona/20261117/11686653/detectado-terremoto-magnitud-2-3-costa-badalona.html",
+        "fetched_at": "2026-11-18T05:20:10.389658+00:00"
+      },
+      {
+        "title": "Terremoto di magnitudo 2.9 ai Campi Flegrei. Nessun danno",
+        "source": "Corriere della Sera",
+        "country": "IT",
+        "link": "https://www.corriere.it/cronache/24_maggio_13/terremoto-di-magnitudo-2-9-ai-campi-flegrei-nessun-danno-6de22d5c-282a-4457-8451-cd6df58b6xlk.shtml",
+        "fetched_at": "2026-11-18T05:20:29.017920+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "Corriere della Sera": 1
+    }
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.777,
+    "min_representative_similarity": 0.777,
+    "articles": [
+      {
+        "title": "Comparativa de enjuagues bucales 2026: los mejores colutorios para el mal aliento, las encías, las caries y el blanqueamiento dental",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/comprar/mas-valorados/20261116/11675271/mejores-enjuagues-bucales-comparativa-mkt-eo.html",
+        "fetched_at": "2026-11-18T05:20:10.389658+00:00"
+      },
+      {
+        "title": "Oroande ökning av frätskador på tänder hos unga",
+        "source": "Dagens Nyheter",
+        "country": "SE",
+        "link": "https://www.dn.se/sverige/oroande-okning-av-fratskador-pa-tander-hos-unga/",
+        "fetched_at": "2026-11-18T05:20:43.081098+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.73,
+    "min_representative_similarity": 0.73,
+    "articles": [
+      {
+        "title": "Fallece una persona en el incendio de una vivienda",
+        "source": "El Confidencial",
+        "country": "ES",
+        "link": "https://www.elconfidencial.com/espana/2026-11-17/fallece-persona-atrapada-incendio-talavera-1tna-1tps_4467141/",
+        "fetched_at": "2026-11-18T05:20:11.222291+00:00"
+      },
+      {
+        "title": "Feuerwehr: Brand in Einfamilienhaus - Zwei Männer verletzt",
+        "source": "Die Zeit",
+        "country": "DE",
+        "link": "https://www.zeit.de/news/2026-11/18/brand-in-einfamilienhaus-zwei-maenner-verletzt",
+        "fetched_at": "2026-11-18T05:20:20.816603+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.732,
+    "min_representative_similarity": 0.732,
+    "articles": [
+      {
+        "title": "As Trump and Xi meet, China's AI dreams face an unexpected hurdle: the Nvidia spy scandal",
+        "source": "BBC World",
+        "country": "UK",
+        "link": "https://www.bbc.co.uk/news/articles/c5vg23g92rj4o?at_medium=RSS&at_campaign=rss",
+        "fetched_at": "2026-11-18T05:20:12.181968+00:00"
+      },
+      {
+        "title": "Nvidia scandal: China's chips dilemma, US rivalry shape AI race",
+        "source": "Deutsche Welle",
+        "country": "DE",
+        "link": "https://www.dw.com/en/nvidia-scandal-china-s-chips-dilemma-us-rivalry-shape-ai-race/a-79961766?maca=en-rss-en-world-4025-rdf",
+        "fetched_at": "2026-11-18T05:20:15.051691+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.813,
+    "min_representative_similarity": 0.813,
+    "articles": [
+      {
+        "title": "Sleeve checks and no smartglasses: South Korea races to protect all-important university exams against AI",
+        "source": "The Guardian",
+        "country": "UK",
+        "link": "https://www.theguardian.com/world/2026/nov/18/south-korea-university-entrace-exams-ai-cheating-measures",
+        "fetched_at": "2026-11-18T05:20:12.828670+00:00"
+      },
+      {
+        "title": "Zuid-Korea haalt alles uit de kast om afkijken met behulp van AI te voorkomen tijdens toelatingsexamens",
+        "source": "de Volkskrant",
+        "country": "NL",
+        "link": "https://www.volkskrant.nl/buitenland/zuid-korea-haalt-alles-uit-de-kast-om-afkijken-met-behulp-van-ai-te-voorkomen-tijdens-toelatingsexamens~b3d7ea86/",
+        "fetched_at": "2026-11-18T05:20:32.801150+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.748,
+    "min_representative_similarity": 0.748,
+    "articles": [
+      {
+        "title": "Jensen Huang to testify before Congress on ‘potential breach of national security’",
+        "source": "The Guardian",
+        "country": "UK",
+        "link": "https://www.theguardian.com/technology/2026/nov/17/jensen-huang-testify-congress-nvidia-affair-spy",
+        "fetched_at": "2026-11-18T05:20:12.828670+00:00"
+      },
+      {
+        "title": "Jensen Huang skal forklare seg for Kongressen",
+        "source": "Aftenposten",
+        "country": "NO",
+        "link": "https://www.aftenposten.no/okonomi/i/Jnovqj/jensen-huang-skal-forklare-seg-for-kongressen?utm_medium=rss",
+        "fetched_at": "2026-11-18T05:20:53.792075+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.842,
+    "min_representative_similarity": 0.842,
+    "articles": [
+      {
+        "title": "‘Human’ wins Cambridge dictionary’s word of the year",
+        "source": "The Guardian",
+        "country": "UK",
+        "link": "https://www.theguardian.com/science/2026/nov/18/cambridge-word-of-the-year-human",
+        "fetched_at": "2026-11-18T05:20:12.828670+00:00"
+      },
+      {
+        "title": "«Human» er årets ord i Cambridge Dictionary",
+        "source": "Aftenposten",
+        "country": "NO",
+        "link": "https://www.aftenposten.no/verden/i/9Bv89r/human-er-aarets-ord-i-cambridge-dictionary?utm_medium=rss",
+        "fetched_at": "2026-11-18T05:20:53.792075+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.735,
+    "min_representative_similarity": 0.735,
+    "articles": [
+      {
+        "title": "Australische Regierung verschärft Auflagen für \"Work and Travel\"",
+        "source": "Tagesschau",
+        "country": "DE",
+        "link": "https://www.tagesschau.de/ausland/ozeanien/australien-backpaper-landwirtschaft-visa-100.html",
+        "fetched_at": "2026-11-18T05:20:17.449435+00:00"
+      },
+      {
+        "title": "Australië scherpt visumregels aan: backpackers die langer willen blijven, moeten vanaf volgend jaar langer op het platteland werken",
+        "source": "de Volkskrant",
+        "country": "NL",
+        "link": "https://www.volkskrant.nl/buitenland/australie-scherpt-visumregels-aan-backpackers-die-langer-willen-blijven-moeten-vanaf-volgend-jaar-langer-op-het-platteland-werken~bc2e8224/",
+        "fetched_at": "2026-11-18T05:20:32.801150+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.784,
+    "min_representative_similarity": 0.784,
+    "articles": [
+      {
+        "title": "Tesla: Wie Grünheide Teil der ultimativen Musk-Wette wird",
+        "source": "Süddeutsche Zeitung",
+        "country": "DE",
+        "link": "https://www.sueddeutsche.de/wirtschaft/tesla-gruenheide-elon-musk-robotaxi-li.3581840",
+        "fetched_at": "2026-11-18T05:20:18.949112+00:00"
+      },
+      {
+        "title": "Tesla, il giallo del Supercharger: Musk licenzia l’intero team, poi annuncia investimento da mezzo miliardo",
+        "source": "Corriere della Sera",
+        "country": "IT",
+        "link": "https://www.corriere.it/economia/innovazione/24_maggio_12/tesla-il-giallo-del-supercharger-musk-licenzia-l-intero-team-poi-annuncia-un-investimento-da-mezzo-miliardo-ab2afe45-ff87-4c7b-a18d-24f8004c7xlk.shtml",
+        "fetched_at": "2026-11-18T05:20:29.017920+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.745,
+    "min_representative_similarity": 0.745,
+    "articles": [
+      {
+        "title": "FIFA-Kandidat Diallo: Wie will er das machen?",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/aktuell/sport/sportpolitik/philippe-diallo-gegen-gianni-infantino-wie-will-er-das-machen-201691054.html",
+        "fetched_at": "2026-11-18T05:20:19.926762+00:00"
+      },
+      {
+        "title": "Op de valreep vindt UEFA tóch een uitdager voor FIFA-baas Infantino: maakt de relatief onbekende Philippe Diallo nog kans?",
+        "source": "NRC",
+        "country": "NL",
+        "link": "https://www.nrc.nl/nieuws/2026/11/17/op-de-valreep-vindt-uefa-toch-een-uitdager-voor-fifa-baas-infantino-maakt-de-relatief-onbekende-philippe-diallo-nog-kans-a4941090",
+        "fetched_at": "2026-11-18T05:20:34.325832+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.739,
+    "min_representative_similarity": 0.739,
+    "articles": [
+      {
+        "title": "Erkältungen vorbeugen: „Mit 1000 Einheiten Vitamin D am Tag macht man sicherlich nichts verkehrt“",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/aktuell/rhein-main/region-und-hessen/helfen-vitamin-d-grippeimpfung-oder-bewegung-hausarzt-sagt-wie-man-im-winter-gesund-bleibt-accg-201622609.html",
+        "fetched_at": "2026-11-18T05:20:19.926762+00:00"
+      },
+      {
+        "title": "Menopausa in salute. Perché controllare la Vitamina D e quali esami fare?",
+        "source": "Corriere della Sera",
+        "country": "IT",
+        "link": "https://www.iodonna.it/benessere/salute-e-psicologia/2024/05/06/menopausa-in-salute-perche-controllare-la-vitamina-d-e-quali-esami-fare/?intcmp=iod_hpcor_articolo",
+        "fetched_at": "2026-11-18T05:20:29.017920+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.766,
+    "min_representative_similarity": 0.766,
+    "articles": [
+      {
+        "title": "Return Hubs: Was will Ruanda?",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/aktuell/politik/ausland/return-hubs-in-ruanda-was-will-die-eu-was-will-ruanda-201690982.html",
+        "fetched_at": "2026-11-18T05:20:19.926762+00:00"
+      },
+      {
+        "title": "Ruanda verteidigt Pläne für Europas erstes Rückkehrzentrum",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000349707/ruanda-verteidigt-plaene-fuer-europas-erstes-rueckkehrzentrum?ref=rss",
+        "fetched_at": "2026-11-18T05:20:41.078280+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "Der Standard": 2
+    }
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.723,
+    "min_representative_similarity": 0.723,
+    "articles": [
+      {
+        "title": "Antwort auf Götz Aly: Der Holocaust als Goldsuche?",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/aktuell/wissen/geist-soziales/stephan-malinowski-antwortet-auf-goetz-aly-201651070.html",
+        "fetched_at": "2026-11-18T05:20:19.926762+00:00"
+      },
+      {
+        "title": "Wereldberoemd geworden met knielende Hitler, een gouden wc-pot en een banaan: Maurizio Cattelan is een kunstwerk van zichzelf",
+        "source": "NRC",
+        "country": "NL",
+        "link": "https://www.nrc.nl/nieuws/2026/11/11/wereldberoemd-geworden-met-knielende-hitler-een-gouden-wc-pot-en-een-banaan-maurizio-cattelan-is-een-kunstwerk-van-zichzelf-a4940089",
+        "fetched_at": "2026-11-18T05:20:34.325832+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.865,
+    "min_representative_similarity": 0.865,
+    "articles": [
+      {
+        "title": "Energienetze in der EU: EU will Genehmigungen für Stromnetze und Speicher beschleunigen",
+        "source": "Die Zeit",
+        "country": "DE",
+        "link": "https://www.zeit.de/politik/ausland/2026-11/eu-energienetze-stromnetze-oekostrom-genehmigungen-ausbau",
+        "fetched_at": "2026-11-18T05:20:20.816603+00:00"
+      },
+      {
+        "title": "EU-Einigung: Ausbau von Europas Stromnetzen soll beschleunigt werden",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000349754/eu-einigung-ausbau-von-europas-stromnetzen-soll-beschleunigt-werden?ref=rss",
+        "fetched_at": "2026-11-18T05:20:41.078280+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.802,
+    "min_representative_similarity": 0.802,
+    "articles": [
+      {
+        "title": "'Epstein ucciso, non fu suicidio', una nuova analisi forense rilancia il giallo",
+        "source": "ANSA",
+        "country": "IT",
+        "link": "https://www.ansa.it/sito/notizie/mondo/2026/11/17/per-uno-scienziato-forense-jeffrey-epstein-e-stato-ucciso-non-si-e-suicidato_6fc23af2-f103-4dd2-ba5f-495582f084e4.html",
+        "fetched_at": "2026-11-18T05:20:22.223788+00:00"
+      },
+      {
+        "title": "\"Seul un meurtre reste envisageable\" : un expert médico-légal  ne croit pas au suicide d'Epstein",
+        "source": "La Libre Belgique",
+        "country": "BE",
+        "link": "https://www.lalibre.be/international/amerique/2026/11/17/seul-un-meurtre-reste-envisageable-un-expert-medico-legal-ne-croit-pas-au-suicide-depstein-E5WSOEKVXJFGXAE2NQQ77NCFWI/",
+        "fetched_at": "2026-11-18T05:20:40.317018+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.859,
+    "min_representative_similarity": 0.859,
+    "articles": [
+      {
+        "title": "LIVE Nations League | Erling Haaland schiet Noorwegen in blessuretijd langs rivaal Denemarken en naar kwartfinales",
+        "source": "De Telegraaf",
+        "country": "NL",
+        "link": "https://www.telegraaf.nl/sport/voetbal/live-nations-league-erling-haaland-schiet-noorwegen-in-blessuretijd-langs-rivaal-denemarken-en-naar-kwartfinales/164345541.html",
+        "fetched_at": "2026-11-18T05:20:31.411264+00:00"
+      },
+      {
+        "title": "Norwegen zieht dank Haaland ins Viertelfinale der Nations League ein",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000349750/fu223ball-dank-haaland-elfer-norwegen-im-nations-league-viertelfinale?ref=rss",
+        "fetched_at": "2026-11-18T05:20:41.078280+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.799,
+    "min_representative_similarity": 0.799,
+    "articles": [
+      {
+        "title": "Studentenprotest in Brussel escaleert: politie grijpt hard in",
+        "source": "De Telegraaf",
+        "country": "NL",
+        "link": "https://www.telegraaf.nl/video/studentenprotest-in-brussel-escaleert-politie-grijpt-hard-in/164702078.html",
+        "fetched_at": "2026-11-18T05:20:31.411264+00:00"
+      },
+      {
+        "title": "Manifestation étudiante à Bruxelles : la situation dégénère, la police fait usage de canons à eau",
+        "source": "La Libre Belgique",
+        "country": "BE",
+        "link": "https://www.lalibre.be/regions/bruxelles/2026/11/17/bruxelles-des-manifestants-bloquent-la-petite-ceinture-a-arts-loi-apres-la-marche-etudiante-MIRMERAR2JFBVJ7XOPCM3Y7SBI/",
+        "fetched_at": "2026-11-18T05:20:40.317018+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.89,
+    "min_representative_similarity": 0.89,
+    "articles": [
+      {
+        "title": "VS verliezen status ‘mazelenvrij’ na grootschalige uitbraak",
+        "source": "de Volkskrant",
+        "country": "NL",
+        "link": "https://www.volkskrant.nl/buitenland/vs-verliezen-status-mazelenvrij-na-grootschalige-uitbraak~b6152727/",
+        "fetched_at": "2026-11-18T05:20:32.801150+00:00"
+      },
+      {
+        "title": "USA verlieren Status \"masernfrei\" nach 26 Jahren",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000349649/usa-verlieren-status-masernfrei-nach-26-jahren?ref=rss",
+        "fetched_at": "2026-11-18T05:20:41.078280+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.729,
+    "min_representative_similarity": 0.729,
+    "articles": [
+      {
+        "title": "Xi Jinping’s plan for a China-centric world order",
+        "source": "NRC",
+        "country": "NL",
+        "link": "https://www.nrc.nl/nieuws/2026/11/17/xi-jinpings-plan-for-a-china-centric-world-order-a4941331",
+        "fetched_at": "2026-11-18T05:20:34.325832+00:00"
+      },
+      {
+        "title": "Xi Jinping will den Pazifikraum zur Lokomotive der Globalisierung machen",
+        "source": "Neue Zürcher Zeitung",
+        "country": "CH",
+        "link": "https://www.nzz.ch/pro/apec-treffen-xi-jinpings-vision-ist-eine-freihandelszone-in-asien-ld.10065924",
+        "fetched_at": "2026-11-18T05:20:54.461057+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.781,
+    "min_representative_similarity": 0.781,
+    "articles": [
+      {
+        "title": "‘Het landsbestuur wordt instabieler, het eigen gewin overheerst in de politiek’",
+        "source": "NRC",
+        "country": "NL",
+        "link": "https://www.nrc.nl/nieuws/2026/11/16/het-landsbestuur-wordt-instabieler-het-eigen-gewin-overheerst-in-de-politiek-a4941534",
+        "fetched_at": "2026-11-18T05:20:34.325832+00:00"
+      },
+      {
+        "title": "Källor: Regeringsfrågan långt ifrån löst",
+        "source": "Dagens Nyheter",
+        "country": "SE",
+        "link": "https://www.dn.se/sverige/kallor-regeringsfragan-langt-ifran-lost/",
+        "fetched_at": "2026-11-18T05:20:43.081098+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "Dagens Nyheter": 1
+    }
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.76,
+    "min_representative_similarity": 0.76,
+    "articles": [
+      {
+        "title": "De Brexit deed ‘meer kwaad dan goed’, vindt de Britse premier Burnham, dus zoekt hij naar alternatieven",
+        "source": "NRC",
+        "country": "NL",
+        "link": "https://www.nrc.nl/nieuws/2026/11/15/de-brexit-deed-meer-kwaad-dan-goed-vindt-de-britse-premier-burnham-dus-zoekt-hij-naar-alternatieven-a4941405",
+        "fetched_at": "2026-11-18T05:20:34.325832+00:00"
+      },
+      {
+        "title": "Britischer Premier Burnham will den Brexit korrigieren",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000349726/britischer-premier-burnham-will-den-brexit-korrigieren?ref=rss",
+        "fetched_at": "2026-11-18T05:20:41.078280+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.746,
+    "min_representative_similarity": 0.746,
+    "articles": [
+      {
+        "title": "Het thuiswerken wordt langzaam de nek omgedraaid. Niet omdat kantoor de plek is waar je moet en wilt zijn, maar omdat de baas het je verplicht",
+        "source": "NRC",
+        "country": "NL",
+        "link": "https://www.nrc.nl/nieuws/2026/11/09/lekker-allemaal-weer-opgehokt-op-kantoor-en-geen-werkgever-die-kan-uitleggen-hoe-je-verbinding-krijgt-a4940845",
+        "fetched_at": "2026-11-18T05:20:34.325832+00:00"
+      },
+      {
+        "title": "Der Chef mag kein Homeoffice – was wirklich dahinterstecken könnte",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000348216/der-chef-mag-kein-homeoffice-was-wirklich-dahinterstecken-koennte?ref=rss",
+        "fetched_at": "2026-11-18T05:20:41.078280+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.764,
+    "min_representative_similarity": 0.764,
+    "articles": [
+      {
+        "title": "Jan Urban po Polska – Szwecja: Będziemy teraz mieli większą możliwość wyboru",
+        "source": "Rzeczpospolita",
+        "country": "PL",
+        "link": "https://sport.rp.pl/pilka-nozna/art45505271-jan-urban-po-polska-szwecja-bedziemy-teraz-mieli-wieksza-mozliwosc-wyboru",
+        "fetched_at": "2026-11-18T05:20:36.741751+00:00"
+      },
+      {
+        "title": "DN Debatt. ”Glöm lika mycket till alla – så här bör Sverige satsa på stem”",
+        "source": "Dagens Nyheter",
+        "country": "SE",
+        "link": "https://www.dn.se/debatt/glom-lika-mycket-till-alla-sa-har-bor-sverige-satsa-pa-stem/",
+        "fetched_at": "2026-11-18T05:20:43.081098+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "Dagens Nyheter": 1
+    }
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.727,
+    "min_representative_similarity": 0.727,
+    "articles": [
+      {
+        "title": "Ekspert: Mamy w Polsce krajowy terroryzm, to nie działania służb",
+        "source": "Rzeczpospolita",
+        "country": "PL",
+        "link": "https://www.rp.pl/sluzby/art45498741-ekspert-mamy-w-polsce-krajowy-terroryzm-to-nie-dzialania-sluzb",
+        "fetched_at": "2026-11-18T05:20:36.741751+00:00"
+      },
+      {
+        "title": "PST: Sannsynlig med forsøk på terror i Norge",
+        "source": "Aftenposten",
+        "country": "NO",
+        "link": "https://www.aftenposten.no/norge/politikk/i/EbWv6G/pst-sannsynlig-med-forsoek-paa-terror-i-norge?utm_medium=rss",
+        "fetched_at": "2026-11-18T05:20:53.792075+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.728,
+    "min_representative_similarity": 0.728,
+    "articles": [
+      {
+        "title": "Privés de la dernière danse de Big Rom",
+        "source": "La Libre Belgique",
+        "country": "BE",
+        "link": "https://www.lalibre.be/sports/football/2026/11/17/prives-de-la-derniere-danse-de-big-rom-NXWJY7TC45CDFGYLGNPXMTJYSU/",
+        "fetched_at": "2026-11-18T05:20:40.317018+00:00"
+      },
+      {
+        "title": "Röjig rejvfest med Prodigy",
+        "source": "Dagens Nyheter",
+        "country": "SE",
+        "link": "https://www.dn.se/kultur/rojig-rejvfest-med-prodigy/",
+        "fetched_at": "2026-11-18T05:20:43.081098+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.759,
+    "min_representative_similarity": 0.759,
+    "articles": [
+      {
+        "title": "Nouvelle panne dans le secteur aérien : \"Il y a quelque chose qui pourrit aux États-Unis\"",
+        "source": "La Libre Belgique",
+        "country": "BE",
+        "link": "https://www.lalibre.be/economie/entreprises-startup/2026/11/16/united-airlines-confrontee-a-son-tour-a-une-grave-panne-HQWLLMALARHRXNXL7F32XHVXWI/",
+        "fetched_at": "2026-11-18T05:20:40.317018+00:00"
+      },
+      {
+        "title": "Miniristikko | Lennot keskeytyivät USA:ssa, me järjestämme niitä täällä!",
+        "source": "Helsingin Sanomat",
+        "country": "FI",
+        "link": "https://www.hs.fi/pelit/art-2000012414880.html",
+        "fetched_at": "2026-11-18T05:20:44.441868+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.736,
+    "min_representative_similarity": 0.736,
+    "articles": [
+      {
+        "title": "La Chine au centre de l'attention mondiale durant deux jours : \"Tout le monde a les yeux braqués sur cette nouvelle troïka\"",
+        "source": "La Libre Belgique",
+        "country": "BE",
+        "link": "https://www.lalibre.be/international/asie/2026/11/17/nucleaire-intelligence-artificielle-et-paix-la-chine-au-centre-de-lattention-durant-deux-jours-LQLLXFZN3NHJHOIX7ZINUPTWZY/",
+        "fetched_at": "2026-11-18T05:20:40.317018+00:00"
+      },
+      {
+        "title": "Kiina kirii, kun muut kompastelevat",
+        "source": "Helsingin Sanomat",
+        "country": "FI",
+        "link": "https://www.hs.fi/paakirjoitukset/art-2000012409689.html",
+        "fetched_at": "2026-11-18T05:20:44.441868+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.767,
+    "min_representative_similarity": 0.767,
+    "articles": [
+      {
+        "title": "Guerre en Ukraine : La Russie abat 1.441 drones ukrainiens en une nuit, Kiev frappe le pont de Crimée",
+        "source": "La Libre Belgique",
+        "country": "BE",
+        "link": "https://www.lalibre.be/international/europe/guerre-ukraine-russie/2026/11/17/guerre-en-ukraine-la-russie-abat-1441-drones-ukrainiens-en-une-nuit-kiev-frappe-le-pont-de-crimee-PHRQ4CCFKNF7LIAWNIYQVZZIGA/",
+        "fetched_at": "2026-11-18T05:20:40.317018+00:00"
+      },
+      {
+        "title": "Moldova stenger luftrommet på grunn av russiske droner",
+        "source": "Aftenposten",
+        "country": "NO",
+        "link": "https://www.aftenposten.no/norge/i/VxbjwJ/moldova-stenger-luftrommet-paa-grunn-av-russiske-droner?utm_medium=rss",
+        "fetched_at": "2026-11-18T05:20:53.792075+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.74,
+    "min_representative_similarity": 0.74,
+    "articles": [
+      {
+        "title": "Pleiten, Pech und Pannen: In den USA ist der Technik-Wurm drin",
+        "source": "Kurier",
+        "country": "AT",
+        "link": "https://kurier.at/politik/ausland/usa-nsa-apple-microsoft/403206380",
+        "fetched_at": "2026-11-18T05:20:41.771410+00:00"
+      },
+      {
+        "title": "Rubio: Ingen tegn til at IT-problemene i USA henger sammen",
+        "source": "Aftenposten",
+        "country": "NO",
+        "link": "https://www.aftenposten.no/okonomi/i/lMAJqL/rubio-ingen-tegn-til-at-it-problemene-i-usa-henger-sammen?utm_medium=rss",
+        "fetched_at": "2026-11-18T05:20:53.792075+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.781,
+    "min_representative_similarity": 0.781,
+    "articles": [
+      {
+        "title": "NATO chce obnovit systém Starshield, Ukrajina však stále bojuje s výpadky",
+        "source": "iDNES.cz",
+        "country": "CZ",
+        "link": "https://www.idnes.cz/zpravy/zahranicni/valka-na-ukrajine-starshield-ukrajina-zelenskyj.A261117_155204_zahranicni_aya#utm_source=rss&utm_medium=feed&utm_campaign=zpravodaj&utm_content=main",
+        "fetched_at": "2026-11-18T05:20:47.863232+00:00"
+      },
+      {
+        "title": "Arbeidet med å gjenopprette Ukrainas Starshield pågår, sier Nato-sjefen",
+        "source": "Aftenposten",
+        "country": "NO",
+        "link": "https://www.aftenposten.no/verden/i/nLambQ/arbeidet-med-aa-gjenopprette-ukrainas-starshield-paagaar-sier-nato-sjefen?utm_medium=rss",
+        "fetched_at": "2026-11-18T05:20:53.792075+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 3,
+    "avg_similarity": 0.723,
+    "min_representative_similarity": 0.704,
+    "articles": [
+      {
+        "title": "Sánchez se revuelve contra el ataque de Ayuso a los andaluces: “Andalucía se va a levantar, a movilizar y a darnos la victoria el 29-N”",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/espana/elecciones-generales/2026-11-17/sanchez-se-revuelve-contra-el-ataque-de-ayuso-los-andaluces-andalucia-se-va-a-levantar-a-movilizar-y-a-darnos-la-victoria-el-29-n.html",
+        "fetched_at": "2026-11-18T05:20:08.495222+00:00"
+      },
+      {
+        "title": "Feijóo acusa a Sánchez de “justificar” la violencia por “no condenar” la agresión a Echeverría",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/politica/20261117/11686419/feijoo-acusa-sanchez-justificar-violencia-condenar-incidente-violento-vivido-echeverria-gipuzkoa.html",
+        "fetched_at": "2026-11-18T05:20:10.389658+00:00"
+      },
+      {
+        "title": "Feijóo sube el tono de la campaña, culpa a Sánchez de la \"violencia\" contra el PP y calienta el cara a cara",
+        "source": "El Confidencial",
+        "country": "ES",
+        "link": "https://www.elconfidencial.com/espana/2026-11-18/feijoo-tono-campana-culpa-sanchez-violencia_4467022/",
+        "fetched_at": "2026-11-18T05:20:11.222291+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 3,
+    "avg_similarity": 0.769,
+    "min_representative_similarity": 0.742,
+    "articles": [
+      {
+        "title": "Bruselas alerta de que la falta de vivienda es “el riesgo principal” para la economía española",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/economia/2026-11-17/bruselas-alerta-de-que-la-falta-de-vivienda-es-el-riesgo-principal-para-la-economia-espanola.html",
+        "fetched_at": "2026-11-18T05:20:08.495222+00:00"
+      },
+      {
+        "title": "El comisario de Economía de la UE pide al próximo Gobierno unos Presupuestos y más viviendas: \"España tiene un déficit de nueva construcción\"",
+        "source": "El Mundo",
+        "country": "ES",
+        "link": "https://www.elmundo.es/economia/2026/11/18/6afc78befdddff057d8b45b2.html",
+        "fetched_at": "2026-11-18T05:20:09.307261+00:00"
+      },
+      {
+        "title": "Bruselas mejora las previsiones económicas de España pero avisa de los riesgos de la vivienda",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/economia/20261117/11686208/bruselas-mejora-previsiones-economicas-espana-avisa-riesgos-vivienda.html",
+        "fetched_at": "2026-11-18T05:20:10.389658+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 3,
+    "avg_similarity": 0.877,
+    "min_representative_similarity": 0.831,
+    "articles": [
+      {
+        "title": "Mostra su Rauti, la Camera chiede di rimuovere simboli che richiamano al fascismo",
+        "source": "ANSA",
+        "country": "IT",
+        "link": "https://www.ansa.it/sito/notizie/politica/2026/11/17/mostra-su-rauti-la-camera-chiede-di-rimuovere-simboli-che-richiamano-al-fascismo_82e5b50e-3150-4462-b408-a8673a917231.html",
+        "fetched_at": "2026-11-18T05:20:22.223788+00:00"
+      },
+      {
+        "title": "La celebrazione di Rauti con i simboli del fascismo, la Camera: “Rimuoveteli”",
+        "source": "La Repubblica",
+        "country": "IT",
+        "link": "https://www.repubblica.it/politica/2026/11/17/news/mostra_rauti_camera_organizzata_fdi_polemica-425730267/",
+        "fetched_at": "2026-11-18T05:20:23.288747+00:00"
+      },
+      {
+        "title": "Camera chiede di rimuovere simboli che richiamano a fascismo da mostra Rauti",
+        "source": "Il Sole 24 Ore",
+        "country": "IT",
+        "link": "https://www.ilsole24ore.com/art/camera-chiede-rimuovere-simboli-che-richiamano-fascismo-mostra-rauti-AJaK7AKC",
+        "fetched_at": "2026-11-18T05:20:30.512787+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 3,
+    "avg_similarity": 0.722,
+    "min_representative_similarity": 0.702,
+    "articles": [
+      {
+        "title": "Sybrand Buma moet vastgelopen kabinet redden, maar twijfel over zijn rol en kansen",
+        "source": "De Telegraaf",
+        "country": "NL",
+        "link": "https://www.telegraaf.nl/politiek/sybrand-buma-moet-vastgelopen-kabinet-redden-maar-twijfel-over-zijn-rol-en-kansen/164711568.html",
+        "fetched_at": "2026-11-18T05:20:31.411264+00:00"
+      },
+      {
+        "title": "Een dubbele pet voor Sybrand Buma? Experts zien geen belemmering maar wel een risico",
+        "source": "de Volkskrant",
+        "country": "NL",
+        "link": "https://www.volkskrant.nl/binnenland/een-dubbele-pet-voor-sybrand-buma-experts-zien-geen-belemmering-maar-wel-een-risico~be9401ba/",
+        "fetched_at": "2026-11-18T05:20:32.801150+00:00"
+      },
+      {
+        "title": "De staatsrechtelijke spagaat van Sybrand Buma: ‘Pas op voor rolvervaging’",
+        "source": "NRC",
+        "country": "NL",
+        "link": "https://www.nrc.nl/nieuws/2026/11/17/de-staatsrechtelijke-spagaat-van-sybrand-buma-maakt-onafhankelijke-rol-als-vicepresident-van-de-raad-van-state-kwetsbaar-a4941651",
+        "fetched_at": "2026-11-18T05:20:34.325832+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.862,
+    "min_representative_similarity": 0.862,
+    "articles": [
+      {
+        "title": "Procès des parents de « la petite inconnue de l’A10 » : la mère condamnée à vingt ans de réclusion, le père à quinze ans",
+        "source": "Le Monde",
+        "country": "FR",
+        "link": "https://www.lemonde.fr/societe/article/2026/11/17/proces-des-parents-de-la-petite-inconnue-de-l-a10-la-mere-condamnee-a-vingt-ans-de-reclusion-le-pere-a-quinze-ans_6813049_3224.html",
+        "fetched_at": "2026-11-18T05:20:01.596988+00:00"
+      },
+      {
+        "title": "La mère de la «martyre de l’A10» condamnée à 20 ans de réclusion criminelle, le père à 15 ans : «dans ce procès, l’horreur a une place immense»",
+        "source": "Le Figaro",
+        "country": "FR",
+        "link": "https://www.lefigaro.fr/faits-divers/la-mere-de-la-martyre-de-l-a10-condamnee-a-20-ans-de-reclusion-criminelle-le-pere-a-15-ans-dans-ce-proces-l-horreur-a-une-place-immense-20261117",
+        "fetched_at": "2026-11-18T05:20:02.292399+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.725,
+    "min_representative_similarity": 0.725,
+    "articles": [
+      {
+        "title": "Présidentielle 2027 : impôts, logement, associations… Ce qu’il faut retenir du grand débat entre cinq candidats sur la vie chère",
+        "source": "Le Figaro",
+        "country": "FR",
+        "link": "https://www.lefigaro.fr/elections/presidentielles/presidentielle-2027-impots-logement-associations-ce-qu-il-faut-retenir-du-grand-debat-entre-cinq-candidats-sur-la-vie-chere-20261116",
+        "fetched_at": "2026-11-18T05:20:02.292399+00:00"
+      },
+      {
+        "title": "« Faire du logement une priorité de la présidentielle » : Christophe Robert sonne l’alarme avant 2027",
+        "source": "L'Obs",
+        "country": "FR",
+        "link": "https://www.nouvelobs.com/societe/20261112.OBS120062/faire-du-logement-une-priorite-de-la-campagne-presidentielle-christophe-robert-sonne-l-alarme-avant-2027.html",
+        "fetched_at": "2026-11-18T05:20:05.335800+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.749,
+    "min_representative_similarity": 0.749,
+    "articles": [
+      {
+        "title": "Hereu rechaza el cara a cara que le pidió Rufián para debatir sobre vivienda e impuestos",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/espana/elecciones-generales/2026-11-17/hereu-rechaza-el-cara-a-cara-que-le-pidio-rufian-para-debatir-sobre-vivienda-e-impuestos.html",
+        "fetched_at": "2026-11-18T05:20:08.495222+00:00"
+      },
+      {
+        "title": "Hereu descarta el cara a cara que le propone Rufián: “Esto no va de debates secundarios”",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/politica/20261117/11686839/hereu-descarta-cara-cara-le-propone-rufian-esto-debates-secundarios.html",
+        "fetched_at": "2026-11-18T05:20:10.389658+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.858,
+    "min_representative_similarity": 0.858,
+    "articles": [
+      {
+        "title": "España vence en Croacia y sella medio pasaporte para el Eurobasket de 2027",
+        "source": "El País",
+        "country": "ES",
+        "link": "https://elpais.com/deportes/baloncesto/2026-11-17/espana-vence-en-croacia-y-sella-medio-pasaporte-para-el-eurobasket-de-2027.html",
+        "fetched_at": "2026-11-18T05:20:08.495222+00:00"
+      },
+      {
+        "title": "España gana en Croacia y sella medio billete para el Eurobasket",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/deportes/20261117/11686807/espana-gana-croacia-sella-medio-billete-eurobasket.html",
+        "fetched_at": "2026-11-18T05:20:10.389658+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.967,
+    "min_representative_similarity": 0.967,
+    "articles": [
+      {
+        "title": "Muere Enrique Lemus, uno de los fundadores de Núcleo Nacional, detenido hace diez días",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/politica/20261117/11686851/muere-enrique-lemus-fundadores-nucleo-nacional-detenido-diez-dias.html",
+        "fetched_at": "2026-11-18T05:20:10.389658+00:00"
+      },
+      {
+        "title": "Muere Enrique Lemus, uno de los fundadores de Núcleo Nacional, detenido hace diez días por asociación ilícita",
+        "source": "El Confidencial",
+        "country": "ES",
+        "link": "https://www.elconfidencial.com/espana/2026-11-17/muere-fundador-nucleo-nacional-neonazi-1tps_4467164/",
+        "fetched_at": "2026-11-18T05:20:11.222291+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.734,
+    "min_representative_similarity": 0.734,
+    "articles": [
+      {
+        "title": "Como nuevo: alma de Lisboa y diseño Barcelona en el hotel Avani Avenida Liberdade",
+        "source": "La Vanguardia",
+        "country": "ES",
+        "link": "https://www.lavanguardia.com/magazine/lifestyle/20261117/11675207/nuevo-alma-lisboa-diseno-barcelona-hotel-avani-avenida-liberdade.html",
+        "fetched_at": "2026-11-18T05:20:10.389658+00:00"
+      },
+      {
+        "title": "El Palacio Real de Madrid abrirá uno de sus espacios más desconocidos: conectará sus galerías subterráneas con el Campo del Moro",
+        "source": "El Confidencial",
+        "country": "ES",
+        "link": "https://www.elconfidencial.com/espana/madrid/2026-11-18/palacio-real-abre-espacio-desconocido-conecta-galerias-con-campo-moro-1qrt_4467122/",
+        "fetched_at": "2026-11-18T05:20:11.222291+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.889,
+    "min_representative_similarity": 0.889,
+    "articles": [
+      {
+        "title": "Palestinian woman, 72, shot dead by Israeli settlers in West Bank, health ministry says",
+        "source": "BBC World",
+        "country": "UK",
+        "link": "https://www.bbc.co.uk/news/articles/cqrlg377638yo?at_medium=RSS&at_campaign=rss",
+        "fetched_at": "2026-11-18T05:20:12.181968+00:00"
+      },
+      {
+        "title": "Palestinian woman shot dead by Israeli settlers near Jericho, witnesses say",
+        "source": "The Guardian",
+        "country": "UK",
+        "link": "https://www.theguardian.com/world/2026/nov/17/palestinian-woman-shot-dead-israeli-settlers-near-jericho-witnesses-say",
+        "fetched_at": "2026-11-18T05:20:12.828670+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.895,
+    "min_representative_similarity": 0.895,
+    "articles": [
+      {
+        "title": "American soldier arrested by UK police on suspicion of spying taken into US military custody",
+        "source": "BBC World",
+        "country": "UK",
+        "link": "https://www.bbc.co.uk/news/articles/c6x284ez38vdo?at_medium=RSS&at_campaign=rss",
+        "fetched_at": "2026-11-18T05:20:12.181968+00:00"
+      },
+      {
+        "title": "American soldier held in UK suspected of spying for Russia taken into US military custody",
+        "source": "The Guardian",
+        "country": "UK",
+        "link": "https://www.theguardian.com/uk-news/2026/nov/17/american-soldier-brandon-carroll-tyner-spying-us-military-custody",
+        "fetched_at": "2026-11-18T05:20:12.828670+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.864,
+    "min_representative_similarity": 0.864,
+    "articles": [
+      {
+        "title": "William and Kate celebrate Earthshot Prize winners in Mumbai",
+        "source": "BBC World",
+        "country": "UK",
+        "link": "https://www.bbc.co.uk/news/articles/cqlykve012d1o?at_medium=RSS&at_campaign=rss",
+        "fetched_at": "2026-11-18T05:20:12.181968+00:00"
+      },
+      {
+        "title": "William and Kate host glittering Earthshot Prize ceremony in Mumbai",
+        "source": "Sky News",
+        "country": "UK",
+        "link": "https://news.sky.com/story/william-and-kate-host-glittering-earthshot-prize-ceremony-in-mumbai-13613397",
+        "fetched_at": "2026-11-18T05:20:14.361237+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.721,
+    "min_representative_similarity": 0.721,
+    "articles": [
+      {
+        "title": "Trump says US taking 'very seriously' any Iranian plot against Washington",
+        "source": "BBC World",
+        "country": "UK",
+        "link": "https://www.bbc.co.uk/news/articles/cq808vzd3nnpo?at_medium=RSS&at_campaign=rss",
+        "fetched_at": "2026-11-18T05:20:12.181968+00:00"
+      },
+      {
+        "title": "Trump claims US is ‘looking into’ Iranian bomb plot in Washington despite ‘no credible threats’",
+        "source": "The Guardian",
+        "country": "UK",
+        "link": "https://www.theguardian.com/world/2026/nov/17/trump-reported-iranian-plot-dirty-bomb-washington",
+        "fetched_at": "2026-11-18T05:20:12.828670+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.872,
+    "min_representative_similarity": 0.872,
+    "articles": [
+      {
+        "title": "UK sanctions firms over Israeli West Bank settlements",
+        "source": "BBC World",
+        "country": "UK",
+        "link": "https://www.bbc.co.uk/news/articles/cvglr977x3z0o?at_medium=RSS&at_campaign=rss",
+        "fetched_at": "2026-11-18T05:20:12.181968+00:00"
+      },
+      {
+        "title": "UK sanctions eight firms building Israeli settlements in the West Bank",
+        "source": "Sky News",
+        "country": "UK",
+        "link": "https://news.sky.com/story/uk-sanctions-eight-firms-building-israeli-settlements-in-the-west-bank-13612666",
+        "fetched_at": "2026-11-18T05:20:14.361237+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.796,
+    "min_representative_similarity": 0.796,
+    "articles": [
+      {
+        "title": "Gunmen kill Costa Rican journalist who reported on drugs trade",
+        "source": "BBC World",
+        "country": "UK",
+        "link": "https://www.bbc.co.uk/news/articles/c6ly7g5lx7gyo?at_medium=RSS&at_campaign=rss",
+        "fetched_at": "2026-11-18T05:20:12.181968+00:00"
+      },
+      {
+        "title": "Costa Rican journalist shot dead in first such killing in 25 years",
+        "source": "The Guardian",
+        "country": "UK",
+        "link": "https://www.theguardian.com/world/2026/nov/17/costa-rica-journalist-camilo-rodriguez-shot-dead",
+        "fetched_at": "2026-11-18T05:20:12.828670+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.753,
+    "min_representative_similarity": 0.753,
+    "articles": [
+      {
+        "title": "Mögliche Stromsteuersenkung: Verhandlung beendet - Verkündung am Morgen",
+        "source": "Tagesschau",
+        "country": "DE",
+        "link": "https://www.tagesschau.de/inland/innenpolitik/koalition-beendet-verhandlungen-100.html",
+        "fetched_at": "2026-11-18T05:20:17.449435+00:00"
+      },
+      {
+        "title": "Regierungspläne: Wie die Koalition die Stromversorgung teurer machen könnte",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/aktuell/wirtschaft/klima-nachhaltigkeit/eeg-reform-drohen-durch-biogas-foerderung-50-milliarden-euro-mehrkosten-201688005.html",
+        "fetched_at": "2026-11-18T05:20:19.926762+00:00"
+      }
+    ],
+    "dropped_sources": {
+      "Frankfurter Allgemeine": 1
+    }
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.737,
+    "min_representative_similarity": 0.737,
+    "articles": [
+      {
+        "title": "Podcast „Und nun zum Sport“: 5:0 gegen die Niederlande: Wie Deutschland über den Klopp zum Pep fand",
+        "source": "Süddeutsche Zeitung",
+        "country": "DE",
+        "link": "https://www.sueddeutsche.de/sport/podcast-und-nun-zum-sport-deutschland-niederlande-li.3581023",
+        "fetched_at": "2026-11-18T05:20:18.949112+00:00"
+      },
+      {
+        "title": "5:0 gegen die Niederlande: Weltklasse ist vor allem die Idee",
+        "source": "Frankfurter Allgemeine",
+        "country": "DE",
+        "link": "https://www.faz.net/aktuell/sport/fussball-wm/deutsches-team/klopp-fussball-was-das-5-0-gegen-die-niederlande-moeglich-machte-201690055.html",
+        "fetched_at": "2026-11-18T05:20:19.926762+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.891,
+    "min_representative_similarity": 0.891,
+    "articles": [
+      {
+        "title": "Ddl antisemitismo è legge.No di M5s, Avs,nel Pd strappo dei riformisti",
+        "source": "ANSA",
+        "country": "IT",
+        "link": "https://www.ansa.it/sito/notizie/politica/2026/11/17/la-camera-approva-il-ddl-antisemitismo-147-i-si.-e-legge_fef81d69-9cd3-4bef-8409-79e71f8c4e8a.html",
+        "fetched_at": "2026-11-18T05:20:22.223788+00:00"
+      },
+      {
+        "title": "Il Ddl antisemitismo è legge, Campo largo e Pd si dividono",
+        "source": "Il Sole 24 Ore",
+        "country": "IT",
+        "link": "https://www.ilsole24ore.com/art/il-ddl-antisemitismo-e-legge-campo-largo-e-pd-si-dividono-AJcYH9JC",
+        "fetched_at": "2026-11-18T05:20:30.512787+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.947,
+    "min_representative_similarity": 0.947,
+    "articles": [
+      {
+        "title": "Emendamento al dl sicurezza, divieto di social agli under 13",
+        "source": "ANSA",
+        "country": "IT",
+        "link": "https://www.ansa.it/sito/notizie/politica/2026/11/17/emendamento-al-dl-sicurezza-divieto-di-social-agli-under-13-_f50ee740-ac1a-426d-bb89-b77139abfd54.html",
+        "fetched_at": "2026-11-18T05:20:22.223788+00:00"
+      },
+      {
+        "title": "Social vietati ai minori di 13 anni, emendamento della maggioranza al decreto sicurezza",
+        "source": "Il Sole 24 Ore",
+        "country": "IT",
+        "link": "https://www.ilsole24ore.com/art/social-vietati-minori-13-anni-emendamento-maggioranza-decreto-sicurezza-AJmWQjJC",
+        "fetched_at": "2026-11-18T05:20:30.512787+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.74,
+    "min_representative_similarity": 0.74,
+    "articles": [
+      {
+        "title": "Redde rationem nella Lega, sfiduciato Romeo, arriva Dreosto",
+        "source": "ANSA",
+        "country": "IT",
+        "link": "https://www.ansa.it/sito/notizie/politica/2026/11/17/romeo-sostituito-al-senato-dreosto-eletto-capogruppo-della-lega_e03edd1a-4b58-4ade-aee0-ce8fdcc464c0.html",
+        "fetched_at": "2026-11-18T05:20:22.223788+00:00"
+      },
+      {
+        "title": "Lega, resa dei conti al Senato: via Romeo da capogruppo, arriva Dreosto",
+        "source": "Il Sole 24 Ore",
+        "country": "IT",
+        "link": "https://www.ilsole24ore.com/art/lega-resa-conti-senato-via-romeo-capogruppo-arriva-dreosto-AJFBR6JC",
+        "fetched_at": "2026-11-18T05:20:30.512787+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.941,
+    "min_representative_similarity": 0.941,
+    "articles": [
+      {
+        "title": "LIVE | Koeweit, bondgenoot van de Amerikanen, meldt aanval met drones",
+        "source": "De Telegraaf",
+        "country": "NL",
+        "link": "https://www.telegraaf.nl/buitenland/live-koeweit-bondgenoot-van-de-amerikanen-meldt-aanval-met-drones/164698203.html",
+        "fetched_at": "2026-11-18T05:20:31.411264+00:00"
+      },
+      {
+        "title": "Koeweit meldt aanval met drones",
+        "source": "de Volkskrant",
+        "country": "NL",
+        "link": "https://www.volkskrant.nl/buitenland/koeweit-meldt-aanval-met-drones~bd96d2f5/",
+        "fetched_at": "2026-11-18T05:20:32.801150+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.979,
+    "min_representative_similarity": 0.979,
+    "articles": [
+      {
+        "title": "Nvidia stopt verkoop AI-chips aan China, ondanks toestemming VS",
+        "source": "de Volkskrant",
+        "country": "NL",
+        "link": "https://www.volkskrant.nl/tech/nvidia-stopt-verkoop-ai-chips-aan-china-ondanks-toestemming-vs~b7417701/",
+        "fetched_at": "2026-11-18T05:20:32.801150+00:00"
+      },
+      {
+        "title": "Nvidia stopt met verkoop van AI-chips aan China ondanks goedkeuring VS",
+        "source": "NRC",
+        "country": "NL",
+        "link": "https://www.nrc.nl/nieuws/2025/10/26/economieblog-a4910786",
+        "fetched_at": "2026-11-18T05:20:34.325832+00:00"
+      }
+    ]
+  },
+  {
+    "label": "",
+    "terms": [],
+    "size": 2,
+    "avg_similarity": 0.823,
+    "min_representative_similarity": 0.823,
+    "articles": [
+      {
+        "title": "Handels-KV-Verhandlungen: GPA kündigt Betriebsversammlungen mit Streikbeschlüssen an",
+        "source": "Der Standard",
+        "country": "AT",
+        "link": "https://www.derstandard.at/story/3000000349738/-kv-handel-3-runde-ergebnislos-gpa-k252ndigt-betriebsversammlungen-an?ref=rss",
+        "fetched_at": "2026-11-18T05:20:41.078280+00:00"
+      },
+      {
+        "title": "Handels-KV: Betriebsversammlungen und Streikbeschlüsse vor Runde vier",
+        "source": "Kurier",
+        "country": "AT",
+        "link": "https://kurier.at/wirtschaft/handel-oesterreich-kollektivvertrag/403206374",
+        "fetched_at": "2026-11-18T05:20:41.771410+00:00"
+      }
+    ]
+  }
+]
